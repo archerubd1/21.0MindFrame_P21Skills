@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Research Architect – Workshop (Slide 9)</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+    :root{
+      --lavender-1:#F4F0FF;
+      --lavender-2:#EDE7FF;
+      --lavender-3:#E3DCFF;
+
+      --beige:#E8DCC4;
+      --beige-2:#F3EADB;
+
+      --matcha:#E8F2E6;
+      --cherry:#C93A63;
+
+      --ink:#1F2430;
+      --muted:#556070;
+    }
+
+    html, body { height:100%; }
+    body{
+      margin:0;
+      background:#0b0b10;
+      font-family:"Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:24px;
+    }
+
+    .slide{
+      width:1280px;
+      height:720px;
+      position:relative;
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      background: var(--lavender-1);
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* Background layers (no gradients) */
+    .bg-layer{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+    }
+    .bg-matcha{
+      position:absolute;
+      left:-200px; top:-190px;
+      width:780px; height:780px;
+      background: var(--matcha);
+      border-radius:9999px;
+      opacity:.95;
+      filter: blur(2px);
+    }
+    .bg-lavender{
+      position:absolute;
+      right:-280px; top:0px;
+      width:920px; height:920px;
+      background: var(--lavender-2);
+      border-radius:9999px;
+      opacity:.92;
+    }
+    .bg-cherry{
+      position:absolute;
+      right:140px; bottom:-320px;
+      width:640px; height:640px;
+      background: rgba(201,58,99,.14);
+      border-radius:9999px;
+      opacity:.95;
+    }
+    .bg-grid{
+      position:absolute;
+      inset:0;
+      background-image: radial-gradient(rgba(31,36,48,0.05) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity:.65;
+    }
+
+    /* Fixed header/footer/nav */
+    .header{
+      position:absolute;
+      top:0; left:0; right:0;
+      height:64px;
+      z-index:5;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      padding:0 28px;
+      box-shadow: 0 6px 18px rgba(31,36,48,.08);
+    }
+    .header p{
+      margin:0;
+      font-size:14px;
+      color: rgba(31,36,48,.78);
+      font-weight:700;
+      letter-spacing:.01em;
+    }
+
+    .footer{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:44px;
+      z-index:5;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 18px;
+    }
+    .footer p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.70);
+      font-weight:600;
+    }
+
+    .nav{
+      position:absolute;
+      left:0; right:0;
+      bottom:44px;
+      height:64px;
+      z-index:6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 26px;
+      gap:18px;
+      background: rgba(244,240,255,.72);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(31,36,48,.06);
+    }
+
+    .nav-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(31,36,48,.10);
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 10px 20px rgba(31,36,48,.10);
+      color: rgba(31,36,48,.88);
+      font-weight:700;
+      text-decoration:none;
+      transition: transform .22s ease, opacity .22s ease, box-shadow .22s ease;
+      min-width: 200px;
+      justify-content:center;
+    }
+    .nav-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(31,36,48,.14);
+      opacity: .98;
+    }
+    .nav-btn .label{
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:14px;
+      letter-spacing:.01em;
+    }
+    .nav-btn .ico{
+      color: var(--cherry);
+      font-size:14px;
+    }
+
+    .content{
+      position:relative;
+      z-index:2;
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 88px 84px 136px;
+    }
+
+    /* Slide-specific */
+    .frame{
+      width:100%;
+      max-width: 1100px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:9999px;
+      border:1px solid rgba(31,36,48,.10);
+      background: rgba(232,220,196,.55);
+      color: var(--ink);
+      font-size:13px;
+      line-height:1;
+      font-weight:700;
+      width: fit-content;
+    }
+    .k-dot{
+      width:10px; height:10px;
+      border-radius:9999px;
+      background: var(--cherry);
+      box-shadow: 0 8px 18px rgba(201,58,99,.25);
+    }
+
+    .title{
+      margin:12px 0 0;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:700;
+      font-size:46px;
+      line-height:1.06;
+      letter-spacing:-0.02em;
+      color: var(--ink);
+    }
+    .subtitle{
+      margin:6px 0 0;
+      color: var(--muted);
+      font-size:15.5px;
+      line-height:1.55;
+      max-width: 78ch;
+      font-weight:600;
+    }
+    .accent{
+      color: var(--cherry);
+      font-weight:800;
+    }
+
+    .chip-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+      margin-bottom:4px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:9999px;
+      border: 1px solid rgba(31,36,48,.10);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 10px 22px rgba(31,36,48,.08);
+      white-space:nowrap;
+    }
+    .chip i{ color: var(--cherry); }
+    .chip p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.78);
+      font-weight:800;
+      letter-spacing:.01em;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.18fr .82fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .panel{
+      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(31,36,48,.08);
+      border-radius: 22px;
+      padding: 18px 18px;
+      box-shadow: 0 18px 40px rgba(31,36,48,.10);
+      display:flex;
+      flex-direction:column;
+      min-height: 436px;
+    }
+
+    .panel-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding-bottom:12px;
+      border-bottom: 1px solid rgba(31,36,48,.08);
+    }
+    .panel-title{
+      margin:0;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:800;
+      font-size:16px;
+      letter-spacing:.02em;
+      color: rgba(31,36,48,.88);
+    }
+    .panel-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius: 9999px;
+      background: rgba(237,231,255,.78);
+      border: 1px solid rgba(31,36,48,.08);
+    }
+    .panel-badge i{ color: var(--cherry); font-size:12px; }
+    .panel-badge p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.75);
+      font-weight:800;
+    }
+
+    /* Steps */
+    .steps{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      flex:1;
+      position:relative;
+    }
+
+    .step{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(31,36,48,.08);
+      background: rgba(237,231,255,.62);
+      position:relative;
+    }
+    .step.is-focus{
+      background: rgba(232,220,196,.46);
+    }
+
+    .num{
+      width:42px; height:42px;
+      border-radius: 16px;
+      background: rgba(255,255,255,.82);
+      border: 1px solid rgba(31,36,48,.10);
+      box-shadow: 0 10px 18px rgba(31,36,48,.06);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex: 0 0 auto;
+      position:relative;
+    }
+    .num p{
+      margin:0;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:900;
+      font-size:16px;
+      color: var(--cherry);
+      line-height:1;
+    }
+    .num::after{
+      content:"";
+      position:absolute;
+      left:50%;
+      top:46px;
+      width:2px;
+      height:24px;
+      background: rgba(201,58,99,.22);
+      transform: translateX(-50%);
+      border-radius: 9999px;
+    }
+    .step:last-child .num::after{ display:none; }
+
+    .s-ico{
+      width:42px; height:42px;
+      border-radius: 16px;
+      background: rgba(232,220,196,.72);
+      border: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--cherry);
+      flex: 0 0 auto;
+    }
+
+    .s-body{
+      flex:1;
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      padding-top:2px;
+    }
+    .s-body p{ margin:0; }
+    .s-title{
+      font-size:16px;
+      line-height:1.2;
+      font-weight:900;
+      color: rgba(31,36,48,.92);
+    }
+    .s-desc{
+      font-size:13px;
+      line-height:1.35;
+      font-weight:700;
+      color: rgba(31,36,48,.74);
+    }
+
+    .micro{
+      flex: 0 0 220px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:flex-end;
+      margin-left:auto;
+    }
+    .micro-pill{
+      width:100%;
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(31,36,48,.10);
+      border-radius: 14px;
+      padding: 10px 12px;
+      box-shadow: 0 10px 22px rgba(31,36,48,.08);
+    }
+    .micro-pill p{
+      margin:0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:12.2px;
+      line-height:1.25;
+      color: rgba(31,36,48,.90);
+      font-weight:800;
+      word-break: break-word;
+    }
+
+    /* Side cards */
+    .side-stack{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      height:100%;
+    }
+    .side-card{
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(31,36,48,.08);
+      border-radius: 20px;
+      padding: 16px 16px;
+      box-shadow: 0 18px 40px rgba(31,36,48,.08);
+    }
+    .side-title{
+      margin:0 0 10px;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:900;
+      font-size:14px;
+      letter-spacing:.02em;
+      color: rgba(31,36,48,.86);
+    }
+    .side-row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      margin-top:10px;
+    }
+    .side-row:first-of-type{ margin-top:0; }
+    .side-bullet{
+      width:10px; height:10px;
+      border-radius:9999px;
+      background: rgba(201,58,99,.85);
+      margin-top:6px;
+      flex:0 0 auto;
+    }
+    .side-row p{
+      margin:0;
+      font-size:13px;
+      line-height:1.45;
+      color: rgba(31,36,48,.78);
+      font-weight:700;
+    }
+
+    .mini-legend{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      margin-top:10px;
+    }
+    .legend-item{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      padding: 10px 10px;
+      border-radius: 16px;
+      border: 1px solid rgba(31,36,48,.08);
+      background: rgba(237,231,255,.58);
+    }
+    .legend-ico{
+      width:34px; height:34px;
+      border-radius: 14px;
+      background: rgba(232,220,196,.70);
+      border: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--cherry);
+      flex:0 0 auto;
+    }
+    .legend-item p{
+      margin:0;
+      font-size:12.8px;
+      line-height:1.25;
+      color: rgba(31,36,48,.78);
+      font-weight:800;
+    }
+
+    .hint{
+      margin-top:auto;
+      padding-top:12px;
+      border-top: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color: rgba(31,36,48,.74);
+    }
+    .hint i{
+      color: var(--cherry);
+      margin-top:3px;
+    }
+    .hint p{
+      margin:0;
+      font-size:12.8px;
+      line-height:1.45;
+      font-weight:700;
+    }
+
+    @media (max-width: 1360px){
+      body{ padding:16px; }
+      .slide{ transform: scale(.92); transform-origin: top center; }
+    }
+    @media (max-width: 1180px){
+      .slide{ transform: scale(.82); }
+    }
+    @media (max-width: 980px){
+      .slide{ transform: scale(.70); }
+    }
+  </style>
+</head>
+<body style="">
+<section aria-label="Slide 9: Steps – Navigation (steps_navigation)" class="slide">
+<div aria-hidden="true" class="bg-layer">
+<div class="bg-matcha"></div>
+<div class="bg-lavender"></div>
+<div class="bg-cherry"></div>
+<div class="bg-grid"></div>
+</div>
+<header class="header" role="banner">
+<p>EduuAspire21.0 Skills | 21st Century Skills | Information Literacy </p>
+</header>
+<main class="content" role="main">
+<div class="frame">
+<div class="topbar">
+<div>
+
+<h1 class="title" style="position: relative; transform: translate(-5.66189px, -25.4785px);">Database Navigation</h1>
+
+</div>
+<div aria-label="Workflow cues" class="chip-row">
+<div class="chip"><i aria-hidden="true" class="fa-solid fa-sitemap"></i><p>Plan</p></div>
+<div class="chip"><i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i><p>Search</p></div>
+<div class="chip"><i aria-hidden="true" class="fa-solid fa-filter"></i><p>Filter</p></div>
+<div class="chip"><i aria-hidden="true" class="fa-solid fa-file-export"></i><p>Export</p></div>
+</div>
+</div>
+<div class="grid">
+<section aria-label="Database navigation steps" class="panel" style="position: relative; transform: translate(-2.86151px, -35.7689px);">
+
+<div class="steps">
+<div class="step is-focus" style="transform: translate(-2.86151px, -21.4613px);">
+<div class="num"><p>1</p></div>
+<div aria-hidden="true" class="s-ico"><i class="fa-solid fa-tags"></i></div>
+<div class="s-body">
+<p class="s-title">Define <span class="accent">keywords</span> + synonyms</p>
+<p class="s-desc">List 2–4 main terms, then add synonyms and related phrases.</p>
+</div>
+<div aria-label="Keyword example" class="micro">
+<div class="micro-pill"><p>teen OR adolescent</p></div>
+</div>
+</div>
+<div class="step" style="transform: translate(-2.86151px, -25.7536px);">
+<div class="num"><p>2</p></div>
+<div aria-hidden="true" class="s-ico"><i class="fa-solid fa-database"></i></div>
+<div class="s-body">
+<p class="s-title">Choose the right <span class="accent">database</span></p>
+<p class="s-desc">Pick a database that matches your subject (e.g., DOAJ, ERIC).</p>
+</div>
+<div aria-label="Database note" class="micro">
+<div class="micro-pill"><p>DOAJ • ERIC • Library DB</p></div>
+</div>
+</div>
+<div class="step" style="transform: translate(-2.86151px, -30.0458px);">
+<div class="num"><p>3</p></div>
+<div aria-hidden="true" class="s-ico"><i class="fa-solid fa-diagram-project"></i></div>
+<div class="s-body">
+<p class="s-title">Build the query with <span class="accent">operators</span></p>
+<p class="s-desc">Combine synonyms with OR, connect ideas with AND, exclude with NOT.</p>
+</div>
+<div aria-label="Query example" class="micro">
+<div class="micro-pill"><p>(adolescent OR teen) AND sleep</p></div>
+</div>
+</div>
+<div class="step" style="transform: translate(-2.86151px, -35.7689px);">
+<div class="num"><p>4</p></div>
+<div aria-hidden="true" class="s-ico"><i class="fa-solid fa-sliders"></i></div>
+<div class="s-body">
+<p class="s-title">Apply <span class="accent">filters</span> strategically</p>
+<p class="s-desc">Use date range, type, subject, and peer-review filters to reduce noise.</p>
+</div>
+<div aria-label="Filter checklist" class="micro">
+<div class="micro-pill"><p>Year • Type • Peer-review</p></div>
+</div>
+</div>
+<div class="step">
+<div class="num"><p>5</p></div>
+<div aria-hidden="true" class="s-ico"><i class="fa-solid fa-align-left"></i></div>
+<div class="s-body">
+<p class="s-title">Scan <span class="accent">titles</span> + <span class="accent">abstracts</span> first</p>
+<p class="s-desc">Quickly judge relevance before opening full PDFs or saving items.</p>
+</div>
+<div aria-label="Scan tip" class="micro">
+<div class="micro-pill"><p>Title → Abstract → Keywords</p></div>
+</div>
+</div>
+<div class="step">
+<div class="num"><p>6</p></div>
+<div aria-hidden="true" class="s-ico"><i class="fa-solid fa-file-export"></i></div>
+<div class="s-body">
+<p class="s-title">Save, cite, and <span class="accent">export</span> results</p>
+<p class="s-desc">Bookmark items, download citations, and record DOI/URL for your bibliography.</p>
+</div>
+<div aria-label="Export formats" class="micro">
+<div class="micro-pill"><p>RIS • BibTeX • Copy citation</p></div>
+</div>
+</div>
+</div>
+<div aria-label="Workflow hint" class="hint">
+<i aria-hidden="true" class="fa-solid fa-lightbulb"></i>
+<p><span class="accent">Pro move:</span> after 10 results, refine one thing (term, filter, or database) and run the search again.</p>
+</div>
+</section>
+<aside aria-label="Side guidance" class="side-stack">
+<div class="side-card">
+<p class="side-title">Quality checkpoints</p>
+<div class="side-row">
+<span aria-hidden="true" class="side-bullet"></span>
+<p>Prefer <span class="accent">peer-reviewed</span> or editorially reviewed sources.</p>
+</div>
+<div class="side-row">
+<span aria-hidden="true" class="side-bullet"></span>
+<p>Use <span class="accent">quotes</span> for exact phrases (names, programs, key concepts).</p>
+</div>
+<div class="side-row">
+<span aria-hidden="true" class="side-bullet"></span>
+<p>Track what you changed each search (term, filter, or database).</p>
+</div>
+</div>
+
+<div class="side-card">
+<p class="side-title">Mini toolkit (what to look for)</p>
+<div aria-label="Database features legend" class="mini-legend">
+<div class="legend-item">
+<div aria-hidden="true" class="legend-ico"><i class="fa-solid fa-filter"></i></div>
+<p><span class="accent">Filters</span>: year, subject, type, peer-review</p>
+</div>
+<div class="legend-item">
+<div aria-hidden="true" class="legend-ico"><i class="fa-solid fa-bookmark"></i></div>
+<p><span class="accent">Save</span>: folders, alerts, reading lists</p>
+</div>
+<div class="legend-item">
+<div aria-hidden="true" class="legend-ico"><i class="fa-solid fa-quote-right"></i></div>
+<p><span class="accent">Cite</span>: DOI, export formats, citation tools</p>
+</div>
+</div>
+</div>
+<div class="side-card">
+<p class="side-title">Next up</p>
+<div class="side-row">
+<span aria-hidden="true" class="side-bullet"></span>
+<p>Use <span class="accent">DOAJ</span> to locate open-access journals and articles, then document outcomes.</p>
+</div>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<nav aria-label="Slide navigation" class="nav">
+<a class="nav-btn" href="f8.html" style="position: relative; transform: translate(-354.827px, 7.15377px);">
+<i aria-hidden="true" class="fa-solid fa-arrow-left ico"></i>
+<span class="label">Sources</span>
+</a>
+<a class="nav-btn" href="f10.html" style="position: relative; transform: translate(346.243px, 2.86151px);">
+<span class="label">DOAJ</span>
+<i aria-hidden="true" class="fa-solid fa-arrow-right ico"></i>
+</a>
+</nav>
+<footer class="footer" role="contentinfo">
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+<script>
+document.addEventListener("keydown", function (e) {
+  const activeElement = document.activeElement;
+
+  // 🚫 Disable when typing in input or textarea
+  if (
+    activeElement.tagName === "INPUT" ||
+    activeElement.tagName === "TEXTAREA"
+  ) {
+    return;
+  }
+
+  // 👉 Get navigation buttons
+  const prevBtn = document.querySelector(".nav a:first-child");
+  const nextBtn = document.querySelector(".nav a:last-child");
+
+  // ⬅️ Left Arrow → Previous slide
+  if (e.key === "ArrowLeft") {
+    if (prevBtn && !prevBtn.classList.contains("is-disabled")) {
+      window.location.href = prevBtn.getAttribute("href");
+    }
+  }
+
+  // ➡️ Right Arrow → Next slide
+  if (e.key === "ArrowRight") {
+    if (nextBtn && !nextBtn.classList.contains("is-disabled")) {
+      window.location.href = nextBtn.getAttribute("href");
+    }
+  }
+});
+</script>
+</section>
+
+</body></html>

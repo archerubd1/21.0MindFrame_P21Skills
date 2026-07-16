@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, height=720">
+
+<title>Reliability Rangers - Meet the Rangers</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide {
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(135deg, #0B132B, #071029);
+    overflow: hidden;
+}
+
+/* HEADER */
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #1C2541;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    color: #E2E8F0;
+    border-bottom: 2px solid #3A86FF;
+}
+
+/* TITLE */
+.title {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    text-align: center;
+}
+
+.title h1 {
+    font-size: 42px;
+    color: #F1F5F9;
+    margin: 0;
+}
+
+.title p {
+    color: #94A3B8;
+    margin-top: 5px;
+}
+
+/* RANGER GRID */
+.grid {
+    position: absolute;
+    top: 200px;
+    left: 140px;
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* CARD */
+.card {
+    width: 300px;
+    height: 360px;
+    border-radius: 20px;
+    padding: 30px 20px;
+    text-align: center;
+    background: rgba(255,255,255,0.03);
+    transition: 0.4s;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    background: rgba(255,255,255,0.06);
+}
+
+/* ICON */
+.icon-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.icon {
+    font-size: 32px;
+    color: var(--color);
+}
+
+/* TEXT */
+.role {
+    color: #F1F5F9;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.desc {
+    color: #94A3B8;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.badge {
+    margin-top: auto;
+    color: var(--color);
+    font-size: 12px;
+}
+
+/* NAV */
+.nav-bar {
+    position: absolute;
+    bottom: 80px;
+    left: 140px;
+    width: 1000px;
+    height: 70px;
+    background: rgba(255,204,170,0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.nav-btn {
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #1C2541;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0B132B;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</div>
+
+<div class="title">
+<h1>Meet the Rangers</h1>
+<p>Your elite team for information verification</p>
+</div>
+
+<div class="grid">
+
+<div class="card" style="--color:#3A86FF;">
+<div class="icon-circle"><i class="fas fa-user-secret icon"></i></div>
+<div class="role">Author Detective</div>
+<div class="desc">Find who wrote it and check their credibility.</div>
+<div class="badge">Identity Check</div>
+</div>
+
+<div class="card" style="--color:#FFD166;">
+<div class="icon-circle"><i class="fas fa-history icon"></i></div>
+<div class="role">Time Checker</div>
+<div class="desc">Check if the information is recent and relevant.</div>
+<div class="badge">Currency Check</div>
+</div>
+
+<div class="card" style="--color:#2DD4BF;">
+<div class="icon-circle"><i class="fas fa-check-double icon"></i></div>
+<div class="role">Truth Verifier</div>
+<div class="desc">Cross-check facts with multiple sources.</div>
+<div class="badge">Fact Check</div>
+</div>
+
+</div>
+
+<div class="nav-bar">
+
+<button class="nav-btn" onclick="goToSlide('f3.html')">
+<i class="fas fa-arrow-left"></i> Info Literacy
+</button>
+
+<div style="font-weight:700;">THE TEAM</div>
+
+<button class="nav-btn" onclick="goToSlide('f5.html')">
+Author Clues <i class="fas fa-arrow-right"></i>
+</button>
+
+</div>
+
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+</div>
+
+<script>
+function goToSlide(page){
+    window.location.href = page;
+}
+
+document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowRight") goToSlide("f5.html");
+    if(e.key === "ArrowLeft") goToSlide("f3.html");
+});
+</script>
+
+</body>
+</html>

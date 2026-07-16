@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The 3-Jar System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background: #0f0f0f;
+    border-bottom: 2px solid gold;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0f0f0f;
+    border-top: 1px solid #222;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 12px;
+}
+
+/* CENTER WRAPPER */
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SLIDE */
+.slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    transform-origin: center center;
+}
+
+/* TITLE */
+.title {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    text-align: center;
+    font-size: 44px;
+    color: gold;
+}
+
+/* SUBTITLE */
+.subtitle {
+    position: absolute;
+    top: 130px;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    color: #39FF14;
+}
+
+/* JAR CARDS */
+.card {
+    position: absolute;
+    width: 280px;
+    height: 260px;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.spend {
+    left: 170px;
+    top: 210px;
+    border: 2px solid gold;
+}
+
+.save {
+    left: 500px;
+    top: 210px;
+    border: 2px solid #39FF14;
+}
+
+.share {
+    left: 830px;
+    top: 210px;
+    border: 2px solid #FF3366;
+}
+
+/* TEXT */
+.card h3 {
+    margin-top: 20px;
+}
+
+.card p {
+    font-size: 16px;
+    color: #ccc;
+}
+
+/* BANNER */
+.banner {
+    position: absolute;
+    bottom: 120px;
+    left: 190px;
+    width: 900px;
+    text-align: center;
+    border: 2px solid gold;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* NAV BUTTONS */
+button {
+    position: absolute;
+    bottom: 40px;
+    padding: 10px 20px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.left { left: 20px; }
+.right { right: 20px; }
+
+button:hover {
+    background: gold;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+</div>
+
+<div id="wrapper">
+<div class="slide">
+
+<div class="title">The 3-Jar System 🍯</div>
+<div class="subtitle">Organize Your Money Like a Pro</div>
+
+<!-- Spend -->
+<div class="card spend">
+<i class="fas fa-wallet" style="font-size:50px;color:gold;"></i>
+<h3>Spend Jar</h3>
+<p>For daily use, treats, and needs</p>
+</div>
+
+<!-- Save -->
+<div class="card save">
+<i class="fas fa-piggy-bank" style="font-size:50px;color:#39FF14;"></i>
+<h3>Save Jar</h3>
+<p>For big goals and future plans</p>
+</div>
+
+<!-- Share -->
+<div class="card share">
+<i class="fas fa-hand-holding-heart" style="font-size:50px;color:#FF3366;"></i>
+<h3>Share Jar</h3>
+<p>Help others & spread kindness</p>
+</div>
+
+<!-- Banner -->
+<div class="banner">
+<b>Simple Version:</b> Spend (Most) | Save (Important) | Share (Kindness)
+</div>
+
+<!-- NAV -->
+<button class="left" onclick="goBack()">← Power of Saving</button>
+<button class="right" onclick="goNext()">Your Dream Save Plan →</button>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+<script>
+function scaleSlide() {
+    const slide = document.querySelector('.slide');
+    const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    slide.style.transform = `scale(${scale})`;
+}
+window.addEventListener("load", scaleSlide);
+window.addEventListener("resize", scaleSlide);
+
+function goNext() {
+    window.location.href = "f11.html";
+}
+function goBack() {
+    window.location.href = "f9.html";
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") goNext();
+    if (e.key === "ArrowLeft") goBack();
+});
+</script>
+
+</body>
+</html>

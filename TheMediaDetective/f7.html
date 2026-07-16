@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Media Detective - Slide 7</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Poppins:wght@600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #FFF8DC;
+            font-family: 'Open Sans', sans-serif;
+            overflow: hidden; /* No scrolling */
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .glass-nav {
+            background: rgba(255, 204, 170, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+        }
+        .nav-btn {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        /* Fix for absolute centering */
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            max-width: 1100px;
+            text-align: center;
+        }
+        .comparison-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .comparison-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="relative">
+<!-- HEADER (MANDATORY) -->
+<header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-sm shadow-sm z-50 py-3 px-8 flex items-center justify-between">
+<div class="text-gray-800 font-bold font-[Poppins] text-lg tracking-wide">
+            EduuAspire21.0 Skills <span class="text-gray-400 mx-2">|</span> 21st Century Skills <span class="text-gray-400 mx-2">|</span> Media Literacy
+        </div>
+</header>
+<!-- MAIN CONTENT -->
+<main class="slide-content flex flex-col items-center justify-center h-full pt-16 pb-20">
+<div class="flex items-center justify-center space-x-4 mb-6">
+<i class="fa-solid fa-magnifying-glass-chart text-4xl text-yellow-600"></i>
+<h1 class="text-5xl font-extrabold text-gray-800 tracking-tight">
+                Source Activity
+            </h1>
+</div>
+<p class="text-xl text-gray-600 font-light mb-10 max-w-2xl mx-auto">
+            Compare the clues. Which source would you trust?
+        </p>
+<div class="grid grid-cols-2 gap-12 w-full px-8">
+<!-- Card 1: Fake/Unreliable -->
+<div class="comparison-card bg-white rounded-2xl p-8 border-l-8 border-red-400 shadow-md flex flex-col items-center relative overflow-hidden group">
+<div class="absolute top-0 right-0 bg-red-100 text-red-600 px-3 py-1 rounded-bl-lg text-xs font-bold uppercase tracking-wider">
+                    Unreliable
+                </div>
+<div class="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-red-200 transition-colors">
+<i class="fa-solid fa-triangle-exclamation text-3xl text-red-500"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 mb-4 font-[Poppins]">"THE SHOCKING TRUTH!!!"</h3>
+<ul class="text-left w-full space-y-3 pl-4">
+<li class="flex items-start">
+<i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
+<span class="text-gray-600 text-sm">All caps &amp; emotional title</span>
+</li>
+<li class="flex items-start">
+<i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
+<span class="text-gray-600 text-sm">No author listed ("Admin")</span>
+</li>
+<li class="flex items-start">
+<i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
+<span class="text-gray-600 text-sm">No dates or old dates</span>
+</li>
+<li class="flex items-start">
+<i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
+<span class="text-gray-600 text-sm">Blurry, edited photos</span>
+</li>
+</ul>
+</div>
+<!-- Card 2: Real/Reliable -->
+<div class="comparison-card bg-white rounded-2xl p-8 border-l-8 border-green-400 shadow-md flex flex-col items-center relative overflow-hidden group">
+<div class="absolute top-0 right-0 bg-green-100 text-green-600 px-3 py-1 rounded-bl-lg text-xs font-bold uppercase tracking-wider">
+                    Trustworthy
+                </div>
+<div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-green-200 transition-colors">
+<i class="fa-solid fa-shield-check text-3xl text-green-500"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 mb-4 font-[Poppins]">"Scientific Study on Climate"</h3>
+<ul class="text-left w-full space-y-3 pl-4">
+<li class="flex items-start">
+<i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+<span class="text-gray-600 text-sm">Calm, factual headline</span>
+</li>
+<li class="flex items-start">
+<i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+<span class="text-gray-600 text-sm">Author name &amp; credentials</span>
+</li>
+<li class="flex items-start">
+<i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+<span class="text-gray-600 text-sm">Recent publication date</span>
+</li>
+<li class="flex items-start">
+<i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+<span class="text-gray-600 text-sm">Links to original data</span>
+</li>
+</ul>
+</div>
+</div>
+</main>
+<!-- NAVIGATION SYSTEM (STRICT) -->
+<nav class="fixed bottom-12 left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl glass-nav py-4 px-8 flex justify-between items-center z-40 shadow-lg">
+<!-- Previous Topic -->
+<div class="w-1/3 text-left">
+<a class="nav-btn text-gray-800 hover:text-yellow-700 font-[Poppins] font-bold text-lg no-underline group" href="f6.html">
+<i class="fa-solid fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
+                Who Said It?
+            </a>
+</div>
+<!-- Current Indicator -->
+<div class="w-1/3 text-center">
+<div class="flex flex-col items-center">
+<span class="text-xs text-gray-500 font-semibold uppercase tracking-widest mb-1">Topic 7 of 10</span>
+<div class="flex space-x-1">
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-yellow-600"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+<div class="w-1.5 h-1.5 rounded-full bg-gray-300"></div>
+</div>
+</div>
+</div>
+<!-- Next Topic -->
+<div class="w-1/3 text-right">
+<a class="nav-btn text-gray-800 hover:text-yellow-700 font-[Poppins] font-bold text-lg no-underline group" href="f8.html">
+                Picture Tricks
+                <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+</nav>
+<!-- FOOTER (MANDATORY) -->
+<footer class="fixed bottom-0 left-0 w-full bg-gray-100/90 border-t border-gray-200 py-2 px-4 z-50 text-center">
+<p class="text-[10px] text-[#666] font-[Open Sans]">
+            Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+        </p>
+</footer>
+<!-- EXTERNAL SCRIPT -->
+<script src="script.js"></script>
+<script>
+    document.addEventListener('keydown', function(event) {
+        // Disable navigation when user is typing in input or textarea
+        const activeElement = document.activeElement;
+        if (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA') {
+            return;
+        }
+
+        if (event.key === 'ArrowRight') {
+            window.location.href = 'f8.html';
+        } else if (event.key === 'ArrowLeft') {
+            window.location.href = 'f6.html';
+        }
+    });
+</script>
+</body>
+</html>

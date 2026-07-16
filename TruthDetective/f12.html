@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Learning Outcomes</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Roboto+Mono:wght@400;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #050510;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* Neon Utilities */
+        .neon-text-green {
+            text-shadow: 0 0 5px rgba(16, 185, 129, 0.8), 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+        
+        .neon-text-blue {
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .neon-text-purple {
+            text-shadow: 0 0 5px rgba(167, 139, 250, 0.8), 0 0 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .neon-border-green {
+            border: 1px solid rgba(16, 185, 129, 0.5);
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.2);
+        }
+        
+        .neon-border-blue {
+            border-bottom: 1px solid rgba(59, 130, 246, 0.5);
+            box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.1);
+        }
+
+        .neon-box {
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Grid Background Pattern */
+        .grid-line-h {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+        
+        .grid-line-v {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+
+        /* Checklist Styles */
+        .outcome-card {
+            background-color: rgba(6, 78, 59, 0.2); /* Dark green tint */
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .outcome-card:hover {
+            background-color: rgba(6, 78, 59, 0.3);
+            border-color: rgba(16, 185, 129, 0.5);
+            transform: translateY(-2px);
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.15);
+        }
+
+        .check-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background-color: rgba(16, 185, 129, 0.1);
+            border: 2px solid #10b981;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.4);
+            flex-shrink: 0;
+        }
+
+        /* Success Story Panel */
+        .success-panel {
+            background-color: #0f172a;
+            border-left: 4px solid #10b981;
+            position: relative;
+        }
+
+        .chat-bubble {
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            position: relative;
+            margin-bottom: 12px;
+        }
+
+        .chat-bubble.rumor {
+            background-color: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #fca5a5;
+            margin-right: 20px;
+            border-bottom-left-radius: 2px;
+        }
+
+        .chat-bubble.fact {
+            background-color: rgba(16, 185, 129, 0.15);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            color: #d1fae5;
+            margin-left: 20px;
+            border-bottom-right-radius: 2px;
+        }
+
+        .stamp {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            border: 3px solid #10b981;
+            padding: 10px 20px;
+            color: #10b981;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            opacity: 0;
+            animation: stamp-in 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards 1s;
+            background-color: rgba(6, 78, 59, 0.9);
+            box-shadow: 0 0 20px rgba(16, 185, 129, 0.5);
+            z-index: 20;
+        }
+
+        @keyframes stamp-in {
+            0% { transform: translate(-50%, -50%) scale(2) rotate(-15deg); opacity: 0; }
+            100% { transform: translate(-50%, -50%) scale(1) rotate(-15deg); opacity: 1; }
+        }
+
+        /* Scrollbar hide */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container text-white">
+<!-- Background Grid -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<div class="grid-line-h" style="top: 10%"></div>
+<div class="grid-line-h" style="top: 20%"></div>
+<div class="grid-line-h" style="top: 30%"></div>
+<div class="grid-line-h" style="top: 40%"></div>
+<div class="grid-line-h" style="top: 50%"></div>
+<div class="grid-line-h" style="top: 60%"></div>
+<div class="grid-line-h" style="top: 70%"></div>
+<div class="grid-line-h" style="top: 80%"></div>
+<div class="grid-line-h" style="top: 90%"></div>
+<div class="grid-line-v" style="left: 10%"></div>
+<div class="grid-line-v" style="left: 20%"></div>
+<div class="grid-line-v" style="left: 30%"></div>
+<div class="grid-line-v" style="left: 40%"></div>
+<div class="grid-line-v" style="left: 50%"></div>
+<div class="grid-line-v" style="left: 60%"></div>
+<div class="grid-line-v" style="left: 70%"></div>
+<div class="grid-line-v" style="left: 80%"></div>
+<div class="grid-line-v" style="left: 90%"></div>
+<!-- Glow Effects -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-green-900 rounded-full filter blur-[150px] opacity-10"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-900 rounded-full filter blur-[120px] opacity-10"></div>
+</div>
+<!-- Top Header -->
+<div class="w-full bg-black bg-opacity-80 py-2 border-b border-blue-900 z-30 flex justify-center items-center neon-border-blue">
+<p class="font-['Space_Grotesk'] text-sm tracking-widest text-blue-400 neon-text-blue uppercase">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Header -->
+<header class="flex justify-between items-center px-12 py-4 z-20 border-b border-gray-800 bg-gray-900 bg-opacity-90">
+<div class="flex items-center space-x-4">
+<i class="fas fa-clipboard-check text-green-500 text-2xl"></i>
+<h2 class="font-['Space_Grotesk'] text-2xl font-bold tracking-wider text-gray-200">MISSION DEBRIEF</h2>
+</div>
+<div class="flex items-center space-x-2 font-['Roboto_Mono'] text-green-400 text-sm tracking-widest">
+<i class="fas fa-flag-checkered"></i>
+<span>OUTCOMES</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex px-12 py-6 space-x-12 z-10 relative">
+<!-- Left Column: Outcomes List -->
+<div class="w-7/12 flex flex-col justify-center">
+<div class="mb-6">
+<h1 class="font-['Space_Grotesk'] text-5xl font-bold leading-tight mb-4">
+                        Learning <span class="neon-text-green">Outcomes</span>
+</h1>
+<p class="font-['Inter'] text-gray-400 text-lg leading-relaxed">
+                        Mission Complete. You are now equipped with the digital tools and critical mindset to navigate the internet safely.
+                    </p>
+</div>
+<!-- Grid of Outcomes -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Outcome 1 -->
+<div class="outcome-card flex items-start space-x-4">
+<div class="check-circle">
+<i class="fas fa-brain text-green-400 text-xl"></i>
+</div>
+<div>
+<h3 class="font-['Space_Grotesk'] font-bold text-white text-lg">Critical Thinking</h3>
+<p class="text-sm text-gray-400 mt-1">Analyze claims before accepting them. Pause and ask "Why?".</p>
+</div>
+</div>
+<!-- Outcome 2 -->
+<div class="outcome-card flex items-start space-x-4">
+<div class="check-circle">
+<i class="fas fa-search-plus text-green-400 text-xl"></i>
+</div>
+<div>
+<h3 class="font-['Space_Grotesk'] font-bold text-white text-lg">Fake Detection</h3>
+<p class="text-sm text-gray-400 mt-1">Spot AI artifacts, manipulated images, and deepfake tricks.</p>
+</div>
+</div>
+<!-- Outcome 3 -->
+<div class="outcome-card flex items-start space-x-4">
+<div class="check-circle">
+<i class="fas fa-link text-green-400 text-xl"></i>
+</div>
+<div>
+<h3 class="font-['Space_Grotesk'] font-bold text-white text-lg">Source Verification</h3>
+<p class="text-sm text-gray-400 mt-1">Check domains, cross-reference authors, and find original sources.</p>
+</div>
+</div>
+<!-- Outcome 4 -->
+<div class="outcome-card flex items-start space-x-4">
+<div class="check-circle">
+<i class="fas fa-shield-alt text-green-400 text-xl"></i>
+</div>
+<div>
+<h3 class="font-['Space_Grotesk'] font-bold text-white text-lg">Smart Choices</h3>
+<p class="text-sm text-gray-400 mt-1">Share responsibly. Stop the spread of misinformation.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Success Scenario -->
+<div class="w-5/12 flex items-center justify-center">
+<div class="w-full max-w-md">
+<div class="flex items-center justify-between mb-2">
+<p class="font-['Roboto_Mono'] text-xs text-gray-500 uppercase tracking-widest">CASE STUDY: RUMOR CONTROL</p>
+<span class="text-green-500 text-xs font-bold"><i class="fas fa-circle text-[8px] mr-1"></i> RESOLVED</span>
+</div>
+<div class="success-panel rounded-lg p-6 shadow-2xl relative overflow-hidden">
+<!-- Header inside panel -->
+<div class="flex items-center space-x-3 mb-6 border-b border-gray-800 pb-4">
+<div class="w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
+<i class="fas fa-user-graduate text-white"></i>
+</div>
+<div>
+<p class="font-['Space_Grotesk'] text-white font-bold">Student Detective</p>
+<p class="text-xs text-gray-500">Active Investigation</p>
+</div>
+</div>
+<!-- Chat Interface -->
+<div class="space-y-4 relative z-10">
+<!-- The Rumor -->
+<div>
+<p class="text-[10px] text-gray-500 ml-1 mb-1">Incoming Message</p>
+<div class="chat-bubble rumor">
+<p class="font-bold text-xs mb-1"><i class="fas fa-bullhorn mr-1"></i> RUMOR ALERT</p>
+<p>"OMG! School is cancelled tomorrow because of aliens! 👽🚫🏫 Pass it on!!"</p>
+</div>
+</div>
+<!-- The Correction -->
+<div>
+<p class="text-[10px] text-gray-500 text-right mr-1 mb-1">Response</p>
+<div class="chat-bubble fact">
+<p class="font-bold text-xs mb-1"><i class="fas fa-check-circle mr-1"></i> FACT CHECK</p>
+<p>Checked the official district site (.edu). No alerts posted. Reverse image search shows that alien pic is from a movie. 🛑 Don't share!</p>
+<div class="mt-2 pt-2 border-t border-green-500 border-opacity-30">
+<p class="text-[10px] font-['Roboto_Mono'] opacity-70">SOURCE: district.edu/alerts</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Verification Stamp -->
+<div class="stamp">
+                    VERIFIED
+                </div>
+<!-- Confetti subtle -->
+<div class="absolute top-10 right-10 w-2 h-2 bg-green-500 rounded-full opacity-50"></div>
+<div class="absolute bottom-20 left-10 w-3 h-3 bg-blue-500 rounded-full opacity-30"></div>
+</div>
+<div class="mt-4 flex items-center justify-center space-x-2">
+<i class="fas fa-info-circle text-gray-500 text-xs"></i>
+<p class="text-xs text-gray-500 font-['Roboto_Mono']">Real-world impact: 0 fake shares.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="h-10 border-t border-gray-800 bg-gray-900 flex items-center justify-between px-12 z-20">
+<div class="flex items-center space-x-4">
+<span class="text-gray-500 text-xs font-['Roboto_Mono']">TRAINING STATUS</span>
+<span class="text-green-500 text-xs"><i class="fas fa-check-double"></i> COMPLETE</span>
+</div>
+<!-- Added Footer Text -->
+<div class="absolute left-1/2 transform -translate-x-1/2 text-center">
+<p class="text-[10px] font-['Roboto_Mono'] text-purple-400 neon-text-purple tracking-wider">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-gray-500 text-xs font-['Roboto_Mono']">14 / 17</span>
+<div class="w-24 h-1 bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 w-[82%]"></div>
+</div>
+</div>
+</footer>
+
+
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f13.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f11.html';
+    }
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Influencer Audit - Persuasion II</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+    margin: 0;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background: #0f172a;
+    font-family: 'Inter', sans-serif;
+
+    transform: scale(calc(100vw / 1280));
+    transform-origin: top left;
+}
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #0f172a;
+            border-bottom: 1px solid rgba(245,183,165,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .header-logo {
+            width: 32px;
+            height: 32px;
+            background: rgba(245,183,165,0.2);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-logo i {
+            color: #f5b7a5;
+            font-size: 16px;
+        }
+        
+        .header-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        
+        .header-divider {
+            color: #475569;
+        }
+        
+        /* Main Content */
+        .main-content {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+        }
+        
+        .slide-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            max-width: 800px;
+            z-index: 10;
+        }
+        
+        .title-section {
+            margin-bottom: 40px;
+        }
+        
+        .main-title {
+            font-size: 42px;
+            font-weight: 800;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        .main-title .highlight {
+            color: #f5b7a5;
+        }
+        
+        .subtitle {
+            font-size: 18px;
+            color: #d1d5db;
+            margin-bottom: 8px;
+            font-weight: 400;
+        }
+        
+        .content-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 100%;
+            max-width: 700px;
+            text-align: left;
+        }
+        
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            background: rgba(30,41,59,0.6);
+            border: 1px solid rgba(245,183,165,0.2);
+            border-radius: 8px;
+            padding: 16px 20px;
+        }
+        
+        .list-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(245,183,165,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .list-icon i {
+            color: #f5b7a5;
+            font-size: 16px;
+        }
+        
+        .list-content {
+            flex: 1;
+        }
+        
+        .list-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        
+        .list-desc {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+        
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(245,183,165,0.15);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(245,183,165,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .nav-text {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+        
+        .nav-link {
+            font-size: 14px;
+            color: #f5b7a5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+        
+        .nav-arrow {
+            color: #f5b7a5;
+            font-size: 16px;
+        }
+        
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        /* Decorative Elements */
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(245,183,165,0.1);
+            z-index: 1;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -50px;
+        }
+        
+        .grid-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(245,183,165,0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(245,183,165,0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header">
+<div class="header-left">
+<div class="header-logo">
+<i class="fas fa-chart-line"></i>
+</div>
+<span class="header-text">EduuAspire21.0 Skills</span>
+</div>
+<div class="header-right">
+<span>21st Century Skills</span>
+<span class="header-divider">|</span>
+<span>Media Literacy</span>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="slide-content">
+<div class="title-section">
+<div class="main-title">
+<span class="highlight">Persuasion</span> II
+                    </div>
+<div class="subtitle">
+                        Advanced persuasion techniques used by influencers
+                    </div>
+</div>
+<div class="content-list">
+<div class="list-item">
+<div class="list-icon">
+<i class="fas fa-users"></i>
+</div>
+<div class="list-content">
+<div class="list-title">Social Proof</div>
+<div class="list-desc">Leveraging follower counts, likes, and comments to create perceived popularity and credibility</div>
+</div>
+</div>
+<div class="list-item">
+<div class="list-icon">
+<i class="fas fa-user-tie"></i>
+</div>
+<div class="list-content">
+<div class="list-title">Authority Bias</div>
+<div class="list-desc">Using credentials, expertise, or perceived expertise to establish trust and influence decisions</div>
+</div>
+</div>
+<div class="list-item">
+<div class="list-icon">
+<i class="fas fa-hourglass-half"></i>
+</div>
+<div class="list-content">
+<div class="list-title">Scarcity Tactics</div>
+<div class="list-desc">Creating urgency through limited availability, time-sensitive offers, or exclusive access</div>
+</div>
+</div>
+<div class="list-item">
+<div class="list-icon">
+<i class="fas fa-redo"></i>
+</div>
+<div class="list-content">
+<div class="list-title">Repetition Effect</div>
+<div class="list-desc">Repeated exposure to messages to increase familiarity and acceptance over time</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navigation">
+    <div class="nav-left">
+        <span class="nav-arrow"><i class="fas fa-arrow-left"></i></span>
+        <span class="nav-text">Previous Topic</span>
+        <a class="nav-link" href="f6.html">← Persuasion I</a>
+    </div>
+
+    <div class="nav-right">
+        <a class="nav-link" href="f8.html">Deconstruction →</a>
+        <span class="nav-text">Next Topic</span>
+        <span class="nav-arrow"><i class="fas fa-arrow-right"></i></span>
+    </div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div class="footer-text">
+                Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+            </div>
+</div>
+<!-- Decorative Elements -->
+<div class="decorative-circle circle-1"></div>
+<div class="decorative-circle circle-2"></div>
+<div class="grid-pattern"></div>
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f8.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f6.html';
+    }
+
+});
+</script>
+</body>
+</html>

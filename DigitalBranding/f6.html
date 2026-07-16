@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html data-theme="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Branding 101 - Positive vs Negative Footprint</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        /* Base Reset & Setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Slide Container */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFE5D9; /* Peach background */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Layout Elements */
+        .header {
+            padding: 30px 60px 0 60px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .header p {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2C3E50;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-icon {
+            color: #E07A5F;
+            font-size: 18px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 10px 60px 10px 60px;
+            z-index: 10;
+        }
+
+        .footer {
+            padding: 10px 60px 20px 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .footer p {
+            font-size: 12px;
+            font-weight: 500;
+            color: #4A5568;
+            letter-spacing: 0.5px;
+        }
+
+        /* Typography & Content Styling */
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 42px;
+            font-weight: 800;
+            color: #1A252F;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .title-accent {
+            width: 80px;
+            height: 6px;
+            background-color: #E07A5F;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        /* Compare Section */
+        .compare-section {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .compare-card {
+            flex: 1;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 20px 30px;
+            box-shadow: 0 15px 35px rgba(26, 37, 47, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-positive {
+            border-top: 8px solid #27AE60; /* Positive Green */
+        }
+
+        .card-negative {
+            border-top: 8px solid #E74C3C; /* Negative Red */
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .card-icon-pos {
+            color: #27AE60;
+            font-size: 24px;
+            background-color: rgba(39, 174, 96, 0.1);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-icon-neg {
+            color: #E74C3C;
+            font-size: 24px;
+            background-color: rgba(231, 76, 60, 0.1);
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A252F;
+        }
+
+        .list-items {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+        }
+
+        .item-icon-pos {
+            color: #27AE60;
+            font-size: 16px;
+            margin-top: 3px;
+        }
+
+        .item-icon-neg {
+            color: #E74C3C;
+            font-size: 16px;
+            margin-top: 3px;
+        }
+
+        .item-text {
+            font-size: 15px;
+            color: #34495E;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        /* Question Box Section */
+        .question-box {
+            background-color: #1A252F;
+            border-radius: 16px;
+            padding: 18px 35px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(26, 37, 47, 0.15);
+            border-left: 8px solid #E07A5F;
+        }
+
+        .question-content {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .question-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #FFE5D9;
+        }
+
+        .action-text {
+            font-size: 15px;
+            color: #A0B2C6;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .action-icon {
+            color: #E07A5F;
+        }
+
+        .ghost-icon-wrapper {
+            background-color: rgba(255, 229, 217, 0.1);
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #FFE5D9;
+            font-size: 28px;
+        }
+
+        /* Decorative Elements */
+        .deco-circle {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            background-color: #FFDAC1;
+            top: -250px;
+            right: -100px;
+            z-index: 1;
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="deco-circle"></div>
+<!-- Header -->
+<div class="header">
+<p><i class="fas fa-layer-group header-icon"></i> EduuAspire21.0 Skills <span style="color: #E07A5F; margin: 0 8px;">|</span> 21st Century Skills <span style="color: #E07A5F; margin: 0 8px;">|</span> Digital Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<p class="slide-title">Positive vs Negative Footprint</p>
+<div class="title-accent"></div>
+<!-- Split Compare Section -->
+<div class="compare-section">
+<!-- Positive Panel -->
+<div class="compare-card card-positive">
+<div class="card-header">
+<div class="card-icon-pos"><i class="fas fa-arrow-trend-up"></i></div>
+<p class="card-title">Positive Footprint</p>
+</div>
+<div class="list-items">
+<div class="list-item">
+<i class="fas fa-check-circle item-icon-pos"></i>
+<p class="item-text">Highlights professional skills and core expertise clearly</p>
+</div>
+<div class="list-item">
+<i class="fas fa-check-circle item-icon-pos"></i>
+<p class="item-text">Showcases relevant projects, portfolios, and academic work</p>
+</div>
+<div class="list-item">
+<i class="fas fa-check-circle item-icon-pos"></i>
+<p class="item-text">Documents achievements and verifiable career milestones</p>
+</div>
+<div class="list-item">
+<i class="fas fa-check-circle item-icon-pos"></i>
+<p class="item-text">Demonstrates consistent learning and a growth mindset</p>
+</div>
+</div>
+</div>
+<!-- Negative Panel -->
+<div class="compare-card card-negative">
+<div class="card-header">
+<div class="card-icon-neg"><i class="fas fa-triangle-exclamation"></i></div>
+<p class="card-title">Negative Footprint</p>
+</div>
+<div class="list-items">
+<div class="list-item">
+<i class="fas fa-times-circle item-icon-neg"></i>
+<p class="item-text">Features careless, impulsive, or overly polarizing posts</p>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle item-icon-neg"></i>
+<p class="item-text">Contains offensive language or inappropriate visual content</p>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle item-icon-neg"></i>
+<p class="item-text">Shows a highly inconsistent professional image across platforms</p>
+</div>
+<div class="list-item">
+<i class="fas fa-times-circle item-icon-neg"></i>
+<p class="item-text">Includes public complaining about peers, teachers, or employers</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Question Box -->
+<div class="question-box">
+<div class="question-content">
+<p class="question-text">Are you a Professional—or a Digital Ghost?</p>
+<p class="action-text"><i class="fas fa-bolt action-icon"></i> Action: Audit your current presence and align it with your future goals.</p>
+</div>
+<div class="ghost-icon-wrapper">
+<i class="fas fa-ghost"></i>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f7.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f5.html';
+    }
+
+});
+</script></body>
+</html>

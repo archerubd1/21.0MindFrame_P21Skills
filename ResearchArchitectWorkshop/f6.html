@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Research Architect – Workshop (Slide 6)</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+    :root{
+      --lavender-1:#F4F0FF;
+      --lavender-2:#EDE7FF;
+      --lavender-3:#E3DCFF;
+
+      --beige:#E8DCC4;
+      --beige-2:#F3EADB;
+
+      --matcha:#E8F2E6;
+      --cherry:#C93A63;
+
+      --ink:#1F2430;
+      --muted:#556070;
+      --card:#FFFFFF;
+    }
+
+    html, body { height:100%; }
+    body{
+      margin:0;
+      background:#0b0b10;
+      font-family:"Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:24px;
+    }
+
+    .slide{
+      width:1280px;
+      height:720px;
+      position:relative;
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      background: var(--lavender-1);
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* Background layers (no CSS gradients) */
+    .bg-layer{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+    }
+    .bg-matcha{
+      position:absolute;
+      left:-180px; top:-160px;
+      width:720px; height:720px;
+      background: var(--matcha);
+      border-radius:9999px;
+      opacity:.95;
+      filter: blur(2px);
+    }
+    .bg-lavender{
+      position:absolute;
+      right:-240px; top:20px;
+      width:880px; height:880px;
+      background: var(--lavender-2);
+      border-radius:9999px;
+      opacity:.92;
+    }
+    .bg-cherry{
+      position:absolute;
+      left:220px; bottom:-260px;
+      width:560px; height:560px;
+      background: rgba(201,58,99,.13);
+      border-radius:9999px;
+    }
+    .bg-grid{
+      position:absolute;
+      inset:0;
+      background-image: radial-gradient(rgba(31,36,48,0.05) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity:.65;
+    }
+
+    .header{
+      position:absolute;
+      top:0; left:0; right:0;
+      height:64px;
+      z-index:5;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      padding:0 28px;
+      box-shadow: 0 6px 18px rgba(31,36,48,.08);
+    }
+    .header p{
+      margin:0;
+      font-size:14px;
+      color: rgba(31,36,48,.78);
+      font-weight:700;
+      letter-spacing:.01em;
+    }
+
+    .footer{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:44px;
+      z-index:5;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 18px;
+    }
+    .footer p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.70);
+      font-weight:600;
+    }
+
+    .nav{
+      position:absolute;
+      left:0; right:0;
+      bottom:44px;
+      height:64px;
+      z-index:6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 26px;
+      gap:18px;
+      background: rgba(244,240,255,.72);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(31,36,48,.06);
+    }
+
+    .nav-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(31,36,48,.10);
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 10px 20px rgba(31,36,48,.10);
+      color: rgba(31,36,48,.88);
+      font-weight:700;
+      text-decoration:none;
+      transition: transform .22s ease, opacity .22s ease, box-shadow .22s ease;
+      min-width: 200px;
+      justify-content:center;
+    }
+    .nav-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(31,36,48,.14);
+      opacity: .98;
+    }
+    .nav-btn .label{
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:14px;
+      letter-spacing:.01em;
+    }
+    .nav-btn .ico{
+      color: var(--cherry);
+      font-size:14px;
+    }
+
+    .content{
+      position:relative;
+      z-index:2;
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 88px 84px 136px;
+    }
+
+    .frame{
+      width:100%;
+      max-width: 1040px;
+      display:flex;
+      gap:26px;
+      align-items:stretch;
+    }
+
+    .card{
+      flex:1;
+      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(31,36,48,.08);
+      border-radius: 22px;
+      padding: 40px 44px;
+      box-shadow: 0 18px 40px rgba(31,36,48,.10);
+      display:flex;
+      flex-direction:column;
+      min-height: 420px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:9999px;
+      border:1px solid rgba(31,36,48,.10);
+      background: rgba(232,220,196,.55);
+      color: var(--ink);
+      font-size:13px;
+      line-height:1;
+      font-weight:700;
+      width: fit-content;
+    }
+    .k-dot{
+      width:10px; height:10px;
+      border-radius:9999px;
+      background: var(--cherry);
+      box-shadow: 0 8px 18px rgba(201,58,99,.25);
+    }
+
+    .title{
+      margin:16px 0 10px;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:700;
+      font-size:46px;
+      line-height:1.1;
+      letter-spacing:-0.02em;
+      color: var(--ink);
+    }
+    .subtitle{
+      margin:0 0 18px;
+      color: var(--muted);
+      font-size:16px;
+      line-height:1.55;
+      max-width: 70ch;
+    }
+    .accent{
+      color: var(--cherry);
+      font-weight:700;
+    }
+
+    .obj-list{
+      margin: 8px 0 0;
+      padding:0;
+      list-style:none;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .obj-item{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: rgba(237,231,255,.62);
+      border: 1px solid rgba(31,36,48,.08);
+    }
+    .obj-ico{
+      width:38px; height:38px;
+      border-radius: 14px;
+      background: rgba(232,220,196,.70);
+      border:1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--cherry);
+      flex:0 0 auto;
+      margin-top:2px;
+    }
+    .obj-text p{
+      margin:0;
+      color: rgba(31,36,48,.85);
+      font-weight:600;
+      font-size:16px;
+      line-height:1.35;
+    }
+
+    .side{
+      width: 320px;
+      flex:0 0 320px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+    .side-card{
+      background: rgba(255,255,255,.78);
+      border:1px solid rgba(31,36,48,.08);
+      border-radius: 18px;
+      padding: 16px 16px;
+    }
+    .side-title{
+      margin:0 0 10px;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:700;
+      font-size:14px;
+      letter-spacing:.02em;
+      color: rgba(31,36,48,.86);
+    }
+    .side-row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .side-bullet{
+      width:10px; height:10px;
+      border-radius:9999px;
+      background: rgba(201,58,99,.85);
+      margin-top:6px;
+      flex:0 0 auto;
+    }
+    .side-row p{
+      margin:0;
+      font-size:13px;
+      line-height:1.45;
+      color: rgba(31,36,48,.78);
+      font-weight:600;
+    }
+
+    @media (max-width: 1360px){
+      body{ padding:16px; }
+      .slide{ transform: scale(.92); transform-origin: top center; }
+    }
+    @media (max-width: 1180px){
+      .slide{ transform: scale(.82); }
+    }
+    @media (max-width: 980px){
+      .slide{ transform: scale(.70); }
+    }
+  </style>
+</head>
+<body style="">
+<section aria-label="Slide 6: Bullets – Single Column (bullets_single)" class="slide">
+<div aria-hidden="true" class="bg-layer">
+<div class="bg-matcha"></div>
+<div class="bg-lavender"></div>
+<div class="bg-cherry"></div>
+<div class="bg-grid"></div>
+</div>
+<header class="header" role="banner">
+<p>EduuAspire21.0 Skills | 21st Century Skills | Information Literacy </p>
+</header>
+<main class="content" role="main">
+<div class="frame">
+<section aria-label="Evaluating authority checklist" class="card">
+<div class="kicker" style="position: relative; transform: translate(-25.4785px, -28.3095px);">
+<span aria-hidden="true" class="k-dot"></span>
+<p>Credibility check</p>
+</div>
+<h1 class="title" style="position: relative; transform: translate(-4.29226px, -27.1843px);">Evaluating Authority</h1>
+
+<ul class="obj-list" style="position: relative; transform: translate(-1.43075px, -32.9074px);">
+<li class="obj-item">
+<div aria-hidden="true" class="obj-ico"><i class="fa-solid fa-user-graduate"></i></div>
+<div class="obj-text"><p>Confirm the <span class="accent">author</span> and their credentials (education, expertise)</p></div>
+</li>
+<li class="obj-item">
+<div aria-hidden="true" class="obj-ico"><i class="fa-solid fa-building-columns"></i></div>
+<div class="obj-text"><p>Check <span class="accent">affiliation</span>: university, lab, organization, or institution</p></div>
+</li>
+<li class="obj-item">
+<div aria-hidden="true" class="obj-ico"><i class="fa-solid fa-stamp"></i></div>
+<div class="obj-text"><p>Look for <span class="accent">peer review</span> or clear editorial oversight</p></div>
+</li>
+<li class="obj-item">
+<div aria-hidden="true" class="obj-ico"><i class="fa-solid fa-quote-right"></i></div>
+<div class="obj-text"><p>Verify <span class="accent">citations</span> and references that you can trace</p></div>
+</li>
+<li class="obj-item">
+<div aria-hidden="true" class="obj-ico"><i class="fa-solid fa-ranking-star"></i></div>
+<div class="obj-text"><p>Evaluate the <span class="accent">publication venue</span>: journal, press, standards, reputation</p></div>
+</li>
+
+</ul>
+</section>
+<aside aria-label="Quick guidance" class="side">
+<div class="side-card" style="position: relative; transform: translate(-1.43075px, 31.4766px);">
+<p class="side-title">Quick red flags</p>
+<div class="side-row">
+<span aria-hidden="true" class="side-bullet"></span>
+<p>No named author, no credentials, or no organization listed.</p>
+</div>
+<div class="side-row" style="margin-top:10px;">
+<span aria-hidden="true" class="side-bullet"></span>
+<p>Claims with <span class="accent">no citations</span>, broken links, or unclear sources.</p>
+</div>
+<div class="side-row" style="margin-top:10px;">
+<span aria-hidden="true" class="side-bullet"></span>
+<p>Strong opinions with hidden <span class="accent">sponsorship</span> or unclear purpose.</p>
+</div>
+</div>
+<div class="side-card" style="position: relative; transform: translate(4.29226px, 51.5072px);">
+<p class="side-title">Next up</p>
+<div class="side-row">
+<span aria-hidden="true" class="side-bullet"></span>
+<p>Use the <span class="accent">CRAAP Test</span> to score and document source quality.</p>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<nav aria-label="Slide navigation" class="nav">
+<a class="nav-btn" href="f5.html" style="position: relative; transform: translate(-361.994px, -2.20057px);">
+<i aria-hidden="true" class="fa-solid fa-arrow-left ico"></i>
+<span class="label">Practice</span>
+</a>
+<a class="nav-btn" href="f7.html" style="position: relative; transform: translate(351.633px, 4.05731px);">
+<span class="label">CRAAP</span>
+<i aria-hidden="true" class="fa-solid fa-arrow-right ico"></i>
+</a>
+</nav>
+<footer class="footer" role="contentinfo">
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+<script>
+document.addEventListener("keydown", function (e) {
+  const activeElement = document.activeElement;
+
+  // 🚫 Disable when typing in input or textarea
+  if (
+    activeElement.tagName === "INPUT" ||
+    activeElement.tagName === "TEXTAREA"
+  ) {
+    return;
+  }
+
+  // 👉 Get navigation buttons
+  const prevBtn = document.querySelector(".nav a:first-child");
+  const nextBtn = document.querySelector(".nav a:last-child");
+
+  // ⬅️ Left Arrow → Previous slide
+  if (e.key === "ArrowLeft") {
+    if (prevBtn && !prevBtn.classList.contains("is-disabled")) {
+      window.location.href = prevBtn.getAttribute("href");
+    }
+  }
+
+  // ➡️ Right Arrow → Next slide
+  if (e.key === "ArrowRight") {
+    if (nextBtn && !nextBtn.classList.contains("is-disabled")) {
+      window.location.href = nextBtn.getAttribute("href");
+    }
+  }
+});
+</script>
+</section>
+
+</body></html>

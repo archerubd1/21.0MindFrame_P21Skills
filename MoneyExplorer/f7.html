@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Interactive Quiz</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background: #0f0f0f;
+    border-bottom: 2px solid gold;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0f0f0f;
+    border-top: 1px solid #222;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 12px;
+}
+
+/* CENTER WRAPPER */
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SLIDE */
+.slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    transform-origin: center center;
+}
+
+/* TITLE */
+.title {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+    font-size: 44px;
+    color: gold;
+}
+
+/* SUBTITLE */
+.subtitle {
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #39FF14;
+}
+
+/* QUIZ BOX */
+.quiz {
+    position: absolute;
+    width: 420px;
+    height: 90px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+/* LEFT + RIGHT */
+.leftBox { left: 200px; }
+.rightBox { right: 200px; }
+
+/* ANSWER BADGE */
+.badge {
+    float: right;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+.need {
+    border: 2px solid #39FF14;
+    color: #39FF14;
+}
+
+.want {
+    border: 2px solid gold;
+    color: gold;
+}
+
+/* INSIGHT */
+.insight {
+    position: absolute;
+    bottom: 120px;
+    left: 240px;
+    width: 800px;
+    text-align: center;
+    border: 2px solid #39FF14;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* NAV BUTTONS */
+button {
+    position: absolute;
+    bottom: 30px;
+    padding: 10px 20px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.left { left: 20px; }
+.right { right: 20px; }
+
+button:hover {
+    background: gold;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+</div>
+
+<div id="wrapper">
+<div class="slide">
+
+<div class="title">Interactive Quiz 🎯</div>
+<div class="subtitle">Need or Want?</div>
+
+<!-- ROW 1 -->
+<div class="quiz leftBox" style="top:200px;">
+Fruit
+<span class="badge need">Need</span>
+</div>
+
+<div class="quiz rightBox" style="top:200px;">
+Latest Phone
+<span class="badge want">Want</span>
+</div>
+
+<!-- ROW 2 -->
+<div class="quiz leftBox" style="top:320px;">
+School Shoes
+<span class="badge need">Need</span>
+</div>
+
+<div class="quiz rightBox" style="top:320px;">
+Extra Candy
+<span class="badge want">Want</span>
+</div>
+
+<!-- INSIGHT -->
+<div class="insight">
+<span style="color:#39FF14;">Insight:</span>
+Wants can feel like needs—be smart!
+</div>
+
+<!-- NAV -->
+<button class="left" onclick="goBack()">← Needs vs Wants</button>
+<button class="right" onclick="goNext()">Smart Spending →</button>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+<script>
+function scaleSlide() {
+    const slide = document.querySelector('.slide');
+    const scale = Math.min(
+        window.innerWidth / 1280,
+        window.innerHeight / 720
+    );
+    slide.style.transform = `scale(${scale})`;
+}
+window.addEventListener("load", scaleSlide);
+window.addEventListener("resize", scaleSlide);
+
+function goNext() {
+    window.location.href = "f8.html";
+}
+function goBack() {
+    window.location.href = "f6.html";
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") goNext();
+    if (e.key === "ArrowLeft") goBack();
+});
+</script>
+
+</body>
+</html>

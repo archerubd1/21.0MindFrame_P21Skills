@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Kind Keyboard</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #0f1020; /* Deep dark purple/blue background - No Gradient */
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Decorative Elements to simulate depth without gradients */
+        .glow-circle-1 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background-color: #2e1a47;
+            border-radius: 50%;
+            top: -200px;
+            right: -100px;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .glow-circle-2 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background-color: #0d3852;
+            border-radius: 50%;
+            bottom: -150px;
+            left: -100px;
+            filter: blur(80px);
+            opacity: 0.4;
+            z-index: 0;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            position: relative;
+        }
+
+        .header {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #a5b4fc;
+            font-size: 18px;
+            letter-spacing: 1px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color: #64748b;
+            font-size: 14px;
+            z-index: 20;
+        }
+
+        .main-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 96px;
+            font-weight: 700;
+            color: #ffffff;
+            text-align: center;
+            line-height: 1.1;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+            margin-bottom: 10px;
+        }
+
+        .neon-text {
+            color: #00f3ff; /* Neon Blue */
+        }
+
+        .subtitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 36px;
+            color: #facc15; /* Soft Yellow */
+            margin-bottom: 40px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .hook-box {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 30px 50px;
+            border-radius: 20px;
+            max-width: 800px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            margin-top: 20px;
+        }
+
+        .hook-text {
+            font-size: 24px;
+            color: #e2e8f0;
+            margin: 0;
+            font-style: italic;
+        }
+
+        .sub-hook {
+            font-size: 18px;
+            color: #94a3b8;
+            margin-top: 15px;
+        }
+
+        .icon-container {
+            font-size: 80px;
+            color: #c084fc; /* Purple */
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 15px rgba(192, 132, 252, 0.5));
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .tech-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: 1;
+            opacity: 0.2;
+        }
+
+        /* Chat bubbles decoration */
+        .chat-bubble-decor {
+            position: absolute;
+            padding: 15px 25px;
+            border-radius: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            z-index: 5;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .cb-left {
+            top: 200px;
+            left: 100px;
+            background-color: #334155;
+            color: #cbd5e1;
+            border-bottom-left-radius: 2px;
+            transform: rotate(-5deg);
+        }
+
+        .cb-right {
+            bottom: 250px;
+            right: 120px;
+            background-color: #4f46e5;
+            color: white;
+            border-bottom-right-radius: 2px;
+            transform: rotate(5deg);
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="glow-circle-1"></div>
+<div class="glow-circle-2"></div>
+<div class="tech-lines"></div>
+<!-- Header -->
+<header class="header">
+<i class="fa-solid fa-graduation-cap"></i>
+<p>EduuAspire 21.0 Skills | 21st Century Skills Digital Literacy</p>
+</header>
+<!-- Decorative Floating Chat Bubbles -->
+<div class="chat-bubble-decor cb-left">
+<p><i class="fa-regular fa-face-frown mr-2"></i>That sounded rude...</p>
+</div>
+<div class="chat-bubble-decor cb-right">
+<p>Let's talk! <i class="fa-regular fa-face-smile ml-2"></i></p>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<div class="icon-container">
+<i class="fa-regular fa-keyboard"></i>
+</div>
+<h1 class="main-title">
+                The <span class="neon-text">Kind</span> Keyboard
+            </h1>
+<h2 class="subtitle">Think Before You Type</h2>
+<div class="hook-box">
+<p class="hook-text">
+                    "Have you ever misunderstood a message because it sounded rude?"
+                </p>
+<p class="sub-hook">
+                    Words on screens carry feelings, too. Let's learn how to type with kindness.
+                </p>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p>Licensed and Powered by Astrl mind Technologies | Copyright © 2026-2033</p>
+</footer>
+</div>
+<!-- NEXT BUTTON -->
+<a href="f2.html"
+   class="absolute bottom-16 right-12 z-50 px-6 py-3
+          bg-gray-900 text-white text-sm font-semibold uppercase
+          hover:bg-gray-800 transition rounded-lg">
+Next →
+</a>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Borrowing Decision Rule</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+         body {
+    margin: 0;
+    background: #000; /* black sides (like presentation) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: #0B1F3A;
+    font-family: 'Inter', sans-serif;
+
+    transform: scale(calc(100vw / 1280));
+    transform-origin: top left;
+}
+       .nav-prev:hover,
+.nav-next:hover {
+    color: #FFDAB9;
+} </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 40px; top: 20px; width: 1200px; height: 40px; z-index: 10;">
+<p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+            EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+        </p>
+</div>
+<!-- Main Title -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 80px; width: 1160px; height: 100px; z-index: 10;">
+<h1 style="margin: 0; font-size: 42px; font-weight: 700; color: #FFFFFF; letter-spacing: -0.5px;">
+            Borrowing Decision Rule (EMI ≤ 25%)
+        </h1>
+<p style="margin: 8px 0 0; font-size: 20px; font-weight: 300; color: #B0B8C4;">
+            The golden rule of affordability: ensure debt never compromises your living needs.
+        </p>
+</div>
+<!-- Decorative Line -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 175px; width: 100px; height: 4px; background-color: #FFDAB9; border-radius: 2px; z-index: 1;"></div>
+<!-- Formula Section Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 210px; width: 1160px; height: 100px; background-color: rgba(255, 218, 185, 0.05); border: 1px solid rgba(255, 218, 185, 0.2); border-radius: 12px; z-index: 1;"></div>
+<!-- Formula Icon -->
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 90px; top: 235px; width: 50px; height: 50px; z-index: 10; display: flex; align-items: center; justify-content: center;">
+<i class="fa-solid fa-scale-balanced" style="font-size: 32px; color: #FFDAB9;"></i>
+</div>
+<!-- Formula Text -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 160px; top: 230px; width: 1000px; height: 60px; z-index: 10; display: flex; align-items: center;">
+<p style="margin: 0; font-size: 28px; color: #FFFFFF; font-family: 'Inter', monospace; font-weight: 500;">
+            Max Total Monthly Payments = <span style="color: #81C784; border-bottom: 2px solid #81C784; padding-bottom: 2px;">Net Monthly Income</span> × <span style="color: #FFDAB9; border-bottom: 2px solid #FFDAB9; padding-bottom: 2px;">25%</span>
+</p>
+</div>
+<!-- Left Column: Buffers Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 330px; width: 400px; height: 280px; background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; z-index: 1;"></div>
+<!-- Buffers Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 345px; width: 360px; height: 30px; z-index: 10;">
+<h3 style="margin: 0; font-size: 18px; color: #B0B8C4; text-transform: uppercase; letter-spacing: 1px;">The Safety Zone</h3>
+</div>
+<!-- Buffer Visuals -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 380px; width: 360px; height: 230px; z-index: 10;">
+<!-- Safe Zone -->
+<div style="margin-bottom: 25px;">
+<div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+<span style="color: #81C784; font-weight: 600;">Safe to Borrow</span>
+<span style="color: #81C784;">0% – 25%</span>
+</div>
+<div style="width: 100%; height: 12px; background: rgba(255,255,255,0.1); border-radius: 6px;">
+<div style="width: 25%; height: 100%; background: #81C784; border-radius: 6px;"></div>
+</div>
+<p style="margin: 5px 0 0; font-size: 12px; color: #81C784; opacity: 0.8;">Sustainable. Leaves room for savings.</p>
+</div>
+<!-- Danger Zone -->
+<div style="margin-bottom: 25px;">
+<div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+<span style="color: #E57373; font-weight: 600;">Financial Stress</span>
+<span style="color: #E57373;">&gt; 25%</span>
+</div>
+<div style="width: 100%; height: 12px; background: rgba(255,255,255,0.1); border-radius: 6px;">
+<div style="width: 60%; height: 100%; background: linear-gradient(90deg, #E57373 0%, #B71C1C 100%); border-radius: 6px;"></div>
+</div>
+<p style="margin: 5px 0 0; font-size: 12px; color: #E57373; opacity: 0.8;">High risk of default if income drops.</p>
+</div>
+<!-- Pre-req -->
+<div style="display: flex; align-items: start; background: rgba(255, 218, 185, 0.05); padding: 10px; border-radius: 6px;">
+<i class="fa-solid fa-shield-halved" style="color: #FFDAB9; margin-top: 3px; margin-right: 10px; font-size: 14px;"></i>
+<p style="margin: 0; color: #FFDAB9; font-size: 13px;">
+<strong>Prerequisite:</strong> Keep ≥1 month of expenses in liquid cash before taking ANY loan.
+            </p>
+</div>
+</div>
+<!-- Middle Column: Tactics Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 480px; top: 330px; width: 340px; height: 280px; background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; z-index: 1;"></div>
+<!-- Tactics Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 500px; top: 345px; width: 300px; height: 30px; z-index: 10;">
+<h3 style="margin: 0; font-size: 18px; color: #B0B8C4; text-transform: uppercase; letter-spacing: 1px;">If EMI &gt; 25%...</h3>
+</div>
+<!-- Tactics List -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 500px; top: 380px; width: 300px; height: 230px; z-index: 10;">
+<div style="display: flex; flex-direction: column; gap: 20px;">
+<div style="display: flex; align-items: start;">
+<div style="background: rgba(255, 218, 185, 0.1); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; flex-shrink: 0;">
+<span style="color: #FFDAB9; font-size: 12px; font-weight: 700;">1</span>
+</div>
+<div>
+<strong style="color: #FFFFFF; font-size: 15px; display: block; margin-bottom: 2px;">Delay the Purchase</strong>
+<p style="margin: 0; color: #B0B8C4; font-size: 14px;">Wait 3-6 months to save more cash or improve credit score.</p>
+</div>
+</div>
+<div style="display: flex; align-items: start;">
+<div style="background: rgba(255, 218, 185, 0.1); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; flex-shrink: 0;">
+<span style="color: #FFDAB9; font-size: 12px; font-weight: 700;">2</span>
+</div>
+<div>
+<strong style="color: #FFFFFF; font-size: 15px; display: block; margin-bottom: 2px;">Increase Down Payment</strong>
+<p style="margin: 0; color: #B0B8C4; font-size: 14px;">Pay more upfront to reduce the principal and monthly EMI.</p>
+</div>
+</div>
+<div style="display: flex; align-items: start;">
+<div style="background: rgba(255, 218, 185, 0.1); width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-right: 12px; flex-shrink: 0;">
+<span style="color: #FFDAB9; font-size: 12px; font-weight: 700;">3</span>
+</div>
+<div>
+<strong style="color: #FFFFFF; font-size: 15px; display: block; margin-bottom: 2px;">Shrink the Loan</strong>
+<p style="margin: 0; color: #B0B8C4; font-size: 14px;">Buy a used model or cheaper alternative.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Example Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 840px; top: 330px; width: 380px; height: 280px; background-color: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.3); border-radius: 12px; z-index: 1;"></div>
+<!-- Example Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 860px; top: 345px; width: 340px; height: 30px; z-index: 10;">
+<h3 style="margin: 0; font-size: 18px; color: #64B5F6; text-transform: uppercase; letter-spacing: 1px;">Affordability Check</h3>
+</div>
+<!-- Example Content -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 860px; top: 380px; width: 340px; height: 230px; z-index: 10;">
+<div style="background: rgba(0,0,0,0.2); padding: 12px; border-radius: 8px; margin-bottom: 12px;">
+<div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+<span style="color: #B0B8C4; font-size: 14px;">Net Monthly Income</span>
+<span style="color: #FFFFFF; font-weight: 600;">$2,000</span>
+</div>
+<div style="height: 1px; background: rgba(255,255,255,0.1); margin: 6px 0;"></div>
+<div style="display: flex; justify-content: space-between;">
+<span style="color: #64B5F6; font-size: 14px;">Max Allowed EMIs (25%)</span>
+<span style="color: #64B5F6; font-weight: 700;">$500</span>
+</div>
+</div>
+<div style="margin-bottom: 15px; padding: 0 5px;">
+<div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+<span style="color: #B0B8C4; font-size: 13px;">- Student Loan</span>
+<span style="color: #E57373; font-size: 13px;">($150)</span>
+</div>
+<div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
+<span style="color: #B0B8C4; font-size: 13px;">- Credit Card Min</span>
+<span style="color: #E57373; font-size: 13px;">($0)</span>
+</div>
+</div>
+<div style="background: rgba(33, 150, 243, 0.15); padding: 15px; border-radius: 8px; border: 1px solid rgba(33, 150, 243, 0.3);">
+<p style="margin: 0; color: #B0B8C4; font-size: 14px;">Remaining Borrowing Power</p>
+<p style="margin: 5px 0 0; color: #FFFFFF; font-size: 24px; font-weight: 600;">
+                $350 <span style="color: #81C784; font-size: 14px; font-weight: 400;">/ month</span>
+</p>
+</div>
+</div>
+<!-- Clean Navigation -->
+<div style="
+    position: absolute;
+    bottom: 60px;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+
+    background: transparent; /* ✅ no blur, no overlay */
+    border-top: 1px solid rgba(255,255,255,0.1);
+    z-index: 9999;
+">
+
+    <!-- LEFT -->
+<a href="f10.html" class="nav-prev" style="
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+"
+onmouseover="this.style.color='#FFDAB9'"
+onmouseout="this.style.color='#FFFFFF'">
+    ← Loan Comparison Framework
+</a>
+
+<!-- RIGHT -->
+<a href="f12.html" class="nav-next" style="
+    text-decoration: none;
+    color: #FFFFFF;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    transition: 0.3s;
+"
+onmouseover="this.style.color='#FFDAB9'"
+onmouseout="this.style.color='#FFFFFF'">
+    50-30-20 Budget Model →
+</a>
+</div>
+<!-- Footer -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 0; top: 680px; width: 1280px; height: 40px; z-index: 10; text-align: center; display: flex; align-items: center; justify-content: center;">
+<p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.35); font-weight: 300;">
+            Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+        </p>
+</div>
+</div>
+<script>
+document.addEventListener("keydown", function(e) {
+
+    var active = document.activeElement;
+    var isTyping =
+        active.tagName === "INPUT" ||
+        active.tagName === "TEXTAREA" ||
+        active.isContentEditable;
+
+    if (isTyping) return;
+
+    if (e.key === "ArrowRight") {
+        var next = document.querySelector(".nav-next");
+        if (next) window.location.href = next.href;
+    }
+
+    if (e.key === "ArrowLeft") {
+        var prev = document.querySelector(".nav-prev");
+        if (prev) window.location.href = prev.href;
+    }
+
+});
+</script>
+</body>
+</html>

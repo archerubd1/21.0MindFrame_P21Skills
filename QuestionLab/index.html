@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Question Lab - Title Cover</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #FFF6E9; /* Fallback */
+            background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+            font-family: 'Poppins', sans-serif;
+            user-select: none;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+        }
+
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            position: absolute;
+            bottom: 40px; /* Above footer */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 60px;
+            background: rgba(255, 204, 170, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            box-sizing: border-box;
+            z-index: 100;
+        }
+
+        .nav-item {
+            font-size: 16px;
+            font-weight: 600;
+            color: #444;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-item:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        .nav-item.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating-icon {
+            animation: float 4s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header Background Shape -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 0px; width: 1280px; height: 50px; background-color: rgba(255,255,255,0.6); z-index: 1;"></div>
+<!-- Header Text -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 40px; top: 12px; width: 1200px; height: 30px; z-index: 100;">
+<p style="margin: 0; font-size: 16px; color: #555; font-weight: 500; text-align: center;">
+                EduuAspire21.0 Skills | 21st Century Skills | information Literacy
+            </p>
+</div>
+<!-- Main Visual - Brain & Magnifying Glass -->
+<!-- Decorative Circle Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 515px; top: 120px; width: 250px; height: 250px; border-radius: 50%; background-color: #FFD8BE; z-index: 1; opacity: 0.6;"></div>
+<!-- Brain Icon -->
+<div class="floating-icon" data-object="true" data-object-type="icon" style="position: absolute; left: 555px; top: 160px; width: 170px; height: 170px; z-index: 10; display: flex; justify-content: center; align-items: center; color: #E87A5D;">
+<i class="fa-solid fa-brain" style="font-size: 140px;"></i>
+</div>
+<!-- Magnifying Glass Icon Overlay -->
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 660px; top: 220px; width: 100px; height: 100px; z-index: 15; display: flex; justify-content: center; align-items: center; color: #4A90E2; transform: rotate(15deg);">
+<i class="fa-solid fa-magnifying-glass" style="font-size: 80px;"></i>
+</div>
+<!-- Main Title - Fixed paintAboveDeclaredBoxPx by slightly lowering top and increasing height for descenders -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 140px; top: 385px; width: 1000px; height: 120px; z-index: 20;">
+<h1 style="margin: 0; font-size: 72px; font-weight: 800; color: #333; text-align: center; letter-spacing: -1px; line-height: 1.1;">
+                The Question Lab
+            </h1>
+</div>
+<!-- Subtitle -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 290px; top: 480px; width: 700px; height: 50px; z-index: 20;">
+<p style="margin: 0; font-size: 32px; font-weight: 600; color: #E87A5D; text-align: center;">
+                Ask Smart, Learn Smart
+            </p>
+</div>
+<!-- Tagline -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 340px; top: 540px; width: 600px; height: 40px; z-index: 20;">
+<p style="margin: 0; font-size: 20px; font-weight: 500; color: #666; text-align: center; background-color: rgba(255,255,255,0.4); padding: 5px 15px; border-radius: 20px; display: inline-block;">
+<i class="fa-solid fa-medal" style="margin-right: 8px; color: #F4B400;"></i>Becoming a Curiosity Captain
+            </p>
+</div>
+<!-- Navigation System (Visual representation for export, interactive via JS) -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 190px; top: 620px; width: 900px; height: 60px; z-index: 90;">
+<!-- This is the container for the glass nav defined in CSS -->
+<div class="glass-nav">
+<div class="nav-item disabled">
+<span></span>
+<!-- Empty left for first slide -->
+</div>
+<a href="f2.html" class="nav-item">
+<span>What Lab</span> <i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+</div>
+<!-- Footer Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0px; top: 690px; width: 1280px; height: 30px; background-color: #f0f0f0; z-index: 95;"></div>
+<!-- Footer Text - Adjusted top to center vertically within 30px footer bar -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 40px; top: 696px; width: 1200px; height: 26px; z-index: 100;">
+<p style="margin: 0; font-size: 12px; color: #888; text-align: center;">
+                Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+            </p>
+</div>
+</div>
+<script>
+document.addEventListener("keydown", function (e) {
+    // Prevent navigation while typing
+    const active = document.activeElement;
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") {
+        window.location.href = "f2.html";
+    }
+});
+</script>
+</body>
+</html>

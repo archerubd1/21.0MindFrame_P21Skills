@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Avoiding Plagiarism</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Lora:wght@500;600&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+    :root{
+      --bg:#fffdf4;
+      --card:#ffffff;
+      --ink:#111827;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --butter:#fde68a;
+      --butter2:#fff2b8;
+    }
+    html,body{height:100%;margin:0;background:#f3f4f6;}
+    .slide{
+      width:1280px;height:720px;
+      margin:0 auto;
+      background:var(--bg);
+      display:flex;flex-direction:column;
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      position:relative;
+      overflow:hidden;
+    }
+    .header{
+      height:64px;flex:0 0 64px;
+      display:flex;align-items:center;justify-content:center;
+      border-bottom:1px solid var(--line);
+      background:#ffffff;
+      z-index:3;
+    }
+    .footer{
+      height:46px;flex:0 0 46px;
+      display:flex;align-items:center;justify-content:center;
+      border-top:1px solid var(--line);
+      background:#ffffff;
+      z-index:3;
+    }
+    .nav{
+      height:56px;flex:0 0 56px;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 72px;
+      background:rgba(255,255,255,0.92);
+      border-top:1px solid var(--line);
+      z-index:3;
+    }
+    .main{
+      flex:1;
+      padding:32px 72px 20px 72px;
+      position:relative;
+      z-index:2;
+      display:flex;
+      min-height:0;
+    }
+    .frame{
+      flex:1;
+      display:flex;
+      border:1px solid var(--line);
+      background:var(--card);
+      box-shadow:0 10px 24px rgba(17,24,39,0.08);
+      border-radius:22px;
+      overflow:hidden;
+      position:relative;
+      min-height:0;
+    }
+
+    .hdrText,.ftrText{margin:0;letter-spacing:0.01em;}
+    .hdrText{font-size:14px;color:#111827;}
+    .hdrText span{opacity:.7}
+    .ftrText{font-size:12.5px;color:#111827;opacity:.8}
+
+    .content{
+      flex:1;
+      padding:38px 46px;
+      display:flex;
+      gap:18px;
+      min-width:0;
+      min-height:0;
+      position:relative;
+      z-index:2;
+    }
+    .left{
+      flex:1.08;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      min-width:0;
+      min-height:0;
+    }
+    .right{
+      flex:0.92;
+      border-left:1px solid var(--line);
+      background:var(--butter2);
+      padding:26px 28px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-width:0;
+      min-height:0;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid rgba(17,24,39,0.08);
+      background:#fff;
+      border-radius:999px;
+      width:max-content;
+      box-shadow:0 6px 14px rgba(17,24,39,0.06);
+    }
+    .kDot{
+      width:10px;height:10px;border-radius:999px;
+      background:var(--butter);
+      border:1px solid rgba(17,24,39,0.12);
+    }
+    .title{
+      margin:0;
+      font-weight:800;
+      letter-spacing:-0.02em;
+      line-height:1.08;
+      font-size:52px;
+    }
+    .sub{
+      margin:6px 0 0 0;
+      font-family:Lora,Georgia,serif;
+      font-weight:600;
+      color:#1f2937;
+      font-size:20px;
+      line-height:1.35;
+      max-width:78ch;
+    }
+
+    .checklist{
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      margin-top:4px;
+      min-height:0;
+    }
+    .cItem{
+      display:flex;
+      gap:14px;
+      align-items:flex-start;
+      padding:14px 16px;
+      border:1px solid rgba(17,24,39,0.10);
+      border-radius:18px;
+      background:#fff;
+      box-shadow:0 10px 22px rgba(17,24,39,0.07);
+      min-width:0;
+    }
+    .cCheck{
+      width:44px;height:44px;border-radius:16px;
+      background:var(--butter);
+      border:1px solid rgba(17,24,39,0.12);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 44px;
+      box-shadow:0 10px 18px rgba(17,24,39,0.08);
+    }
+    .cCheck i{font-size:18px;color:#111827;opacity:.92}
+    .cTitle{
+      margin:0;
+      font-weight:900;
+      letter-spacing:-0.01em;
+      font-size:20px;
+      line-height:1.2;
+    }
+    .cText{
+      margin:6px 0 0 0;
+      color:var(--muted);
+      font-size:16px;
+      line-height:1.5;
+      max-width:72ch;
+    }
+    .pillRow{
+      margin-top:10px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(17,24,39,0.10);
+      background:var(--butter2);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:0.01em;
+      color:#111827;
+      white-space:nowrap;
+    }
+    .pill i{opacity:.9}
+    .mono{
+      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-weight:700;
+      font-size:12.5px;
+      color:#111827;
+      background:#ffffff;
+      border:1px solid rgba(17,24,39,0.10);
+      padding:2px 6px;
+      border-radius:8px;
+      white-space:nowrap;
+    }
+
+    .rightCard{
+      border:1px solid rgba(17,24,39,0.12);
+      background:#ffffff;
+      border-radius:18px;
+      box-shadow:0 12px 26px rgba(17,24,39,0.10);
+      padding:14px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-width:0;
+    }
+    .rTitle{
+      margin:0;
+      font-weight:900;
+      letter-spacing:-0.01em;
+      font-size:16px;
+      line-height:1.2;
+    }
+    .toolGrid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:10px;
+      align-items:stretch;
+    }
+    .toolCard{
+      border:1px solid rgba(17,24,39,0.10);
+      border-radius:16px;
+      background:#fff;
+      padding:12px 12px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-width:0;
+      box-shadow:0 10px 20px rgba(17,24,39,0.07);
+    }
+    .toolTop{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .toolIcon{
+      width:40px;height:40px;border-radius:14px;
+      background:var(--butter);
+      border:1px solid rgba(17,24,39,0.12);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 40px;
+    }
+    .toolIcon i{font-size:16px;color:#111827;opacity:.9}
+    .toolName{
+      margin:0;
+      font-weight:900;
+      letter-spacing:-0.01em;
+      font-size:16px;
+      line-height:1.15;
+    }
+    .toolTag{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:6px 8px;
+      border-radius:999px;
+      border:1px solid rgba(17,24,39,0.10);
+      background:var(--butter2);
+      font-size:11.5px;
+      font-weight:900;
+      letter-spacing:0.01em;
+      color:#111827;
+      white-space:nowrap;
+    }
+    .toolTag .dot{width:7px;height:7px;border-radius:999px;background:#111827;opacity:.75}
+    .toolText{
+      margin:0;
+      color:#374151;
+      font-size:13.5px;
+      line-height:1.4;
+      font-weight:700;
+    }
+
+    .rule{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:12px 12px;
+      border:1px solid rgba(17,24,39,0.10);
+      border-radius:16px;
+      background:var(--butter2);
+    }
+    .rIcon{
+      width:32px;height:32px;border-radius:12px;
+      background:#ffffff;
+      border:1px solid rgba(17,24,39,0.10);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 32px;
+      box-shadow:0 8px 16px rgba(17,24,39,0.06);
+    }
+    .rIcon i{font-size:14px;color:#111827;opacity:.9}
+    .rText{
+      margin:0;
+      font-size:13.5px;
+      color:#111827;
+      line-height:1.45;
+      font-weight:800;
+    }
+
+    .progressPill{
+      position:absolute;
+      top:18px;right:18px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(17,24,39,0.10);
+      background:#fff;
+      font-size:12px;
+      color:#111827;
+      display:flex;align-items:center;gap:8px;
+      z-index:3;
+    }
+    .progressPill .miniDot{width:8px;height:8px;border-radius:999px;background:#111827;opacity:.75}
+
+    .bgShapes{position:absolute;inset:0;pointer-events:none;z-index:1;}
+    .shapeA{
+      position:absolute;
+      left:-140px;bottom:-160px;
+      width:440px;height:440px;
+      border-radius:96px;
+      background:var(--butter);
+      opacity:0.25;
+      border:1px solid rgba(17,24,39,0.06);
+      transform:rotate(10deg);
+    }
+    .shapeB{
+      position:absolute;
+      right:-170px;top:-170px;
+      width:480px;height:480px;
+      border-radius:98px;
+      background:#ffffff;
+      opacity:0.55;
+      border:1px solid rgba(17,24,39,0.08);
+      transform:rotate(-8deg);
+    }
+    .shapeC{
+      position:absolute;
+      right:110px;bottom:90px;
+      width:220px;height:220px;
+      border-radius:999px;
+      background:#ffffff;
+      opacity:0.55;
+      border:1px solid rgba(17,24,39,0.10);
+    }
+
+    .navBtn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(17,24,39,0.12);
+      background:#ffffff;
+      box-shadow:0 10px 18px rgba(17,24,39,0.08);
+      color:#111827;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:-0.01em;
+      transition:transform .16s ease, opacity .16s ease, box-shadow .16s ease;
+      max-width:260px;
+    }
+    .navBtn:hover{transform:translateY(-2px);box-shadow:0 14px 26px rgba(17,24,39,0.10);}
+    .navBtn .label{margin:0;font-size:16px;white-space:nowrap;}
+    .navBtn .muted{margin:0;font-size:12px;color:#374151;opacity:.75;font-weight:700;letter-spacing:0.01em;white-space:nowrap;}
+    .navStack{display:flex;flex-direction:column;line-height:1.05}
+  </style>
+</head>
+<body style="">
+<div class="slide">
+<header class="header">
+<p class="hdrText"><strong>EduuAspire21.0 Skills</strong> <span>|</span> 21st Century Skills <span>|</span> Digital Literacy</p>
+</header>
+<main class="main" style="transform: translate(-2.75072px, -23.3811px);">
+<section class="frame">
+<div aria-hidden="true" class="bgShapes">
+<div class="shapeA"></div>
+<div class="shapeB"></div>
+<div class="shapeC"></div>
+</div>
+
+<div class="content" style="transform: translate(-1.37536px, -12.3783px);">
+<div class="left">
+
+<div>
+<p class="title" style="position: relative; transform: translate(-4.12608px, -12.3781px);">Avoiding Plagiarism</p>
+
+</div>
+<div aria-label="Checklist to avoid plagiarism" class="checklist" role="list">
+<div class="cItem" role="listitem" style="position: relative; transform: translate(0px, -20.6304px);">
+<div class="cCheck"><i class="fa-solid fa-pen-nib"></i></div>
+<div style="min-width:0;">
+<p class="cTitle">Paraphrasing</p>
+<p class="cText">Rewrite the idea in your own structure and wording, then compare with the source to confirm you didn’t copy phrasing.</p>
+<div aria-label="Paraphrasing tips" class="pillRow">
+<div class="pill"><i class="fa-solid fa-arrows-rotate"></i><p style="margin:0;">Change structure</p></div>
+<div class="pill"><i class="fa-solid fa-layer-group"></i><p style="margin:0;">Keep meaning</p></div>
+
+</div>
+</div>
+</div>
+<div class="cItem" role="listitem" style="position: relative; transform: translate(-2.75072px, -26.1318px);">
+<div class="cCheck"><i class="fa-solid fa-quote-right"></i></div>
+<div style="min-width:0;">
+<p class="cTitle">Citations</p>
+<p class="cText">Any time an idea comes from a source, include an in-text citation and ensure the full reference appears in your bibliography.</p>
+<div aria-label="Citation reminders" class="pillRow">
+<div class="pill"><i class="fa-solid fa-link"></i><p style="margin:0;">Cite ideas</p></div>
+<div class="pill"><i class="fa-solid fa-file-lines"></i><p style="margin:0;">Cite quotes</p></div>
+<div class="pill"><i class="fa-solid fa-list-check"></i><p style="margin:0;">Match bibliography</p></div>
+<div class="pill"><i class="fa-solid fa-tag"></i><p style="margin:0;">Use style: <span class="mono">APA</span>/<span class="mono">MLA</span>/<span class="mono">Chicago</span></p></div>
+</div>
+</div>
+</div>
+<div class="cItem" role="listitem">
+<div class="cCheck"><i class="fa-solid fa-shield-halved"></i></div>
+<div style="min-width:0;">
+<p class="cTitle">Use tools (Turnitin, Grammarly)</p>
+<p class="cText">Run a similarity check before submitting. Treat matches as a signal to revise paraphrasing, add citations, or use quotation marks.</p>
+<div aria-label="Tool use notes" class="pillRow">
+<div class="pill"><i class="fa-solid fa-magnifying-glass"></i><p style="margin:0;">Check similarity</p></div>
+<div class="pill"><i class="fa-solid fa-wrench"></i><p style="margin:0;">Fix before submit</p></div>
+<div class="pill"><i class="fa-solid fa-triangle-exclamation"></i><p style="margin:0;">Not a substitute for citing</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="right" style="position: relative; transform: translate(4.12608px, 31.6332px);">
+<div class="rightCard" style="position: relative; transform: translate(-5.50143px, -13.7536px);">
+<p class="rTitle">Toolbox</p>
+<div aria-label="Plagiarism detection tools" class="toolGrid">
+<div class="toolCard">
+<div class="toolTop">
+<div style="display:flex;gap:10px;align-items:flex-start;min-width:0;">
+<div class="toolIcon"><i class="fa-solid fa-file-shield"></i></div>
+<div style="min-width:0;">
+<p class="toolName">Turnitin</p>
+<p class="toolText">Similarity report for academic submissions.</p>
+</div>
+</div>
+<div class="toolTag"><span class="dot"></span><p style="margin:0;">Detect</p></div>
+</div>
+</div>
+<div class="toolCard">
+<div class="toolTop">
+<div style="display:flex;gap:10px;align-items:flex-start;min-width:0;">
+<div class="toolIcon"><i class="fa-solid fa-spell-check"></i></div>
+<div style="min-width:0;">
+<p class="toolName">Grammarly</p>
+<p class="toolText">Writing feedback + plagiarism check (plan-dependent).</p>
+</div>
+</div>
+<div class="toolTag"><span class="dot"></span><p style="margin:0;">Improve</p></div>
+</div>
+</div>
+</div>
+</div>
+
+
+</aside>
+</div>
+</section>
+</main>
+<nav aria-label="Topic navigation" class="nav">
+<a class="navBtn" href="f10.html">
+<i class="fa-solid fa-arrow-left"></i>
+<div class="navStack">
+<p class="label">&nbsp;Plagiarism</p>
+
+</div>
+</a>
+<a class="navBtn" href="f12.html">
+<div class="navStack" style="text-align:right;">
+<p class="label">Outcome&nbsp;</p>
+
+</div>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</nav>
+<footer class="footer">
+<p class="ftrText"><strong>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</strong></p>
+</footer>
+</div>
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') {
+      // Goes to next slide
+      window.location.href = 'f12.html'; 
+    } else if (e.key === 'ArrowLeft') {
+      // Goes to previous slide
+      window.location.href = 'f10.html';
+    }
+  });
+</script>
+
+
+</body></html>

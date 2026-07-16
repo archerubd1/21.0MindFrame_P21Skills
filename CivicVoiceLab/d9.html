@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Program Standards & Accreditation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f3f4f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* SLIDE */
+.slide{
+    width:1280px;
+    height:720px;
+    background:#ffffff;
+    position:relative;
+}
+
+/* HEADER */
+.header{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    color:#6b7280;
+    border-bottom:1px solid #eee;
+}
+
+/* CONTENT */
+.content{
+    position:absolute;
+    top:80px;
+    bottom:120px;
+    width:100%;
+    padding:0 60px;
+}
+
+/* TITLE */
+.title{
+    font-size:34px;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+/* GRID */
+.layout{
+    display:grid;
+    grid-template-columns: 1fr 400px 1fr;
+    align-items:center;
+    gap:20px;
+}
+
+/* TEXT BLOCK */
+.block{
+    margin-bottom:30px;
+}
+
+.block h3{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:8px;
+    color:#2f6f6b;
+}
+
+.block p{
+    font-size:13px;
+    color:#6b7280;
+    line-height:1.5;
+}
+
+/* CENTER GRAPHIC */
+.center{
+    position:relative;
+    width:350px;
+    height:350px;
+    margin:auto;
+}
+
+/* LOOP CIRCLES */
+.circle{
+    position:absolute;
+    width:110px;
+    height:110px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    color:#555;
+    background:#fff;
+}
+
+.circle.dark{
+    border:14px solid #2f6f6b;
+}
+
+.circle.light{
+    border:14px solid #90a4ae;
+}
+
+/* POSITIONS */
+.c1{ top:0; left:120px; }
+.c2{ top:120px; left:0; }
+.c3{ top:120px; right:0; }
+.c4{ bottom:0; left:50px; }
+.c5{ bottom:0; right:50px; }
+
+/* CONNECTING LINES */
+.line{
+    position:absolute;
+    width:14px;
+    background:#90a4ae;
+}
+
+
+
+/* NAVBAR */
+.navbar{
+    position:absolute;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    padding:10px 25px;
+    display:flex;
+    justify-content:space-between;
+    background:#f1f5f9;
+    backdrop-filter:blur(8px);
+    border-radius:10px;
+}
+
+.nav-link{
+    cursor:pointer;
+    font-size:14px;
+}
+
+.next{
+    color:#7c3aed;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:#6b7280;
+    border-top:1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+    <!-- HEADER -->
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="title">Program Standards & Accreditation</div>
+
+        <div class="layout">
+
+            <!-- LEFT -->
+            <div>
+                <div class="block">
+                    <h3>UNESCO Framework Alignment</h3>
+                    <p>
+                        Aligned with UNESCO Digital Citizenship Framework and 21st Century Learning Competencies standards for global education excellence.
+                    </p>
+                </div>
+
+                <div class="block">
+                    <h3>EduuAspire21.0 Compliance</h3>
+                    <p>
+                        Compliant with EduuAspire21.0 Skills taxonomy ensuring Applied Competence certification and industry-recognized credentials.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CENTER GRAPHIC -->
+            <div class="center">
+
+                <div class="circle light c1">⬜</div>
+                <div class="circle dark c2">💰</div>
+                <div class="circle light c3">💼</div>
+                <div class="circle light c4">📚</div>
+                <div class="circle dark c5">🌐</div>
+
+                <div class="line l1"></div>
+                <div class="line l2"></div>
+                <div class="line l3"></div>
+
+            </div>
+
+            <!-- RIGHT -->
+            <div>
+                <div class="block">
+                    <h3>Research-Backed Innovation</h3>
+                    <p>
+                        Supported by Astrl Mind Technologies research and pedagogical innovation team expertise and resources.
+                    </p>
+                </div>
+
+                <div class="block">
+                    <h3>Scalable Integration Model</h3>
+                    <p>
+                        Scalable model for integration into college curricula, youth centers, and community organizations nationwide.
+                    </p>
+                </div>
+
+                <div class="block">
+                    <h3>Regional Recognition</h3>
+                    <p>
+                        Recognized by regional education ministries and industry bodies validating program quality and credibility standards.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Outcomes</div>
+        <div class="nav-link next" onclick="next()">Call to action →</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+
+<script>
+function next() {
+    window.location.href = "d10.html";
+}
+
+function prev() {
+    window.location.href = "d8.html";
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+});
+</script>
+
+</body>
+</html>

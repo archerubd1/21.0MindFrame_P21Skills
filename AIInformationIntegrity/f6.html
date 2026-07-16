@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AI &amp; Information Integrity: Hallucination Risk</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        :root {
+            --bg-purple: #f0e6fa; /* Soft purple background */
+            --bg-dark-purple: #e0d0f0;
+            --text-dark: #2d2d2d;
+            --glass-bg: rgba(240, 230, 250, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --accent-white: rgba(255, 255, 255, 0.6);
+            --card-border: rgba(45, 45, 45, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-dark-purple);
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: var(--bg-purple);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .header {
+            padding: 24px 48px;
+            border-bottom: 1px solid rgba(45, 45, 45, 0.1);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 100px 120px 100px; /* 120px bottom padding to clear nav and footer */
+            z-index: 10;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            line-height: 1.2;
+            font-weight: 800;
+            margin: 0 0 32px 0;
+            letter-spacing: -0.02em;
+            color: var(--text-dark);
+        }
+
+        .spotlight-layout {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+            margin-bottom: 32px;
+            min-height: 0; /* Ensure flex children can shrink */
+        }
+
+        .spotlight-main {
+            flex: 0.45;
+            background: var(--text-dark);
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-main::after {
+            content: '\f071';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: -20px;
+            bottom: -30px;
+            font-size: 12rem;
+            opacity: 0.05;
+            color: #ffffff;
+        }
+
+        .spotlight-icon {
+            font-size: 3rem;
+            color: var(--bg-purple);
+            margin-bottom: 24px;
+        }
+
+        .spotlight-main h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            line-height: 1.2;
+        }
+
+        .spotlight-main p {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin: 0;
+        }
+
+        .spotlight-details {
+            flex: 0.55;
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .detail-card {
+            background: var(--accent-white);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 24px 32px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .detail-card h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 16px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .detail-card h3 i {
+            color: rgba(45, 45, 45, 0.6);
+        }
+
+        .domain-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .domain-tag {
+            background: rgba(45, 45, 45, 0.05);
+            border: 1px solid rgba(45, 45, 45, 0.2);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        .stressor-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .stressor-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            font-size: 1.125rem;
+            line-height: 1.5;
+            color: rgba(45, 45, 45, 0.85);
+        }
+
+        .stressor-list li i {
+            color: var(--text-dark);
+            margin-top: 4px;
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        .stressor-list li p {
+            font-weight: 500;
+        }
+
+        .takeaway-banner {
+            background: var(--text-dark);
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-shrink: 0;
+        }
+
+        .takeaway-icon {
+            font-size: 2rem;
+            color: var(--bg-purple);
+        }
+
+        .takeaway-text-container {
+            flex: 1;
+        }
+
+        .takeaway-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            color: rgba(240, 230, 250, 0.7);
+        }
+
+        .takeaway-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .glass-nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid var(--glass-border);
+            position: absolute;
+            bottom: 40px; /* Above the 40px footer */
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 48px;
+            z-index: 20;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            opacity: 0.6;
+        }
+
+        .nav-link.prev:hover {
+            transform: translateX(-4px);
+        }
+
+        .nav-link.next:hover {
+            transform: translateX(4px);
+        }
+
+        .footer {
+            height: 40px;
+            background-color: var(--bg-purple);
+            border-top: 1px solid rgba(45, 45, 45, 0.1);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            z-index: 30;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: rgba(45, 45, 45, 0.7);
+        }
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Header -->
+<header class="header">
+<div>
+<p>EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<div>
+<p>Hallucination Risk</p>
+</div>
+</header>
+<!-- Main Content -->
+<main class="main-content">
+<div>
+<h1 style="position: relative; transform: translate(0px, -17.8797px);">The Hallucination Risk</h1>
+</div>
+<div class="spotlight-layout">
+<!-- Left Spotlight Panel -->
+<div class="spotlight-main" style="transform: translate(1.37536px, -44.0115px);">
+<div class="spotlight-icon">
+<i class="fa-solid fa-triangle-exclamation"></i>
+</div>
+<div>
+<h2>Confident &amp; Plausible</h2>
+</div>
+<div>
+<p>Models generate plausible but unverifiable outputs, bypassing human skepticism.</p>
+</div>
+</div>
+<!-- Right Detail Panels -->
+<div class="spotlight-details">
+<!-- Domains -->
+<div class="detail-card" style="position: relative; transform: translate(-2.75072px, -39.8854px);">
+<div>
+<h3><i class="fa-solid fa-building-columns"></i> High-Risk Domains</h3>
+</div>
+<div class="domain-tags">
+<div class="domain-tag"><p>Finance</p></div>
+<div class="domain-tag"><p>Legal</p></div>
+<div class="domain-tag"><p>Compliance</p></div>
+<div class="domain-tag"><p>Healthcare</p></div>
+</div>
+</div>
+<!-- Stressors -->
+<div class="detail-card" style="position: relative; transform: translate(-4.12607px, -45.3868px);">
+<div>
+<h3><i class="fa-solid fa-bolt"></i> Systemic Stressors</h3>
+</div>
+<ul class="stressor-list">
+<li>
+<i class="fa-solid fa-arrow-right"></i>
+<div><p>Long-context prompts dilute attention mechanisms.</p></div>
+</li>
+<li>
+<i class="fa-solid fa-arrow-right"></i>
+<div><p>Retrieval gaps force models to extrapolate.</p></div>
+</li>
+<li>
+<i class="fa-solid fa-arrow-right"></i>
+<div><p>Weak system constraints allow uncertain answers.</p></div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Takeaway Banner -->
+<div class="takeaway-banner">
+<div class="takeaway-icon">
+<i class="fa-solid fa-ban"></i>
+</div>
+<div class="takeaway-text-container">
+<div>
+<p class="takeaway-label">Strategic Takeaway</p>
+</div>
+<div>
+<p class="takeaway-text">Prohibit ungated AI use in high-risk domains without strict validation.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Glassmorphism Navigation -->
+<nav class="glass-nav">
+<a class="nav-link prev" href="f5.html" id="nav-prev">
+<p>← Risk Landscape</p>
+</a>
+<a class="nav-link next" href="f7.html" id="nav-next">
+<p>Case Insight →</p>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="footer">
+<div>
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+<div>
+<p>Slide 6 of 15</p>
+</div>
+</footer>
+</div>
+<!-- Keyboard Navigation Script -->
+<script>
+        document.addEventListener('keydown', function(event) {
+            const activeElement = document.activeElement;
+            const isInput = activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA' || activeElement.isContentEditable;
+            
+            if (isInput) return;
+
+            if (event.key === 'ArrowRight') {
+                const nextLink = document.getElementById('nav-next');
+                if (nextLink) {
+                    window.location.href = nextLink.getAttribute('href');
+                }
+            }
+            
+            if (event.key === 'ArrowLeft') {
+                const prevLink = document.getElementById('nav-prev');
+                if (prevLink) {
+                    window.location.href = prevLink.getAttribute('href');
+                }
+            }
+        });
+    </script>
+
+</body></html>

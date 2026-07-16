@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Needs vs Wants</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background: #0f0f0f;
+    border-bottom: 2px solid gold;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0f0f0f;
+    border-top: 1px solid #222;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 12px;
+}
+
+/* CENTER AREA */
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SLIDE */
+.slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    transform-origin: center center;
+}
+
+/* TITLE */
+.title {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    text-align: center;
+    font-size: 44px;
+    color: gold;
+}
+
+/* CARDS */
+.card {
+    position: absolute;
+    width: 480px;
+    height: 320px;
+    border-radius: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.needs {
+    left: 140px;
+    top: 200px;
+    border: 2px solid #39FF14;
+    background: rgba(57,255,20,0.08);
+}
+
+.wants {
+    right: 140px;
+    top: 200px;
+    border: 2px solid gold;
+    background: rgba(255,215,0,0.08);
+}
+
+/* LIST */
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+/* RULE */
+.rule {
+    position: absolute;
+    bottom: 110px;
+    left: 240px;
+    width: 800px;
+    text-align: center;
+    border: 2px solid gold;
+    border-radius: 30px;
+    padding: 15px;
+    font-size: 22px;
+}
+
+/* NAV BUTTONS */
+button {
+    position: absolute;
+    bottom: 40px;
+    padding: 10px 20px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.left { left: 20px; }
+.right { right: 20px; }
+
+button:hover {
+    background: gold;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+</div>
+
+<div id="wrapper">
+<div class="slide">
+
+<div class="title">Needs vs Wants ⚖️</div>
+
+<div class="card needs">
+<h2 style="color:#39FF14;text-align:center;">Needs</h2>
+<ul>
+<li>✔ Food & Water</li>
+<li>✔ Clothes</li>
+<li>✔ Shelter</li>
+</ul>
+</div>
+
+<div class="card wants">
+<h2 style="color:gold;text-align:center;">Wants</h2>
+<ul>
+<li>⭐ Toys</li>
+<li>⭐ Video Games</li>
+<li>⭐ Chocolates</li>
+</ul>
+</div>
+
+<div class="rule">
+<span style="color:gold;">Golden Rule:</span> Needs come first!
+</div>
+
+<button class="left" onclick="goBack()">← Why Money Matters</button>
+<button class="right" onclick="goNext()">Interactive Quiz →</button>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+<script>
+// SCALE (FIXED HEADER/FOOTER SAFE)
+function scaleSlide() {
+    const slide = document.querySelector('.slide');
+
+    const availableWidth = window.innerWidth;
+    const availableHeight = window.innerHeight - 85; // header + footer space
+
+    const scale = Math.min(availableWidth / 1280, availableHeight / 720);
+
+    slide.style.transform = `scale(${scale})`;
+}
+
+window.addEventListener("load", scaleSlide);
+window.addEventListener("resize", scaleSlide);
+
+// NAVIGATION
+function goNext() {
+    window.location.href = "f7.html";
+}
+
+function goBack() {
+    window.location.href = "f5.html";
+}
+
+// KEYBOARD NAVIGATION
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") goNext();
+    if (e.key === "ArrowLeft") goBack();
+});
+</script>
+
+</body>
+</html>

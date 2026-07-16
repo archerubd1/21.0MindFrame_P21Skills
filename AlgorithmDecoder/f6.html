@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Filter Bubbles - Slide 6</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+       
+         body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #0f0f0f;
+    font-family: 'Open Sans', sans-serif;
+
+    display: flex;              /* 🔥 ADD THIS */
+    justify-content: center;    /* 🔥 CENTER HORIZONTALLY */
+    align-items: center;        /* 🔥 CENTER VERTICALLY */
+    height: 100vh;              /* 🔥 FULL SCREEN HEIGHT */
+}
+     
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #065f46 0%, #047857 50%, #059669 100%);
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #059669;
+        }
+        
+        .header-divider {
+            width: 1px;
+            height: 20px;
+            background: #e5e7eb;
+        }
+        
+        .header-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #374151;
+            font-weight: 500;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-badge {
+            background: #059669;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+    .main-content {
+    position: absolute;
+    top: 70px;
+    bottom: 120px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+        
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            max-width: 1100px;
+        }
+        
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .filter-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 24px;
+        }
+        
+        .filter-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .issues-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+        
+        .issue-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .issue-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(239, 68, 68, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #ef4444;
+            flex-shrink: 0;
+        }
+        
+        .issue-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .issue-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+        
+        .issue-desc {
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .insight-box {
+            background: rgba(251, 191, 36, 0.2);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+        }
+        
+        .insight-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .insight-icon {
+            font-size: 16px;
+            color: #fbbf24;
+        }
+        
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 204, 170, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 1000;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #065f46;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            z-index: 1000;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+        }
+        
+        .footer-brand {
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Decorative Elements */
+        .decoration-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            pointer-events: none;
+        }
+        
+        .decoration-circle-1 {
+            width: 200px;
+            height: 200px;
+            top: 100px;
+            right: 100px;
+        }
+        
+        .decoration-circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 150px;
+            left: 80px;
+        }
+        
+        /* Bubble visualization */
+        .bubble-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+        
+        .bubble {
+            background: rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 8px 16px;
+            font-size: 12px;
+            color: white;
+        }
+        
+        .bubble.active {
+            background: rgba(59, 130, 246, 0.3);
+            border: 1px solid rgba(59, 130, 246, 0.5);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header">
+<div class="header-left">
+<div class="header-logo">EduuAspire21.0</div>
+<div class="header-divider"></div>
+<div class="header-text">21st Century Skills | Media Literacy</div>
+</div>
+<div class="header-right">
+<div class="header-badge">Workshop Module</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="section-title">Filter Bubbles</div>
+<div class="content-wrapper">
+<div class="left-section">
+<div class="filter-box">
+<div class="filter-text">
+<strong>Algorithms create a personal content bubble.</strong> You only see content based on your interests, hiding diverse perspectives and limiting your understanding of reality.
+</div>
+<div class="issues-grid">
+<div class="issue-item">
+<div class="issue-icon">
+<i class="fas fa-eye-slash"></i>
+</div>
+<div class="issue-content">
+<div class="issue-title">Hidden perspectives</div>
+<div class="issue-desc">Opposing views are filtered out</div>
+</div>
+</div>
+<div class="issue-item">
+<div class="issue-icon">
+<i class="fas fa-globe"></i>
+</div>
+<div class="issue-content">
+<div class="issue-title">Limited reality</div>
+<div class="issue-desc">Narrow view of the world</div>
+</div>
+</div>
+</div>
+<div class="insight-box">
+<div class="insight-text">
+<i class="fas fa-lightbulb insight-icon"></i>
+<span><strong>You think you're seeing everything—but you're not.</strong></span>
+</div>
+</div>
+</div>
+</div>
+<div class="right-section">
+<div class="filter-box">
+<div class="filter-text">
+<strong>Your bubble includes:</strong>
+</div>
+<div class="bubble-container">
+<div class="bubble active">Your interests</div>
+<div class="bubble">Similar content</div>
+<div class="bubble" style="margin-right: 16px;">Engaged posts</div>
+<div class="bubble active">Your location</div>
+<div class="bubble">Past behavior</div>
+<div class="bubble">Liked content</div>
+</div>
+</div>
+<div class="issue-item" style="margin-top: 20px;">
+<div class="issue-icon" style="background: rgba(59, 130, 246, 0.2); color: #3b82f6;">
+<i class="fas fa-filter"></i>
+</div>
+<div class="issue-content">
+<div class="issue-title">Content filtering</div>
+<div class="issue-desc">Algorithms filter based on your profile</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navigation">
+<a class="nav-item" href="f5.html">
+<span class="nav-text">← Clickbait Patterns</span>
+</a>
+<a class="nav-item" href="f7.html">
+<span class="nav-text">Algorithm Audit →</span>
+</a>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div class="footer-text">
+                Licenced &amp; Powered By <span class="footer-brand">Astrl Mind Technologies</span> copyright 2026-2033
+            </div>
+</div>
+<!-- Decorative Elements -->
+<div class="decoration-circle decoration-circle-1"></div>
+<div class="decoration-circle decoration-circle-2"></div>
+</div>
+<script src="script.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function () {
+
+    document.addEventListener("keydown", function(e) {
+
+        let current = window.location.pathname.match(/f(\d+)\.html/);
+        if (!current) return;
+
+        let index = parseInt(current[1]);
+
+        if (e.key === "ArrowRight") {
+            window.location.href = `f${index + 1}.html`;
+        }
+
+        if (e.key === "ArrowLeft" && index > 1) {
+            window.location.href = `f${index - 1}.html`;
+        }
+
+    });
+
+});</script>
+
+
+</body>
+</html>

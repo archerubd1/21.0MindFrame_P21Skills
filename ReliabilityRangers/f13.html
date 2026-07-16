@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Reliability Rangers - Seal of Approval Activity</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    background: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background: #0B132B;
+}
+
+/* ---------- Criteria Cards ---------- */
+.criteria-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+.criteria-card:hover {
+    transform: translateX(8px);
+    background: rgba(255,255,255,0.1);
+}
+
+.criteria-card.active {
+    background: rgba(58,134,255,0.15);
+    border-color: #3A86FF;
+}
+
+/* Check Circle */
+.check-circle {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 2px solid #64748B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 20px;
+    color: transparent;
+    transition: 0.3s;
+}
+
+.criteria-card.active .check-circle {
+    background: #3A86FF;
+    border-color: #3A86FF;
+    color: white;
+}
+
+/* ---------- Seal ---------- */
+#seal-wrapper {
+    position: absolute;
+    left: 740px;
+    top: 180px;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(28,37,65,0.6);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+#seal-icon {
+    font-size: 220px;
+    color: #FFD166;
+    opacity: 0.3;
+    transform: scale(0.9);
+    transition: 0.5s;
+}
+
+#seal-icon.approved {
+    opacity: 1;
+    transform: scale(1.1);
+    text-shadow: 0 0 25px rgba(255,209,102,0.6);
+}
+
+/* Glow */
+#seal-wrapper.approved {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(255,209,102,0.5); }
+    70% { box-shadow: 0 0 0 25px rgba(255,209,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(255,209,102,0); }
+}
+
+/* ---------- Status Text ---------- */
+#seal-status {
+    position: absolute;
+    top: 510px;
+    left: 740px;
+    width: 400px;
+    text-align: center;
+    color: #94A3B8;
+    transition: 0.3s;
+}
+
+#seal-status.approved {
+    color: #FFD166;
+}
+
+/* ---------- Navigation ---------- */
+.nav-bar {
+    position: absolute;
+    left: 140px;
+    bottom: 60px;
+    width: 1000px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    border-radius: 12px;
+    background: rgba(255,204,170,0.5);
+    backdrop-filter: blur(10px);
+}
+</style>
+</head>
+
+<body>
+<div class="slide-container">
+
+<!-- TITLE -->
+<h1 style="position:absolute; left:100px; top:80px; color:#fff; font-size:38px;">
+Seal of Approval Activity
+</h1>
+
+<p style="position:absolute; left:100px; top:140px; color:#94A3B8;">
+Verify all conditions to unlock the seal.
+</p>
+
+<!-- CRITERIA -->
+<div class="criteria-card" id="c1" onclick="toggle('c1')" style="position:absolute; left:100px; top:220px; width:540px;">
+<div class="check-circle"><i class="fas fa-check"></i></div>
+<div>
+<h3 style="margin:0; color:#fff;">Author Verified</h3>
+<p style="margin:0; font-size:13px; color:#94A3B8;">Credible & qualified?</p>
+</div>
+</div>
+
+<div class="criteria-card" id="c2" onclick="toggle('c2')" style="position:absolute; left:100px; top:340px; width:540px;">
+<div class="check-circle"><i class="fas fa-check"></i></div>
+<div>
+<h3 style="margin:0; color:#fff;">Up-to-Date</h3>
+<p style="margin:0; font-size:13px; color:#94A3B8;">Recent info?</p>
+</div>
+</div>
+
+<div class="criteria-card" id="c3" onclick="toggle('c3')" style="position:absolute; left:100px; top:460px; width:540px;">
+<div class="check-circle"><i class="fas fa-check"></i></div>
+<div>
+<h3 style="margin:0; color:#fff;">Cross-Checked</h3>
+<p style="margin:0; font-size:13px; color:#94A3B8;">Verified with other sources?</p>
+</div>
+</div>
+
+<!-- SEAL -->
+<div id="seal-wrapper">
+<i id="seal-icon" class="fas fa-certificate"></i>
+</div>
+
+<div id="seal-status">
+<h2 id="status-title">Pending Review</h2>
+<p id="status-sub">Complete all steps</p>
+</div>
+
+<!-- NAV -->
+<div class="nav-bar">
+<a href="f12.html">⬅ Evaluate Sources</a>
+<span>Activity</span>
+<a href="f14.html">Next ➡</a>
+</div>
+
+</div>
+
+<script>
+function toggle(id){
+    document.getElementById(id).classList.toggle('active');
+    updateSeal();
+}
+
+function updateSeal(){
+    const active = document.querySelectorAll('.criteria-card.active').length;
+
+    const seal = document.getElementById('seal-icon');
+    const wrapper = document.getElementById('seal-wrapper');
+    const status = document.getElementById('seal-status');
+
+    const title = document.getElementById('status-title');
+    const sub = document.getElementById('status-sub');
+
+    if(active === 3){
+        seal.classList.add('approved');
+        wrapper.classList.add('approved');
+        status.classList.add('approved');
+
+        title.innerText = "Seal Awarded!";
+        sub.innerText = "Reliability Verified";
+    } else {
+        seal.classList.remove('approved');
+        wrapper.classList.remove('approved');
+        status.classList.remove('approved');
+
+        title.innerText = "Pending Review";
+        sub.innerText = (3-active) + " step(s) remaining";
+    }
+}
+</script>
+
+</body>
+</html>

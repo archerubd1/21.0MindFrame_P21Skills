@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Call to Action</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f3f4f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* SLIDE */
+.slide{
+    width:1280px;
+    height:720px;
+    background:#fff;
+    position:relative;
+}
+
+/* HEADER */
+.header{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    color:#6b7280;
+    border-bottom:1px solid #eee;
+}
+
+/* CONTENT */
+.content{
+    position:absolute;
+    top:80px;
+    bottom:120px;
+    width:100%;
+    padding:0 60px;
+}
+
+/* TITLE */
+.title{
+    font-size:34px;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+/* TOP TEXT */
+.top{
+    display:flex;
+    justify-content:center;
+    gap:80px;
+    margin-bottom:30px;
+}
+
+.block{
+    width:320px;
+}
+
+.block h3{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.block p{
+    font-size:14px;
+    color:#6b7280;
+    line-height:1.5;
+}
+
+/* BOTTOM SECTION */
+.bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+/* LEFT + RIGHT TEXT */
+.side{
+    width:260px;
+}
+
+.side h3{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.side p{
+    font-size:14px;
+    color:#6b7280;
+    line-height:1.5;
+}
+
+/* SEMI CIRCLE GRAPH */
+.arc{
+    position:relative;
+    width:420px;
+    height:210px;
+    border-top-left-radius:420px;
+    border-top-right-radius:420px;
+    background:linear-gradient(90deg,#7c9c9c 25%,#9fb2b5 25% 50%,#b8c6c9 50% 75%,#d1dadd 75%);
+}
+
+/* INNER CIRCLE */
+.center-circle{
+    position:absolute;
+    bottom:-40px;
+    left:50%;
+    transform:translateX(-50%);
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    background:#2f6f6b;
+}
+
+/* NAVBAR */
+.navbar{
+    position:absolute;
+    bottom:30px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    padding:10px 25px;
+    display:flex;
+    justify-content:space-between;
+    background:#f1f5f9;
+    backdrop-filter:blur(8px);
+    border-radius:10px;
+}
+
+.nav-link{
+    cursor:pointer;
+    font-size:14px;
+}
+
+.next{
+    color:#7c3aed;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    position:absolute;
+    bottom:2%;
+    width:100%;
+    height:5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:#6b7280;
+    border-top:1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+    <!-- HEADER -->
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="title">Join Civic Voice Lab: Call to Action</div>
+
+        <!-- TOP -->
+        <div class="top">
+
+            <div class="block">
+                <h3>Program Benefits</h3>
+                <p>
+                    Receive 8-week structured mentorship, hands-on activism experience,
+                    and EduAspire21.0 recognized certification in digital citizenship.
+                </p>
+            </div>
+
+            <div class="block">
+                <h3>Your Success Package</h3>
+                <p>
+                    Develop portfolio-ready capstone projects, join ongoing alumni networks,
+                    and access exclusive career pathway support opportunities.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="bottom">
+
+            <div class="side">
+                <h3>Primary Call to Action</h3>
+                <p>
+                    Enroll in Civic Voice Lab and become an informed, responsible digital citizen
+                    building verified voices for social change.
+                </p>
+            </div>
+
+            <!-- GRAPH -->
+            <div class="arc">
+                <div class="center-circle"></div>
+            </div>
+
+            <div class="side">
+                <h3>Take Action Now</h3>
+                <p>
+                    Visit www.civicvoicelab.org and apply today. Limited spots available
+                    for college students and young leaders committed to impact.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Standrads</div>
+        <div class="nav-link next" onclick="next()"></div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+
+<script>
+function next() {
+    //window.location.href = "c2.html";
+}
+
+function prev() {
+    window.location.href = "d9.html";
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+});
+</script>
+
+</body>
+</html>

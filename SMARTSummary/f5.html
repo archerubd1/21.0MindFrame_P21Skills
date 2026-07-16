@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Smart Summarizer - Slide 5</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+/* FULL SCREEN FIX */
+.slide-wrapper {
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: #FFF6E9;
+    font-family: 'Poppins', sans-serif;
+
+    transform: scale(min(100vw / 1280, 100vh / 720));
+    transform-origin: top left;
+}
+
+p { margin: 0; line-height: 1.5; }
+ul { list-style: none; padding: 0; }
+
+li {
+    margin-bottom: 25px;
+    padding-left: 45px;
+    position: relative;
+}
+
+li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: #2ECC71;
+    font-size: 24px;
+}
+</style> 
+</head>
+
+<body>
+
+<div class="slide-wrapper">
+<div class="slide-container">
+
+<!-- BACKGROUND -->
+<div style="position:absolute; left:-100px; top:-100px; width:600px; height:600px; background:rgba(255,229,217,0.4); border-radius:50%;"></div>
+<div style="position:absolute; left:800px; top:300px; width:600px; height:600px; background:rgba(255,229,217,0.4); border-radius:50%;"></div>
+
+<!-- HEADER -->
+<div style="position:absolute; left:0; top:0; width:1280px; height:60px; background:rgba(255,255,255,0.8);"></div>
+<div style="position:absolute; left:40px; top:15px;">
+<p style="font-size:18px; color:#555;">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</p>
+</div>
+
+<!-- TITLE -->
+<div style="position:absolute; left:100px; top:110px;">
+<p style="font-size:48px; font-weight:700; color:#333; border-bottom:3px solid #D65A31;">
+Reliable Sources
+</p>
+</div>
+
+<!-- LEFT CONTENT -->
+<div style="position:absolute; left:100px; top:220px; width:600px;">
+<p style="font-size:24px; color:#666; margin-bottom:20px;">Use these trusted sources:</p>
+
+<ul style="font-size:26px; color:#444;">
+<li>
+<strong>Books</strong><br>
+<span style="font-size:20px; color:#666;">Library books by known authors.</span>
+</li>
+<li>
+<strong>Textbooks</strong><br>
+<span style="font-size:20px; color:#666;">Reviewed educational material.</span>
+</li>
+<li>
+<strong>Trusted Websites</strong><br>
+<span style="font-size:20px; color:#666;">.edu, .gov, .org domains.</span>
+</li>
+</ul>
+</div>
+
+<!-- RIGHT BOX -->
+<div style="position:absolute; left:750px; top:220px; width:430px; height:320px; background:#fff; border-radius:20px; border-left:10px solid #E74C3C;"></div>
+
+<div style="position:absolute; left:790px; top:240px; width:350px; text-align:center;">
+<p style="font-size:32px; font-weight:700; color:#E74C3C;">AVOID</p>
+</div>
+
+<div style="position:absolute; left:915px; top:300px;">
+<i class="fa-solid fa-triangle-exclamation" style="font-size:80px; color:#E74C3C;"></i>
+</div>
+
+<div style="position:absolute; left:790px; top:410px; width:350px; text-align:center;">
+<p style="font-size:26px; font-weight:600;">Random Sources</p>
+<p style="font-size:18px; color:#666;">Unverified blogs or social media.</p>
+</div>
+
+<!-- NAV BAR -->
+<div style="position:absolute; left:0; top:600px; width:1280px; height:80px; background:rgba(255,204,170,0.5); backdrop-filter:blur(10px);"></div>
+
+<!-- ✅ PREVIOUS -->
+<a href="f4.html" style="text-decoration:none;">
+<div style="position:absolute; left:40px; top:615px; width:240px; height:50px; background:rgba(255,255,255,0.8); border-radius:25px; display:flex; align-items:center; justify-content:center;">
+<span style="font-size:18px; font-weight:600; color:#D65A31;">
+← Smart Questions
+</span>
+</div>
+</a>
+
+<!-- ✅ NEXT -->
+<a href="f6.html" style="text-decoration:none;">
+<div style="position:absolute; left:980px; top:615px; width:260px; height:50px; background:rgba(255,255,255,0.8); border-radius:25px; display:flex; align-items:center; justify-content:center;">
+<span style="font-size:18px; font-weight:600; color:#D65A31;">
+Key Points →
+</span>
+</div>
+</a>
+
+<!-- FOOTER -->
+<div style="position:absolute; left:0; top:680px; width:1280px; height:40px; background:#fff;"></div>
+<div style="position:absolute; top:690px; width:100%; text-align:center;">
+<p style="font-size:12px; color:#888;">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</p>
+</div>
+
+</div>
+</div>
+
+<!-- KEYBOARD NAV -->
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f6 (next slide)
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f6.html';
+    }
+
+    // LEFT → f4 (previous slide)
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f4.html';
+    }
+
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Program Overview - The Virtual Team Lab</title>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* 🔥 CENTER FIX */
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+}
+        
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f4ff 50%, #f5f0ff 100%);
+        }
+        
+        /* Header Bar */
+        .header-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a5f;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .header-separator {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        .header-item {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Footer Bar */
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .footer-left {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        /* Main Content */
+        .main-content {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            padding: 40px;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            height: 100%;
+            gap: 40px;
+        }
+        
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .page-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 30px;
+            letter-spacing: -0.5px;
+        }
+        
+        .bullet-list {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .bullet-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            background: white;
+            padding: 15px 20px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .bullet-icon {
+            width: 40px;
+            height: 40px;
+            background: #e0f2fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .bullet-icon i {
+            color: #3b82f6;
+            font-size: 16px;
+        }
+        
+        .bullet-content {
+            flex: 1;
+        }
+        
+        .bullet-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 5px;
+        }
+        
+        .bullet-desc {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+        
+        /* Illustration */
+        .illustration-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tech-illustration {
+            position: relative;
+            width: 400px;
+            height: 300px;
+        }
+        
+        .cloud-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 150px;
+            height: 100px;
+            background: white;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .cloud-icon i {
+            font-size: 60px;
+            color: #3b82f6;
+        }
+        
+        .team-members {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .member {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .member i {
+            font-size: 20px;
+            color: #64748b;
+        }
+        
+        .member-1 {
+            top: 20px;
+            left: 50px;
+        }
+        
+        .member-2 {
+            top: 20px;
+            right: 50px;
+        }
+        
+        .member-3 {
+            bottom: 20px;
+            left: 50px;
+        }
+        
+        .member-4 {
+            bottom: 20px;
+            right: 50px;
+        }
+        
+        .connection-line {
+            position: absolute;
+            height: 2px;
+            background: #3b82f6;
+            opacity: 0.3;
+        }
+        
+        .line-1 {
+            width: 100px;
+            top: 45px;
+            left: 100px;
+            transform: rotate(15deg);
+        }
+        
+        .line-2 {
+            width: 100px;
+            top: 45px;
+            right: 100px;
+            transform: rotate(-15deg);
+        }
+        
+        .line-3 {
+            width: 100px;
+            bottom: 45px;
+            left: 100px;
+            transform: rotate(-15deg);
+        }
+        
+        .line-4 {
+            width: 100px;
+            bottom: 45px;
+            right: 100px;
+            transform: rotate(15deg);
+        }
+        
+        /* Navigation */
+            
+        .nav-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #64748b;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        
+        .nav-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        .nav-btn.next {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .nav-btn.next:hover {
+            background: #2563eb;
+        }
+        
+        .data-object {
+            position: absolute;
+        }
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background: #f1f5f9;
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-bar">
+<div class="header-left">
+<div class="header-logo">EduuAspire21.0 Skills</div>
+<div class="header-separator">|</div>
+<div class="header-item">21st Century Skills</div>
+<div class="header-separator">|</div>
+<div class="header-item">Digital Literacy</div>
+</div>
+<div class="header-right">
+<div class="header-badge">Active</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="content-wrapper">
+<div class="left-column">
+<div class="page-title">Program Overview</div>
+<div class="bullet-list">
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-laptop"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">Virtual Team-Based Lab</div>
+<div class="bullet-desc">A simulated remote work environment where students collaborate in small squads to complete real-world projects using industry-standard tools.</div>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-users"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">Hands-On Collaboration</div>
+<div class="bullet-desc">Practice teamwork, communication, and project management skills in a controlled virtual setting with peer feedback.</div>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-cloud"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">Cloud-First Tools</div>
+<div class="bullet-desc">Master essential digital tools including Google Workspace, Slack, Trello, and Git for modern workplace readiness.</div>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-sync"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">Sprint Cycles</div>
+<div class="bullet-desc">Experience agile workflows with stand-ups, retrospectives, and iterative development processes.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="right-column">
+<div class="illustration-container">
+<div class="tech-illustration">
+<div class="cloud-icon">
+<i class="fas fa-cloud"></i>
+</div>
+<div class="team-members">
+<div class="member member-1">
+<i class="fas fa-user"></i>
+</div>
+<div class="member member-2">
+<i class="fas fa-user"></i>
+</div>
+<div class="member member-3">
+<i class="fas fa-user"></i>
+</div>
+<div class="member member-4">
+<i class="fas fa-user"></i>
+</div>
+</div>
+<div class="connection-line line-1"></div>
+<div class="connection-line line-2"></div>
+<div class="connection-line line-3"></div>
+<div class="connection-line line-4"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 🔥 NAVIGATION -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Virtual team lab</div>
+    <div class="nav-link" onclick="next()">Importants →</div>
+</div>
+</div>
+<div class="nav-btn next" onclick="nextSlide()">
+<span>Next</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<div class="footer-left">
+<span>Licenced &amp; Powered By Astrl Mind Technologies</span>
+</div>
+<div class="footer-right">
+<span class="footer-text">© 2026–2033</span>
+</div>
+</div>
+</div>
+<script>
+
+// Navigation
+function next() {
+    window.location.href = "f3.html";   // ✅ FIXED
+}
+
+function prev() {
+    window.location.href = "f1.html";   // first slide fallback
+}
+
+// Keyboard
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+</script></body>
+</html>

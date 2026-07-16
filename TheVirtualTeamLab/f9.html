@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Outcomes - The Virtual Team Lab</title>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+}
+        
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f4ff 50%, #f5f0ff 100%);
+        }
+        
+        /* Header Bar */
+        .header-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a5f;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .header-separator {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        .header-item {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Footer Bar */
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .footer-left {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        /* Main Content */
+        .main-content {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 40px;
+        }
+        
+        .content-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .header-icon {
+            width: 60px;
+            height: 60px;
+            background: #e0f2fe;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .header-icon i {
+            font-size: 28px;
+            color: #3b82f6;
+        }
+        
+        .header-info {
+            flex: 1;
+        }
+        
+        .page-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+        
+        .page-subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+        
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+        
+        .outcome-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            transition: transform 0.2s ease;
+        }
+        
+        .outcome-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .check-icon {
+            width: 40px;
+            height: 40px;
+            background: #e0f2fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .check-icon i {
+            font-size: 18px;
+            color: #3b82f6;
+        }
+        
+        .outcome-content {
+            flex: 1;
+        }
+        
+        .outcome-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .outcome-desc {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+        
+        .status-tag {
+            display: inline-block;
+            padding: 2px 8px;
+            background: #e0f2fe;
+            color: #0369a1;
+            border-radius: 12px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        
+        /* Navigation */
+        .nav-controls {
+            position: absolute;
+            bottom: 60px;
+            right: 40px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #64748b;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        
+        .nav-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        .nav-btn.next {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .nav-btn.next:hover {
+            background: #2563eb;
+        }
+        
+        .data-object {
+            position: absolute;
+        }
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background: #f1f5f9;
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-bar">
+<div class="header-left">
+<div class="header-logo">EduuAspire21.0 Skills</div>
+<div class="header-separator">|</div>
+<div class="header-item">21st Century Skills</div>
+<div class="header-separator">|</div>
+<div class="header-item">Digital Literacy</div>
+</div>
+<div class="header-right">
+<div class="header-badge">Active</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="content-header">
+<div class="header-icon">
+<i class="fas fa-trophy"></i>
+</div>
+<div class="header-info">
+<div class="page-title">Program Outcomes</div>
+<div class="page-subtitle">What you'll achieve by completing this program</div>
+</div>
+</div>
+<div class="outcomes-grid">
+<!-- Outcome 1 -->
+<div class="outcome-card">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="outcome-content">
+<div class="outcome-title">
+<span>Completed Team Project</span>
+<span class="status-tag">Deliverable</span>
+</div>
+<div class="outcome-desc">Finish a real-world project with your team, applying all the skills learned throughout the program. The project will be ready for portfolio presentation.</div>
+</div>
+</div>
+<!-- Outcome 2 -->
+<div class="outcome-card">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="outcome-content">
+<div class="outcome-title">
+<span>Real-World Experience</span>
+<span class="status-tag">Experience</span>
+</div>
+<div class="outcome-desc">Gain practical experience working in a remote team environment, simulating actual workplace scenarios and challenges.</div>
+</div>
+</div>
+<!-- Outcome 3 -->
+<div class="outcome-card">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="outcome-content">
+<div class="outcome-title">
+<span>Portfolio-Ready Work</span>
+<span class="status-tag">Assets</span>
+</div>
+<div class="outcome-desc">Create portfolio-ready deliverables including project repositories, documentation, and visual assets for job applications.</div>
+</div>
+</div>
+<!-- Outcome 4 -->
+<div class="outcome-card">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="outcome-content">
+<div class="outcome-title">
+<span>Feedback + Micro-credential</span>
+<span class="status-tag">Certification</span>
+</div>
+<div class="outcome-desc">Receive detailed feedback on your performance and earn a micro-credential to showcase your new skills.</div>
+</div>
+</div>
+</div>
+<!-- 🔥 NAVIGATION -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Key Skills</div>
+    <div class="nav-link" onclick="next()">Conclusion →</div>
+</div>
+</div>
+<div class="nav-btn next" onclick="nextSlide()">
+<span>Next</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<div class="footer-left">
+<span>Licenced &amp; Powered By Astrl Mind Technologies</span>
+</div>
+<div class="footer-right">
+<span class="footer-text">© 2026–2033</span>
+</div>
+</div>
+</div>
+<script>
+
+// Navigation
+function next() {
+    window.location.href = "f10.html";   // ✅ FIXED
+}
+
+function prev() {
+    window.location.href = "f8.html";   // first slide fallback
+}
+
+// Keyboard
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+</script>
+</body>
+</html>

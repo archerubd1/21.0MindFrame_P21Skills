@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Influencer Audit - Misinformation Types</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+    margin: 0;
+    background: linear-gradient(135deg, #0f172a, #020617);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background: #0f172a;
+    font-family: 'Inter', sans-serif;
+
+    transform: scale(calc(100vw / 1280));
+    transform-origin: top left;
+}
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #0f172a;
+            border-bottom: 1px solid rgba(245,183,165,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .header-logo {
+            width: 32px;
+            height: 32px;
+            background: rgba(245,183,165,0.2);
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .header-logo i {
+            color: #f5b7a5;
+            font-size: 16px;
+        }
+        
+        .header-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        
+        .header-divider {
+            color: #475569;
+        }
+        
+        /* Main Content */
+        .main-content {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 120px;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 60px;
+            z-index: 10;
+        }
+        
+        .slide-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+        }
+        
+        .slide-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+        
+        .slide-subtitle {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+        
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            height: 100%;
+        }
+        
+        .left-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .right-column {
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .info-card {
+            background: rgba(30,41,59,0.8);
+            border: 1px solid rgba(245,183,165,0.2);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+        }
+        
+        .info-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(245,183,165,0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .info-icon i {
+            color: #f5b7a5;
+            font-size: 18px;
+        }
+        
+        .info-content {
+            flex: 1;
+        }
+        
+        .info-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        
+        .info-text {
+            font-size: 13px;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+        
+        .chart-container {
+            background: rgba(30,41,59,0.8);
+            border: 1px solid rgba(245,183,165,0.2);
+            border-radius: 12px;
+            padding: 20px;
+            height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .chart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .chart-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .chart-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: #f5b7a5;
+        }
+        
+        .chart-wrapper {
+            flex: 1;
+            position: relative;
+        }
+        
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+        
+        .stat-item {
+            background: rgba(30,41,59,0.8);
+            border: 1px solid rgba(245,183,165,0.2);
+            border-radius: 8px;
+            padding: 12px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 4px;
+        }
+        
+        .stat-value {
+            font-size: 16px;
+            font-weight: 600;
+            color: #ffffff;
+        }
+        
+        .stat-bar {
+            height: 4px;
+            background: rgba(245,183,165,0.2);
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+        
+        .stat-bar-fill {
+            height: 100%;
+            background: #f5b7a5;
+            border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            bottom: 60px;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(245,183,165,0.15);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(245,183,165,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .nav-text {
+            font-size: 14px;
+            color: #94a3b8;
+        }
+        
+        .nav-link {
+            font-size: 14px;
+            color: #f5b7a5;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        
+        .nav-link:hover {
+            opacity: 0.8;
+        }
+        
+        .nav-arrow {
+            color: #f5b7a5;
+            font-size: 16px;
+        }
+        
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: #94a3b8;
+        }
+        
+        /* Decorative Elements */
+        .decorative-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(245,183,165,0.1);
+            z-index: 1;
+        }
+        
+        .circle-1 {
+            width: 300px;
+            height: 300px;
+            top: -100px;
+            right: -100px;
+        }
+        
+        .circle-2 {
+            width: 200px;
+            height: 200px;
+            bottom: -50px;
+            left: -50px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header">
+<div class="header-left">
+<div class="header-logo">
+<i class="fas fa-chart-line"></i>
+</div>
+<span class="header-text">EduuAspire21.0 Skills</span>
+</div>
+<div class="header-right">
+<span>21st Century Skills</span>
+<span class="header-divider">|</span>
+<span>Media Literacy</span>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="slide-header">
+<div>
+<div class="slide-title">Misinformation Types</div>
+<div class="slide-subtitle">Understanding different forms of false information in digital media</div>
+</div>
+</div>
+<div class="content-wrapper">
+<div class="left-column">
+<div class="info-card">
+<div class="info-icon">
+<i class="fas fa-file-alt"></i>
+</div>
+<div class="info-content">
+<div class="info-title">Fabricated Content</div>
+<div class="info-text">Completely false information created to deceive, manipulate opinions, or spread confusion about real events or topics.</div>
+</div>
+</div>
+<div class="info-card">
+<div class="info-icon">
+<i class="fas fa-robot"></i>
+</div>
+<div class="info-content">
+<div class="info-title">AI-Generated Media</div>
+<div class="info-text">Synthetic content created by artificial intelligence, including text, images, and videos that appear authentic.</div>
+</div>
+</div>
+<div class="info-card">
+<div class="info-icon">
+<i class="fas fa-video"></i>
+</div>
+<div class="info-content">
+<div class="info-title">Deepfakes</div>
+<div class="info-text">Manipulated videos using AI to replace faces or voices, creating realistic but false visual content.</div>
+</div>
+</div>
+<div class="info-card">
+<div class="info-icon">
+<i class="fas fa-crop-alt"></i>
+</div>
+<div class="info-content">
+<div class="info-title">Context Distortion</div>
+<div class="info-text">Real content presented out of context to mislead about meaning, intent, or significance.</div>
+</div>
+</div>
+</div>
+<div class="right-column">
+<div class="chart-container">
+<div class="chart-header">
+<div class="chart-title">Misinformation Impact</div>
+<div class="chart-value">67%</div>
+</div>
+<div class="chart-wrapper">
+<canvas id="misinfoChart"></canvas>
+</div>
+</div>
+<div class="stat-grid">
+<div class="stat-item">
+<div class="stat-label">Detection Rate</div>
+<div class="stat-value">45%</div>
+<div class="stat-bar">
+<div class="stat-bar-fill" style="width: 45%;"></div>
+</div>
+</div>
+<div class="stat-item">
+<div class="stat-label">Spread Speed</div>
+<div class="stat-value">2.3x</div>
+<div class="stat-bar">
+<div class="stat-bar-fill" style="width: 70%;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navigation">
+<div class="nav-left">
+<span class="nav-arrow"><i class="fas fa-arrow-left"></i></span>
+<span class="nav-text">Previous Topic</span>
+<a class="nav-link" href="#">← Red Flags</a>
+</div>
+<div class="nav-right">
+<a class="nav-link" href="#">SIFT Method →</a>
+<span class="nav-text">Next Topic</span>
+<span class="nav-arrow"><i class="fas fa-arrow-right"></i></span>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div class="footer-text">
+                Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+            </div>
+</div>
+<!-- Decorative Elements -->
+<div class="decorative-circle circle-1"></div>
+<div class="decorative-circle circle-2"></div>
+<script>
+    const ctx = document.getElementById('misinfoChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Fabricated', 'AI-Generated', 'Deepfakes', 'Context Distortion'],
+            datasets: [{
+                data: [35, 25, 20, 20],
+                backgroundColor: [
+                    'rgba(245, 183, 165, 0.8)',
+                    'rgba(245, 183, 165, 0.6)',
+                    'rgba(245, 183, 165, 0.4)',
+                    'rgba(245, 183, 165, 0.2)'
+                ],
+                borderColor: 'rgba(245, 183, 165, 0.2)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        color: '#94a3b8',
+                        font: {
+                            size: 11
+                        }
+                    }
+                }
+            }
+        }
+    });
+</script>
+<script>
+// Keyboard Navigation
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f12.html';
+    }
+
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f10.html';
+    }
+
+});
+</script>
+</div>
+</body>
+</html>

@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Credit Score System</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+    body {
+    margin: 0;
+    background: #000; /* black sides (like presentation) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: #0B1F3A;
+    font-family: 'Inter', sans-serif;
+
+    transform: scale(calc(100vw / 1280));
+    transform-origin: top left;
+}
+        .nav-prev:hover,
+.nav-next:hover {
+    opacity: 0.6;
+    transform: translateY(-2px);
+}
+        </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 40px; top: 20px; width: 1200px; height: 40px; z-index: 10;">
+<p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+                EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+            </p>
+</div>
+<!-- Main Title -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 80px; width: 1160px; height: 90px; z-index: 10;">
+<h1 style="margin: 0; font-size: 42px; font-weight: 700; color: #FFFFFF; letter-spacing: -0.5px;">
+                Credit Score System
+            </h1>
+<p style="margin: 8px 0 0; font-size: 20px; font-weight: 300; color: #B0B8C4;">
+                Understanding the mechanics of FICO scoring and rapid improvement levers.
+            </p>
+</div>
+<!-- Decorative Line -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 175px; width: 100px; height: 4px; background-color: #FFDAB9; border-radius: 2px; z-index: 1;"></div>
+<!-- Left Column: Factors (Background) -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 210px; width: 560px; height: 390px; background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; z-index: 1;"></div>
+<!-- Left Column: Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 90px; top: 230px; width: 500px; height: 40px; z-index: 10;">
+<h3 style="margin: 0; font-size: 24px; color: #FFDAB9; font-weight: 600; display: flex; align-items: center;">
+<span style="background: rgba(255, 218, 185, 0.1); width: 36px; height: 36px; border-radius: 50%; display: flex; justify-content: center; align-items: center; margin-right: 12px; font-size: 16px;">
+<i class="fa-solid fa-chart-pie"></i>
+</span>
+                Scoring Factors (FICO)
+            </h3>
+</div>
+<!-- Left Column: Content Chart/List -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 90px; top: 290px; width: 500px; height: 290px; z-index: 10;">
+<div style="display: flex; flex-direction: column; gap: 18px;">
+<div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+<div style="display: flex; align-items: center;">
+<div style="width: 12px; height: 12px; background-color: #4CAF50; border-radius: 50%; margin-right: 10px;"></div>
+<p style="margin: 0; font-size: 16px; color: #E0E6ED;">Payment History</p>
+</div>
+<p style="margin: 0; font-size: 18px; color: #81C784; font-weight: 700;">35%</p>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+<div style="display: flex; align-items: center;">
+<div style="width: 12px; height: 12px; background-color: #2196F3; border-radius: 50%; margin-right: 10px;"></div>
+<p style="margin: 0; font-size: 16px; color: #E0E6ED;">Amounts Owed (Utilization)</p>
+</div>
+<p style="margin: 0; font-size: 18px; color: #64B5F6; font-weight: 700;">30%</p>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+<div style="display: flex; align-items: center;">
+<div style="width: 12px; height: 12px; background-color: #FFC107; border-radius: 50%; margin-right: 10px;"></div>
+<p style="margin: 0; font-size: 16px; color: #E0E6ED;">Length of History</p>
+</div>
+<p style="margin: 0; font-size: 18px; color: #FFD54F; font-weight: 700;">15%</p>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,0.05); padding-bottom: 8px;">
+<div style="display: flex; align-items: center;">
+<div style="width: 12px; height: 12px; background-color: #9C27B0; border-radius: 50%; margin-right: 10px;"></div>
+<p style="margin: 0; font-size: 16px; color: #E0E6ED;">New Credit</p>
+</div>
+<p style="margin: 0; font-size: 18px; color: #BA68C8; font-weight: 700;">10%</p>
+</div>
+<div style="display: flex; align-items: center; justify-content: space-between; padding-bottom: 8px;">
+<div style="display: flex; align-items: center;">
+<div style="width: 12px; height: 12px; background-color: #FF5722; border-radius: 50%; margin-right: 10px;"></div>
+<p style="margin: 0; font-size: 16px; color: #E0E6ED;">Credit Mix</p>
+</div>
+<p style="margin: 0; font-size: 18px; color: #FF8A65; font-weight: 700;">10%</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Bands & Actions (Background) -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 210px; width: 560px; height: 390px; background-color: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; z-index: 1;"></div>
+<!-- Right Column: Header - Bands -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 690px; top: 230px; width: 500px; height: 40px; z-index: 10;">
+<h3 style="margin: 0; font-size: 20px; color: #E0E6ED; font-weight: 600; display: flex; align-items: center;">
+<i class="fa-solid fa-layer-group" style="margin-right: 10px; color: #90CAF9;"></i> Score Bands (Target 740+)
+            </h3>
+</div>
+<!-- Right Column: Score Bands Visual -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 690px; top: 275px; width: 500px; height: 60px; z-index: 10;">
+<div style="display: flex; height: 12px; border-radius: 6px; overflow: hidden; margin-bottom: 8px;">
+<div style="width: 20%; background-color: #EF5350;"></div>
+<div style="width: 15%; background-color: #FFCA28;"></div>
+<div style="width: 25%; background-color: #9CCC65;"></div>
+<div style="width: 20%; background-color: #66BB6A;"></div>
+<div style="width: 20%; background-color: #43A047;"></div>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #B0B8C4;">
+<span>300</span>
+<span>580</span>
+<span>670</span>
+<span>740</span>
+<span>800</span>
+<span>850</span>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #FFFFFF; font-weight: 500; margin-top: 2px;">
+<span style="color: #EF5350;">Poor</span>
+<span style="color: #FFCA28;">Fair</span>
+<span style="color: #9CCC65;">Good</span>
+<span style="color: #66BB6A;">V. Good</span>
+<span style="color: #43A047;">Exceptional</span>
+</div>
+</div>
+<!-- Right Column: Header - Improvements -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 690px; top: 360px; width: 500px; height: 40px; z-index: 10;">
+<h3 style="margin: 0; font-size: 20px; color: #E0E6ED; font-weight: 600; display: flex; align-items: center;">
+<i class="fa-solid fa-rocket" style="margin-right: 10px; color: #90CAF9;"></i> 90-Day Rapid Improvements
+            </h3>
+</div>
+<!-- Right Column: Improvements List -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 690px; top: 405px; width: 500px; height: 180px; z-index: 10;">
+<div style="display: flex; flex-direction: column; gap: 15px;">
+<div style="display: flex; align-items: flex-start;">
+<i class="fa-solid fa-check-circle" style="color: #64B5F6; margin-top: 4px; margin-right: 12px; font-size: 16px;"></i>
+<div>
+<p style="margin: 0; font-size: 16px; color: #E0E6ED; font-weight: 500;">Set 100% Autopay</p>
+<p style="margin: 2px 0 0; font-size: 14px; color: #B0B8C4;">Even minimums prevent late marks (35% impact).</p>
+</div>
+</div>
+<div style="display: flex; align-items: flex-start;">
+<i class="fa-solid fa-scissors" style="color: #64B5F6; margin-top: 4px; margin-right: 12px; font-size: 16px;"></i>
+<div>
+<p style="margin: 0; font-size: 16px; color: #E0E6ED; font-weight: 500;">Pay Mid-Cycle</p>
+<p style="margin: 2px 0 0; font-size: 14px; color: #B0B8C4;">Pay down balances 3 days before statement cuts.</p>
+</div>
+</div>
+<div style="display: flex; align-items: flex-start;">
+<i class="fa-solid fa-file-contract" style="color: #64B5F6; margin-top: 4px; margin-right: 12px; font-size: 16px;"></i>
+<div>
+<p style="margin: 0; font-size: 16px; color: #E0E6ED; font-weight: 500;">Dispute Errors</p>
+<p style="margin: 2px 0 0; font-size: 14px; color: #B0B8C4;">Remove invalid derogatories via free annual reports.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Glass Navigation Bar -->
+<div style="
+    position: absolute;
+    bottom: 40px; /* adjusted so it fits perfectly */
+    left: 0;
+    width: 1280px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    background: rgba(255, 218, 185, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    z-index: 9999;
+">
+
+    <!-- LEFT -->
+    <a href="f4.html" class="nav-prev" style="
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 500;
+    ">
+        ← Meaning of Credit
+    </a>
+
+    <!-- RIGHT -->
+    <a href="f6.html" class="nav-next" style="
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 500;
+    ">
+        Credit Utilization Rule →
+    </a>
+
+</div>
+<!-- Footer -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 0; top: 680px; width: 1280px; height: 40px; z-index: 10; text-align: center; display: flex; align-items: center; justify-content: center;">
+<p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.35); font-weight: 300;">
+                Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+            </p>
+</div>
+</div>
+<script>
+document.addEventListener("keydown", function(e) {
+
+    var active = document.activeElement;
+    var isTyping =
+        active.tagName === "INPUT" ||
+        active.tagName === "TEXTAREA" ||
+        active.isContentEditable;
+
+    if (isTyping) return;
+
+    if (e.key === "ArrowRight") {
+        var next = document.querySelector(".nav-next");
+        if (next) window.location.href = next.href;
+    }
+
+    if (e.key === "ArrowLeft") {
+        var prev = document.querySelector(".nav-prev");
+        if (prev) window.location.href = prev.href;
+    }
+
+});
+</script>
+</body></html>

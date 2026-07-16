@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Handling Bullying or Threats</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;family=Nunito:wght@400;600;700;800&amp;family=Black+Ops+One&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+    margin: 0;
+    padding: 0;
+
+    /* REMOVE fixed size */
+    /* width: 1280px; */
+    /* height: 720px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;   /* full screen height */
+    background-color: #0f172a;
+
+    font-family: 'Nunito', sans-serif;
+    color: #e2e8f0;
+}
+        .slide-container {
+    display: flex;
+    flex-direction: column;
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background-color: #0f172a;
+}
+
+        /* Background Pattern */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+                url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="%23334155" fill-opacity="0.2" fill-rule="evenodd"%3E%3Cpath d="M0 40L40 0H20L0 20M40 40V20L20 40"/%3E%3C/g%3E%3C/svg%3E');
+            z-index: 0;
+        }
+
+        /* Header & Footer */
+        .header-bar {
+            height: 50px;
+            background-color: #1e293b;
+            border-bottom: 2px solid #ef4444; /* Alert Red */
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            color: #fca5a5;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            z-index: 20;
+            flex-shrink: 0;
+        }
+
+        .footer-bar {
+            height: 30px;
+            background-color: #0f172a;
+            border-top: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 12px;
+            z-index: 20;
+            flex-shrink: 0;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Title */
+        .title-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            color: #fff;
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 0 #b91c1c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .subtitle {
+            font-size: 20px;
+            color: #cbd5e1;
+            background-color: rgba(30, 41, 59, 0.6);
+            display: inline-block;
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+
+        /* Action Flow Container */
+        .action-flow {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex: 1;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Connecting Line */
+        .flow-line {
+            position: absolute;
+            top: 40%;
+            left: 10%;
+            right: 10%;
+            height: 4px;
+            background: repeating-linear-gradient(to right, #475569, #475569 10px, transparent 10px, transparent 20px);
+            z-index: 0;
+        }
+
+        /* Action Cards */
+        .action-card {
+            background-color: #1e293b;
+            border-radius: 24px;
+            width: 320px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 30px 20px;
+            position: relative;
+            z-index: 10;
+            border-bottom: 8px solid;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            transition: transform 0.2s;
+        }
+
+        .action-card:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Card Steps Badges */
+        .step-badge {
+            position: absolute;
+            top: -20px;
+            background-color: #0f172a;
+            color: #fff;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Black Ops One', cursive;
+            font-size: 24px;
+            border: 4px solid;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        }
+
+        /* Icon Circles */
+        .icon-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            border: 2px dashed;
+        }
+
+        /* Text Styles */
+        .action-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+        }
+
+        .action-desc {
+            text-align: center;
+            font-size: 16px;
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        /* Specific Card Styles */
+        
+        /* Step 1: Ignore */
+        .card-ignore { border-color: #f59e0b; }
+        .card-ignore .step-badge { border-color: #f59e0b; color: #f59e0b; }
+        .card-ignore .icon-circle { color: #f59e0b; border-color: #f59e0b; }
+        .card-ignore .action-title { color: #f59e0b; }
+
+        /* Step 2: Block */
+        .card-block { border-color: #ef4444; }
+        .card-block .step-badge { border-color: #ef4444; color: #ef4444; }
+        .card-block .icon-circle { color: #ef4444; border-color: #ef4444; }
+        .card-block .action-title { color: #ef4444; }
+
+        /* Step 3: Report */
+        .card-report { border-color: #8b5cf6; }
+        .card-report .step-badge { border-color: #8b5cf6; color: #8b5cf6; }
+        .card-report .icon-circle { color: #8b5cf6; border-color: #8b5cf6; }
+        .card-report .action-title { color: #8b5cf6; }
+
+        /* Screenshot Tip */
+        .screenshot-tip {
+            background-color: #334155;
+            padding: 8px 15px;
+            border-radius: 12px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: auto;
+            border: 1px solid #475569;
+        }
+
+        /* Bottom Alert */
+        .bottom-alert {
+            background-color: #b91c1c;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 700;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            font-size: 18px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            animation: pulse-border 2s infinite;
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(185, 28, 28, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(185, 28, 28, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(185, 28, 28, 0); }
+        }
+
+        /* Navigation Bar */
+        .nav-container {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(30, 41, 59, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 2px solid #334155;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            z-index: 100;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+        }
+
+        .nav-left, .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-link {
+            color: #e2e8f0;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255,255,255,0.1);
+            transform: translateY(-2px);
+        }
+
+        .nav-link.prev {
+            color: #94a3b8;
+        }
+
+        .nav-link.next {
+            color: #3b82f6;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-link.next:hover {
+            background-color: rgba(59, 130, 246, 0.2);
+        }
+
+        .nav-arrow {
+            font-size: 18px;
+            transition: transform 0.3s ease;
+        }
+
+        .nav-link:hover .nav-arrow {
+            transform: translateX(3px);
+        }
+
+        .nav-link.prev:hover .nav-arrow {
+            transform: translateX(-3px);
+        }
+
+        .nav-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .nav-label {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 500;
+        }
+
+        .nav-topic {
+            font-size: 14px;
+            color: #e2e8f0;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Background -->
+<div class="bg-pattern"></div>
+<!-- Header -->
+<div class="header-bar">
+<i class="fas fa-shield-virus mr-2"></i>
+<p>EduuAspire 21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Title -->
+<div class="title-section">
+<h1>
+<i class="fas fa-exclamation-circle text-red-500"></i>
+                Handling Bullying or Threats
+            </h1>
+<p class="subtitle" style="position: relative; transform: translate(0px, -8.48138px);">If someone is mean online, follow the "Stop Light" rules.</p>
+</div>
+<!-- Process Flow -->
+<div class="action-flow" style="transform: translate(-1.41356px, -32.5119px);">
+<div class="flow-line"></div>
+<!-- Step 1: IGNORE -->
+<div class="action-card card-ignore">
+<div class="step-badge">1</div>
+<div class="icon-circle">
+<i class="fas fa-volume-mute"></i>
+</div>
+<h2 class="action-title">Ignore</h2>
+<p class="action-desc">Don't reply! Bullies want to make you angry. If you don't answer, you take away their power.</p>
+<div class="screenshot-tip">
+<i class="fas fa-camera"></i>
+<p>Pro Tip: Take a screenshot!</p>
+</div>
+</div>
+<!-- Step 2: BLOCK -->
+<div class="action-card card-block">
+<div class="step-badge">2</div>
+<div class="icon-circle">
+<i class="fas fa-user-slash"></i>
+</div>
+<h2 class="action-title">Block</h2>
+<p class="action-desc">Use the <strong>Block</strong> button immediately. This stops them from seeing your profile or sending new messages.</p>
+<div class="screenshot-tip" style="border-color: #ef4444; color: #fca5a5; background-color: rgba(239, 68, 68, 0.1);">
+<i class="fas fa-ban"></i>
+<p>Cut the connection</p>
+</div>
+</div>
+<!-- Step 3: REPORT -->
+<div class="action-card card-report">
+<div class="step-badge">3</div>
+<div class="icon-circle">
+<i class="fas fa-flag"></i>
+</div>
+<h2 class="action-title">Report</h2>
+<p class="action-desc">Click <strong>Report</strong> on the app/game so the admins know. Then, show the screenshots to an adult.</p>
+<div class="screenshot-tip" style="border-color: #8b5cf6; color: #d8b4fe; background-color: rgba(139, 92, 246, 0.1);">
+<i class="fas fa-bullhorn"></i>
+<p>Tell the admins</p>
+</div>
+</div>
+</div>
+<!-- Bottom Alert -->
+<div class="bottom-alert" style="position: relative; transform: translate(-1.41356px, -31.0984px);">
+<i class="fas fa-bell"></i>
+<p>ALWAYS tell a parent, teacher, or guardian if you feel threatened!</p>
+<i class="fas fa-bell"></i>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+<!-- Navigation Bar -->
+<div class="nav-container">
+<div class="nav-left">
+<a class="nav-link prev" href="f12.html">
+<i class="fas fa-arrow-left nav-arrow"></i>
+<div class="nav-text">
+<span class="nav-label">Previous</span>
+<span class="nav-topic">Get Help</span>
+</div>
+</a>
+</div>
+<div class="nav-right">
+<a class="nav-link next" href="f14.html">
+<div class="nav-text">
+<span class="nav-label">Next</span>
+<span class="nav-topic">Safety Checklist</span>
+</div>
+<i class="fas fa-arrow-right nav-arrow"></i>
+</a>
+</div>
+</div>
+</div>
+<script>
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
+            return;
+        }
+        
+        switch(e.key) {
+            case 'ArrowLeft':
+                window.location.href = 'f12.html';
+                break;
+            case 'ArrowRight':
+                window.location.href = 'f14.html';
+                break;
+        }
+    });
+</script>
+
+
+
+</body></html>

@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Digital Branding 101 - Digital Footprint</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@500;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        /* Base Reset & Setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Slide Container */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFE5D9; /* Peach background */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Layout Elements */
+        .header {
+            padding: 40px 60px 0 60px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .header p {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2C3E50;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-icon {
+            color: #E07A5F;
+            font-size: 18px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            padding: 20px 60px 20px 60px;
+            gap: 60px;
+            z-index: 10;
+        }
+
+        .footer {
+            padding: 0 60px 30px 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .footer p {
+            font-size: 12px;
+            font-weight: 500;
+            color: #4A5568;
+            letter-spacing: 0.5px;
+        }
+
+        /* Two-Column Layout */
+        .left-col {
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right-col {
+            flex: 0.9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Typography & Content Styling */
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #1A252F;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .title-accent {
+            width: 80px;
+            height: 6px;
+            background-color: #E07A5F;
+            border-radius: 3px;
+            margin-bottom: 40px;
+        }
+
+        .concept-list {
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+        }
+
+        .concept-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .concept-icon {
+            background-color: #1A252F;
+            color: #FFE5D9;
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+            box-shadow: 0 4px 10px rgba(26, 37, 47, 0.15);
+        }
+
+        .concept-text-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .concept-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1A252F;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .concept-desc {
+            font-size: 16px;
+            color: #34495E;
+            line-height: 1.5;
+        }
+
+        /* Checklist Box Styling */
+        .checklist-box {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            padding: 40px;
+            width: 100%;
+            max-width: 460px;
+            box-shadow: 0 20px 40px rgba(26, 37, 47, 0.08);
+            border-top: 8px solid #E07A5F;
+            position: relative;
+            z-index: 5;
+        }
+
+        .checklist-header {
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 16px;
+        }
+
+        .checklist-icon {
+            color: #E07A5F;
+            font-size: 28px;
+        }
+
+        .checklist-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1A252F;
+        }
+
+        .checklist-items {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .check-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            background-color: #f8f9fa;
+            padding: 12px 16px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .check-mark {
+            color: #E07A5F;
+            font-size: 18px;
+            margin-top: 2px;
+        }
+
+        .check-text {
+            font-size: 15px;
+            color: #2C3E50;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        /* Decorative Elements - Footprint Trail */
+        .deco-circle {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            border-radius: 50%;
+            background-color: #FFDAC1;
+            bottom: -150px;
+            left: -100px;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .footprint-trail {
+            position: absolute;
+            z-index: 2;
+            color: #E07A5F;
+            opacity: 0.15;
+            font-size: 40px;
+        }
+
+        .fp-1 { bottom: 80px; left: 30%; transform: rotate(-30deg); }
+        .fp-2 { bottom: 200px; left: 35%; transform: rotate(-10deg); }
+        .fp-3 { bottom: 320px; left: 42%; transform: rotate(15deg); }
+        .fp-4 { bottom: 440px; left: 52%; transform: rotate(40deg); }
+        .fp-5 { bottom: 520px; left: 65%; transform: rotate(60deg); }
+        .fp-6 { bottom: 550px; left: 80%; transform: rotate(80deg); }
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="deco-circle"></div>
+<!-- Footprint Trail -->
+<div class="footprint-trail fp-1"><i class="fas fa-shoe-prints"></i></div>
+<div class="footprint-trail fp-2"><i class="fas fa-shoe-prints"></i></div>
+<div class="footprint-trail fp-3"><i class="fas fa-shoe-prints"></i></div>
+<div class="footprint-trail fp-4"><i class="fas fa-shoe-prints"></i></div>
+<div class="footprint-trail fp-5"><i class="fas fa-shoe-prints"></i></div>
+<div class="footprint-trail fp-6"><i class="fas fa-shoe-prints"></i></div>
+<!-- Header -->
+<div class="header">
+<p><i class="fas fa-layer-group header-icon"></i> EduuAspire21.0 Skills <span style="color: #E07A5F; margin: 0 8px;">|</span> 21st Century Skills <span style="color: #E07A5F; margin: 0 8px;">|</span> Digital Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<!-- Left Column: Content -->
+<div class="left-col">
+<p class="slide-title">Digital Footprint</p>
+<div class="title-accent"></div>
+<div class="concept-list">
+<div class="concept-item">
+<div class="concept-icon"><i class="fas fa-mouse-pointer"></i></div>
+<div class="concept-text-wrap">
+<p class="concept-title">Every Action Leaves a Trace</p>
+<p class="concept-desc">Every like, comment, post, and search builds your digital history. Nothing is truly invisible.</p>
+</div>
+</div>
+<div class="concept-item">
+<div class="concept-icon"><i class="fas fa-history"></i></div>
+<div class="concept-text-wrap">
+<p class="concept-title">Permanence vs. Privacy</p>
+<p class="concept-desc">Digital data is permanent. Always think long-term before sharing, as privacy settings can change or fail.</p>
+</div>
+</div>
+<div class="concept-item">
+<div class="concept-icon"><i class="fas fa-search"></i></div>
+<div class="concept-text-wrap">
+<p class="concept-title">The Google Test</p>
+<p class="concept-desc">What appears when someone searches your name? That is your default digital brand.</p>
+</div>
+</div>
+<div class="concept-item">
+<div class="concept-icon"><i class="fas fa-pen-nib"></i></div>
+<div class="concept-text-wrap">
+<p class="concept-title">Own Your Narrative</p>
+<p class="concept-desc">Don't let your digital identity happen by accident. Take control and curate your professional story.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Checklist -->
+<div class="right-col">
+<div class="checklist-box">
+<div class="checklist-header">
+<i class="fab fa-google checklist-icon"></i>
+<p class="checklist-title">The Google Test</p>
+</div>
+<div class="checklist-items">
+<div class="check-item">
+<i class="fas fa-check-circle check-mark"></i>
+<p class="check-text">Search your full name in quotes (e.g., "John Doe")</p>
+</div>
+<div class="check-item">
+<i class="fas fa-check-circle check-mark"></i>
+<p class="check-text">Check the "Images" tab for old or unprofessional photos</p>
+</div>
+<div class="check-item">
+<i class="fas fa-check-circle check-mark"></i>
+<p class="check-text">Review the first 3 pages of search results thoroughly</p>
+</div>
+<div class="check-item">
+<i class="fas fa-check-circle check-mark"></i>
+<p class="check-text">Audit all social profiles linked to your name</p>
+</div>
+<div class="check-item">
+<i class="fas fa-check-circle check-mark"></i>
+<p class="check-text">Set up Google Alerts for your own name</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f6.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f4.html';
+    }
+
+});
+</script>
+</body></html>

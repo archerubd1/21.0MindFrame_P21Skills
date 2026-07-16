@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>What Is Tone in Text?</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #0f1020;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Decorative Elements */
+        .glow-circle-1 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background-color: #2e1a47;
+            border-radius: 50%;
+            top: -150px;
+            left: -150px;
+            filter: blur(80px);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .glow-circle-2 {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: #0d3852;
+            border-radius: 50%;
+            bottom: -100px;
+            right: -100px;
+            filter: blur(80px);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .tech-grid {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            z-index: 1;
+            opacity: 0.15;
+        }
+
+        /* Header & Footer */
+        .header {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #a5b4fc;
+            font-size: 18px;
+            letter-spacing: 1px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color: #64748b;
+            font-size: 14px;
+            z-index: 20;
+        }
+
+        /* Main Content Layout */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            z-index: 10;
+            position: relative;
+            padding: 100px 60px 80px 60px;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .left-column {
+            flex: 0 0 35%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .right-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        /* Visual Element Styling */
+        .visual-card {
+            background-color: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 24px;
+            padding: 40px;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+
+        .big-icon {
+            font-size: 120px;
+            color: #00f3ff;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 0 15px rgba(0, 243, 255, 0.4));
+        }
+
+        .visual-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        /* Text Content Styling */
+        .main-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .highlight-text {
+            color: #c084fc; /* Neon Purple */
+        }
+
+        .info-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left: 4px solid #facc15; /* Yellow Accent */
+            padding: 20px 25px;
+            margin-bottom: 25px;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .info-title {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #facc15;
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .info-desc {
+            font-size: 18px;
+            color: #cbd5e1;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .bullet-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .bullet-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 18px;
+            color: #e2e8f0;
+        }
+
+        .bullet-icon {
+            width: 32px;
+            height: 32px;
+            background-color: rgba(0, 243, 255, 0.15);
+            color: #00f3ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        /* Chat Example Box */
+        .example-box {
+            margin-top: 20px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .chat-example {
+            background-color: #334155;
+            padding: 12px 20px;
+            border-radius: 18px;
+            border-bottom-left-radius: 4px;
+            color: white;
+            font-size: 16px;
+            position: relative;
+            max-width: 45%;
+        }
+
+        .chat-example.good {
+            background-color: #059669; /* Green for good */
+            border-bottom-left-radius: 18px;
+            border-bottom-right-radius: 4px;
+            margin-left: auto;
+        }
+
+        .chat-label {
+            font-size: 12px;
+            color: #94a3b8;
+            margin-bottom: 4px;
+            display: block;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="glow-circle-1"></div>
+<div class="glow-circle-2"></div>
+<div class="tech-grid"></div>
+<!-- Header -->
+<header class="header">
+<i class="fa-solid fa-graduation-cap"></i>
+<p>EduuAspire 21.0 Skills | 21st Century Skills Digital Literacy</p>
+</header>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left Column: Visual Icon -->
+<div class="left-column">
+<div class="visual-card">
+<i class="fa-solid fa-masks-theater big-icon"></i>
+<p class="visual-label">It's not just what you say,<br>it's <strong>how</strong> you say it.</p>
+<!-- Decorative small icons floating -->
+<i class="fa-solid fa-message" style="position:absolute; top:40px; right:40px; color:rgba(255,255,255,0.2); font-size:24px;"></i>
+<i class="fa-solid fa-wifi" style="position:absolute; bottom:40px; left:40px; color:rgba(255,255,255,0.2); font-size:24px;"></i>
+</div>
+</div>
+<!-- Right Column: Text Content -->
+<div class="right-column">
+<h1 class="main-title">What Is <span class="highlight-text">Tone</span> in Text?</h1>
+<div class="info-card">
+<p class="info-title">Definition</p>
+<p class="info-desc">Tone is the "vibe" or feeling behind your message. Is it friendly? Annoyed? Excited? Sarcastic?</p>
+</div>
+<div class="info-card" style="border-left-color: #00f3ff;">
+<p class="info-title" style="color: #00f3ff;">Why It's Tricky Online</p>
+<p class="info-desc">Without a face or voice, we lose 90% of communication cues. Emojis and punctuation become our new facial expressions.</p>
+</div>
+<div style="margin-top: 10px;">
+<p class="chat-label">Quick Comparison:</p>
+<div class="example-box">
+<div class="chat-example">
+<p class="m-0">"K."</p>
+<span style="font-size: 12px; opacity: 0.7; display: block; margin-top: 5px;">(Feels Cold / Angry)</span>
+</div>
+<div class="chat-example good">
+<p class="m-0">"Okay, got it! 👍"</p>
+<span style="font-size: 12px; opacity: 0.7; display: block; margin-top: 5px;">(Feels Friendly)</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p>Licensed and Powered by Astrl mind Technologies | Copyright © 2026-2033</p>
+</footer>
+</div>
+<!-- PREVIOUS BUTTON -->
+<a href="f1.html"
+   class="absolute bottom-16 left-12 z-50 px-6 py-3
+          bg-gray-800 text-white text-sm font-semibold uppercase
+          hover:bg-gray-700 transition rounded-lg">
+← 
+</a>
+
+<!-- NEXT BUTTON -->
+<a href="f3.html"
+   class="absolute bottom-16 right-12 z-50 px-6 py-3
+          bg-gray-900 text-white text-sm font-semibold uppercase
+          hover:bg-gray-800 transition rounded-lg">
+Next →
+</a>
+
+</body></html>

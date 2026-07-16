@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Media Detective - Slide 8</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Poppins:wght@600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #FFF8DC;
+            font-family: 'Open Sans', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .glass-nav {
+            background: rgba(255, 204, 170, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+        }
+        .nav-btn {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        .trick-card {
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 15px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .trick-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+        .slide-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90%;
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="relative">
+<!-- HEADER (MANDATORY) -->
+<header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-sm shadow-sm z-50 py-3 px-8 flex items-center justify-between">
+<div class="text-gray-800 font-bold font-[Poppins] text-lg tracking-wide">
+            EduuAspire21.0 Skills <span class="text-gray-400 mx-2">|</span> 21st Century Skills <span class="text-gray-400 mx-2">|</span> Media Literacy
+        </div>
+</header>
+<!-- MAIN CONTENT -->
+<main class="slide-content">
+<div class="text-center mb-8">
+<h2 class="text-5xl font-extrabold text-gray-800 mb-2 tracking-tight">Picture Tricks</h2>
+<div class="w-24 h-1.5 bg-yellow-400 rounded-full mx-auto mb-4"></div>
+<p class="text-xl text-gray-600">Seeing isn't always believing. How photos can lie.</p>
+</div>
+<div class="grid grid-cols-4 gap-6 px-8 h-80">
+<!-- Card 1: Cropping -->
+<div class="trick-card group">
+<div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-yellow-200 transition-colors">
+<i class="fa-solid fa-crop-simple text-4xl text-yellow-600"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 mb-2">Cropping</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                    Removing context to change the meaning of a photo. What's outside the frame?
+                </p>
+</div>
+<!-- Card 2: Filters -->
+<div class="trick-card group">
+<div class="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-200 transition-colors">
+<i class="fa-solid fa-wand-magic-sparkles text-4xl text-blue-600"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 mb-2">Filters</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                    Changing colors to make things look happier, scarier, or more dramatic.
+                </p>
+</div>
+<!-- Card 3: Angles -->
+<div class="trick-card group">
+<div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-green-200 transition-colors">
+<i class="fa-solid fa-camera-rotate text-4xl text-green-600"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 mb-2">Angles</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                    Shooting from low or high up to make someone look powerful or weak.
+                </p>
+</div>
+<!-- Card 4: Editing -->
+<div class="trick-card group">
+<div class="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-purple-200 transition-colors">
+<i class="fa-solid fa-pen-nib text-4xl text-purple-600"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 mb-2">Editing</h3>
+<p class="text-sm text-gray-600 leading-relaxed">
+                    Adding or removing objects that weren't there (Photoshop, AI).
+                </p>
+</div>
+</div>
+</main>
+<!-- NAVIGATION SYSTEM (STRICT) -->
+<nav class="fixed bottom-12 left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl glass-nav py-4 px-8 flex justify-between items-center z-40 shadow-lg">
+<!-- Previous Topic -->
+<div class="w-1/3 text-left">
+<a class="nav-btn inline-flex items-center text-gray-600 hover:text-gray-900 font-[Poppins] font-semibold text-base no-underline group" href="f7.html">
+<i class="fa-solid fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
+                Source Activity
+            </a>
+</div>
+<!-- Current Indicator -->
+<div class="w-1/3 text-center">
+<div class="flex justify-center space-x-1">
+<div class="w-2 h-2 rounded-full bg-gray-300"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300"></div>
+<div class="w-2 h-2 rounded-full bg-yellow-500 scale-125"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300"></div>
+<div class="w-2 h-2 rounded-full bg-gray-300"></div>
+</div>
+</div>
+<!-- Next Topic -->
+<div class="w-1/3 text-right">
+<a class="nav-btn inline-flex items-center text-gray-800 hover:text-yellow-700 font-[Poppins] font-bold text-lg no-underline group" href="f9.html">
+                Tools &amp; Skills
+                <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+</nav>
+<!-- FOOTER (MANDATORY) -->
+<footer class="fixed bottom-0 left-0 w-full bg-gray-100/90 border-t border-gray-200 py-2 px-4 z-50 text-center">
+<p class="text-[10px] text-[#666] font-[Open Sans]">
+            Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+        </p>
+</footer>
+<!-- EXTERNAL SCRIPT -->
+<script src="script.js"></script>
+<script>
+    document.addEventListener('keydown', function(event) {
+        // Disable navigation when user is typing in input or textarea
+        const tagName = event.target.tagName.toLowerCase();
+        if (tagName === 'input' || tagName === 'textarea') {
+            return;
+        }
+
+        if (event.key === 'ArrowRight') {
+            window.location.href = 'f9.html';
+        } else if (event.key === 'ArrowLeft') {
+            window.location.href = 'f7.html';
+        }
+    });
+</script>
+</body>
+</html>

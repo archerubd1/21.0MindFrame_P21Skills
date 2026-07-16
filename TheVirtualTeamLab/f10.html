@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conclusion - The Virtual Team Lab</title>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+}
+        
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f4ff 50%, #f5f0ff 100%);
+        }
+        
+        /* Header Bar */
+        .header-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a5f;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .header-separator {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        .header-item {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Footer Bar */
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .footer-left {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        /* Main Content */
+        .main-content {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 40px;
+        }
+        
+        .content-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .header-icon {
+            width: 60px;
+            height: 60px;
+            background: #e0f2fe;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+        
+        .header-icon i {
+            font-size: 28px;
+            color: #3b82f6;
+        }
+        
+        .header-info {
+            flex: 1;
+        }
+        
+        .page-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 5px;
+            letter-spacing: -0.5px;
+        }
+        
+        .page-subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+        
+        .cards-container {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+        }
+        
+        .card {
+            flex: 1;
+            background: white;
+            border-radius: 12px;
+height:300px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .card-icon {
+            width: 40px;
+            height: 40px;
+            background: #f0f9ff;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .card-icon i {
+            font-size: 18px;
+            color: #3b82f6;
+        }
+        
+        .card-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+        
+        .card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .card-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .check-icon {
+            width: 20px;
+            height: 20px;
+            background: #e0f2fe;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .check-icon i {
+            font-size: 10px;
+            color: #3b82f6;
+        }
+        
+        .card-text {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.5;
+            margin-right: 5px; /* Added to address 'text flush with card edge' */
+        }
+        
+        .card-footer {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Navigation */
+        .nav-controls {
+            position: absolute;
+            bottom: 60px;
+            right: 40px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #64748b;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        
+        .nav-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        .nav-btn.prev {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .nav-btn.prev:hover {
+            background: #2563eb;
+        }
+        
+        .data-object {
+            position: absolute;
+        }
+        
+        .highlight-text {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background: #f1f5f9;
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-bar">
+<div class="header-left">
+<div class="header-logo">EduuAspire21.0 Skills</div>
+<div class="header-separator">|</div>
+<div class="header-item">21st Century Skills</div>
+<div class="header-separator">|</div>
+<div class="header-item">Digital Literacy</div>
+</div>
+<div class="header-right">
+<div class="header-badge">Active</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="content-header">
+<div class="header-icon">
+<i class="fas fa-rocket"></i>
+</div>
+<div class="header-info">
+<div class="page-title">Conclusion</div>
+<div class="page-subtitle">Your journey to becoming a remote-ready professional</div>
+</div>
+</div>
+<div class="cards-container">
+<!-- Card 1: Industry Readiness -->
+<div class="card">
+<div class="card-header">
+<div class="card-icon">
+<i class="fas fa-briefcase"></i>
+</div>
+<div class="card-title">Industry Readiness</div>
+</div>
+<div class="card-content">
+<div class="card-item">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="card-text">Gain confidence in remote work environments and virtual team collaboration</div>
+</div>
+<div class="card-item">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="card-text">Develop skills that are in high demand by employers worldwide</div>
+</div>
+<div class="card-item">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="card-text">Build a portfolio that showcases your practical experience</div>
+</div>
+</div>
+<div class="card-footer">
+<div class="status-badge">Ready</div>
+</div>
+</div>
+<!-- Card 2: Stronger Employability -->
+<div class="card">
+<div class="card-header">
+<div class="card-icon">
+<i class="fas fa-user-tie"></i>
+</div>
+<div class="card-title">Stronger Employability</div>
+</div>
+<div class="card-content">
+<div class="card-item">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="card-text">Enhance your resume with real-world project experience</div>
+</div>
+<div class="card-item">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="card-text">Develop soft skills essential for workplace success</div>
+</div>
+<div class="card-item">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="card-text">Create a professional network through team collaboration</div>
+</div>
+</div>
+<div class="card-footer">
+<div class="status-badge">Career</div>
+</div>
+</div>
+<!-- Card 3: Next Steps -->
+<div class="card">
+<div class="card-header">
+<div class="card-icon">
+<i class="fas fa-forward"></i>
+</div>
+<div class="card-title">Next Steps</div>
+</div>
+<div class="card-content">
+<div class="card-item">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="card-text">Apply your skills to real projects and internships</div>
+</div>
+<div class="card-item">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="card-text">Continue learning and building your expertise</div>
+</div>
+<div class="card-item">
+<div class="check-icon">
+<i class="fas fa-check"></i>
+</div>
+<div class="card-text">Join our community of remote professionals</div>
+</div>
+</div>
+<div class="card-footer">
+<div class="status-badge">Action</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Outcomes</div>
+        <div class="nav-link" onclick="next()"></div>
+    </div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<div class="footer-left">
+<span>Licenced &amp; Powered By Astrl Mind Technologies</span>
+</div>
+<div class="footer-right">
+<span class="footer-text">© 2026–2033</span>
+</div>
+</div>
+</div>
+<script>
+
+// Previous click
+function prev() {
+    window.location.href = 'f9.html';   // ✅ correct file
+}
+
+// Optional next (last slide)
+function next() {
+    // no next OR loop to s1.html if you want
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // LEFT → previous slide
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f9.html';   // ✅ paste here
+    }
+
+    // RIGHT → no next (last slide)
+    if (e.key === 'ArrowRight') {
+        // optional: window.location.href = 's1.html';
+    }
+
+});
+
+</script>
+</body>
+</html>

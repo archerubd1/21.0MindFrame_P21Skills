@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Question Lab - Badge Summary</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+}
+
+/* Navigation */
+.glass-nav {
+    position: absolute;
+    bottom: 35px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    height: 60px;
+    background: rgba(255, 204, 170, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.nav-item {
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav-item.disabled {
+    opacity: 0.4;
+}
+
+/* Badge Animations */
+@keyframes glow {
+    0% { box-shadow: 0 0 0 0 rgba(244,180,0,0.5);}
+    70% { box-shadow: 0 0 0 25px rgba(244,180,0,0);}
+    100% { box-shadow: 0 0 0 0 rgba(244,180,0,0);}
+}
+
+.badge-glow {
+    animation: glow 2.5s infinite;
+    border-radius: 50%;
+}
+
+@keyframes float {
+    0% { transform: translateY(0);}
+    50% { transform: translateY(-8px);}
+    100% { transform: translateY(0);}
+}
+
+.float {
+    animation: float 3s ease-in-out infinite;
+}
+</style>
+</head>
+
+<body>
+<div class="slide-container">
+
+<!-- Header -->
+<div style="position:absolute;top:0;width:100%;height:50px;background:rgba(255,255,255,0.6);"></div>
+<p style="position:absolute;top:14px;width:100%;text-align:center;font-size:16px;color:#555;font-weight:500;">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</p>
+
+<!-- Decorative dots -->
+<div style="position:absolute;left:350px;top:150px;width:18px;height:18px;border-radius:50%;background:#E87A5D;opacity:.6;"></div>
+<div style="position:absolute;left:900px;top:180px;width:14px;height:14px;border-radius:50%;background:#4A90E2;opacity:.6;"></div>
+
+<!-- Badge -->
+<div class="badge-glow" style="position:absolute;left:540px;top:100px;width:200px;height:200px;background:#fff;border-radius:50%;"></div>
+
+<div class="float" style="position:absolute;left:565px;top:120px;color:#F4B400;">
+<i class="fa-solid fa-medal" style="font-size:120px;"></i>
+</div>
+
+<div class="float" style="position:absolute;left:615px;top:160px;color:white;">
+<i class="fa-solid fa-star" style="font-size:40px;"></i>
+</div>
+
+<!-- Title -->
+<h1 style="position:absolute;top:300px;width:100%;text-align:center;font-size:48px;font-weight:800;color:#333;">
+Curiosity Captain Badge
+</h1>
+
+<!-- Subtitle -->
+<p style="position:absolute;top:380px;width:100%;text-align:center;font-size:24px;color:#E87A5D;font-weight:600;">
+You are officially a Curiosity Captain!
+</p>
+
+<!-- Skills -->
+<p style="position:absolute;top:440px;width:100%;text-align:center;font-size:14px;color:#777;letter-spacing:2px;">
+SKILLS UNLOCKED
+</p>
+
+<!-- Skill Cards -->
+<div style="position:absolute;left:340px;top:480px;width:180px;height:110px;background:white;border-radius:16px;text-align:center;padding-top:15px;">
+<i class="fa-solid fa-circle-question" style="font-size:32px;color:#E87A5D;"></i>
+<p>Questioning</p>
+</div>
+
+<div style="position:absolute;left:550px;top:480px;width:180px;height:110px;background:white;border-radius:16px;text-align:center;padding-top:15px;">
+<i class="fa-solid fa-magnifying-glass" style="font-size:32px;color:#4A90E2;"></i>
+<p>Searching</p>
+</div>
+
+<div style="position:absolute;left:760px;top:480px;width:180px;height:110px;background:white;border-radius:16px;text-align:center;padding-top:15px;">
+<i class="fa-solid fa-lightbulb" style="font-size:32px;color:#F4B400;"></i>
+<p>Thinking</p>
+</div>
+
+<!-- Navigation -->
+<div class="glass-nav">
+<div class="nav-item">
+<i class="fa-solid fa-arrow-left"></i> Final Activity
+</div>
+<div class="nav-item disabled">
+Course Complete <i class="fa-solid fa-check-circle" style="color:#2ECC71;"></i>
+</div>
+</div>
+
+<!-- Footer -->
+<div style="position:absolute;bottom:0;width:100%;height:30px;background:#f0f0f0;"></div>
+<p style="position:absolute;bottom:6px;width:100%;text-align:center;font-size:12px;color:#888;">
+Licensed & Powered By Astrl Mind Technologies © 2026-2033
+</p>
+
+</div>
+<script>
+document.addEventListener("keydown", function (e) {
+    const active = document.activeElement;
+
+    // Disable when typing
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+  
+    if (e.key === "ArrowLeft") {
+        window.location.href = "f14.html";
+    }
+});
+</script>
+
+</body>
+</html>

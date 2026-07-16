@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Program Objectives - Collaborate 360°</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Main container */
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    background: #ffffff;
+}
+
+/* Header */
+.header {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-size: 14px;
+    color: #64748B;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* Title */
+.title {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 48px;
+    font-weight: 800;
+    color: #0F172A;
+}
+
+/* Card */
+.card {
+    position: absolute;
+    top: 180px;
+    left: 240px;
+    width: 800px;
+    height: 440px;
+    background: #F8FAFC;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+}
+
+/* Items */
+.item {
+    display: flex;
+    align-items: center;
+    padding: 20px 60px;
+    border-bottom: 1px solid #E2E8F0;
+}
+
+.item:last-child {
+    border-bottom: none;
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+    background: #E2EDF6;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #0073CF;
+}
+
+.text {
+    margin-left: 20px;
+    font-size: 20px;
+    color: #334155;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #94A3B8;
+}
+
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 218, 185, 0.25);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+
+.nav-link {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy
+</div>
+
+<div class="title">Program Objectives</div>
+
+<div class="card">
+
+<div class="item">
+<div class="icon"><i class="fas fa-users"></i></div>
+<div class="text">Manage distributed teams effectively</div>
+</div>
+
+<div class="item">
+<div class="icon"><i class="fas fa-shield-alt"></i></div>
+<div class="text">Ensure secure collaboration across systems</div>
+</div>
+
+<div class="item">
+<div class="icon"><i class="fas fa-user-tie"></i></div>
+<div class="text">Develop leadership in virtual environments</div>
+</div>
+
+<div class="item">
+<div class="icon"><i class="fas fa-project-diagram"></i></div>
+<div class="text">Standardize workflows and governance</div>
+</div>
+
+<div class="item">
+<div class="icon"><i class="fas fa-chart-line"></i></div>
+<div class="text">Measure outcomes with OKRs/KPIs</div>
+</div>
+
+</div>
+
+<!-- Navigation -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Overview</div>
+    <div class="nav-link" onclick="next()">Key Modules →</div>
+</div>
+
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies © 2026–2033
+</div>
+
+</div>
+
+<script>
+
+// Click navigation
+function next() {
+    window.location.href = "s4.html";
+}
+
+function prev() {
+    window.location.href = "s2.html"; // as you asked (.htm can also be used if your file is .htm)
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    if (e.key === 'ArrowRight') {
+        window.location.href = 's4.html';
+    }
+
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 's2.html';
+    }
+
+});
+
+</script>
+
+</body>
+</html>

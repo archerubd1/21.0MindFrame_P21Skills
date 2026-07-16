@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Money Explorer</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* FULLSCREEN */
+#slide-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SLIDE */
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background: #121212;
+    transform-origin: top left;
+}
+
+/* BUTTONS */
+.nav-btn {
+    position: absolute;
+    bottom: 20px;
+    padding: 10px 20px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 999; /* IMPORTANT FIX */
+}
+
+.nav-btn:hover {
+    background: gold;
+    color: black;
+}
+
+.left-btn { left: 20px; }
+.right-btn { right: 20px; }
+
+</style>
+</head>
+
+<body>
+
+<div id="slide-wrapper">
+<div class="slide-container" id="slide">
+
+<!-- HEADER -->
+<div style="position:absolute;top:0;width:100%;height:40px;background:rgba(255,215,0,0.05);border-bottom:1px solid gold;">
+    <p style="margin:8px 20px;color:#ccc;font-size:14px;">
+        EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy 
+    </p>
+</div>
+
+<!-- CARD -->
+<div style="position:absolute;left:140px;top:90px;width:1000px;height:500px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,215,0,0.2);
+border-radius:20px;
+text-align:center;">
+
+<i class="fas fa-piggy-bank" style="font-size:120px;color:gold;margin-top:40px;"></i>
+
+<h1 style="font-size:60px;color:gold;margin:20px 0;">
+The Money Explorer 🚀
+</h1>
+
+<p style="font-size:26px;color:white;">
+Your Journey to Smart Money Habits
+</p>
+
+<p style="font-size:20px;color:#39FF14;">
+Spend Smart • Save Smart • Live Smart
+</p>
+
+</div>
+
+<!-- NAV -->
+<button class="nav-btn right-btn" onclick="goNext()">The Explorer's Roadmap →</button>
+
+<!-- FOOTER -->
+<div style="position:absolute;bottom:0;width:100%;text-align:center;color:#666;font-size:12px;">             Licenced & Powered By Astrl Mind Technologies copyright 2026-2033 </div>
+
+</div>
+</div>
+
+<script>
+
+/* SCALE FIX */
+function scaleSlide() {
+    const slide = document.getElementById("slide");
+
+    const scaleX = window.innerWidth / 1280;
+    const scaleY = window.innerHeight / 720;
+
+    const scale = Math.min(scaleX, scaleY);
+
+    slide.style.transform = "scale(" + scale + ")";
+}
+
+window.addEventListener("load", scaleSlide);
+window.addEventListener("resize", scaleSlide);
+
+/* NAVIGATION */
+function goNext() {
+    window.location.href = "f2.html";
+}
+
+/* KEYBOARD NAVIGATION */
+document.addEventListener("keydown", function(e) {
+
+    // prevent issues when typing
+    const tag = document.activeElement.tagName.toLowerCase();
+    if (tag === "input" || tag === "textarea") return;
+
+    if (e.key === "ArrowRight") {
+        goNext();
+    }
+
+});
+
+/* FORCE FOCUS (IMPORTANT FIX) */
+window.onload = () => {
+    document.body.focus();
+};
+
+</script>
+
+</body>
+</html>

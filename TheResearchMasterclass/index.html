@@ -1,0 +1,292 @@
+<!DOCTYPE html><html lang="en" data-theme="light" style=""><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><title>The Research Masterclass — Cover</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"><link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"><style>
+    :root{
+      --bg: #fffdf4;         /* butter white */
+      --card: #ffffff;
+      --ink: #111827;        /* soft black */
+      --muted: #4b5563;
+      --line: #e5e7eb;
+      --butter: #fde68a;     /* butter yellow */
+      --butter2: #fff2b8;
+    }
+    html,body{height:100%;margin:0;background:#f3f4f6;}
+    .slide{
+      width:1280px;height:720px;
+      margin:0 auto;
+      background:var(--bg);
+      display:flex;flex-direction:column;
+      color:var(--ink);
+      font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      position:relative;
+      overflow:hidden;
+    }
+    .header{
+      height:64px;
+      flex:0 0 64px;
+      display:flex;align-items:center;justify-content:center;
+      border-bottom:1px solid var(--line);
+      background:#ffffff;
+      position:relative;
+      z-index:3;
+    }
+    
+    /* MODIFIED FOOTER AREA FOR NAVIGATION */
+    .footer-container {
+      flex: 0 0 auto;
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+      border-top: 1px solid var(--line);
+      z-index: 10;
+    }
+    .nav-bar {
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+    .footer{
+      height:40px;
+      display:flex;align-items:center;justify-content:center;
+      position:relative;
+    }
+    .nav-btn {
+      padding: 6px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(17,24,39,0.15);
+      background: #fff;
+      color: #111827;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+    .nav-btn:hover {
+      background: var(--butter);
+      transform: translateY(-1px);
+    }
+
+    .main{
+      flex:1;
+      display:flex;
+      padding:44px 72px 44px 72px;
+      position:relative;
+      z-index:2;
+    }
+    .frame{
+      flex:1;
+      display:flex;
+      border:1px solid var(--line);
+      background:var(--card);
+      box-shadow: 0 10px 24px rgba(17,24,39,0.08);
+      border-radius:22px;
+      overflow:hidden;
+      position:relative;
+    }
+    .left{
+      flex:1.15;
+      padding:54px 56px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:18px;
+    }
+    .right{
+      flex:0.85;
+      border-left:1px solid var(--line);
+      background: var(--butter2);
+      position:relative;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid #f3f4f6;
+      background:#fff;
+      border-radius:999px;
+      width:max-content;
+      box-shadow: 0 6px 14px rgba(17,24,39,0.06);
+    }
+    .pillDot{
+      width:10px;height:10px;border-radius:999px;
+      background: var(--butter);
+      border:1px solid rgba(17,24,39,0.12);
+    }
+    .title{
+      font-weight:800;
+      letter-spacing:-0.02em;
+      line-height:1.05;
+      font-size:64px;
+      margin:0;
+    }
+    .subtitle{
+      font-family:Lora, Georgia, serif;
+      font-weight:600;
+      color:#1f2937;
+      font-size:28px;
+      margin:0;
+    }
+    .tagline{
+      font-size:20px;
+      line-height:1.55;
+      color:var(--muted);
+      margin:0;
+      max-width:56ch;
+    }
+    .metaRow{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:6px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:9px 12px;
+      border-radius:999px;
+      border:1px solid rgba(17,24,39,0.10);
+      background:#fff;
+      font-size:14px;
+      color:#111827;
+      box-shadow: 0 6px 14px rgba(17,24,39,0.06);
+      white-space:nowrap;
+    }
+    .chip i{color:#111827;opacity:.8}
+    .mark{
+      width:270px;height:270px;
+      background:#ffffff;
+      border:1px solid rgba(17,24,39,0.10);
+      border-radius:30px;
+      box-shadow: 0 18px 34px rgba(17,24,39,0.10);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap:14px;
+      position:relative;
+    }
+    .markRing{
+      width:104px;height:104px;
+      border-radius:999px;
+      border:2px solid rgba(17,24,39,0.12);
+      background: var(--butter);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 10px 18px rgba(17,24,39,0.10);
+    }
+    .markRing i{
+      font-size:44px;
+      color:#111827;
+    }
+    .markTitle{
+      margin:0;
+      font-weight:800;
+      font-size:22px;
+      letter-spacing:-0.01em;
+      text-align:center;
+    }
+    .markText{
+      margin:0;
+      font-size:14px;
+      color:#374151;
+      text-align:center;
+      line-height:1.45;
+      max-width:26ch;
+    }
+    .cornerLabel{
+      position:absolute;
+      top:18px;
+      right:18px;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(17,24,39,0.10);
+      background:#fff;
+      font-size:12px;
+      color:#111827;
+    }
+    .cornerLabel .mini{
+      width:8px;height:8px;border-radius:999px;background:#111827;opacity:.75;
+    }
+    .bgShapes{
+      position:absolute;
+      inset:0;
+      pointer-events:none;
+      z-index:1;
+    }
+    .shapeA{
+      position:absolute;
+      left:-80px;
+      bottom:-100px;
+      width:360px;height:360px;
+      border-radius:60px;
+      background: var(--butter);
+      opacity:0.55;
+      transform: rotate(10deg);
+      border:1px solid rgba(17,24,39,0.08);
+    }
+    .shapeB{
+      position:absolute;
+      right:-120px;
+      top:-120px;
+      width:420px;height:420px;
+      border-radius:80px;
+      background: #fff;
+      opacity:0.65;
+      transform: rotate(-8deg);
+      border:1px solid rgba(17,24,39,0.10);
+    }
+    .shapeC{
+      position:absolute;
+      right:40px;
+      bottom:34px;
+      width:210px;height:210px;
+      border-radius:999px;
+      background:#ffffff;
+      border:1px solid rgba(17,24,39,0.10);
+      opacity:0.7;
+    }
+    .hdrText, .ftrText{
+      margin:0;
+      font-size:14px;
+      color:#111827;
+      letter-spacing:0.01em;
+    }
+    .hdrText span{color:#111827; opacity:.7}
+    .ftrText{font-size:12.5px;color:#111827;opacity:.8}
+  </style></head><body style=""><div class="slide"><header class="header"><p class="hdrText"><strong>EduuAspire21.0 Skills</strong> <span>|</span> 21st Century Skills <span>|</span> Digital Literacy
+      </p></header><main class="main"><div aria-hidden="true" class="bgShapes"><div class="shapeA"></div><div class="shapeB"></div><div class="shapeC"></div></div><section class="frame"><div class="left"><div class="pill"><span class="pillDot"></span><p class="m-0 text-sm" style="margin:0;color:#111827;opacity:.8;font-weight:600;">Workshop • Academic Research &amp; Ethics</p></div><div><p class="title">The Research Masterclass</p></div><div></div><div><p class="tagline">Learn to Think, Research, and Create Ethically</p></div><div class="metaRow"><div class="chip"><i class="fa-solid fa-magnifying-glass"></i><p style="margin:0;">Search &amp; Evaluate</p></div><div class="chip"><i class="fa-solid fa-quote-right"></i><p style="margin:0;">Cite Correctly</p></div><div class="chip"><i class="fa-solid fa-shield-halved"></i><p style="margin:0;">Avoid Plagiarism</p></div></div></div><aside class="right"><div class="mark"><div class="markRing"><i class="fa-solid fa-book-open-reader"></i></div><p class="markTitle">Information Mastery</p><p class="markText">Build credible knowledge using trusted, peer‑reviewed sources.</p></div></aside></section></main>
+      
+  <div class="footer-container">
+    <nav class="nav-bar">
+      <a href="f2.html" class="nav-btn">Next: Understanding Research →</a>
+    </nav>
+    <footer class="footer">
+      <p class="ftrText"><strong>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</strong></p>
+    </footer>
+  </div>
+</div>
+
+<script>
+  // Keyboard Navigation Support
+  document.addEventListener('keydown', function(event) {
+    if (event.key === "ArrowRight") {
+      window.location.href = "f2.html";
+    }
+  });
+</script>
+
+</body></html>

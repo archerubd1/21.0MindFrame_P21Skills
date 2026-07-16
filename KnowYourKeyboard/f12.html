@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conclusion + Digital Pledge</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #0f1020;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Ambient Glows */
+        .glow-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.2;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            width: 600px;
+            height: 600px;
+            background-color: #10b981; /* Green */
+            top: -300px;
+            right: -100px;
+        }
+
+        .glow-2 {
+            width: 600px;
+            height: 600px;
+            background-color: #8b5cf6; /* Purple */
+            bottom: -300px;
+            left: -100px;
+        }
+
+        /* Header & Footer */
+        .header {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #a5b4fc;
+            font-size: 18px;
+            letter-spacing: 1px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color: #64748b;
+            font-size: 14px;
+            z-index: 20;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 80px 60px 50px 60px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .highlight-neon {
+            color: #34d399; /* Mint Green */
+            text-shadow: 0 0 20px rgba(52, 211, 153, 0.4);
+        }
+
+        /* Takeaways Grid */
+        .takeaways-container {
+            display: flex;
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+            margin-bottom: 40px;
+        }
+
+        .takeaway-card {
+            flex: 1;
+            background-color: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 16px;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            backdrop-filter: blur(5px);
+            transition: transform 0.3s ease;
+        }
+
+        .takeaway-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(30, 41, 59, 0.6);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .icon-circle {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            margin-bottom: 12px;
+        }
+
+        .icon-1 { background-color: rgba(96, 165, 250, 0.2); color: #60a5fa; box-shadow: 0 0 10px rgba(96, 165, 250, 0.1); }
+        .icon-2 { background-color: rgba(244, 114, 182, 0.2); color: #f472b6; box-shadow: 0 0 10px rgba(244, 114, 182, 0.1); }
+        .icon-3 { background-color: rgba(251, 191, 36, 0.2); color: #fbbf24; box-shadow: 0 0 10px rgba(251, 191, 36, 0.1); }
+        .icon-4 { background-color: rgba(167, 139, 250, 0.2); color: #a78bfa; box-shadow: 0 0 10px rgba(167, 139, 250, 0.1); }
+
+        .card-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 5px;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            color: #cbd5e1;
+            line-height: 1.3;
+        }
+
+        /* Pledge Box */
+        .pledge-container {
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            margin-bottom: 30px;
+            margin-top: 10px;
+        }
+
+        .pledge-box {
+            background-color: rgba(15, 23, 42, 0.8);
+            border: 2px solid #10b981;
+            border-radius: 20px;
+            padding: 40px 40px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 40px rgba(16, 185, 129, 0.1);
+        }
+
+        .pledge-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #10b981;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .pledge-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 26px;
+            font-weight: 600;
+            color: #ffffff;
+            line-height: 1.5;
+        }
+
+        .highlight-word {
+            color: #34d399;
+            position: relative;
+            display: inline-block;
+        }
+
+        .highlight-word::after {
+            content: '';
+            position: absolute;
+            bottom: 2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: #10b981;
+            opacity: 0.5;
+            border-radius: 2px;
+        }
+
+        .pledge-icon {
+            position: absolute;
+            top: -28px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #0f1020;
+            padding: 12px;
+            border-radius: 50%;
+            border: 2px solid #10b981;
+            color: #10b981;
+            font-size: 24px;
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.3);
+        }
+
+        /* CTA Bar */
+        .cta-bar {
+            background-color: rgba(245, 158, 11, 0.1);
+            border: 1px dashed #f59e0b;
+            border-radius: 50px;
+            padding: 15px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            animation: pulse-border 3s infinite;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .cta-bar:hover {
+            background-color: rgba(245, 158, 11, 0.2);
+            transform: scale(1.02);
+        }
+
+        .cta-text {
+            color: #fbbf24;
+            font-size: 18px;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+        }
+
+        .cta-icon {
+            color: #fcd34d;
+            font-size: 20px;
+        }
+        
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(245, 158, 11, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(245, 158, 11, 0); }
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="glow-blob glow-1"></div>
+<div class="glow-blob glow-2"></div>
+<!-- Header -->
+<header class="header">
+<i class="fa-solid fa-graduation-cap"></i>
+<p>EduuAspire 21.0 Skills | 21st Century Skills Digital Literacy</p>
+</header>
+<!-- Main Content -->
+<div class="content-wrapper">
+<h1 class="main-title">Key Takeaways &amp; <span class="highlight-neon">My Pledge</span></h1>
+<!-- Takeaways Grid -->
+<div class="takeaways-container">
+<!-- Card 1 -->
+<div class="takeaway-card">
+<div class="icon-circle icon-1">
+<i class="fa-solid fa-volume-high"></i>
+</div>
+<p class="card-title">Tone Matters</p>
+<p class="card-desc">It's not just what you say, but how you type it.</p>
+</div>
+<!-- Card 2 -->
+<div class="takeaway-card">
+<div class="icon-circle icon-2">
+<i class="fa-solid fa-brain"></i>
+</div>
+<p class="card-title">T.H.I.N.K. First</p>
+<p class="card-desc">Is it True, Helpful, Inspiring, Necessary, Kind?</p>
+</div>
+<!-- Card 3 -->
+<div class="takeaway-card">
+<div class="icon-circle icon-3">
+<i class="fa-solid fa-handshake-simple"></i>
+</div>
+<p class="card-title">Calm Conflict</p>
+<p class="card-desc">Pause, breathe, and clarify before reacting.</p>
+</div>
+<!-- Card 4 -->
+<div class="takeaway-card">
+<div class="icon-circle icon-4">
+<i class="fa-solid fa-star"></i>
+</div>
+<p class="card-title">Helpful Feedback</p>
+<p class="card-desc">Be specific and kind to help others improve.</p>
+</div>
+</div>
+<!-- Pledge Box -->
+<div class="pledge-container">
+<div class="pledge-box">
+<div class="pledge-icon">
+<i class="fa-solid fa-keyboard"></i>
+</div>
+<p class="pledge-title">Official Student Pledge</p>
+<p class="pledge-text">"I will use a <span class="highlight-word">kind keyboard</span>—be true, helpful, inspiring, necessary, and kind in every message I send."</p>
+</div>
+</div>
+<!-- Call to Action -->
+<div class="cta-bar">
+<i class="fa-solid fa-camera cta-icon"></i>
+<p class="cta-text">Challenge: Try one kind message today! Screenshot your win! 📸</p>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p>Licensed and Powered by Astrl mind Technologies | Copyright © 2026-2033</p>
+</footer>
+</div>
+<!-- PREVIOUS BUTTON -->
+<a href="f11.html"
+   class="absolute bottom-16 left-12 z-50 px-6 py-3
+          bg-gray-800 text-white text-sm font-semibold uppercase
+          hover:bg-gray-700 transition rounded-lg">
+← 
+</a>
+</body>
+</html>

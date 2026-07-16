@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 3: Source Checking</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Roboto+Mono:wght@400;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #050510;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* Neon Utilities */
+        .neon-text-blue {
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .neon-text-purple {
+            text-shadow: 0 0 5px rgba(168, 85, 247, 0.8), 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+        
+        .neon-text-green {
+            text-shadow: 0 0 5px rgba(34, 197, 94, 0.8), 0 0 15px rgba(34, 197, 94, 0.4);
+        }
+        
+        .neon-text-red {
+            text-shadow: 0 0 5px rgba(239, 68, 68, 0.8), 0 0 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .neon-box {
+            background-color: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Grid Background Pattern */
+        .grid-line-h {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+        
+        .grid-line-v {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+
+        /* Module Badge */
+        .module-badge {
+            background-color: rgba(30, 58, 138, 0.3);
+            border-left: 4px solid #3b82f6;
+            color: #93c5fd;
+        }
+
+        /* Checklist Items */
+        .check-item {
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        .check-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon-box {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            background-color: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            color: #a855f7;
+        }
+
+        /* Browser Simulation Styles */
+        .browser-card {
+            position: relative;
+            border-radius: 8px;
+            padding: 16px;
+            margin-bottom: 16px;
+            transition: transform 0.3s ease;
+        }
+        
+        .browser-card.fake {
+            background-color: rgba(239, 68, 68, 0.05);
+            border: 1px solid rgba(239, 68, 68, 0.5);
+            box-shadow: 0 0 20px rgba(239, 68, 68, 0.1);
+        }
+        
+        .browser-card.real {
+            background-color: rgba(34, 197, 94, 0.05);
+            border: 1px solid rgba(34, 197, 94, 0.5);
+            box-shadow: 0 0 20px rgba(34, 197, 94, 0.1);
+        }
+
+        .url-bar {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .scan-line {
+            position: absolute;
+            height: 2px;
+            width: 100%;
+            background-color: rgba(59, 130, 246, 0.8);
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.8);
+            top: 0;
+            left: 0;
+            animation: scan-vertical 3s infinite linear;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        @keyframes scan-vertical {
+            0% { top: 0%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+        /* Custom Scrollbar hide */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container text-white">
+<!-- Background Grid -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<div class="grid-line-h" style="top: 10%"></div>
+<div class="grid-line-h" style="top: 20%"></div>
+<div class="grid-line-h" style="top: 30%"></div>
+<div class="grid-line-h" style="top: 40%"></div>
+<div class="grid-line-h" style="top: 50%"></div>
+<div class="grid-line-h" style="top: 60%"></div>
+<div class="grid-line-h" style="top: 70%"></div>
+<div class="grid-line-h" style="top: 80%"></div>
+<div class="grid-line-h" style="top: 90%"></div>
+<div class="grid-line-v" style="left: 10%"></div>
+<div class="grid-line-v" style="left: 20%"></div>
+<div class="grid-line-v" style="left: 30%"></div>
+<div class="grid-line-v" style="left: 40%"></div>
+<div class="grid-line-v" style="left: 50%"></div>
+<div class="grid-line-v" style="left: 60%"></div>
+<div class="grid-line-v" style="left: 70%"></div>
+<div class="grid-line-v" style="left: 80%"></div>
+<div class="grid-line-v" style="left: 90%"></div>
+</div>
+<!-- New Global Header -->
+<div class="w-full bg-gray-900 border-b border-blue-900 py-1.5 z-30 flex justify-center items-center h-8 shrink-0">
+<p class="font-['Roboto_Mono'] text-xs text-blue-300 tracking-widest neon-text-blue uppercase">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Slide Header -->
+<header class="flex justify-between items-center px-12 py-4 z-20 border-b border-gray-800 bg-gray-900 bg-opacity-90 shrink-0">
+<div class="flex items-center space-x-4">
+<i class="fas fa-search-location text-blue-500 text-2xl"></i>
+<h2 class="font-['Space_Grotesk'] text-2xl font-bold tracking-wider text-gray-200">SOURCE VERIFICATION</h2>
+</div>
+<div class="flex items-center space-x-2 font-['Roboto_Mono'] text-blue-400 text-sm tracking-widest">
+<i class="fas fa-layer-group"></i>
+<span>MODULE 03</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex px-12 py-6 space-x-12 z-10 relative overflow-hidden">
+<!-- Left Column: Educational Content -->
+<div class="w-1/2 flex flex-col justify-center space-y-4">
+<div>
+<div class="module-badge inline-block px-4 py-2 mb-3">
+<p class="font-['Roboto_Mono'] text-xs uppercase tracking-widest font-bold">Source Protocol Delta</p>
+</div>
+<h1 class="font-['Space_Grotesk'] text-4xl font-bold leading-tight mb-2">
+                    Source <span class="neon-text-blue">Checking</span>
+</h1>
+<p class="font-['Inter'] text-gray-400 text-base leading-relaxed">
+                    Don't be fooled by look-alike URLs. Verify the origin before you trust the content. A credible source is the foundation of truth.
+                </p>
+</div>
+<!-- Checklist Card -->
+<div class="neon-box rounded-lg p-5">
+<div class="space-y-4">
+<!-- Item 1 -->
+<div class="check-item flex items-start space-x-4 pb-3">
+<div class="check-icon-box flex-shrink-0">
+<i class="fas fa-globe"></i>
+</div>
+<div>
+<p class="font-bold text-gray-200 text-sm font-['Space_Grotesk']">DOMAIN INSPECTION</p>
+<p class="text-gray-400 text-xs mt-1">Check TLDs (.edu, .gov are safer). Watch for mimicry like ".co" instead of ".com".</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="check-item flex items-start space-x-4 pb-3">
+<div class="check-icon-box flex-shrink-0">
+<i class="fas fa-user-secret"></i>
+</div>
+<div>
+<p class="font-bold text-gray-200 text-sm font-['Space_Grotesk']">AUTHOR AUDIT</p>
+<p class="text-gray-400 text-xs mt-1">Does the author exist? Look for a real bio, past articles, and professional history.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="check-item flex items-start space-x-4">
+<div class="check-icon-box flex-shrink-0">
+<i class="fas fa-random"></i>
+</div>
+<div>
+<p class="font-bold text-gray-200 text-sm font-['Space_Grotesk']">CROSS-REFERENCING</p>
+<p class="text-gray-400 text-xs mt-1">If only one obscure site reports it, be suspicious. Verify with 2-3 trusted outlets.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Analysis -->
+<div class="w-1/2 flex flex-col items-center justify-center relative">
+<!-- Decorator Lines -->
+<div class="absolute -inset-4 border border-blue-500 opacity-10 rounded-xl"></div>
+<!-- Fake Site Analysis -->
+<div class="w-full browser-card fake relative mb-4">
+<div class="absolute -top-3 left-4 bg-gray-900 border border-red-500 text-red-500 text-[10px] px-2 py-0.5 rounded font-['Roboto_Mono'] uppercase tracking-wider">
+<i class="fas fa-exclamation-triangle mr-1"></i> Imposter Site
+                </div>
+<div class="url-bar text-gray-300 border border-red-500 border-opacity-30">
+<div class="flex items-center">
+<i class="fas fa-globe text-gray-500 mr-3"></i>
+<span class="text-red-300">abcnews.com.co</span><span class="text-gray-600">/breaking-news</span>
+</div>
+<i class="fas fa-times-circle text-red-500"></i>
+</div>
+<div class="mt-2 p-2 bg-black bg-opacity-40 rounded border-l-2 border-red-500">
+<p class="font-['Space_Grotesk'] text-gray-400 text-xs">"Celebrity admits to being alien in exclusive interview..."</p>
+</div>
+<div class="absolute top-1/2 -right-3 transform -translate-y-1/2">
+<i class="fas fa-times text-red-500 text-2xl neon-text-red"></i>
+</div>
+</div>
+<!-- Arrow Connector -->
+<div class="h-6 border-l-2 border-dashed border-gray-700 my-1"></div>
+<!-- Real Site Analysis -->
+<div class="w-full browser-card real relative mt-2">
+<div class="absolute -top-3 left-4 bg-gray-900 border border-green-500 text-green-500 text-[10px] px-2 py-0.5 rounded font-['Roboto_Mono'] uppercase tracking-wider">
+<i class="fas fa-shield-alt mr-1"></i> Verified Source
+                </div>
+<div class="url-bar text-gray-300 border border-green-500 border-opacity-30">
+<div class="flex items-center">
+<i class="fas fa-lock text-green-500 mr-3"></i>
+<span class="text-green-300">abcnews.go.com</span>
+</div>
+<i class="fas fa-check-circle text-green-500"></i>
+</div>
+<div class="mt-2 p-2 bg-black bg-opacity-40 rounded border-l-2 border-green-500">
+<p class="font-['Space_Grotesk'] text-gray-400 text-xs">"Official reports confirm successful launch today..."</p>
+</div>
+<div class="absolute top-1/2 -right-3 transform -translate-y-1/2">
+<i class="fas fa-check text-green-500 text-2xl neon-text-green"></i>
+</div>
+</div>
+<!-- Scanner Overlay -->
+<div class="absolute inset-0 pointer-events-none overflow-hidden rounded-xl">
+<div class="scan-line"></div>
+</div>
+<!-- Analysis Footer -->
+<div class="w-full mt-2 flex justify-between items-center text-[10px] font-['Roboto_Mono'] text-gray-500">
+<span>DOMAIN REPUTATION SCAN</span>
+<span class="text-blue-400">COMPLETE</span>
+</div>
+</div>
+</main>
+<!-- Slide Footer -->
+<footer class="h-10 border-t border-gray-800 bg-gray-900 flex items-center justify-between px-12 z-20 shrink-0">
+<div class="flex items-center space-x-4">
+<span class="text-gray-500 text-xs font-['Roboto_Mono']">VISUAL INTEGRITY SCANNER</span>
+<span class="text-blue-500 text-xs"><i class="fas fa-circle-notch fa-spin"></i> ACTIVE</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-gray-500 text-xs font-['Roboto_Mono']">10 / 17</span>
+<div class="w-24 h-1 bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 w-[58%]"></div>
+</div>
+</div>
+</footer>
+<!-- New Global Footer -->
+<div class="w-full bg-gray-900 border-t border-purple-900 py-1 z-30 flex justify-center items-center h-6 shrink-0">
+<p class="font-['Roboto_Mono'] text-[10px] text-purple-300 tracking-wider neon-text-purple">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f10.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f8.html';
+    }
+
+});
+</script>
+</body>
+</html>

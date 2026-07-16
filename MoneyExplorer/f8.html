@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Smart Spending</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background: #0f0f0f;
+    border-bottom: 2px solid gold;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0f0f0f;
+    border-top: 1px solid #222;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 12px;
+}
+
+/* CENTER */
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SLIDE */
+.slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    transform-origin: center center;
+}
+
+/* TITLE */
+.title {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+    font-size: 44px;
+    color: gold;
+}
+
+/* SUBTITLE */
+.subtitle {
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    color: #39FF14;
+}
+
+/* STEP CARDS */
+.step {
+    position: absolute;
+    width: 300px;
+    height: 200px;
+    border-radius: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+/* STEP COLORS */
+.stop {
+    left: 140px;
+    top: 220px;
+    border: 2px solid gold;
+    background: rgba(255,215,0,0.1);
+}
+
+.think {
+    left: 490px;
+    top: 220px;
+    border: 2px solid #39FF14;
+    background: rgba(57,255,20,0.1);
+}
+
+.wait {
+    right: 140px;
+    top: 220px;
+    border: 2px solid gold;
+    background: rgba(255,215,0,0.1);
+}
+
+/* NUMBER CIRCLE */
+.number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin: -40px auto 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: black;
+}
+
+.stop .number { background: gold; }
+.think .number { background: #39FF14; }
+.wait .number { background: gold; }
+
+/* TEXT */
+.step h2 {
+    margin: 10px 0;
+}
+
+.step p {
+    color: #ccc;
+}
+
+/* ARROWS */
+.arrow {
+    position: absolute;
+    top: 300px;
+    font-size: 30px;
+}
+
+.arrow1 { left: 450px; color: #39FF14; }
+.arrow2 { left: 800px; color: gold; }
+
+/* MANTRA */
+.mantra {
+    position: absolute;
+    bottom: 120px;
+    left: 240px;
+    width: 800px;
+    text-align: center;
+    border: 2px solid #39FF14;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+/* NAV */
+button {
+    position: absolute;
+    bottom: 30px;
+    padding: 10px 20px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.left { left: 20px; }
+.right { right: 20px; }
+
+button:hover {
+    background: gold;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+</div>
+
+<div id="wrapper">
+<div class="slide">
+
+<div class="title">Smart Spending 💡</div>
+<div class="subtitle">The PAUSE Method</div>
+
+<!-- STEP 1 -->
+<div class="step stop">
+<div class="number">1</div>
+<h2>STOP</h2>
+<p>Don’t buy instantly</p>
+</div>
+
+<!-- STEP 2 -->
+<div class="step think">
+<div class="number">2</div>
+<h2>THINK</h2>
+<p>Do I really need it?</p>
+</div>
+
+<!-- STEP 3 -->
+<div class="step wait">
+<div class="number">3</div>
+<h2>WAIT</h2>
+<p>Give it 24 hours</p>
+</div>
+
+<!-- ARROWS -->
+<div class="arrow arrow1">→</div>
+<div class="arrow arrow2">→</div>
+
+<!-- MANTRA -->
+<div class="mantra">
+<span style="color:#39FF14;">Mantra:</span>
+Buy needs, save for wants!
+</div>
+
+<!-- NAV -->
+<button class="left" onclick="goBack()">← Interactive Quiz</button>
+<button class="right" onclick="goNext()">Power of Saving →</button>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+<script>
+function scaleSlide() {
+    const slide = document.querySelector('.slide');
+    const scale = Math.min(
+        window.innerWidth / 1280,
+        window.innerHeight / 720
+    );
+    slide.style.transform = `scale(${scale})`;
+}
+window.addEventListener("load", scaleSlide);
+window.addEventListener("resize", scaleSlide);
+
+function goNext() {
+    window.location.href = "f9.html";
+}
+function goBack() {
+    window.location.href = "f7.html";
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") goNext();
+    if (e.key === "ArrowLeft") goBack();
+});
+</script>
+
+</body>
+</html>

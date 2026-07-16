@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Program Objectives - The Virtual Team Lab</title>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+}
+    
+    .slide-container {
+        position: relative;
+        width: 1280px;
+        height: 720px;
+        overflow: hidden;
+        background: linear-gradient(135deg, #f0f9ff 0%, #f5f0ff 50%, #f0fdf4 100%);
+    }
+    
+    /* Header Bar */
+    .header-bar {
+        /* Converted from top: 0; left: 0; right: 0; height: 50px; to explicit top/left/width/height */
+        background: rgba(255, 255, 255, 0.9);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        z-index: 100;
+    }
+    
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .header-logo {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1e3a5f;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .header-separator {
+        color: #94a3b8;
+        font-size: 14px;
+    }
+    
+    .header-item {
+        font-size: 13px;
+        color: #64748b;
+        font-weight: 500;
+    }
+    
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .header-badge {
+        background: #e0f2fe;
+        color: #0369a1;
+        padding: 4px 12px;
+        border-radius: 20px;
+        font-size: 12px;
+        font-weight: 500;
+    }
+    
+    /* Footer Bar */
+    .footer-bar {
+        /* Converted from bottom: 0; left: 0; right: 0; height: 40px; to explicit top/left/width/height */
+        background: rgba(255, 255, 255, 0.9);
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        z-index: 100;
+    }
+    
+    .footer-left {
+        font-size: 12px;
+        color: #64748b;
+    }
+    
+    .footer-right {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    .footer-text {
+        font-size: 12px;
+        color: #64748b;
+    }
+    
+    /* Main Content */
+    .main-content {
+        /* Converted from top: 50px; left: 0; right: 0; bottom: 40px; to explicit top/left/width/height */
+        display: flex;
+        flex-direction: column;
+        padding: 40px;
+    }
+    
+    .content-wrapper {
+        display: flex;
+        height: 100%;
+        gap: 40px;
+    }
+    
+    .left-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .right-column {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .page-title {
+        font-family: 'Poppins', sans-serif;
+        font-size: 32px;
+        font-weight: 700;
+        color: #1e3a5f;
+        margin-bottom: 30px;
+        letter-spacing: -0.5px;
+    }
+    
+    .bullet-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .bullet-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        background: white;
+        padding: 15px 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+    
+    .bullet-icon {
+        width: 40px;
+        height: 40px;
+        background: #e0f2fe;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    .bullet-icon i {
+        color: #3b82f6;
+        font-size: 16px;
+    }
+    
+    .bullet-content {
+        flex: 1;
+    }
+    
+    .bullet-title {
+        font-size: 15px;
+        font-weight: 600;
+        color: #1e3a5f;
+        margin-bottom: 5px;
+    }
+    
+    .bullet-desc {
+        font-size: 13px;
+        color: #64748b;
+        line-height: 1.5;
+    }
+    
+    /* Illustration */
+    .illustration-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .tech-illustration {
+        position: relative;
+        /* Adjusted width and height for better checkpoint spacing */
+        width: 450px; /* Originally 400px */
+        height: 450px; /* Originally 300px */
+    }
+    
+    .target-icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 120px;
+        height: 120px;
+        background: white;
+        border-radius: 50%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+    }
+    
+    .target-icon i {
+        font-size: 60px;
+        color: #3b82f6;
+    }
+    
+    .target-rings {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    
+    .ring {
+        position: absolute;
+        border: 2px solid #3b82f6;
+        border-radius: 50%;
+        opacity: 0.3;
+    }
+    
+    .ring-1 {
+        width: 200px;
+        height: 200px;
+        top: -100px;
+        left: -100px;
+    }
+    
+    .ring-2 {
+        width: 250px;
+        height: 250px;
+        top: -125px;
+        left: -125px;
+    }
+    
+    .ring-3 {
+        width: 300px;
+        height: 300px;
+        top: -150px;
+        left: -150px;
+    }
+    
+    .checkpoints {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .checkpoint {
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        background: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .checkpoint i {
+        font-size: 14px;
+        color: #3b82f6;
+    }
+    
+    .cp-1 {
+        top: 25px; /* Adjusted from 30px */
+        left: 25px; /* Adjusted from 50px */
+    }
+    
+    .cp-2 {
+        top: 25px; /* Adjusted from 30px */
+        right: 25px; /* Adjusted from 50px */
+    }
+    
+    .cp-3 {
+        bottom: 25px; /* Adjusted from 30px */
+        left: 25px; /* Adjusted from 50px */
+    }
+    
+    .cp-4 {
+        bottom: 25px; /* Adjusted from 30px */
+        right: 25px; /* Adjusted from 50px */
+    }
+    
+    /* Navigation */
+    .nav-controls {
+        /* Converted from bottom: 60px; right: 40px; to explicit top/left/width/height */
+        display: flex;
+        gap: 10px;
+    }
+    
+    .nav-btn {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 14px;
+        color: #64748b;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        transition: all 0.2s;
+    }
+    
+    .nav-btn:hover {
+        background: #f8fafc;
+        border-color: #3b82f6;
+        color: #3b82f6;
+    }
+    
+    .nav-btn.next {
+        background: #3b82f6;
+        color: white;
+        border-color: #3b82f6;
+    }
+    
+    .nav-btn.next:hover {
+        background: #2563eb;
+    }
+    
+    .data-object {
+        position: absolute;
+    }
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background: #f1f5f9;
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-bar" style="position: absolute; top: 0px; left: 0px; width: 1280px; height: 50px;">
+<div class="header-left">
+<div class="header-logo">EduuAspire21.0 Skills</div>
+<div class="header-separator">|</div>
+<div class="header-item">21st Century Skills</div>
+<div class="header-separator">|</div>
+<div class="header-item">Digital Literacy</div>
+</div>
+<div class="header-right">
+<div class="header-badge">Active</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content" style="position: absolute; top: 50px; left: 0px; width: 1280px; height: 630px;">
+<div class="content-wrapper">
+<div class="left-column">
+<div class="page-title">Program Objectives</div>
+<div class="bullet-list">
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-bullseye"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">Simulate Real Remote Workplace</div>
+<div class="bullet-desc">Create an authentic remote work environment that mirrors industry standards and practices.</div>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-users"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">Strengthen Collaboration &amp; Teamwork</div>
+<div class="bullet-desc">Develop effective teamwork skills through structured group activities and peer interaction.</div>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-tools"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">Build Fluency with Digital Tools</div>
+<div class="bullet-desc">Master essential digital tools and platforms used in modern remote work environments.</div>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-sync"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">Practice Agile Mindsets &amp; Feedback</div>
+<div class="bullet-desc">Learn to adapt quickly and provide constructive feedback in iterative processes.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="right-column">
+<div class="illustration-container">
+<div class="tech-illustration">
+<div class="target-icon">
+<i class="fas fa-bullseye"></i>
+</div>
+<div class="target-rings">
+<div class="ring ring-1"></div>
+<div class="ring ring-2"></div>
+<div class="ring ring-3"></div>
+</div>
+<div class="checkpoints">
+<div class="checkpoint cp-1">
+<i class="fas fa-check"></i>
+</div>
+<div class="checkpoint cp-2">
+<i class="fas fa-check"></i>
+</div>
+<div class="checkpoint cp-3">
+<i class="fas fa-check"></i>
+</div>
+<div class="checkpoint cp-4">
+<i class="fas fa-check"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 🔥 NAVIGATION -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Importants</div>
+    <div class="nav-link" onclick="next()">Control →</div>
+</div>
+</div>
+<div class="nav-btn next" onclick="nextSlide()">
+<span>Next</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar" style="position: absolute; top: 680px; left: 0px; width: 1280px; height: 40px;">
+<div class="footer-left">
+<span>Licenced &amp; Powered By Astrl Mind Technologies</span>
+</div>
+<div class="footer-right">
+<span class="footer-text">© 2026–2033</span>
+</div>
+</div>
+</div>
+<script>
+
+// Navigation
+function next() {
+    window.location.href = "f5.html";   // ✅ FIXED
+}
+
+function prev() {
+    window.location.href = "f3.html";   // first slide fallback
+}
+
+// Keyboard
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+</script>
+</body>
+</html>

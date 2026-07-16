@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Smart Summarizer - Slide 6</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+/* FULL SCREEN FIX */
+.slide-wrapper {
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: #FFF6E9;
+    font-family: 'Poppins', sans-serif;
+
+    transform: scale(min(100vw / 1280, 100vh / 720));
+    transform-origin: top left;
+}
+
+p { margin: 0; line-height: 1.5; }
+ul { list-style: none; padding: 0; }
+
+li {
+    margin-bottom: 25px;
+    padding-left: 45px;
+    position: relative;
+}
+
+li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: #2ECC71;
+    font-size: 24px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-wrapper">
+<div class="slide-container">
+
+<!-- BACKGROUND -->
+<div style="position:absolute; left:-100px; top:-100px; width:600px; height:600px; background:rgba(255,229,217,0.4); border-radius:50%;"></div>
+<div style="position:absolute; left:800px; top:300px; width:600px; height:600px; background:rgba(255,229,217,0.4); border-radius:50%;"></div>
+
+<!-- HEADER -->
+<div style="position:absolute;top:0;width:100%;height:60px;background:rgba(255,255,255,0.8);z-index:10;"></div>
+
+<div style="position:absolute;top:15px;left:40px;z-index:11;">
+<p style="font-size:18px;color:#555;">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</p>
+</div>
+
+<!-- TITLE -->
+<div style="position:absolute;top:110px;left:100px;">
+<p style="font-size:48px;font-weight:700;color:#333;border-bottom:3px solid #D65A31;">
+Key Points
+</p>
+</div>
+
+<!-- CONTENT -->
+<div style="position:absolute;top:220px;left:100px;width:500px;">
+<p style="font-size:24px;color:#666;">Look for these signals:</p>
+
+<ul style="font-size:26px;color:#444;">
+<li><strong>Keywords</strong><br/><span style="font-size:18px;">Words repeated often</span></li>
+<li><strong>Headings</strong><br/><span style="font-size:18px;">Section titles</span></li>
+<li><strong>Repeated Ideas</strong><br/><span style="font-size:18px;">Main concepts repeated</span></li>
+</ul>
+</div>
+
+<!-- NAV BAR -->
+<div style="position:absolute;bottom:60px;width:100%;height:80px;background:rgba(255,204,170,0.5);"></div>
+
+<!-- PREVIOUS BUTTON -->
+<div class="nav-btn"
+onclick="goPrev()"
+style="position:absolute;left:40px;bottom:80px;width:260px;height:50px;background:#fff;border-radius:25px;display:flex;align-items:center;justify-content:center;z-index:20;">
+<p style="font-weight:600;color:#D65A31;">
+<i class="fa-solid fa-arrow-left"></i> Reliable Sources
+</p>
+</div>
+
+<!-- NEXT BUTTON -->
+<div class="nav-btn"
+onclick="goNext()"
+style="position:absolute;right:40px;bottom:80px;width:260px;height:50px;background:#fff;border-radius:25px;display:flex;align-items:center;justify-content:center;z-index:20;">
+<p style="font-weight:600;color:#D65A31;">
+Main Ideas <i class="fa-solid fa-arrow-right"></i>
+</p>
+</div>
+
+<!-- FOOTER -->
+<div style="position:absolute;bottom:0;width:100%;height:40px;background:#fff;">
+<p style="text-align:center;font-size:12px;color:#888;padding-top:10px;">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</p>
+</div>
+
+</div>
+
+<!-- JAVASCRIPT FIX -->
+<script>
+
+// BUTTON CLICK NAVIGATION
+function goNext() {
+    window.location.href = "f7.html";
+}
+
+function goPrev() {
+    window.location.href = "f5.html";
+}
+
+// KEYBOARD NAVIGATION
+document.addEventListener("keydown", function(e){
+
+    const tag = document.activeElement.tagName.toLowerCase();
+    if(tag === "input" || tag === "textarea") return;
+
+    if(e.key === "ArrowRight"){
+        goNext();
+    }
+
+    if(e.key === "ArrowLeft"){
+        goPrev();
+    }
+
+});
+</script>
+
+</body>
+</html>

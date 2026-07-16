@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Strategic Evidence Lab - Decision Framework</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        :root {
+            --bg-dark: #1E1E2F;
+            --bg-panel: #2A2A40;
+            --accent-cyan: #3A6B6B;
+            --accent-green: #4ADE80;
+            --accent-teal: #2DD4BF;
+            --accent-blue: #60A5FA;
+            --accent-purple: #A78BFA;
+            --accent-pink: #F472B6;
+            --text-heading: #FFFFFF;
+            --text-body: #D1D5DB;
+        }
+
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-body);
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+             width: 100%;  
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+
+        /* Fixed Header */
+        header {
+            height: 60px;
+            background-color: var(--bg-panel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #3A3A50;
+            z-index: 50;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            color: #9CA3AF;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        /* Main Content Area */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .slide-header {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .slide-title {
+            color: var(--text-heading);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: inline-block;
+            border-bottom: 4px solid var(--accent-purple);
+            padding-bottom: 5px;
+        }
+        
+        .slide-subtitle {
+            color: var(--text-body);
+            font-size: 16px;
+            font-weight: 400;
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* Timeline Layout */
+        .timeline-wrapper {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: flex-start; /* Align to top to allow cards to hang down */
+            justify-content: space-between;
+            padding-top: 40px;
+        }
+
+        /* Connecting Line */
+        .timeline-line {
+            position: absolute;
+            top: 65px; /* Aligns with the center of the number circles */
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: #3A3A50;
+            z-index: 0;
+            border-radius: 2px;
+        }
+
+        /* Gradient overlay for progress effect */
+        .timeline-progress {
+            position: absolute;
+            top: 65px;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: linear-gradient(to right, 
+                var(--accent-green), 
+                var(--accent-teal), 
+                var(--accent-blue), 
+                var(--accent-purple), 
+                var(--accent-pink));
+            z-index: 1;
+            border-radius: 2px;
+            opacity: 0.3;
+        }
+
+        /* Step Item */
+        .step-item {
+            position: relative;
+            z-index: 10;
+            width: 18%; /* 5 items fit within 100% */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+
+        .step-item:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Step Number Circle */
+        .step-number {
+            width: 54px;
+            height: 54px;
+            border-radius: 50%;
+            background-color: var(--bg-dark);
+            border: 4px solid;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--text-heading);
+            margin-bottom: 25px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        }
+
+        /* Step Colors */
+        .step-1 .step-number { border-color: var(--accent-green); color: var(--accent-green); }
+        .step-2 .step-number { border-color: var(--accent-teal); color: var(--accent-teal); }
+        .step-3 .step-number { border-color: var(--accent-blue); color: var(--accent-blue); }
+        .step-4 .step-number { border-color: var(--accent-purple); color: var(--accent-purple); }
+        .step-5 .step-number { border-color: var(--accent-pink); color: var(--accent-pink); }
+
+        /* Step Card */
+        .step-card {
+            background-color: var(--bg-panel);
+            border-radius: 12px;
+            padding: 20px 15px;
+            width: 100%;
+            text-align: center;
+            border-top: 4px solid;
+            height: 220px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .step-1 .step-card { border-color: var(--accent-green); }
+        .step-2 .step-card { border-color: var(--accent-teal); }
+        .step-3 .step-card { border-color: var(--accent-blue); }
+        .step-4 .step-card { border-color: var(--accent-purple); }
+        .step-5 .step-card { border-color: var(--accent-pink); }
+
+        .step-icon {
+            font-size: 24px;
+            margin-bottom: 12px;
+            opacity: 0.9;
+        }
+        
+        .step-1 .step-icon { color: var(--accent-green); }
+        .step-2 .step-icon { color: var(--accent-teal); }
+        .step-3 .step-icon { color: var(--accent-blue); }
+        .step-4 .step-icon { color: var(--accent-purple); }
+        .step-5 .step-icon { color: var(--accent-pink); }
+
+        .step-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-heading);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            line-height: 1.5;
+            color: var(--text-body);
+            flex-grow: 1;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            height: 60px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            position: absolute;
+            bottom: 50px; /* Above footer */
+            left: 0;
+            z-index: 40;
+            box-sizing: border-box;
+        }
+
+        .nav-link {
+            color: var(--text-body);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background-color: rgba(42, 42, 64, 0.8);
+            border-radius: 30px;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--text-heading);
+            background-color: rgba(58, 107, 107, 0.6);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            height: 50px;
+            background-color: var(--bg-panel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid #3A3A50;
+            z-index: 50;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-text {
+            color: #6B7280;
+            font-size: 12px;
+            margin: 0;
+        }
+        
+        /* Background decorative elements */
+        .bg-flow {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 200px;
+            background: radial-gradient(circle at 50% 50%, rgba(167, 139, 250, 0.05) 0%, transparent 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}</style></head>
+<body style="">
+<!-- Header -->
+<header>
+<p class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Information Literacy </p>
+</header>
+<!-- Background Elements -->
+<div class="bg-flow"></div>
+<!-- Main Content -->
+<main>
+<div class="slide-header">
+<p class="slide-title">Decision Framework</p>
+<p class="slide-subtitle">A systematic 5-step process for evidence-based strategy</p>
+</div>
+<div class="timeline-wrapper">
+<!-- Line -->
+<div class="timeline-line"></div>
+<div class="timeline-progress"></div>
+<!-- Step 1 -->
+<div class="step-item step-1">
+<div class="step-number">1</div>
+<div class="step-card">
+<i class="fa-solid fa-crosshairs step-icon"></i>
+<p class="step-title">Define Problem</p>
+<div class="step-desc">
+<p>Clearly articulate the core question. Avoid symptoms; identify the root cause you need to solve.</p>
+</div>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="step-item step-2">
+<div class="step-number">2</div>
+<div class="step-card">
+<i class="fa-solid fa-magnifying-glass step-icon"></i>
+<p class="step-title">Gather Evidence</p>
+<div class="step-desc">
+<p>Collect data from internal metrics, competitor analysis, customer feedback, and industry reports.</p>
+</div>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="step-item step-3">
+<div class="step-number">3</div>
+<div class="step-card">
+<i class="fa-solid fa-filter step-icon"></i>
+<p class="step-title">Evaluate</p>
+<div class="step-desc">
+<p>Apply the CRAAP framework. Check for biases, sample size issues, and source credibility.</p>
+</div>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="step-item step-4">
+<div class="step-number">4</div>
+<div class="step-card">
+<i class="fa-solid fa-flask step-icon"></i>
+<p class="step-title">Synthesize</p>
+<div class="step-desc">
+<p>Combine disparate data points into coherent insights. Look for patterns, outliers, and trends.</p>
+</div>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="step-item step-5">
+<div class="step-number">5</div>
+<div class="step-card">
+<i class="fa-solid fa-gavel step-icon"></i>
+<p class="step-title">Decide</p>
+<div class="step-desc">
+<p>Make the decision based on the synthesized evidence. Document the rationale for future review.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation -->
+<div class="nav-bar">
+<a class="nav-link" href="f8.html">
+<i class="fas fa-arrow-left"></i> <span>Bad Data Patterns</span>
+</a>
+<a class="nav-link" href="f10.html">
+<span>Case Study</span> <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Footer -->
+<footer>
+<p class="footer-text">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+<script>
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(event) {
+            // Disable if input is focused
+            if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+            
+            if (event.key === 'ArrowRight') {
+                window.location.href = 'f10.html';
+            } else if (event.key === 'ArrowLeft') {
+                window.location.href = 'f8.html';
+            }
+        });
+    </script>
+
+</body></html>

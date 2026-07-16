@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Detective Tools</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Roboto+Mono:wght@400;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #050510;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* Neon Utilities */
+        .neon-text-blue {
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .neon-text-purple {
+            text-shadow: 0 0 5px rgba(168, 85, 247, 0.8), 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .neon-box {
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        .neon-box:hover {
+            border-color: rgba(59, 130, 246, 0.6);
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+        }
+
+        /* Grid Background Pattern (No Gradients) */
+        .grid-line-h {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+        
+        .grid-line-v {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+
+        /* Flow Diagram Styles */
+        .flow-step-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #0f172a;
+            border: 2px solid #3b82f6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .flow-step-circle.active {
+            background-color: rgba(59, 130, 246, 0.2);
+            border-color: #a855f7;
+            box-shadow: 0 0 25px rgba(168, 85, 247, 0.6);
+        }
+
+        .flow-line {
+            flex: 1;
+            height: 2px;
+            background-color: #1e293b;
+            position: relative;
+            margin: 0 10px;
+        }
+
+        .flow-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0%;
+            background-color: #3b82f6;
+            box-shadow: 0 0 10px #3b82f6;
+            animation: flow-animation 2s infinite ease-in-out;
+        }
+
+        @keyframes flow-animation {
+            0% { width: 0%; left: 0; }
+            50% { width: 100%; left: 0; }
+            100% { width: 0%; left: 100%; }
+        }
+
+        /* Tool Cards */
+        .tool-card {
+            transition: transform 0.2s ease;
+        }
+        .tool-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Example Interface */
+        .browser-mockup {
+            border-top: 20px solid #1e293b;
+            border-radius: 8px 8px 0 0;
+            background-color: #0f172a;
+            position: relative;
+        }
+        
+        .browser-dots {
+            position: absolute;
+            top: -14px;
+            left: 10px;
+            display: flex;
+            gap: 6px;
+        }
+        
+        .browser-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+        }
+
+        /* Scrollbar hide */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+        
+        /* New Header and Footer Styles */
+        .custom-header {
+            font-family: 'Space Grotesk', sans-serif;
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.8);
+            letter-spacing: 1px;
+        }
+        
+        .custom-footer {
+            font-family: 'Roboto Mono', monospace;
+            text-shadow: 0 0 5px rgba(168, 85, 247, 0.6);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container text-white">
+<!-- Background Grid -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<!-- Horizontal Lines -->
+<div class="grid-line-h" style="top: 10%"></div>
+<div class="grid-line-h" style="top: 20%"></div>
+<div class="grid-line-h" style="top: 30%"></div>
+<div class="grid-line-h" style="top: 40%"></div>
+<div class="grid-line-h" style="top: 50%"></div>
+<div class="grid-line-h" style="top: 60%"></div>
+<div class="grid-line-h" style="top: 70%"></div>
+<div class="grid-line-h" style="top: 80%"></div>
+<div class="grid-line-h" style="top: 90%"></div>
+<!-- Vertical Lines -->
+<div class="grid-line-v" style="left: 10%"></div>
+<div class="grid-line-v" style="left: 20%"></div>
+<div class="grid-line-v" style="left: 30%"></div>
+<div class="grid-line-v" style="left: 40%"></div>
+<div class="grid-line-v" style="left: 50%"></div>
+<div class="grid-line-v" style="left: 60%"></div>
+<div class="grid-line-v" style="left: 70%"></div>
+<div class="grid-line-v" style="left: 80%"></div>
+<div class="grid-line-v" style="left: 90%"></div>
+<!-- Glow Blob -->
+<div class="absolute top-0 right-0 w-96 h-96 bg-blue-900 rounded-full filter blur-[100px] opacity-20"></div>
+</div>
+<!-- Custom Top Header -->
+<div class="w-full bg-gray-900 bg-opacity-95 border-b border-blue-900 py-1 px-4 z-30 text-center">
+<p class="custom-header text-blue-400 text-xs font-bold uppercase tracking-widest">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Original Header (slightly adjusted top padding/margin if needed, but kept as requested) -->
+<header class="flex justify-between items-center px-12 py-4 z-20 border-b border-gray-800 bg-gray-900 bg-opacity-90">
+<div class="flex items-center space-x-4">
+<i class="fas fa-toolbox text-blue-500 text-2xl"></i>
+<h2 class="font-['Space_Grotesk'] text-2xl font-bold tracking-wider text-gray-200">DETECTIVE TOOLS</h2>
+</div>
+<div class="flex items-center space-x-2 font-['Roboto_Mono'] text-blue-400 text-sm tracking-widest">
+<i class="fas fa-cogs"></i>
+<span>GEAR UP</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex px-12 py-6 space-x-8 z-10 relative overflow-hidden">
+<!-- Left Column: Context & Workflow -->
+<div class="w-2/5 flex flex-col space-y-5">
+<div>
+<h1 class="font-['Space_Grotesk'] text-3xl font-bold leading-tight mb-2 neon-text-blue">
+                        Verification Protocol
+                    </h1>
+<p class="font-['Inter'] text-gray-400 text-base leading-relaxed">
+                        Don't just guess—use professional tools. A true detective follows the evidence trail using the 3-Step Verification Flow.
+                    </p>
+</div>
+<!-- Interactive Workflow Diagram -->
+<div class="neon-box rounded-xl p-5 relative overflow-hidden">
+<p class="font-['Roboto_Mono'] text-xs text-blue-400 mb-5 uppercase tracking-widest">Standard Operating Procedure</p>
+<div class="flex items-center justify-between relative z-10">
+<!-- Step 1 -->
+<div class="flex flex-col items-center group">
+<div class="flow-step-circle group-hover:border-purple-500">
+<i class="fas fa-cloud-upload-alt text-xl text-blue-300"></i>
+</div>
+<p class="mt-3 font-['Space_Grotesk'] font-bold text-sm tracking-wide">UPLOAD</p>
+<p class="text-[10px] text-gray-500">Image/URL</p>
+</div>
+<!-- Connector -->
+<div class="flow-line"></div>
+<!-- Step 2 -->
+<div class="flex flex-col items-center group">
+<div class="flow-step-circle active">
+<i class="fas fa-search text-xl text-white"></i>
+</div>
+<p class="mt-3 font-['Space_Grotesk'] font-bold text-sm tracking-wide text-purple-400 neon-text-purple">SEARCH</p>
+<p class="text-[10px] text-gray-500">Scanning...</p>
+</div>
+<!-- Connector -->
+<div class="flow-line"></div>
+<!-- Step 3 -->
+<div class="flex flex-col items-center group">
+<div class="flow-step-circle group-hover:border-green-500">
+<i class="fas fa-shield-check text-xl text-blue-300"></i>
+</div>
+<p class="mt-3 font-['Space_Grotesk'] font-bold text-sm tracking-wide">VERIFY</p>
+<p class="text-[10px] text-gray-500">Confirm/Deny</p>
+</div>
+</div>
+</div>
+<!-- Real Life Example -->
+<div class="browser-mockup flex-1 border border-gray-700 p-4 relative">
+<div class="browser-dots">
+<div class="browser-dot bg-red-500"></div>
+<div class="browser-dot bg-yellow-500"></div>
+<div class="browser-dot bg-green-500"></div>
+</div>
+<div class="flex items-start space-x-3 mb-2">
+<div class="bg-gray-800 p-2 rounded text-blue-400">
+<i class="fas fa-history"></i>
+</div>
+<div>
+<p class="font-['Roboto_Mono'] text-xs text-blue-400 font-bold uppercase">CASE FILE: "TODAY'S FLOOD"</p>
+<p class="text-xs text-gray-300">Viral post claims image is from current storm.</p>
+</div>
+</div>
+<div class="bg-gray-900 border border-red-500 border-opacity-30 rounded p-3 flex items-center space-x-3">
+<div class="w-12 h-12 bg-gray-800 rounded flex items-center justify-center border border-gray-700">
+<i class="fas fa-image text-gray-500"></i>
+</div>
+<div class="flex-1">
+<p class="text-xs font-bold text-red-400"><i class="fas fa-exclamation-triangle mr-1"></i>REVERSE SEARCH RESULT</p>
+<p class="text-[10px] text-gray-400">First appeared: <span class="text-white font-bold">August 12, 2019</span></p>
+<p class="text-[10px] text-gray-400">Source: Stock Photo Library</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Tool Kit -->
+<div class="w-3/5 flex flex-col">
+<div class="flex items-center space-x-2 mb-4">
+<div class="h-px bg-gray-700 flex-1"></div>
+<span class="font-['Roboto_Mono'] text-xs text-gray-500 uppercase tracking-widest">Authorized Software</span>
+<div class="h-px bg-gray-700 flex-1"></div>
+</div>
+<div class="grid grid-cols-1 gap-3 h-full">
+<!-- Tool 1: TinEye -->
+<div class="tool-card neon-box rounded-lg p-4 flex items-start space-x-4">
+<div class="w-12 h-12 rounded bg-blue-900 bg-opacity-30 border border-blue-500 flex items-center justify-center flex-shrink-0">
+<i class="fas fa-eye text-blue-400 text-xl"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-['Space_Grotesk'] text-lg font-bold text-white">TinEye / Google Lens</h3>
+<span class="bg-blue-900 text-blue-300 text-[10px] px-2 py-0.5 rounded font-['Roboto_Mono']">IMAGE</span>
+</div>
+<p class="text-xs text-gray-400 mt-1 mb-2">Reverse image search engine. Finds where an image has appeared before.</p>
+<div class="bg-gray-900 bg-opacity-50 p-2 rounded border-l-2 border-blue-500">
+<p class="font-['Roboto_Mono'] text-xs text-blue-300">
+<i class="fas fa-terminal mr-2"></i>Action: Upload &gt; See "First Found" date
+                                </p>
+</div>
+</div>
+</div>
+<!-- Tool 2: Domain Checker -->
+<div class="tool-card neon-box rounded-lg p-4 flex items-start space-x-4">
+<div class="w-12 h-12 rounded bg-purple-900 bg-opacity-30 border border-purple-500 flex items-center justify-center flex-shrink-0">
+<i class="fas fa-globe text-purple-400 text-xl"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-['Space_Grotesk'] text-lg font-bold text-white">Domain &amp; WhoIs</h3>
+<span class="bg-purple-900 text-purple-300 text-[10px] px-2 py-0.5 rounded font-['Roboto_Mono']">SOURCE</span>
+</div>
+<p class="text-xs text-gray-400 mt-1 mb-2">Check website registration date and owner. Fake news sites are often brand new.</p>
+<div class="bg-gray-900 bg-opacity-50 p-2 rounded border-l-2 border-purple-500">
+<p class="font-['Roboto_Mono'] text-xs text-purple-300">
+<i class="fas fa-terminal mr-2"></i>Action: Check "Creation Date"
+                                </p>
+</div>
+</div>
+</div>
+<!-- Tool 3: AI Assistant -->
+<div class="tool-card neon-box rounded-lg p-4 flex items-start space-x-4">
+<div class="w-12 h-12 rounded bg-green-900 bg-opacity-30 border border-green-500 flex items-center justify-center flex-shrink-0">
+<i class="fas fa-robot text-green-400 text-xl"></i>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-start">
+<h3 class="font-['Space_Grotesk'] text-lg font-bold text-white">AI Assistant</h3>
+<span class="bg-green-900 text-green-300 text-[10px] px-2 py-0.5 rounded font-['Roboto_Mono']">ANALYSIS</span>
+</div>
+<p class="text-xs text-gray-400 mt-1 mb-2">Use AI to cross-reference claims or summarize complex articles instantly.</p>
+<div class="bg-gray-900 bg-opacity-50 p-2 rounded border-l-2 border-green-500">
+<p class="font-['Roboto_Mono'] text-xs text-green-300">
+<i class="fas fa-terminal mr-2"></i>Prompt: "Verify this claim with sources"
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Original Footer (modified content as requested, structure kept similar) -->
+<footer class="h-10 border-t border-gray-800 bg-gray-900 flex items-center justify-between px-12 z-20">
+<div class="flex items-center space-x-4">
+<span class="text-gray-500 text-xs font-['Roboto_Mono']">SYSTEM STATUS: ONLINE</span>
+</div>
+<div class="flex items-center justify-center flex-1">
+<p class="custom-footer text-[10px] text-purple-300 uppercase tracking-wider">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-gray-500 text-xs font-['Roboto_Mono']">11 / 17</span>
+</div>
+</footer>
+<!-- New Global Footer -->
+<div class="w-full bg-gray-900 border-t border-purple-900 py-1 z-30 flex justify-center items-center h-6 shrink-0">
+<p class="font-['Roboto_Mono'] text-[10px] text-purple-300 tracking-wider neon-text-purple">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f11.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f9.html';
+    }
+
+});
+</script>
+</body>
+</html>

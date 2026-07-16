@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Program Overview</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg,#1a1446,#2a1e6a);
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header */
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(0,0,0,0.3);
+    z-index: 1000;
+}
+
+/* Main Scroll Area */
+.container {
+    position: absolute;
+    top: 60px;
+    bottom: 60px;
+    width: 100%;
+    overflow-y: auto;
+    padding: 40px;
+}
+
+/* Title */
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.title h1 {
+    margin-top: 10px;
+}
+
+/* Table */
+.table {
+    width: 90%;
+    margin: auto;
+    border-collapse: collapse;
+}
+
+.table th {
+    text-align: left;
+    padding: 15px;
+    border-bottom: 2px solid rgba(255,255,255,0.2);
+}
+
+.table td {
+    padding: 20px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Tags */
+.tag {
+    display: inline-block;
+    padding: 6px 15px;
+    margin: 5px;
+    border-radius: 20px;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #060621;
+    text-align: center;
+    padding: 10px;
+    color: #aaa;
+}
+.navbar {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+
+    background: rgba(255, 218, 185, 0.25);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+
+    z-index: 9999;   /* 🔥 FIX CLICK ISSUE */
+}
+
+.nav-link {
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+</style>
+
+</head>
+<body>
+
+<!-- Header -->
+<div class="top-bar">
+    🔵 EDUUASPIRE21.0 SKILLS | 21ST CENTURY SKILLS | DIGITAL LITERACY 🔴
+</div>
+
+<!-- Scroll Content -->
+<div class="container">
+
+    <div class="title">
+        <div style="background:rgba(255,255,255,0.1);display:inline-block;padding:6px 15px;border-radius:20px;">
+            OVERVIEW
+        </div>
+        <h1>📊 Program at a Glance</h1>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>Component</th>
+            <th>Details</th>
+        </tr>
+
+        <tr>
+            <td>🏷️ Program Title</td>
+            <td><b>Pixel Pioneers</b></td>
+        </tr>
+
+        <tr>
+            <td>📊 Total Modules</td>
+            <td>3 Core Modules</td>
+        </tr>
+
+        <tr>
+            <td>📁 Module Topics</td>
+            <td>
+                <span class="tag">Graphic Basics</span>
+                <span class="tag">Digital Storytelling</span>
+                <span class="tag">Remix Culture</span>
+            </td>
+        </tr>
+
+        <tr>
+            <td>🎯 Objective</td>
+            <td>Introduce creative expression through digital media</td>
+        </tr>
+
+        <tr>
+            <td>✅ Outcomes</td>
+            <td>Digital Story · Interactive Card · Remix Project</td>
+        </tr>
+
+        <!-- Extra rows to enable scroll -->
+        <tr>
+            <td>📌 Duration</td>
+            <td>6 Weeks</td>
+        </tr>
+
+        <tr>
+            <td>🧑‍💻 Mode</td>
+            <td>Hybrid Learning</td>
+        </tr>
+
+        <tr>
+            <td>🎓 Level</td>
+            <td>Beginner to Intermediate</td>
+        </tr>
+
+    </table>
+
+</div>
+<div class="navbar">
+    <div class="nav-link" onclick="goTo('f8.html')">← Skills gained</div>
+    <div class="nav-link" onclick="goTo('f10.html')">start creating →</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+🔒 Licensed & Powered By Astrl Minds Technologies © 2026–2033
+</div>
+<script>
+
+// ✅ MAIN FIX → this was missing
+function goTo(page) {
+    window.location.href = page;
+}
+
+// Optional (you can keep or remove)
+function next() {
+    goTo("f10.html");
+}
+
+function prev() {
+    goTo("f8.html");
+}
+
+// ✅ Keyboard navigation (fixed)
+document.addEventListener("keydown", function(e) {
+
+    const active = document.activeElement.tagName.toLowerCase();
+
+    if (active === "input" || active === "textarea") return;
+
+    if (e.key === "ArrowRight") {
+        goTo("f10.html");
+    }
+
+    if (e.key === "ArrowLeft") {
+        goTo("f8.html");
+    }
+
+});
+
+</script>
+</body>
+</html>

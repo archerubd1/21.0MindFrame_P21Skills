@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why Civic Voice Matters</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f3f4f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* SLIDE */
+.slide{
+    width:1280px;
+    height:720px;
+    background:#ffffff;
+    position:relative;
+    overflow:hidden;
+}
+
+/* HEADER */
+.header{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    color:#6b7280;
+    border-bottom:1px solid #eee;
+    background:#fff;
+}
+
+/* CONTENT */
+.content{
+    position:absolute;
+    top:80px;
+    bottom:120px;
+    width:100%;
+    padding:0 60px;
+}
+
+/* TITLE */
+.title{
+    font-size:34px;
+    font-weight:600;
+    margin-bottom:40px;
+}
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:25px;
+}
+
+/* CARD */
+.card{
+    border-radius:16px;
+    padding:30px 20px;
+    border:2px solid #cbd5d1;
+    background:#f9fafb;
+    height:360px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+/* ICON */
+.icon{
+    width:60px;
+    height:60px;
+    border-radius:50%;
+    background:#2f6f6b;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-size:20px;
+    margin-bottom:20px;
+}
+
+/* LIGHT ICON */
+.light{
+    background:#94a3b8;
+}
+
+/* CARD TEXT */
+.card h3{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:13px;
+    color:#6b7280;
+    line-height:1.5;
+}
+
+/* BOTTOM LINE */
+.line{
+    width:60px;
+    height:4px;
+    background:#2f6f6b;
+    margin:auto;
+    border-radius:10px;
+}
+
+/* NAVBAR */
+.navbar{
+    position:absolute;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    padding:10px 25px;
+    display:flex;
+    justify-content:space-between;
+    background:#f1f5f9;
+    backdrop-filter:blur(8px);
+    border-radius:10px;
+}
+
+.nav-link{
+    cursor:pointer;
+    font-size:14px;
+}
+
+.next{
+    color:#7c3aed;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:#6b7280;
+    border-top:1px solid #eee;
+    background:#fff;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+    <!-- HEADER -->
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="title">Why Civic Voice Matters</div>
+
+        <div class="cards">
+
+            <div class="card">
+                <div>
+                    <div class="icon">🏳️</div>
+                    <h3>Impact on Public Opinion</h3>
+                    <p>
+                        Individual voices collectively shape societal narratives and 
+                        influence democratic discourse effectively.
+                    </p>
+                </div>
+                <div class="line"></div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="icon light">✉️</div>
+                    <h3>Decision-Making Influence</h3>
+                    <p>
+                        Civic participation drives policy development, community action, 
+                        and meaningful institutional change.
+                    </p>
+                </div>
+                <div class="line" style="background:#94a3b8;"></div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="icon">☑️</div>
+                    <h3>Responsible Citizenship</h3>
+                    <p>
+                        Building informed, ethical citizens who question critically and 
+                        communicate with respect.
+                    </p>
+                </div>
+                <div class="line"></div>
+            </div>
+
+            <div class="card">
+                <div>
+                    <div class="icon light">💰</div>
+                    <h3>Youth Empowerment</h3>
+                    <p>
+                        Enabling young people to recognize their agency and capacity 
+                        for positive social contribution.
+                    </p>
+                </div>
+                <div class="line" style="background:#94a3b8;"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR (Slide 2–7 Example) -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Overview</div>
+        <div class="nav-link next" onclick="next()">Objectives →</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+
+<script>
+function next() {
+    window.location.href = "d4.html"; // change per slide
+}
+
+function prev() {
+    window.location.href = "d2.html"; // change per slide
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+});
+</script>
+
+</body>
+</html>

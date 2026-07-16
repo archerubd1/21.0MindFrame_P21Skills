@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>T.H.I.N.K Before You Type</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #0f1020;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Ambient Glows */
+        .glow-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.2;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            width: 600px;
+            height: 600px;
+            background-color: #4f46e5; /* Indigo */
+            top: -300px;
+            left: 10%;
+        }
+
+        .glow-2 {
+            width: 500px;
+            height: 500px;
+            background-color: #db2777; /* Pink */
+            bottom: -200px;
+            right: 10%;
+        }
+
+        /* Header & Footer */
+        .header {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #a5b4fc;
+            font-size: 18px;
+            letter-spacing: 1px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color: #64748b;
+            font-size: 14px;
+            z-index: 20;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 90px 60px 80px 60px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .highlight-neon {
+            color: #00f3ff;
+            text-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+        }
+
+        /* THINK Grid */
+        .think-grid {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .think-card {
+            flex: 1;
+            background-color: rgba(30, 41, 59, 0.4);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 16px;
+            padding: 20px 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .think-card:hover {
+            transform: translateY(-5px);
+            background-color: rgba(30, 41, 59, 0.6);
+        }
+
+        .letter {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 48px;
+            font-weight: 700;
+            line-height: 1;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .word {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 18px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+
+        .question {
+            font-size: 14px;
+            color: #cbd5e1;
+            line-height: 1.4;
+        }
+
+        /* Color Variations */
+        .card-t { border-top: 4px solid #3b82f6; } /* Blue */
+        .card-t .letter { color: #3b82f6; }
+        
+        .card-h { border-top: 4px solid #10b981; } /* Green */
+        .card-h .letter { color: #10b981; }
+
+        .card-i { border-top: 4px solid #a855f7; } /* Purple */
+        .card-i .letter { color: #a855f7; }
+
+        .card-n { border-top: 4px solid #f59e0b; } /* Orange */
+        .card-n .letter { color: #f59e0b; }
+
+        .card-k { border-top: 4px solid #ec4899; } /* Pink */
+        .card-k .letter { color: #ec4899; }
+
+        /* Test Section */
+        .test-section {
+            width: 100%;
+            background-color: rgba(15, 23, 42, 0.6);
+            border-radius: 20px;
+            padding: 20px 40px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #334155;
+            gap: 40px;
+        }
+
+        .test-label {
+            font-family: 'Space Grotesk', sans-serif;
+            color: #94a3b8;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .chat-sample {
+            background-color: #334155;
+            padding: 15px 25px;
+            border-radius: 20px;
+            border-bottom-left-radius: 4px;
+            color: white;
+            font-size: 18px;
+            position: relative;
+            min-width: 250px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .results-container {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        .result-badge {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .badge-circle {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .pass { background-color: rgba(16, 185, 129, 0.2); color: #10b981; border: 1px solid #10b981; }
+        .fail { background-color: rgba(239, 68, 68, 0.2); color: #ef4444; border: 1px solid #ef4444; }
+        .neutral { background-color: rgba(148, 163, 184, 0.2); color: #94a3b8; border: 1px solid #64748b; }
+
+        .badge-label {
+            font-size: 12px;
+            color: #94a3b8;
+            font-weight: 600;
+        }
+
+        .final-verdict {
+            background-color: #ef4444;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 14px;
+            margin-left: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.8; }
+            100% { opacity: 1; }
+        }
+
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="glow-blob glow-1"></div>
+<div class="glow-blob glow-2"></div>
+<!-- Header -->
+<header class="header">
+<i class="fa-solid fa-graduation-cap"></i>
+<p>EduuAspire 21.0 Skills | 21st Century Skills Digital Literacy</p>
+</header>
+<!-- Main Content -->
+<div class="content-wrapper">
+<h1 class="main-title">T.H.I.N.K Before You <span class="highlight-neon">Type</span></h1>
+<!-- 5 Cards Grid -->
+<div class="think-grid">
+<!-- T -->
+<div class="think-card card-t">
+<div class="letter">T</div>
+<div class="word">True</div>
+<div class="icon-box">
+<i class="fa-solid fa-check"></i>
+</div>
+<p class="question">Is this information accurate? Is it a fact or a rumor?</p>
+</div>
+<!-- H -->
+<div class="think-card card-h">
+<div class="letter">H</div>
+<div class="word">Helpful</div>
+<div class="icon-box">
+<i class="fa-solid fa-hand-holding-heart"></i>
+</div>
+<p class="question">Does this help the person or the situation?</p>
+</div>
+<!-- I -->
+<div class="think-card card-i">
+<div class="letter">I</div>
+<div class="word">Inspiring</div>
+<div class="icon-box">
+<i class="fa-solid fa-lightbulb"></i>
+</div>
+<p class="question">Does it lift others up or bring them down?</p>
+</div>
+<!-- N -->
+<div class="think-card card-n">
+<div class="letter">N</div>
+<div class="word">Necessary</div>
+<div class="icon-box">
+<i class="fa-solid fa-exclamation"></i>
+</div>
+<p class="question">Do I really need to say this right now?</p>
+</div>
+<!-- K -->
+<div class="think-card card-k">
+<div class="letter">K</div>
+<div class="word">Kind</div>
+<div class="icon-box">
+<i class="fa-solid fa-heart"></i>
+</div>
+<p class="question">Would I say this to their face with a smile?</p>
+</div>
+</div>
+<!-- Test Example Section -->
+<div class="test-section">
+<div>
+<p class="test-label"><i class="fa-solid fa-flask mr-2"></i>Quick Test:</p>
+<div class="chat-sample">
+<p class="m-0">"That answer is dumb."</p>
+</div>
+</div>
+<div class="results-container">
+<div class="result-badge">
+<span class="badge-label">T</span>
+<div class="badge-circle neutral"><i class="fa-solid fa-question"></i></div>
+</div>
+<div class="result-badge">
+<span class="badge-label">H</span>
+<div class="badge-circle fail"><i class="fa-solid fa-xmark"></i></div>
+</div>
+<div class="result-badge">
+<span class="badge-label">I</span>
+<div class="badge-circle fail"><i class="fa-solid fa-xmark"></i></div>
+</div>
+<div class="result-badge">
+<span class="badge-label">N</span>
+<div class="badge-circle fail"><i class="fa-solid fa-xmark"></i></div>
+</div>
+<div class="result-badge">
+<span class="badge-label">K</span>
+<div class="badge-circle fail"><i class="fa-solid fa-xmark"></i></div>
+</div>
+<div class="final-verdict">
+<i class="fa-solid fa-ban mr-1"></i> Don't Send
+                    </div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p>Licensed and Powered by Astrl mind Technologies | Copyright © 2026-2033</p>
+</footer>
+</div>
+<!-- PREVIOUS BUTTON -->
+<a href="f4.html"
+   class="absolute bottom-16 left-12 z-50 px-6 py-3
+          bg-gray-800 text-white text-sm font-semibold uppercase
+          hover:bg-gray-700 transition rounded-lg">
+← 
+</a>
+
+<!-- NEXT BUTTON -->
+<a href="f6.html"
+   class="absolute bottom-16 right-12 z-50 px-6 py-3
+          bg-gray-900 text-white text-sm font-semibold uppercase
+          hover:bg-gray-800 transition rounded-lg">
+Next →
+</a>
+</body></html>

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Tools</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Lora:wght@500;600&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fffdf4;
+    --card:#ffffff;
+    --ink:#111827;
+    --muted:#4b5563;
+    --line:#e5e7eb;
+    --butter:#fde68a;
+    --butter2:#fff2b8;
+  }
+  html,body{height:100%;margin:0;background:#f3f4f6;}
+  .slide{
+    width:1280px;height:720px;
+    margin:0 auto;
+    background:var(--bg);
+    display:flex;flex-direction:column;
+    color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    position:relative;
+    overflow:hidden;
+  }
+  .header{
+    height:64px;flex:0 0 64px;
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid var(--line);
+    background:#ffffff;
+    z-index:3;
+  }
+  .footer{
+    height:46px;flex:0 0 46px;
+    display:flex;align-items:center;justify-content:center;
+    border-top:1px solid var(--line);
+    background:#ffffff;
+    z-index:3;
+  }
+  .nav{
+    height:56px;flex:0 0 56px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 72px;
+    background:rgba(255,255,255,0.92);
+    border-top:1px solid var(--line);
+    z-index:3;
+  }
+  .main{
+    flex:1;
+    padding:34px 72px 22px 72px;
+    position:relative;
+    z-index:2;
+    display:flex;
+    min-height:0;
+  }
+  .frame{
+    flex:1;
+    display:flex;
+    border:1px solid var(--line);
+    background:var(--card);
+    box-shadow:0 10px 24px rgba(17,24,39,0.08);
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+    min-height:0;
+  }
+
+  .hdrText,.ftrText{margin:0;letter-spacing:0.01em;}
+  .hdrText{font-size:14px;color:#111827;}
+  .hdrText span{opacity:.7}
+  .ftrText{font-size:12.5px;color:#111827;opacity:.8}
+
+  .content{
+    flex:1;
+    padding:40px 50px;
+    display:flex;
+    gap:18px;
+    min-width:0;
+    min-height:0;
+    position:relative;
+    z-index:2;
+  }
+  .left{
+    flex:1.05;
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    min-width:0;
+    min-height:0;
+  }
+  .right{
+    flex:0.95;
+    border-left:1px solid var(--line);
+    background:var(--butter2);
+    padding:28px 30px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-width:0;
+    min-height:0;
+  }
+
+  .kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 14px;
+    border:1px solid rgba(17,24,39,0.08);
+    background:#fff;
+    border-radius:999px;
+    width:max-content;
+    box-shadow:0 6px 14px rgba(17,24,39,0.06);
+  }
+  .kDot{
+    width:10px;height:10px;border-radius:999px;
+    background:var(--butter);
+    border:1px solid rgba(17,24,39,0.12);
+  }
+  .title{
+    margin:0;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    line-height:1.08;
+    font-size:52px;
+  }
+  .sub{
+    margin:6px 0 0 0;
+    font-family:Lora,Georgia,serif;
+    font-weight:600;
+    color:#1f2937;
+    font-size:20px;
+    line-height:1.35;
+    max-width:78ch;
+  }
+
+  .cardsGrid{
+    margin-top:6px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    gap:14px;
+    align-items:stretch;
+  }
+  .toolCard{
+    border:1px solid rgba(17,24,39,0.10);
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 10px 22px rgba(17,24,39,0.07);
+    padding:16px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-height:240px;
+  }
+  .toolTop{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:12px;
+  }
+  .toolIcon{
+    width:48px;height:48px;border-radius:18px;
+    background:var(--butter);
+    border:1px solid rgba(17,24,39,0.12);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 48px;
+  }
+  .toolIcon i{font-size:20px;color:#111827;opacity:.9}
+  .toolName{
+    margin:0;
+    font-weight:900;
+    letter-spacing:-0.01em;
+    font-size:24px;
+    line-height:1.1;
+  }
+  .toolTag{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(17,24,39,0.10);
+    background:var(--butter2);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:0.01em;
+    color:#111827;
+    white-space:nowrap;
+  }
+  .toolTag .dot{width:8px;height:8px;border-radius:999px;background:#111827;opacity:.75}
+  .toolText{
+    margin:0;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.55;
+  }
+
+  .featureList{
+    margin:0;
+    padding:0;
+    list-style:none;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .feature{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:10px 10px;
+    border:1px solid rgba(17,24,39,0.08);
+    border-radius:14px;
+    background:#fff;
+  }
+  .fIcon{
+    width:30px;height:30px;border-radius:12px;
+    background:#ffffff;
+    border:1px solid rgba(17,24,39,0.10);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 30px;
+    box-shadow:0 8px 16px rgba(17,24,39,0.06);
+  }
+  .fIcon i{font-size:13px;color:#111827;opacity:.85}
+  .fText{
+    margin:0;
+    font-size:14.5px;
+    color:#111827;
+    font-weight:800;
+    line-height:1.35;
+  }
+  .mono{
+    font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-weight:700;
+    font-size:12.5px;
+    color:#111827;
+    background:var(--butter2);
+    border:1px solid rgba(17,24,39,0.10);
+    padding:2px 6px;
+    border-radius:8px;
+    white-space:nowrap;
+  }
+
+  .purposeCard{
+    border:1px solid rgba(17,24,39,0.12);
+    background:#ffffff;
+    border-radius:18px;
+    box-shadow:0 12px 26px rgba(17,24,39,0.10);
+    padding:14px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .pTitle{
+    margin:0;
+    font-weight:900;
+    letter-spacing:-0.01em;
+    font-size:16px;
+    line-height:1.2;
+  }
+  .pRow{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:10px 10px;
+    border:1px solid rgba(17,24,39,0.08);
+    border-radius:14px;
+    background:#fff;
+  }
+  .pIcon{
+    width:32px;height:32px;border-radius:12px;
+    background:var(--butter);
+    border:1px solid rgba(17,24,39,0.12);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 32px;
+  }
+  .pIcon i{font-size:14px;color:#111827;opacity:.9}
+  .pText{
+    margin:0;
+    font-size:13.5px;
+    color:#1f2937;
+    line-height:1.45;
+    font-weight:700;
+  }
+  .pText span{font-weight:900;}
+
+  .quickSteps{
+    border:1px solid rgba(17,24,39,0.12);
+    background:#ffffff;
+    border-radius:18px;
+    box-shadow:0 12px 26px rgba(17,24,39,0.10);
+    padding:14px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .step{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:10px 10px;
+    border:1px solid rgba(17,24,39,0.08);
+    border-radius:14px;
+    background:#fff;
+  }
+  .num{
+    width:30px;height:30px;border-radius:12px;
+    background:var(--butter);
+    border:1px solid rgba(17,24,39,0.12);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 30px;
+    font-weight:900;
+    font-size:14px;
+    color:#111827;
+  }
+  .sText{
+    margin:0;
+    font-size:13.5px;
+    color:#1f2937;
+    line-height:1.45;
+    font-weight:800;
+  }
+
+  .progressPill{
+    position:absolute;
+    top:18px;right:18px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(17,24,39,0.10);
+    background:#fff;
+    font-size:12px;
+    color:#111827;
+    display:flex;align-items:center;gap:8px;
+    z-index:3;
+  }
+  .progressPill .miniDot{width:8px;height:8px;border-radius:999px;background:#111827;opacity:.75}
+
+  .bgShapes{position:absolute;inset:0;pointer-events:none;z-index:1;}
+  .shapeA{
+    position:absolute;
+    left:-140px;bottom:-150px;
+    width:420px;height:420px;
+    border-radius:90px;
+    background:var(--butter);
+    opacity:0.26;
+    border:1px solid rgba(17,24,39,0.06);
+    transform:rotate(10deg);
+  }
+  .shapeB{
+    position:absolute;
+    right:-160px;top:-170px;
+    width:460px;height:460px;
+    border-radius:96px;
+    background:#ffffff;
+    opacity:0.55;
+    border:1px solid rgba(17,24,39,0.08);
+    transform:rotate(-8deg);
+  }
+  .shapeC{
+    position:absolute;
+    right:60px;bottom:50px;
+    width:220px;height:220px;
+    border-radius:999px;
+    background:#ffffff;
+    opacity:0.55;
+    border:1px solid rgba(17,24,39,0.10);
+  }
+
+  .navBtn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 16px;
+    border-radius:14px;
+    border:1px solid rgba(17,24,39,0.12);
+    background:#ffffff;
+    box-shadow:0 10px 18px rgba(17,24,39,0.08);
+    color:#111827;
+    text-decoration:none;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    transition:transform .16s ease, opacity .16s ease, box-shadow .16s ease;
+    max-width:260px;
+  }
+  .navBtn:hover{transform:translateY(-2px);box-shadow:0 14px 26px rgba(17,24,39,0.10);}
+  .navBtn .label{margin:0;font-size:16px;white-space:nowrap;}
+  .navBtn .muted{margin:0;font-size:12px;color:#374151;opacity:.75;font-weight:700;letter-spacing:0.01em;white-space:nowrap;}
+  .navStack{display:flex;flex-direction:column;line-height:1.05}
+</style>
+</head>
+<body style="">
+<div class="slide">
+<header class="header">
+<p class="hdrText"><strong>EduuAspire21.0 Skills</strong> <span>|</span> 21st Century Skills <span>|</span> Digital Literacy</p>
+</header>
+<main class="main">
+<section class="frame">
+<div aria-hidden="true" class="bgShapes">
+<div class="shapeA"></div>
+<div class="shapeB"></div>
+<div class="shapeC"></div>
+</div>
+
+<div class="content" style="transform: translate(1.37536px, -37.1347px);">
+<div class="left">
+
+<div>
+<p class="title">Tools</p>
+
+</div>
+<div class="cardsGrid">
+<article class="toolCard" style="position: relative; transform: translate(-38.51px, 13.7536px);">
+<div class="toolTop">
+<div style="display:flex;align-items:flex-start;gap:12px;min-width:0;">
+<div class="toolIcon"><i class="fa-solid fa-box-archive"></i></div>
+<div style="min-width:0;">
+<p class="toolName">Zotero</p>
+<p class="toolText" style="margin-top:6px;">Save sources from your browser and build a clean library you can cite from.</p>
+</div>
+</div>
+<div class="toolTag"><span class="dot"></span><p style="margin:0;">Library</p></div>
+</div>
+<ul class="featureList">
+<li class="feature">
+<div class="fIcon"><i class="fa-solid fa-bookmark"></i></div>
+<p class="fText">Collect citations from databases quickly (browser connector).</p>
+</li>
+
+
+</ul>
+</article>
+<article class="toolCard" style="position: relative; transform: translate(-45.3868px, 6.87676px);">
+<div class="toolTop">
+<div style="display:flex;align-items:flex-start;gap:12px;min-width:0;">
+<div class="toolIcon"><i class="fa-solid fa-network-wired"></i></div>
+<div style="min-width:0;">
+<p class="toolName">Mendeley</p>
+<p class="toolText" style="margin-top:6px;">Manage papers, highlight and annotate PDFs, and keep your sources searchable.</p>
+</div>
+</div>
+<div class="toolTag"><span class="dot"></span><p style="margin:0;">Annotate</p></div>
+</div>
+<ul class="featureList">
+<li class="feature">
+<div class="fIcon"><i class="fa-solid fa-file-pdf"></i></div>
+<p class="fText">Read and annotate PDFs in one place.</p>
+</li>
+<li class="feature">
+<div class="fIcon"><i class="fa-solid fa-magnifying-glass"></i></div>
+<p class="fText">Search your library by author, title, keywords, and notes.</p>
+</li>
+
+</ul>
+</article>
+</div>
+
+</div>
+<aside class="right" style="position: relative; transform: translate(38.51px, 15.1289px);">
+<div class="purposeCard" style="position: relative; transform: translate(-4.12607px, -9.62755px);">
+<p class="pTitle">What to store for every source</p>
+<div class="pRow">
+<div class="pIcon"><i class="fa-solid fa-user-pen"></i></div>
+<p class="pText"><span>Author(s)</span> and publication year</p>
+</div>
+<div class="pRow">
+<div class="pIcon"><i class="fa-solid fa-heading"></i></div>
+<p class="pText"><span>Title</span> and journal/publisher name</p>
+</div>
+<div class="pRow">
+<div class="pIcon"><i class="fa-solid fa-link"></i></div>
+<p class="pText"><span>DOI/URL</span> (when available) + access date if required</p>
+</div>
+</div>
+<div class="quickSteps" style="position: relative; transform: translate(-2.75072px, -1.37537px);">
+<p class="pTitle">Quick workflow</p>
+<div class="step">
+<div class="num"><p style="margin:0;">1</p></div>
+<p class="sText">Import a paper from an academic database.</p>
+</div>
+<div class="step">
+<div class="num"><p style="margin:0;">2</p></div>
+<p class="sText">Attach the PDF and write a 1–2 sentence note of the main idea.</p>
+</div>
+
+</div>
+
+</aside>
+</div>
+</section>
+</main>
+<nav aria-label="Topic navigation" class="nav">
+<a class="navBtn" href="f7.html">
+<i class="fa-solid fa-arrow-left"></i>
+<div class="navStack">
+<p class="label">&nbsp;Styles</p>
+
+</div>
+</a>
+<a class="navBtn" href="f9.html">
+<div class="navStack" style="text-align:right;">
+<p class="label">Ethics&nbsp;</p>
+
+</div>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</nav>
+<footer class="footer">
+<p class="ftrText"><strong>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</strong></p>
+</footer>
+</div>
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') {
+      // Goes to next slide
+      window.location.href = 'f9.html'; 
+    } else if (e.key === 'ArrowLeft') {
+      // Goes to previous slide
+      window.location.href = 'f7.html';
+    }
+  });
+</script>
+
+
+</body></html>

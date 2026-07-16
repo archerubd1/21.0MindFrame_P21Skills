@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Needs vs Wants (Golden Rule)</title>
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* MAIN SLIDE */
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+.background-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 35px, #2EC4B6 35px, #2EC4B6 36px),
+        repeating-linear-gradient(90deg, transparent, transparent 35px, #2EC4B6 35px, #2EC4B6 36px);
+}
+
+/* HEADER */
+.header-bar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: #0f172a;
+    border-bottom: 2px solid #2EC4B6;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.header-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* TITLE */
+.title-bar {
+    position: absolute;
+    top: 70px;
+    left: 190px;
+    width: 900px;
+    height: 60px;
+    background: linear-gradient(90deg, #2EC4B6, #3dd4c6);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.title-bar i {
+    font-size: 22px;
+    margin-right: 12px;
+    color: #0f172a;
+}
+
+.title-text h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.subtitle {
+    font-size: 13px;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    position: absolute;
+    top: 150px;
+    left: 190px;
+    width: 900px;
+    height: 450px;
+    background: rgba(30,41,59,0.85);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(46,196,182,0.2);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* SPLIT */
+.split-screen {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+}
+
+/* PANELS */
+.panel {
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.panel-left {
+    background: rgba(46,196,182,0.1);
+    border: 1px solid rgba(46,196,182,0.3);
+}
+
+.panel-right {
+    background: rgba(255,159,28,0.08);
+    border: 1px solid rgba(255,159,28,0.3);
+}
+
+/* PANEL HEADER */
+.panel-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.panel-title {
+    color: white;
+    font-weight: 600;
+}
+
+/* ITEMS */
+.item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+    color: #ccc;
+}
+
+/* SMART RULE */
+.smart-rule {
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(255,159,28,0.1);
+    border: 1px solid rgba(255,159,28,0.3);
+    text-align: center;
+    color: white;
+}
+
+/* NAV */
+.nav-bar {
+    position: absolute;
+    bottom: 50px;
+    left: 190px;
+    width: 900px;
+    height: 50px;
+    background: rgba(255,204,170,0.6);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: #0f172a;
+    font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text {
+    color: #94a3b8;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<div class="background-pattern"></div>
+
+<div class="header-bar">
+<span class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+</span>
+</div>
+
+<div class="title-bar">
+<i class="fas fa-balance-scale"></i>
+<div class="title-text">
+<h1>Needs vs Wants</h1>
+<p class="subtitle">Make Smart Spending Choices</p>
+</div>
+</div>
+
+<div class="main-content">
+
+<div class="split-screen">
+
+<div class="panel panel-left">
+<div class="panel-header">
+<i class="fas fa-check-circle"></i>
+<span class="panel-title">Needs</span>
+</div>
+
+<div class="item">🍽 Food</div>
+<div class="item">📚 Education</div>
+<div class="item">🏠 Shelter</div>
+
+</div>
+
+<div class="panel panel-right">
+<div class="panel-header">
+<i class="fas fa-heart"></i>
+<span class="panel-title">Wants</span>
+</div>
+
+<div class="item">🎮 Games</div>
+<div class="item">🍬 Treats</div>
+<div class="item">🧸 Toys</div>
+
+</div>
+
+</div>
+
+<div class="smart-rule">
+<strong>Smart Rule:</strong> Wait 24 hours before buying a "want"
+</div>
+
+</div>
+
+<div class="nav-bar">
+<a class="nav-btn" href="#" onclick="goToSlide(5)">⬅ Payments</a>
+<a class="nav-btn" href="#" onclick="goToSlide(7)">Saving ➡</a>
+</div>
+
+<div class="footer">
+<span class="footer-text">Licenced & Powered By Astrl Mind Technologies copyright 2026-2033</span>
+</div>
+
+</div>
+
+<script>
+document.addEventListener("keydown", function(e) {
+
+    const active = document.activeElement;
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") window.location.href = "f7.html";
+    if (e.key === "ArrowLeft") window.location.href = "f5.html";
+
+});
+</script>
+
+</body>
+</html>

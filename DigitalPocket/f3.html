@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Evolution of Money</title>
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #0f172a;
+    font-family: 'Poppins', sans-serif;
+    color: #e2e8f0;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    position: relative;
+}
+
+/* HEADER */
+.header {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+    border-bottom: 2px solid #2EC4B6;
+}
+
+/* TITLE */
+.title-box {
+    width: 900px;
+    margin: 20px auto;
+    background: linear-gradient(90deg, #2EC4B6, #3dd4c6);
+    padding: 15px 25px;
+    border-radius: 10px;
+    color: #0f172a;
+}
+
+/* MAIN BOX */
+.main-box {
+    width: 900px;
+    margin: auto;
+    background: rgba(30, 41, 59, 0.85);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid rgba(46, 196, 182, 0.2);
+}
+
+/* TIMELINE */
+.timeline {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.card {
+    width: 260px;
+    background: rgba(15, 23, 42, 0.7);
+    padding: 15px;
+    border-radius: 12px;
+    border: 1px solid rgba(46, 196, 182, 0.2);
+}
+
+.card h4 {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+.card p {
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+.arrow {
+    color: #2EC4B6;
+    font-size: 18px;
+}
+
+/* BIG IDEA */
+.big-idea {
+    margin-top: 15px;
+    padding: 12px;
+    border-radius: 8px;
+    background: rgba(46,196,182,0.1);
+    border: 1px solid rgba(46,196,182,0.3);
+}
+
+/* GRID */
+.bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.small-box {
+    background: rgba(15, 23, 42, 0.7);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+/* NAV */
+.nav {
+    position: absolute;
+    bottom: 60px;
+    left: 190px;
+    width: 900px;
+    height: 50px;
+    background: rgba(255,204,170,0.6);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+    padding: 10px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<!-- HEADER -->
+<div class="header">
+<i class="fas fa-graduation-cap" style="color:#2EC4B6;margin-right:10px;"></i>
+EduuAspire21.0 Skills | Financial Literacy
+</div>
+
+<!-- TITLE -->
+<div class="title-box">
+<h2 style="margin:0;">The Evolution of Money</h2>
+<p style="margin:0;font-size:14px;">From Barter to Digital - Understanding the Journey</p>
+</div>
+
+<!-- MAIN -->
+<div class="main-box">
+
+<h3>From Barter to Bits</h3>
+
+<div class="timeline">
+
+<div class="card">
+<h4>Past: Barter</h4>
+<p>Trading goods directly without money</p>
+</div>
+
+<div class="arrow">→</div>
+
+<div class="card">
+<h4>Present: Coins & Notes</h4>
+<p>Physical currency - coins & paper money</p>
+</div>
+
+<div class="arrow">→</div>
+
+<div class="card">
+<h4>Now: Digital Money</h4>
+<p>Electronic transactions</p>
+</div>
+
+</div>
+
+<div class="big-idea">
+<b>Big Idea:</b> Money is a tool to exchange value — no matter its form
+</div>
+
+<div class="bottom-grid">
+
+<div class="small-box">
+<b>Key Points</b>
+<ul style="padding-left:15px;">
+<li>Money evolves with technology</li>
+<li>Digital money is convenient</li>
+<li>Security is important</li>
+</ul>
+</div>
+
+<div class="small-box">
+<b>Did You Know?</b>
+<p>The first coins were made around 600 BCE in Lydia.</p>
+</div>
+
+</div>
+
+</div>
+
+<!-- NAV -->
+<div class="nav">
+<div onclick="goToSlide(2)" style="cursor:pointer;">← Journey</div>
+<div onclick="goToSlide(4)" style="cursor:pointer;">Invisible Cash →</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026–2033
+</div>
+
+</div>
+<script>
+document.addEventListener("keydown", function(e) {
+
+    const active = document.activeElement;
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") window.location.href = "f4.html";
+    if (e.key === "ArrowLeft") window.location.href = "f2.html";
+
+});
+</script>
+
+</body>
+</html>

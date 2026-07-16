@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport">
+<title>Argument Framework - Synthesis &amp; Insight Lab</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F0F9FF;
+    display: flex;
+    justify-content: center;   /* CENTER horizontally */
+    align-items: center;       /* CENTER vertically */
+}
+ .slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+        /* Decorative background elements */
+        .bg-circle-1 {
+            position: absolute;
+            top: -100px;
+            right: -50px;
+            width: 400px;
+            height: 400px;
+            background-color: #E0F2FE;
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.7;
+        }
+        .bg-circle-2 {
+            position: absolute;
+            bottom: 50px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background-color: #E0F2FE;
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        /* Header */
+        .header {
+            height: 40px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 20;
+            position: absolute;
+            top: 0;
+        }
+        .header-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #546E7A;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            height: 30px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            z-index: 20;
+            position: absolute;
+            bottom: 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .footer-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 11px;
+            color: #90A4AE;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+            background-color: rgba(255, 218, 185, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
+            z-index: 10;
+        }
+        
+        .nav-link {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #455A64;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease-in-out;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link:hover {
+            color: #0288D1;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-top: 40px;
+            padding-bottom: 100px;
+            z-index: 5;
+            position: relative;
+        }
+
+        .title-block {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #1E293B;
+            margin: 0 0 10px 0;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #64748B;
+            margin: 0;
+        }
+
+        /* Formula Container */
+        .formula-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            padding: 40px;
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border: 1px solid #E2E8F0;
+            position: relative;
+        }
+
+        .formula-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            min-width: 180px;
+            transition: transform 0.3s ease;
+        }
+
+        .formula-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .item-icon {
+            font-size: 48px;
+            color: #0288D1;
+            width: 80px;
+            height: 80px;
+            background-color: #E0F7FA;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .item-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #334155;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .item-subtext {
+            font-family: 'Roboto', sans-serif;
+            font-size: 14px;
+            color: #64748B;
+            text-align: center;
+            margin-top: -5px;
+        }
+
+        .operator {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 300;
+            color: #94A3B8;
+            margin: 0 10px;
+        }
+
+        .equals {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 48px;
+            font-weight: 300;
+            color: #0288D1;
+            margin: 0 10px;
+        }
+
+        .result-box {
+            background-color: #0288D1;
+            color: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px -3px rgba(2, 136, 209, 0.3);
+        }
+
+        .result-box .item-text {
+            color: white;
+            font-size: 28px;
+        }
+        
+        .result-box .item-subtext {
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .result-box .item-icon {
+            background-color: rgba(255,255,255,0.2);
+            color: white;
+            box-shadow: none;
+        }
+
+        .highlight-bar {
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%;
+            height: 4px;
+            background-color: #CBD5E1;
+            border-radius: 2px;
+        }
+        
+        .highlight-bar::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%; /* Represents 3 parts combining */
+            height: 100%;
+            background-color: #0288D1;
+            border-radius: 2px;
+        }
+
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}</style></head>
+<body style="">
+<div class="slide-container">
+<!-- Background Decor -->
+<div class="bg-circle-1"></div>
+<div class="bg-circle-2"></div>
+<!-- Header -->
+<header class="header">
+<p class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Information Literacy</p>
+</header>
+<!-- Main Content -->
+<main class="content">
+<div class="title-block">
+<h1><strong>Argument Framework</strong></h1>
+<h2><strong>The fundamental equation for constructing robust academic arguments.</strong></h2>
+</div>
+<div class="formula-container">
+<!-- Element 1: Claim -->
+<div class="formula-item">
+<div class="item-icon">
+<i class="fa-solid fa-flag"></i>
+</div>
+<p class="item-text">Claim</p>
+<p class="item-subtext"><strong>The assertion</strong></p>
+</div>
+<!-- Operator + -->
+<div class="operator">+</div>
+<!-- Element 2: Evidence -->
+<div class="formula-item">
+<div class="item-icon">
+<i class="fa-solid fa-magnifying-glass-chart"></i>
+</div>
+<p class="item-text">Evidence</p>
+<p class="item-subtext"><strong>The data</strong></p>
+</div>
+<!-- Operator + -->
+<div class="operator">+</div>
+<!-- Element 3: Reasoning -->
+<div class="formula-item">
+<div class="item-icon">
+<i class="fa-solid fa-gears"></i>
+</div>
+<p class="item-text">Reasoning</p>
+<p class="item-subtext"><strong>The logic</strong></p>
+</div>
+<!-- Operator = -->
+<div class="equals">=</div>
+<!-- Result: Valid Argument -->
+<div class="formula-item result-box">
+<div class="item-icon">
+<i class="fa-solid fa-check-double"></i>
+</div>
+<p class="item-text">Valid Argument</p>
+<p class="item-subtext">Coherent Conclusion</p>
+</div>
+</div>
+</main>
+<!-- Navigation -->
+<nav class="nav-bar">
+<a class="nav-link" href="f9.html">
+<i class="fa-solid fa-arrow-left"></i>
+            Logical Flow
+        </a>
+<a class="nav-link" href="f11.html">
+            Applied Example
+            <i class="fa-solid fa-arrow-right"></i>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="footer">
+<p class="footer-text">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f11.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f9.html';
+    }
+
+});
+</script>
+</body></html>

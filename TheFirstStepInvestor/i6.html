@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The First-Step Investor - Credit Awareness</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7f5;
+display:flex;
+    justify-content:center;
+    align-items:center;
+        }
+        
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #f2f6f4;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header */
+        .header-bar {
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+            flex-shrink: 0;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo p {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d3748;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+        }
+        
+        .header-divider {
+            width: 1px;
+            height: 20px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-text p {
+            font-size: 13px;
+            color: #718096;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .header-badge p {
+            font-size: 12px;
+            padding: 4px 12px;
+            border-radius: 20px;
+            background-color: rgba(76, 175, 80, 0.1);
+            color: #4caf50;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 60px 100px 60px;
+            z-index: 10;
+        }
+        
+        .title-container {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .main-title p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle p {
+            font-size: 16px;
+            color: #718096;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .content-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .bullet-card {
+            background-color: rgba(255, 255, 255, 0.85);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 1);
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        
+        .bullet-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            background-color: #e8f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+            color: #4caf50;
+        }
+        
+        .bullet-content {
+            flex: 1;
+        }
+        
+        .bullet-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+        
+        .bullet-title p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+        }
+        
+        .bullet-emoji p {
+            font-size: 16px;
+            color: #4caf50;
+            margin: 0;
+        }
+        
+        .bullet-text p {
+            font-size: 14px;
+            color: #4a5568;
+            line-height: 1.6;
+            margin: 0 0 12px 0;
+        }
+        
+        .bullet-points {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .bullet-point {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .bullet-point i {
+            font-size: 12px;
+            color: #4caf50;
+        }
+        
+        .bullet-point p {
+            font-size: 13px;
+            color: #4a5568;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        /* Footer */
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .footer-left {
+            font-size: 12px;
+            color: #718096;
+        }
+        
+        .footer-right {
+            font-size: 12px;
+            color: #4caf50;
+            font-weight: 600;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 75%;
+height:5%;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            z-index: 200;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .nav-text p {
+            font-size: 13px;
+            color: #718096;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .nav-btn-next {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        .nav-btn-next:hover {
+            background-color: #45a049;
+        }
+        
+        .nav-btn-prev {
+            background-color: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .nav-btn-prev:hover {
+            background-color: #cbd5e0;
+        }
+        
+        /* Decorative Elements */
+        .decoration-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.15;
+            z-index: 1;
+        }
+        
+        .decoration-1 {
+            width: 350px;
+            height: 350px;
+            background-color: #4caf50;
+            top: -100px;
+            right: -80px;
+        }
+        
+        .decoration-2 {
+            width: 250px;
+            height: 250px;
+            background-color: #f06292;
+            bottom: 20px;
+            left: -80px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-bar">
+<div class="header-left">
+<div class="header-logo"><p>EduuAspire21.0 Skills</p></div>
+<div class="header-divider"></div>
+<div class="header-text"><p>21st Century Skills | Financial Literacy</p></div>
+</div>
+<div class="header-right">
+<div class="header-badge"><p>Finance</p></div>
+<div class="header-badge"><p>Investment</p></div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="title-container">
+<div class="main-title"><p>Credit Awareness</p></div>
+<div class="subtitle"><p>Building a strong financial foundation through responsible credit use</p></div>
+</div>
+<div class="content-grid">
+<!-- Bullet 1 -->
+<div class="bullet-card">
+<div class="bullet-icon">
+<i class="fas fa-tachometer-alt"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">
+<p>Understand credit scores</p>
+<div class="bullet-emoji"><p>💳</p></div>
+</div>
+<div class="bullet-text">
+<p>Learn how credit scores are calculated, why they matter, and how to build a strong credit history from scratch.</p>
+</div>
+<div class="bullet-points">
+<div class="bullet-point"><i class="fas fa-check-circle"></i><p>Factors affecting score</p></div>
+<div class="bullet-point"><i class="fas fa-check-circle"></i><p>Reading credit reports</p></div>
+<div class="bullet-point"><i class="fas fa-check-circle"></i><p>Building history</p></div>
+</div>
+</div>
+</div>
+<!-- Bullet 2 -->
+<div class="bullet-card">
+<div class="bullet-icon">
+<i class="fas fa-check-square"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">
+<p>Responsible borrowing</p>
+<div class="bullet-emoji"><p>✅</p></div>
+</div>
+<div class="bullet-text">
+<p>Understand the difference between good debt and bad debt, and how to use credit cards to your advantage without paying interest.</p>
+</div>
+<div class="bullet-points">
+<div class="bullet-point"><i class="fas fa-check-circle"></i><p>Good vs. bad debt</p></div>
+<div class="bullet-point"><i class="fas fa-check-circle"></i><p>Credit utilization</p></div>
+<div class="bullet-point"><i class="fas fa-check-circle"></i><p>Paying in full</p></div>
+</div>
+</div>
+</div>
+<!-- Bullet 3 -->
+<div class="bullet-card">
+<div class="bullet-icon">
+<i class="fas fa-ban"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">
+<p>Avoid debt traps</p>
+<div class="bullet-emoji"><p>🚫</p></div>
+</div>
+<div class="bullet-text">
+<p>Identify common financial pitfalls, predatory lending practices, and high-interest debt that can derail your financial goals.</p>
+</div>
+<div class="bullet-points">
+<div class="bullet-point"><i class="fas fa-check-circle"></i><p>High interest rates</p></div>
+<div class="bullet-point"><i class="fas fa-check-circle"></i><p>Minimum payment traps</p></div>
+<div class="bullet-point"><i class="fas fa-check-circle"></i><p>Predatory loans</p></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<div class="footer-left">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+<div class="footer-right">
+<p>Building Financial Independence</p>
+</div>
+</div>
+<div class="navbar">
+    
+    <!-- LEFT SIDE (Previous) -->
+    <div class="nav-left">
+        <button class="nav-btn nav-btn-prev" onclick="prev()">
+            <i class="fas fa-chevron-left"></i>
+            <span>Basics</span>
+        </button>
+    </div>
+
+    <!-- RIGHT SIDE (Next) -->
+    <div class="nav-right">
+        <button class="nav-btn nav-btn-next" onclick="next()">
+            <span>Loans</span>
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+</div>
+<!-- Decorative Elements -->
+<div class="decoration-circle decoration-1"></div>
+<div class="decoration-circle decoration-2"></div>
+</div>
+<script>
+    function next() {
+        window.location.href = "i7.html";
+    }
+    
+    function prev() {
+        window.location.href = "i5.html";
+    }
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Why Become a Truth Detective?</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Roboto+Mono:wght@400;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #050510;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* Neon Utilities */
+        .neon-text-yellow {
+            text-shadow: 0 0 5px rgba(234, 179, 8, 0.8), 0 0 15px rgba(234, 179, 8, 0.4);
+        }
+        
+        .neon-text-red {
+            text-shadow: 0 0 5px rgba(239, 68, 68, 0.8), 0 0 15px rgba(239, 68, 68, 0.4);
+        }
+
+        .neon-text-blue {
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+
+        .neon-text-purple {
+            text-shadow: 0 0 5px rgba(168, 85, 247, 0.8), 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .neon-border-yellow {
+            box-shadow: 0 0 10px rgba(234, 179, 8, 0.4), inset 0 0 5px rgba(234, 179, 8, 0.1);
+            border: 2px solid rgba(234, 179, 8, 0.6);
+        }
+        
+        .neon-border-red {
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.4), inset 0 0 5px rgba(239, 68, 68, 0.1);
+            border: 2px solid rgba(239, 68, 68, 0.6);
+        }
+
+        /* Speed Lines Effect */
+        .speed-lines {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            opacity: 0.1;
+            z-index: 0;
+             /* Fallback for no-gradient rule compliance: using SVG background instead or relying on layout lines */
+             background-image: none; 
+        }
+
+        /* Using SVG for speed lines pattern to strictly follow no-gradient rule */
+        .svg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            opacity: 0.15;
+            pointer-events: none;
+        }
+
+        /* Grid Background Pattern (No Gradients) */
+        .grid-line-h {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+        
+        .grid-line-v {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+
+        /* Card Styles */
+        .impact-card {
+            background-color: rgba(15, 23, 42, 0.9);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .warning-strip {
+            background-color: rgba(234, 179, 8, 0.1);
+            border-left: 4px solid #eab308;
+        }
+
+        .icon-circle {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background-color: rgba(15, 23, 42, 1);
+            border: 2px solid;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+
+        /* Spotlight Effect simulation with radial layout and opacity */
+        .spotlight-container {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Custom Scrollbar hide */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container text-white">
+<!-- Background Elements -->
+<div class="absolute inset-0 z-0">
+<!-- Grid Lines -->
+<div class="grid-line-h" style="top: 10%"></div>
+<div class="grid-line-h" style="top: 20%"></div>
+<div class="grid-line-h" style="top: 30%"></div>
+<div class="grid-line-h" style="top: 40%"></div>
+<div class="grid-line-h" style="top: 50%"></div>
+<div class="grid-line-h" style="top: 60%"></div>
+<div class="grid-line-h" style="top: 70%"></div>
+<div class="grid-line-h" style="top: 80%"></div>
+<div class="grid-line-h" style="top: 90%"></div>
+<div class="grid-line-v" style="left: 10%"></div>
+<div class="grid-line-v" style="left: 20%"></div>
+<div class="grid-line-v" style="left: 30%"></div>
+<div class="grid-line-v" style="left: 40%"></div>
+<div class="grid-line-v" style="left: 50%"></div>
+<div class="grid-line-v" style="left: 60%"></div>
+<div class="grid-line-v" style="left: 70%"></div>
+<div class="grid-line-v" style="left: 80%"></div>
+<div class="grid-line-v" style="left: 90%"></div>
+<!-- Speed Lines SVG -->
+<svg class="svg-pattern" height="100%" width="100%">
+<defs>
+<pattern height="40" id="lines" patternunits="userSpaceOnUse" width="40" x="0" y="0">
+<line stroke="#3b82f6" stroke-width="1" x1="0" x2="40" y1="0" y2="40"></line>
+</pattern>
+</defs>
+<rect fill="url(#lines)" height="100%" width="100%"></rect>
+</svg>
+<!-- Central Glow Blob -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-blue-900 opacity-20 rounded-full filter blur-[100px]"></div>
+</div>
+<!-- New Top Header -->
+<div class="relative z-30 w-full bg-gray-900 bg-opacity-95 border-b border-blue-900 px-6 py-2 flex justify-center items-center">
+<p class="font-['Roboto_Mono'] text-sm tracking-widest text-blue-400 neon-text-blue uppercase">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Header Section -->
+<header class="flex justify-between items-center px-12 py-4 z-20 border-b border-gray-800 bg-gray-900 bg-opacity-60">
+<div class="flex items-center space-x-4">
+<i class="fas fa-exclamation-triangle text-yellow-500 text-2xl"></i>
+<h2 class="font-['Space_Grotesk'] text-xl font-bold tracking-wider text-gray-200">TRUTH DETECTIVES</h2>
+</div>
+<div class="font-['Roboto_Mono'] text-yellow-500 text-xs tracking-widest">
+<i class="fas fa-radiation mr-2"></i>URGENT BRIEFING
+        </div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col items-center justify-center relative z-10 px-12 py-4">
+<!-- Centered Dramatic Title -->
+<div class="text-center mb-6 relative">
+<div class="inline-block px-4 py-1 border border-yellow-500 rounded-full bg-yellow-900 bg-opacity-20 backdrop-filter backdrop-blur-sm mb-2">
+<p class="font-['Roboto_Mono'] text-yellow-400 tracking-[0.2em] text-[10px] font-bold uppercase animate-pulse">
+<i class="fas fa-bullhorn mr-2"></i>Critical Alert
+                </p>
+</div>
+<h1 class="font-['Space_Grotesk'] text-5xl font-bold leading-tight text-white mb-2">
+                Why Become a <span class="neon-text-yellow">Truth Detective?</span>
+</h1>
+<p class="font-['Inter'] text-lg text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                In a world where misinformation spreads faster than truth, verification is your superpower. Don't let the internet fool you.
+            </p>
+</div>
+<!-- Three Key Points Cards -->
+<div class="grid grid-cols-3 gap-6 w-full max-w-5xl mb-6">
+<!-- Point 1 -->
+<div class="impact-card p-5 rounded-xl relative group hover:scale-105 transition-transform duration-300">
+<div class="absolute -top-6 left-1/2 transform -translate-x-1/2 icon-circle border-red-500 text-red-500 neon-text-red w-12 h-12">
+<i class="fas fa-bolt text-xl"></i>
+</div>
+<div class="mt-6 text-center">
+<h3 class="font-['Space_Grotesk'] text-lg font-bold text-red-400 mb-1">Fast Spread</h3>
+<p class="text-gray-400 text-xs leading-relaxed">
+                        Rumors travel 6x faster than corrections. Once fake news is out, it's hard to stop.
+                    </p>
+</div>
+</div>
+<!-- Point 2 -->
+<div class="impact-card p-5 rounded-xl relative group hover:scale-105 transition-transform duration-300">
+<div class="absolute -top-6 left-1/2 transform -translate-x-1/2 icon-circle border-yellow-500 text-yellow-500 neon-text-yellow w-12 h-12">
+<i class="fas fa-user-injured text-xl"></i>
+</div>
+<div class="mt-6 text-center">
+<h3 class="font-['Space_Grotesk'] text-lg font-bold text-yellow-400 mb-1">Anyone Can Be Fooled</h3>
+<p class="text-gray-400 text-xs leading-relaxed">
+                        Even adults and experts get tricked. Emotional hooks make us click without thinking.
+                    </p>
+</div>
+</div>
+<!-- Point 3 -->
+<div class="impact-card p-5 rounded-xl relative group hover:scale-105 transition-transform duration-300 border-green-500 border-opacity-30">
+<div class="absolute -top-6 left-1/2 transform -translate-x-1/2 icon-circle border-green-500 text-green-500 w-12 h-12">
+<i class="fas fa-shield-check text-xl"></i>
+</div>
+<div class="mt-6 text-center">
+<h3 class="font-['Space_Grotesk'] text-lg font-bold text-green-400 mb-1">Smart Defense</h3>
+<p class="text-gray-400 text-xs leading-relaxed">
+                        Smart students check before sharing. Verification protects you and your friends.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Example Warning Strip -->
+<div class="w-full max-w-3xl warning-strip p-3 rounded-r-lg flex items-center justify-between relative overflow-hidden mb-2">
+<div class="flex items-center space-x-4 z-10">
+<div class="bg-yellow-600 p-2 rounded text-white shadow-lg">
+<i class="fab fa-whatsapp text-xl"></i>
+</div>
+<div>
+<p class="font-['Roboto_Mono'] text-yellow-500 text-[10px] uppercase font-bold mb-0">DETECTED THREAT EXAMPLE</p>
+<p class="text-gray-200 text-sm">"Free 50GB Data for Students! Click link to claim..." <span class="text-red-400 font-bold ml-2">(SCAM LINK)</span></p>
+</div>
+</div>
+<div class="z-10">
+<span class="px-2 py-0.5 bg-red-900 text-red-300 text-[10px] font-bold rounded border border-red-500 uppercase tracking-wide">
+                    FAKE
+                </span>
+</div>
+<!-- Striped Background for Warning -->
+<div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: repeating-linear-gradient(45deg, #000 0, #000 10px, #eab308 10px, #eab308 20px);"></div>
+</div>
+</main>
+<!-- Footer / Progress -->
+<footer class="h-10 border-t border-gray-800 bg-gray-900 flex items-center justify-between px-12 z-20">
+<div class="flex items-center space-x-4">
+<span class="text-gray-500 text-[10px] font-['Roboto_Mono']">THREAT LEVEL: HIGH</span>
+<span class="text-yellow-600 text-[10px] animate-pulse"><i class="fas fa-circle"></i> MONITORING</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-gray-500 text-[10px] font-['Roboto_Mono']">03 / 17</span>
+<div class="w-20 h-1 bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 w-[17%]"></div>
+</div>
+</div>
+</footer>
+<!-- New Bottom Footer -->
+<div class="relative z-30 w-full bg-gray-950 border-t border-purple-900 px-6 py-1 flex justify-center items-center">
+<p class="font-['Roboto_Mono'] text-[10px] tracking-wider text-purple-400 neon-text-purple opacity-80">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f4.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f2.html';
+    }
+
+});
+</script>
+</body>
+</html>

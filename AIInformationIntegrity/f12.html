@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AI &amp; Information Integrity: Bias and Risk Mitigation</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        :root {
+            --bg-purple: #e5d4f5;
+            --text-dark: #2d2d2d;
+            --glass-bg: rgba(229, 212, 245, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --accent-white: rgba(255, 255, 255, 0.6);
+            --card-border: rgba(45, 45, 45, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #d1bfe3;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: var(--bg-purple);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .header {
+            height: 70px;
+            padding: 0 48px;
+            border-bottom: 1px solid rgba(45, 45, 45, 0.1);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 32px 100px 120px 100px;
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            line-height: 1.2;
+            font-weight: 800;
+            margin: 0 0 32px 0;
+            letter-spacing: -0.02em;
+            color: var(--text-dark);
+            flex-shrink: 0;
+        }
+
+        .two-column-layout {
+            display: flex;
+            gap: 40px;
+            flex: 1;
+            min-height: 0;
+        }
+
+        .column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .info-card {
+            background: var(--accent-white);
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            padding: 24px 32px;
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .icon-container {
+            font-size: 1.75rem;
+            color: var(--text-dark);
+            opacity: 0.8;
+            margin-top: 4px;
+            flex-shrink: 0;
+        }
+
+        .card-content {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .card-content h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin: 0 0 12px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .bullet-point {
+            font-size: 1.125rem;
+            line-height: 1.5;
+            color: rgba(45, 45, 45, 0.85);
+            margin: 0 0 8px 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bullet-point::before {
+            content: "•";
+            font-weight: bold;
+            color: var(--text-dark);
+        }
+
+        .bullet-point:last-child {
+            margin-bottom: 0;
+        }
+
+        .takeaway-banner {
+            margin-top: 24px;
+            background: var(--text-dark);
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            flex-shrink: 0;
+        }
+
+        .takeaway-icon {
+            font-size: 2rem;
+            color: var(--bg-purple);
+            flex-shrink: 0;
+        }
+
+        .takeaway-text-container {
+            flex: 1;
+        }
+
+        .takeaway-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            color: rgba(229, 212, 245, 0.7);
+        }
+
+        .takeaway-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .glass-nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid var(--glass-border);
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 48px;
+            z-index: 20;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            opacity: 0.6;
+        }
+
+        .nav-link.prev:hover {
+            transform: translateX(-4px);
+        }
+
+        .nav-link.next:hover {
+            transform: translateX(4px);
+        }
+
+        .footer {
+            height: 40px;
+            background-color: var(--bg-purple);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            z-index: 30;
+            font-size: 0.75rem;
+            font-weight: 500;
+            opacity: 0.7;
+            border-top: 1px solid rgba(45, 45, 45, 0.1);
+        }
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Header -->
+<header class="header">
+<div>
+<p>EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<div>
+<p>Bias &amp; Risk Mitigation</p>
+</div>
+</header>
+<!-- Main Content -->
+<main class="main-content">
+<div>
+<h1>Bias and Risk Mitigation</h1>
+</div>
+<div class="two-column-layout">
+<!-- Left Column -->
+<div class="column">
+<div class="info-card">
+<div class="icon-container">
+<i class="fa-solid fa-microscope"></i>
+</div>
+<div class="card-content">
+<h2>Detection Mechanisms</h2>
+<p class="bullet-point">Run fairness tests to identify disparate impacts early.</p>
+<p class="bullet-point">Use counterfactual evaluation to detect algorithmic skew.</p>
+</div>
+</div>
+<div class="info-card">
+<div class="icon-container">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+<div class="card-content">
+<h2>Governance Interventions</h2>
+<p class="bullet-point">Deploy systematic data balancing and strict prompt constraints.</p>
+</div>
+</div>
+</div>
+<!-- Right Column -->
+<div class="column">
+<div class="info-card" style="height: 100%; position: relative; transform: translate(-28.8825px, 1.37536px);">
+<div class="icon-container">
+<i class="fa-solid fa-chart-line" style="position: relative; transform: translate(-26.1318px, -2.75072px);"></i>
+</div>
+<div class="card-content">
+<h2 style="position: relative; transform: translate(-39.8854px, 2.75072px);">Continuous Monitoring</h2>
+<p class="bullet-point" style="position: relative; transform: translate(-77.0201px, 2.75072px); font-size: 17px;">Track model drift and enforce stringent performance SLAs.</p>
+<p class="bullet-point" style="position: relative; transform: translate(-75.6447px, 2.75072px); font-size: 17px;">Establish automated alerting systems for baseline deviations.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Takeaway Banner -->
+<div class="takeaway-banner">
+<div class="takeaway-icon">
+<i class="fa-solid fa-bullseye"></i>
+</div>
+<div class="takeaway-text-container">
+<p class="takeaway-label">Strategic Takeaway</p>
+<p class="takeaway-text">Operationalize bias controls as ongoing, systemic monitoring processes.</p>
+</div>
+</div>
+</main>
+<!-- Glassmorphism Navigation -->
+<nav class="glass-nav">
+<a class="nav-link prev" href="f11.html" id="nav-prev">
+<p>← Accountability</p>
+</a>
+<a class="nav-link next" href="f13.html" id="nav-next">
+<p>Governance →</p>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="footer">
+<div>
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+<div>
+<p>Slide 12 of 15</p>
+</div>
+</footer>
+</div>
+<!-- Keyboard Navigation Script -->
+<script>
+        document.addEventListener('keydown', function(event) {
+            const activeElement = document.activeElement;
+            const isInput = activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA' || activeElement.isContentEditable;
+            
+            if (isInput) return;
+
+            if (event.key === 'ArrowRight') {
+                const nextLink = document.getElementById('nav-next');
+                if (nextLink) {
+                    window.location.href = nextLink.getAttribute('href');
+                }
+            }
+            
+            if (event.key === 'ArrowLeft') {
+                const prevLink = document.getElementById('nav-prev');
+                if (prevLink) {
+                    window.location.href = prevLink.getAttribute('href');
+                }
+            }
+        });
+    </script>
+
+</body></html>

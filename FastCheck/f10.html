@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Data Visualization Literacy</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+:root {
+    --neon-cyan: #00f3ff;
+    --electric-purple: #bc13fe;
+    --alert-red: #ff2a2a;
+    --success-green: #00ff41;
+    --dark-bg: #050a14;
+}
+body {
+    margin: 0;
+    background: var(--dark-bg);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    overflow: hidden;
+}
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background: #020408;
+}
+
+/* HEADER / FOOTER */
+.header-bar, .footer-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    font-family: 'Share Tech Mono';
+}
+.header-bar {
+    height: 50px;
+    border-bottom: 1px solid rgba(0,243,255,0.3);
+    color: var(--neon-cyan);
+}
+.footer-bar {
+    height: 40px;
+    justify-content: center;
+    border-top: 1px solid rgba(188,19,254,0.3);
+    font-size: 12px;
+}
+
+/* CONTENT */
+.content-area {
+    flex: 1;
+    padding: 20px 50px;
+}
+
+.title-block {
+    border-left: 4px solid var(--electric-purple);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+h1 {
+    font-family: 'Orbitron';
+    font-size: 40px;
+}
+.subtitle {
+    color: var(--neon-cyan);
+    font-family: 'Share Tech Mono';
+}
+
+/* LAYOUT */
+.main-grid {
+    display: flex;
+    gap: 20px;
+    height: 100%;
+}
+
+.techniques-col {
+    flex: 1;
+}
+
+.tech-card {
+    margin-bottom: 10px;
+    padding: 15px;
+    border: 1px solid #333;
+}
+
+.charts-col {
+    flex: 2;
+    display: flex;
+    gap: 10px;
+}
+
+.chart-container {
+    flex: 1;
+    border: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+}
+
+.chart-wrapper {
+    flex: 1;
+    padding: 10px;
+}
+
+/* NAV */
+.nav-btn {
+    position: absolute;
+    bottom: 40px;
+    padding: 10px 20px;
+    background: #111;
+    color: white;
+}
+.left-btn { left: 40px; }
+.right-btn { right: 40px; }
+
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<!-- HEADER -->
+<div class="header-bar">
+<div>EduuAspire 21.0 Skills |21st century skills| digital literacy</div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-area">
+
+<div class="title-block">
+<h1>Data Visualization Literacy</h1>
+<div class="subtitle">DETECTING DISTORTION</div>
+</div>
+
+<div class="main-grid">
+
+<!-- LEFT -->
+<div class="techniques-col">
+<div class="tech-card">Truncated Axes</div>
+<div class="tech-card">Correlation ≠ Causation</div>
+<div class="tech-card">Cherry Picking</div>
+</div>
+
+<!-- RIGHT -->
+<div class="charts-col">
+
+<div class="chart-container">
+<div style="padding:10px; color:red;">Misleading</div>
+<div class="chart-wrapper"><canvas id="badChart"></canvas></div>
+</div>
+
+<div class="chart-container">
+<div style="padding:10px; color:lime;">Accurate</div>
+<div class="chart-wrapper"><canvas id="goodChart"></canvas></div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+Licensed and powered by Astrl mind Technologies copyright 2026-2033
+</div>
+
+</div>
+
+<!-- CHARTS -->
+<script>
+const labels = ['Q1','Q2','Q3','Q4'];
+const dataPoints = [98,97,99,96];
+
+new Chart(document.getElementById('badChart'), {
+    type: 'bar',
+    data: { labels, datasets:[{data:dataPoints, backgroundColor:'red'}]},
+    options:{ scales:{ y:{ min:95, max:100 }}}
+});
+
+new Chart(document.getElementById('goodChart'), {
+    type: 'bar',
+    data: { labels, datasets:[{data:dataPoints, backgroundColor:'lime'}]},
+    options:{ scales:{ y:{ beginAtZero:true, max:100 }}}
+});
+</script>
+
+<!-- NAVIGATION -->
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const tag = document.activeElement.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f11.html';
+    }
+
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f9.html';
+    }
+
+});
+</script>
+
+<!-- BUTTONS -->
+<a href="f9.html" class="nav-btn left-btn">←</a>
+<a href="f11.html" class="nav-btn right-btn">Next →</a>
+
+</body>
+</html>

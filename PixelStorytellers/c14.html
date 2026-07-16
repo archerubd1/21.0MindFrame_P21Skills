@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pixel Storytellers - Slide 14</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            overflow: hidden;
+display: flex;              /* IMPORTANT */
+    justify-content: center;    /* horizontal center */
+    align-items: center;        /* vertical center */
+    height: 100vh;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FFF2E6; /* Light pastel orange base */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Shapes */
+        .shape-blob-1 {
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background-color: #FFEDD5; /* Orange-100 */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.8;
+        }
+        
+        .shape-blob-2 {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 500px;
+            height: 500px;
+            background-color: #FFE4E6; /* Rose-100 */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        .shape-blob-3 {
+            position: absolute;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            height: 500px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.4;
+            filter: blur(50px);
+        }
+
+        /* Header Styles */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            color: #7c2d12;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Footer Styles */
+        .footer {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 10px;
+            color: #9ca3af;
+            z-index: 10;
+            padding-bottom: 5px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            background: #f1f5f9;
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-radius: 10px;
+            z-index: 20;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .nav-link {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: #ea580c;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            padding: 20px 0 60px 0; /* Space for nav */
+        }
+
+        h1 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 48px;
+            color: #ea580c;
+            margin: 0 0 10px 0;
+            text-align: center;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        .subtitle {
+            font-family: 'Nunito', sans-serif;
+            font-size: 24px;
+            color: #be123c; /* Rose-700 */
+            margin-bottom: 40px;
+            font-weight: 700;
+            text-align: center;
+        }
+
+        /* Ribbon / Outcome Cards */
+        .outcomes-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+            width: 800px;
+            position: relative;
+        }
+
+        .outcome-card {
+            background: #fff;
+            border-radius: 100px; /* Pill shape */
+            padding: 15px 40px 15px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 3px solid #fff;
+        }
+
+        .outcome-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 35px rgba(234, 88, 12, 0.15);
+        }
+
+        .outcome-icon-box {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            color: #fff;
+            flex-shrink: 0;
+            margin-right: 25px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-1 .outcome-icon-box { background-color: #F97316; } /* Orange */
+        .card-2 .outcome-icon-box { background-color: #EC4899; } /* Pink */
+        .card-3 .outcome-icon-box { background-color: #10B981; } /* Emerald */
+
+        .outcome-text {
+            flex: 1;
+            z-index: 2;
+        }
+
+        .outcome-text h3 {
+            margin: 0;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 22px;
+            color: #374151;
+        }
+
+        .outcome-text p {
+            margin: 2px 0 0 0;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+        /* Checkmark */
+        .check-badge {
+            width: 30px;
+            height: 30px;
+            background-color: #dcfce7;
+            color: #16a34a;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-left: 20px;
+            font-size: 14px;
+            border: 2px solid #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        /* Celebration Badge at bottom */
+        .celebration-badge {
+            margin-top: 40px;
+            background-color: #FFEDD5;
+            padding: 10px 30px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border: 2px dashed #F97316;
+            animation: bounce 2s infinite;
+        }
+
+        .celeb-text {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 18px;
+            color: #9A3412;
+            margin: 0;
+        }
+
+        /* Confetti decoration (Static CSS circles) */
+        .confetti {
+            position: absolute;
+            border-radius: 50%;
+        }
+        .c1 { width: 15px; height: 15px; background: #FCA5A5; top: 10%; right: 20%; }
+        .c2 { width: 10px; height: 10px; background: #FCD34D; top: 15%; left: 20%; }
+        .c3 { width: 20px; height: 20px; background: #6EE7B7; bottom: 20%; right: 25%; }
+        .c4 { width: 12px; height: 12px; background: #93C5FD; bottom: 15%; left: 25%; }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* Entrance Animations */
+        @keyframes slideInLeft {
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .card-1 { animation: slideInLeft 0.5s ease-out forwards; animation-delay: 0.1s; opacity: 0; }
+        .card-2 { animation: slideInLeft 0.5s ease-out forwards; animation-delay: 0.3s; opacity: 0; }
+        .card-3 { animation: slideInLeft 0.5s ease-out forwards; animation-delay: 0.5s; opacity: 0; }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Shapes -->
+<div class="shape-blob-1"></div>
+<div class="shape-blob-2"></div>
+<div class="shape-blob-3"></div>
+<div class="confetti c1"></div>
+<div class="confetti c2"></div>
+<div class="confetti c3"></div>
+<div class="confetti c4"></div>
+<!-- Header -->
+<div class="header">
+<p>EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<h1>Outcome &amp; Conclusion</h1>
+<div class="subtitle">You are ready to be a Pixel Storyteller!</div>
+<div class="outcomes-wrapper">
+<!-- Outcome 1 -->
+<div class="outcome-card card-1">
+<div class="outcome-icon-box">
+<i class="fa-solid fa-clapperboard"></i>
+</div>
+<div class="outcome-text">
+<h3>Create a short digital story</h3>
+<p>Use your imagination to build something new.</p>
+</div>
+<div class="check-badge"><i class="fa-solid fa-check"></i></div>
+</div>
+<!-- Outcome 2 -->
+<div class="outcome-card card-2">
+<div class="outcome-icon-box">
+<i class="fa-solid fa-heart"></i>
+</div>
+<div class="outcome-text">
+<h3>Share a positive message</h3>
+<p>Spread kindness and joy with your words.</p>
+</div>
+<div class="check-badge"><i class="fa-solid fa-check"></i></div>
+</div>
+<!-- Outcome 3 -->
+<div class="outcome-card card-3">
+<div class="outcome-icon-box">
+<i class="fa-solid fa-user-shield"></i>
+</div>
+<div class="outcome-text">
+<h3>Become a responsible creator</h3>
+<p>Think critically and act safely online.</p>
+</div>
+<div class="check-badge"><i class="fa-solid fa-check"></i></div>
+</div>
+</div>
+<!-- Bottom Badge -->
+<div class="celebration-badge">
+<i class="fa-solid fa-star" style="color: #F59E0B;"></i>
+<p class="celeb-text">Mission Accomplished!</p>
+<i class="fa-solid fa-star" style="color: #F59E0B;"></i>
+</div>
+</div>
+<!-- Navigation (Previous Only) -->
+<div class="navbar">
+<div class="nav-link" onclick="prev()"><i class="fa-solid fa-arrow-left"></i> Key Skills </div>
+<div></div> <!-- Empty div to maintain spacing -->
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<script>
+    function prev() {
+        window.location.href = "c13.html";
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "ArrowLeft") prev();
+    });
+</script>
+</body>
+</html>

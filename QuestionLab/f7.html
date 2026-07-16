@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Question Lab - Step 2 Keyword Magic</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background: #FFF6E9; /* Fallback */
+            background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+            font-family: 'Poppins', sans-serif;
+            user-select: none;
+        }
+
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+        }
+
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px;
+            height: 60px;
+            background: rgba(255, 204, 170, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.4);
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            box-sizing: border-box;
+            z-index: 100;
+        }
+
+        .nav-item {
+            font-size: 16px;
+            font-weight: 600;
+            color: #444;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-item:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="slide-container">
+
+<!-- HEADER -->
+<div style="position:absolute;top:0;width:100%;height:50px;background:rgba(255,255,255,0.6);"></div>
+<p style="position:absolute;top:15px;width:100%;text-align:center;font-size:16px;color:#555;">
+EduuAspire21.0 Skills | 21st Century Skills | information Literacy
+</p>
+
+<!-- TITLE -->
+<h1 style="position:absolute;top:120px;width:100%;text-align:center;font-size:56px;">
+Step 2 – <span style="color:#E87A5D;">Keyword Magic</span>
+</h1>
+
+<!-- BULLETS -->
+<div class="card-shadow" style="position:absolute;left:240px;top:240px;width:800px;height:100px;background:rgba(255,255,255,0.7);border-radius:16px;"></div>
+<p style="position:absolute;left:350px;top:270px;font-size:28px;">Keywords are the important words</p>
+
+<div class="card-shadow" style="position:absolute;left:240px;top:360px;width:800px;height:100px;background:rgba(255,255,255,0.7);border-radius:16px;"></div>
+<p style="position:absolute;left:350px;top:390px;font-size:28px;">Remove extra words</p>
+
+<div class="card-shadow" style="position:absolute;left:240px;top:480px;width:800px;height:100px;background:rgba(255,255,255,0.7);border-radius:16px;"></div>
+<p style="position:absolute;left:350px;top:510px;font-size:28px;">Focus on the main idea</p>
+
+<!-- NAVIGATION (FIXED) -->
+<div class="glass-nav">
+
+<a href="f6.html" class="nav-item">
+<i class="fa-solid fa-arrow-left"></i>
+<span>Create Questions</span>
+</a>
+
+<a href="f8.html" class="nav-item">
+<span>Find Keywords</span>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+
+</div>
+
+<!-- FOOTER -->
+<div style="position:absolute;bottom:0;width:100%;height:30px;background:#f0f0f0;"></div>
+<p style="position:absolute;bottom:5px;width:100%;text-align:center;font-size:12px;color:#888;">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</p>
+
+</div>
+
+<!-- SCRIPT -->
+<script>
+document.addEventListener("keydown", function (e) {
+    const active = document.activeElement;
+
+    // Disable when typing
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") {
+        window.location.href = "f8.html";
+    }
+
+    if (e.key === "ArrowLeft") {
+        window.location.href = "f6.html";
+    }
+});
+</script>
+
+
+</body>
+</html>

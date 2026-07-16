@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 03</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg,#1a1446,#2a1e6a);
+    color: white;
+}
+
+.container { padding: 40px; }
+
+.top { text-align: center; }
+.top-bar {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    
+    width: 100%;
+}
+
+.module {
+    background: rgba(255,255,255,0.1);
+    padding: 6px 15px;
+    border-radius: 20px;
+}
+
+h1 { text-align: center; }
+
+.content {
+    display: flex;
+    justify-content: space-around; /* brings them nearer */
+    margin-top: 170px;
+}
+
+ul { line-height: 2; }
+
+.skills span {
+    background: rgba(255,255,255,0.1);
+    padding: 8px 15px;
+    margin: 5px;
+    display: inline-block;
+    border-radius: 20px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #060621;
+    text-align: center;
+    padding: 10px;
+    color: #aaa;
+}
+.navbar {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+
+    background: rgba(255, 218, 185, 0.25);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+
+    z-index: 9999;   /* 🔥 FIX CLICK ISSUE */
+}
+
+.nav-link {
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+</style>
+</head>
+
+<body>
+<div class="slider">
+
+    <!-- Slide 1 -->
+    <div class="slide active">
+        <div class="top-bar">
+            EDUUASPIRE21.0 SKILLS | 21ST CENTURY SKILLS | DIGITAL LITERACY
+        </div>
+
+<div class="container">
+
+<div class="top">
+
+    
+    <h1>🔁 Remix Culture</h1>
+</div>
+
+<div class="content">
+    <div>
+        <h3>What You'll Learn</h3>
+        <ul>
+            <li>Creative Commons licensing</li>
+            <li>Principles of remixing media</li>
+            <li>Mashup culture & art history</li>
+            <li>Open-source creativity</li>
+            <li>Ethical attribution practices</li>
+        </ul>
+    </div>
+
+    <div>
+        <h3>Key Activities</h3>
+        <ul>
+            <li>Remix an existing digital story</li>
+            <li>Create a media mashup project</li>
+            <li>Design a CC-licensed artwork</li>
+            <li>Remix culture showcase</li>
+        </ul>
+
+        <h3>Skills Gained</h3>
+        <div class="skills">
+            <span>Critical Thinking</span>
+            <span>Attribution</span>
+            <span>Collaboration</span>
+        </div>
+    </div>
+</div>
+
+</div>
+<div class="navbar">
+    <div class="nav-link" onclick="goTo('f4.html')">← Digital storytelling</div>
+    <div class="nav-link" onclick="goTo('f6.html')">Objectives →</div>
+</div>
+
+<div class="footer">
+ Licensed & Powered By Astrl Minds Technologies © 2026–2033
+</div>
+<script>
+
+// ✅ MAIN FIX → this was missing
+function goTo(page) {
+    window.location.href = page;
+}
+
+// Optional (you can keep or remove)
+function next() {
+    goTo("f6.html");
+}
+
+function prev() {
+    goTo("f4.html");
+}
+
+// ✅ Keyboard navigation (fixed)
+document.addEventListener("keydown", function(e) {
+
+    const active = document.activeElement.tagName.toLowerCase();
+
+    if (active === "input" || active === "textarea") return;
+
+    if (e.key === "ArrowRight") {
+        goTo("f6.html");
+    }
+
+    if (e.key === "ArrowLeft") {
+        goTo("f4.html");
+    }
+
+});
+
+</script>
+</body>
+</html>

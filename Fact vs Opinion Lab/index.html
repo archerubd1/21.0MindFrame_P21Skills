@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fact vs Opinion Lab - Slide 1</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        /* SHARED CSS (style.css logic) */
+        :root {
+            --bg-gradient-start: #FFF6E9;
+            --bg-gradient-end: #FFE5D9;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-color: #FF8A65;
+            --nav-bg: rgba(255, 204, 170, 0.5);
+            --nav-border: rgba(255, 255, 255, 0.3);
+        }
+
+        body {
+    margin: 0;
+    background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+    font-family: 'Poppins', sans-serif;
+
+    transform: scale(calc(100vw / 1280));
+    transform-origin: top left;
+}
+
+        /* Header */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Main Content Area */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 80px 40px 120px 40px; /* Top padding for header, bottom for nav/footer */
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #2D3748;
+            letter-spacing: -1px;
+        }
+
+        h2 {
+            font-size: 32px;
+            font-weight: 400;
+            color: #4A5568;
+            margin-bottom: 40px;
+        }
+
+        .purpose-text {
+            font-size: 18px;
+            color: #718096;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+
+        /* Navigation System */
+        .nav-container {
+            position: absolute;
+            bottom: 40px; /* Above footer */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1100px;
+            height: 60px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--nav-border);
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            z-index: 90;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4A5568;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.4);
+            transform: translateY(-2px);
+            color: #2D3748;
+        }
+
+        .nav-btn.disabled {
+            opacity: 0.3;
+            pointer-events: none;
+            cursor: default;
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 8px 0;
+            text-align: center;
+            background: rgba(255,255,255,0.3);
+            z-index: 100;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        /* Icon decoration for title slide */
+        .hero-icon {
+            font-size: 80px;
+            color: #FF8A65;
+            margin-bottom: 20px;
+            opacity: 0.9;
+            filter: drop-shadow(0 4px 6px rgba(255, 138, 101, 0.3));
+        }
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- HEADER -->
+<header>
+<div class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Media Literacy</div>
+<div>
+<!-- Optional: Slide Counter could go here if needed -->
+</div>
+</header>
+<!-- MAIN CONTENT -->
+<main>
+<div class="hero-icon">
+<i class="fa-solid fa-magnifying-glass-chart"></i>
+</div>
+<h1>Fact vs Opinion Lab</h1>
+<h2>Digital Literacy Foundations</h2>
+<div class="purpose-text">
+<p>Learn to separate facts from opinions, recognize persuasion, and share responsibly in the digital age.</p>
+</div>
+</main>
+<!-- NAVIGATION -->
+<div class="nav-container">
+<!-- Left: Previous Topic -->
+<a class="nav-btn disabled" href="#" id="prev-btn">
+<i class="fa-solid fa-arrow-left"></i>
+<span>Previous Topic</span>
+</a>
+<!-- Right: Next Topic -->
+<a class="nav-btn" href="f2.html" id="next-btn">
+<span>What is Media</span>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+<!-- FOOTER -->
+<footer>
+<div class="footer-text">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</div>
+</footer>
+</div>
+<!-- SHARED JAVASCRIPT LOGIC -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Keyboard Navigation
+            document.addEventListener('keydown', (e) => {
+                // Disable navigation if user is typing in an input
+                if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+                    return;
+                }
+
+                const prevBtn = document.getElementById('prev-btn');
+                const nextBtn = document.getElementById('next-btn');
+
+                if (e.key === 'ArrowRight' && nextBtn && !nextBtn.classList.contains('disabled')) {
+                    nextBtn.click();
+                } else if (e.key === 'ArrowLeft' && prevBtn && !prevBtn.classList.contains('disabled')) {
+                    prevBtn.click();
+                }
+            });
+
+            // Hover effects for Nav Buttons (Enhancement)
+            const navBtns = document.querySelectorAll('.nav-btn');
+            navBtns.forEach(btn => {
+                btn.addEventListener('mouseenter', () => {
+                    if(!btn.classList.contains('disabled')){
+                        btn.style.opacity = '1';
+                    }
+                });
+            });
+        });
+    </script>
+
+</body></html>

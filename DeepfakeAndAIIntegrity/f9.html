@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Verification Protocols - Deepfake &amp; AI Integrity</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #E5E5E5;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFF4CC;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: #1A1A1A;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .glass-nav {
+            background-color: rgba(255, 218, 185, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        .checklist-item {
+            background-color: rgba(255, 255, 255, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            transition: transform 0.2s ease, background-color 0.2s ease;
+        }
+
+        .checklist-item:hover {
+            transform: translateY(-2px);
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        .checkbox-container {
+            background-color: #1A1A1A;
+            color: #FFF4CC;
+        }
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- HEADER -->
+<header class="absolute top-0 w-full px-12 pt-8 pb-4 z-20">
+<div>
+<p class="text-sm font-semibold tracking-widest uppercase text-[#1A1A1A] opacity-60">
+                    EduuAspire21.0 Skills | 21st Century Skills | Media Literacy
+                </p>
+</div>
+</header>
+<!-- SLIDE CONTENT AREA -->
+<main class="flex-1 flex flex-col justify-center items-center px-24 w-full h-full pb-24 pt-20 z-0">
+<div class="w-full max-w-5xl">
+<div class="text-center mb-10">
+<p class="text-5xl font-bold text-[#1A1A1A] tracking-tight">
+                        Verification Protocols
+                    </p>
+</div>
+<div class="w-full flex flex-col gap-4 relative">
+<!-- Item 1 -->
+<div class="checklist-item w-full flex items-center p-4 rounded-xl shadow-sm">
+<div class="checkbox-container w-8 h-8 rounded shrink-0 flex justify-center items-center shadow-sm z-10">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="ml-6 flex-1">
+<p class="text-xl text-[#1A1A1A]"><span class="font-bold tracking-wide">Intake:</span> Flag, quarantine, and securely log suspected media assets.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="checklist-item w-full flex items-center p-4 rounded-xl shadow-sm">
+<div class="checkbox-container w-8 h-8 rounded shrink-0 flex justify-center items-center shadow-sm z-10">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="ml-6 flex-1">
+<p class="text-xl text-[#1A1A1A]"><span class="font-bold tracking-wide">Provenance:</span> Verify source directly; utilize signed media and C2PA credentials when available.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="checklist-item w-full flex items-center p-4 rounded-xl shadow-sm">
+<div class="checkbox-container w-8 h-8 rounded shrink-0 flex justify-center items-center shadow-sm z-10">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="ml-6 flex-1">
+<p class="text-xl text-[#1A1A1A]"><span class="font-bold tracking-wide">Forensics:</span> Execute multi-tool detection checks; record tool confidence scores and versions.</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="checklist-item w-full flex items-center p-4 rounded-xl shadow-sm">
+<div class="checkbox-container w-8 h-8 rounded shrink-0 flex justify-center items-center shadow-sm z-10">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="ml-6 flex-1">
+<p class="text-xl text-[#1A1A1A]"><span class="font-bold tracking-wide">Human Review:</span> Engage domain experts and enforce strict chain-of-custody controls.</p>
+</div>
+</div>
+<!-- Item 5 -->
+<div class="checklist-item w-full flex items-center p-4 rounded-xl shadow-sm">
+<div class="checkbox-container w-8 h-8 rounded shrink-0 flex justify-center items-center shadow-sm z-10">
+<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path>
+</svg>
+</div>
+<div class="ml-6 flex-1">
+<p class="text-xl text-[#1A1A1A]"><span class="font-bold tracking-wide">Decision:</span> Classify findings, escalate critical risks, and communicate utilizing approved templates.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<nav class="glass-nav absolute bottom-12 left-6 right-6 h-16 rounded-xl flex justify-between items-center px-10 z-10">
+
+    <!-- LEFT -->
+    <div class="nav-link text-[#1A1A1A] font-medium text-lg">
+        <a href="f8.html">← Consumption</a>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="nav-link text-[#1A1A1A] font-bold text-lg">
+        <a href="f10.html">Red Flags →</a>
+    </div>
+
+</nav>
+<!-- FOOTER -->
+<footer class="absolute bottom-0 w-full h-12 flex justify-center items-center z-20">
+<div>
+<p class="text-[11px] font-bold text-[#1A1A1A] opacity-40 uppercase tracking-widest">
+                    Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+                </p>
+</div>
+</footer>
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f10
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f10.html';
+    }
+
+    // LEFT → f8
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f8.html';
+    }
+
+});
+</script>
+
+</body></html>

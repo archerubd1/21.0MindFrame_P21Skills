@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Why Integrity Matters - The Integrity Protocol</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        /* Main container layout */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FAFAFA;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Pseudo-gradient background */
+        .bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: #FDF4FF;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+        
+        .blob-1 {
+            top: -100px;
+            left: -100px;
+            width: 600px;
+            height: 600px;
+            background-color: #E9D5FF;
+        }
+        
+        .blob-2 {
+            bottom: -150px;
+            right: -100px;
+            width: 700px;
+            height: 600px;
+            background-color: #FBCFE8;
+        }
+
+        /* Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+        }
+
+        /* Bullet Point Customization */
+        .custom-bullet {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .custom-bullet::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #A78BFA; /* Purple 400 */
+            box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
+        }
+
+        .section-icon {
+            background-color: rgba(139, 92, 246, 0.1);
+            color: #7C3AED;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 50px;
+            font-size: 28px;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Text gradient for titles */
+        .text-gradient {
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-image: linear-gradient(to right, #7C3AED, #DB2777); 
+            /* Fallback color if gradient fails */
+            color: #7C3AED; 
+        }
+        
+        /* Removing CSS gradient as requested and using text color instead since gradients can cause issues */
+        .text-highlight {
+            color: #9333ea; /* Purple 600 */
+        }
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+     background-color: #FDF4FF;
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+  z-index: 9999;          /* ✅ ADD THIS */
+    pointer-events: auto; 
+
+}
+
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+<div class="slide-container" id="slide-3">
+<!-- Background Elements -->
+<div class="bg-layer">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+</div>
+<!-- Main Content Wrapper -->
+<div class="content-layer">
+<!-- Header -->
+<header class="px-12 py-6 w-full flex justify-between items-center opacity-80 border-b border-purple-100 border-opacity-30">
+<p class="text-[11px] font-bold tracking-widest text-gray-500 uppercase font-sans">
+                    EduuAspire21.0 Skills <span class="mx-2 text-purple-300">|</span> 21st Century Skills <span class="mx-2 text-purple-300">|</span> Information Literacy
+                </p>
+<div class="h-1 w-16 bg-purple-200 rounded-full"></div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex px-16 py-8 gap-12 items-center">
+<!-- Left Column: Title & Intro -->
+<div class="w-5/12 flex flex-col justify-center">
+<div class="mb-6 inline-flex">
+<div class="section-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+</div>
+<h1 class="text-5xl font-bold text-gray-800 mb-6 leading-tight">
+                        Why <br/>
+<span class="text-highlight">Integrity Matters</span>
+</h1>
+<p class="text-gray-600 text-lg leading-relaxed mb-8">
+                        Academic integrity is not just a set of rules, but a fundamental commitment to honesty, trust, and fairness that defines our scholarly community.
+                    </p>
+<div class="glass-card p-6 border-l-4 border-purple-400">
+<p class="text-sm font-medium text-purple-800 mb-2 uppercase tracking-wide">Core Value</p>
+<p class="text-gray-700 italic">
+                            "Integrity is the essence of everything successful." <br/>— R. Buckminster Fuller
+                        </p>
+</div>
+</div>
+<!-- Right Column: Key Points -->
+<div class="w-7/12 h-full flex items-center">
+<div class="glass-card p-8 w-full">
+<h3 class="text-2xl font-semibold text-gray-800 mb-8 flex items-center">
+<i class="fas fa-check-circle text-pink-400 mr-3 text-xl"></i>
+                            The Impact of Integrity
+                        </h3>
+<div class="space-y-6">
+<div class="custom-bullet">
+<h4 class="text-xl font-medium text-gray-800 mb-1">Builds Trust and Credibility</h4>
+<p class="text-gray-600 leading-relaxed text-sm">
+                                    Establishes a reputation for reliability and honesty, which is essential for collaborative learning and future professional relationships.
+                                </p>
+</div>
+<div class="custom-bullet">
+<h4 class="text-xl font-medium text-gray-800 mb-1">Prevents Plagiarism</h4>
+<p class="text-gray-600 leading-relaxed text-sm">
+                                    Encourages original thought and critical analysis, ensuring that your work is authentically yours and properly attributed.
+                                </p>
+</div>
+<div class="custom-bullet">
+<h4 class="text-xl font-medium text-gray-800 mb-1">Foundation for Success</h4>
+<p class="text-gray-600 leading-relaxed text-sm">
+                                    Cultivates the discipline and ethical decision-making skills required for long-term achievement in both academic and career paths.
+                                </p>
+</div>
+<div class="custom-bullet">
+<h4 class="text-xl font-medium text-gray-800 mb-1">Protecting Creators' Rights</h4>
+<p class="text-gray-600 leading-relaxed text-sm">
+                                    Respects the intellectual property of others, fostering an environment where innovation and creativity can flourish securely.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="px-12 py-4 w-full text-center relative z-20 mb-16">
+<p class="text-[10px] text-gray-400 font-medium tracking-wide">
+                    Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033
+                </p>
+</footer>
+<!-- 🔥 NAVIGATION -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Integrity Protocol</div>
+    <div class="nav-link" onclick="next()">Why Inegrity matters →</div>
+</div>
+
+</div>
+</div>
+</div>
+<script>
+
+// Navigation
+function next() {
+    window.location.href = "a4.html";   // ✅ FIXED
+}
+
+function prev() {
+    window.location.href = "a2.html";   // first slide fallback
+}
+
+// Keyboard
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+</script>
+</body>
+</html>

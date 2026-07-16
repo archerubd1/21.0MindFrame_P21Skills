@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Power of Saving</title>
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    font-family:'Poppins',sans-serif;
+    background:#0f172a;
+}
+
+/* MAIN CONTAINER */
+.slide-container{
+    width:1280px;
+    height:720px;
+    position:relative;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+}
+
+/* BACKGROUND */
+.background-pattern{
+    position:absolute;
+    width:100%;
+    height:100%;
+    opacity:0.05;
+    background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 35px,#2EC4B6 35px,#2EC4B6 36px),
+    repeating-linear-gradient(90deg,transparent,transparent 35px,#2EC4B6 35px,#2EC4B6 36px);
+}
+
+/* HEADER */
+.header-bar{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:50px;
+    background:rgba(15,23,42,0.95);
+    border-bottom:2px solid #2EC4B6;
+    display:flex;
+    align-items:center;
+    padding:0 40px;
+}
+
+.header-text{
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+}
+
+/* TITLE */
+.title-bar{
+    position:absolute;
+    top:70px;
+    left:190px;
+    width:900px;
+    height:60px;
+    background:linear-gradient(90deg,#2EC4B6,#3dd4c6);
+    border-radius:8px;
+    display:flex;
+    align-items:center;
+    padding:0 20px;
+}
+
+.title-bar i{
+    font-size:22px;
+    color:#0f172a;
+    margin-right:10px;
+}
+
+.title-text h1{
+    margin:0;
+    font-size:22px;
+    color:#0f172a;
+}
+
+.title-text p{
+    margin:0;
+    font-size:13px;
+    color:#0f172a;
+}
+
+/* MAIN BOX */
+.main-content{
+    position:absolute;
+    top:150px;
+    left:190px;
+    width:900px;
+    height:420px;
+    background:rgba(30,41,59,0.85);
+    border-radius:12px;
+    padding:20px;
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+}
+
+/* CARD */
+.card{
+    background:rgba(15,23,42,0.6);
+    border-radius:8px;
+    padding:15px;
+}
+
+.card-title{
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+.list{
+    color:#94a3b8;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* HIGHLIGHT */
+.highlight{
+    background:rgba(46,196,182,0.1);
+    border:1px solid rgba(46,196,182,0.3);
+    border-radius:8px;
+    padding:15px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.highlight strong{
+    color:#2EC4B6;
+}
+
+/* NAV */
+.nav-bar{
+    position:absolute;
+    bottom:50px;
+    left:190px;
+    width:900px;
+    height:50px;
+    background:rgba(255,204,170,0.5);
+    border-radius:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:0 20px;
+}
+
+.nav-btn{
+    background:rgba(255,255,255,0.3);
+    padding:6px 15px;
+    border-radius:20px;
+    text-decoration:none;
+    color:#0f172a;
+    font-size:13px;
+}
+
+/* FOOTER */
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:40px;
+    background:rgba(15,23,42,0.95);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.footer-text{
+    color:#94a3b8;
+    font-size:12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<div class="background-pattern"></div>
+
+<!-- HEADER -->
+<div class="header-bar">
+<span class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy</span>
+</div>
+
+<!-- TITLE -->
+<div class="title-bar">
+<i class="fas fa-piggy-bank"></i>
+<div class="title-text">
+<h1>The Power of Saving</h1>
+<p>Building Financial Security for the Future</p>
+</div>
+</div>
+
+<!-- CONTENT -->
+<div class="main-content">
+
+<div class="grid">
+
+<div class="card">
+<div class="card-title">Why Save?</div>
+<div class="list">
+✔ Emergencies<br>
+✔ Future purchases<br>
+✔ Financial independence
+</div>
+</div>
+
+<div class="card">
+<div class="card-title">Daily Saving Impact</div>
+<div class="list">
+Save ₹10/day → ₹3,650/year<br>
+Small steps create big results
+</div>
+</div>
+
+</div>
+
+<div class="highlight">
+<span><strong>₹3,650/year</strong> by saving ₹10 daily</span>
+<span>Save today = Freedom tomorrow</span>
+</div>
+
+</div>
+
+<!-- NAV -->
+<div class="nav-bar">
+<a class="nav-btn" onclick="goToSlide(6)">← Needs vs Wants</a>
+<a class="nav-btn" onclick="goToSlide(8)">Next → Pocket Money</a>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+<span class="footer-text">Licenced & Powered By Astrl Mind Technologies copyright 2026-2033</span>
+</div>
+
+</div>
+
+<script>
+function goToSlide(n){
+    window.location.href='f'+n+'.html';
+}
+
+document.addEventListener('keydown',function(e){
+    if(e.key==="ArrowRight") goToSlide(8);
+    if(e.key==="ArrowLeft") goToSlide(6);
+});
+</script>
+
+</body>
+</html>

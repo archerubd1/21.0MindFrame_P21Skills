@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>How Social Media Algorithms Work - Slide 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+      
+         body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #0f0f0f;
+    font-family: 'Open Sans', sans-serif;
+
+    display: flex;              /* 🔥 ADD THIS */
+    justify-content: center;    /* 🔥 CENTER HORIZONTALLY */
+    align-items: center;        /* 🔥 CENTER VERTICALLY */
+    height: 100vh;              /* 🔥 FULL SCREEN HEIGHT */
+}
+     
+        
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #065f46 0%, #047857 50%, #059669 100%);
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #059669;
+        }
+        
+        .header-divider {
+            width: 1px;
+            height: 20px;
+            background: #e5e7eb;
+        }
+        
+        .header-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #374151;
+            font-weight: 500;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-badge {
+            background: #059669;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+    .main-content {
+    position: absolute;
+    top: 70px;
+    bottom: 120px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+        
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            max-width: 1100px;
+        }
+        
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .tracking-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        
+        .tracking-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .analysis-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 16px;
+        }
+        
+        .analysis-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .analysis-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+            margin-bottom: 8px;
+        }
+        
+        .analysis-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 4px;
+        }
+        
+        .analysis-desc {
+            font-size: 12px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .warning-box {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid rgba(239, 68, 68, 0.4);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .warning-icon {
+            font-size: 24px;
+            color: #fbbf24;
+            flex-shrink: 0;
+        }
+        
+        .warning-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+        }
+        
+        .warning-highlight {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 204, 170, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 1000;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-icon {
+            font-size: 14px;
+            color: #065f46;
+        }
+        
+        .nav-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #065f46;
+            font-weight: 600;
+        }
+        
+        .nav-arrow {
+            font-size: 16px;
+            color: #065f46;
+            margin-left: 4px;
+        }
+        
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            z-index: 1000;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+        }
+        
+        .footer-brand {
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Decorative Elements */
+        .decoration-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            pointer-events: none;
+        }
+        
+        .decoration-circle-1 {
+            width: 200px;
+            height: 200px;
+            top: 100px;
+            right: 100px;
+        }
+        
+        .decoration-circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 150px;
+            left: 80px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header">
+<div class="header-left">
+<div class="header-logo">EduuAspire21.0</div>
+<div class="header-divider"></div>
+<div class="header-text">21st Century Skills | Media Literacy</div>
+</div>
+<div class="header-right">
+<div class="header-badge">Workshop Module</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="section-title">How Social Media Algorithms Work</div>
+<div class="content-wrapper">
+<div class="left-section">
+<div class="tracking-box">
+<div class="tracking-text">
+<strong>Platforms track your behavior continuously</strong> to analyze what you click, how long you watch, and what you ignore. Then they personalize your feed.
+                    </div>
+<div class="analysis-grid">
+<div class="analysis-item">
+<div class="analysis-icon">
+<i class="fas fa-mouse-pointer"></i>
+</div>
+<div class="analysis-title">What you click</div>
+<div class="analysis-desc">Click patterns &amp; engagement</div>
+</div>
+<div class="analysis-item">
+<div class="analysis-icon">
+<i class="fas fa-clock"></i>
+</div>
+<div class="analysis-title">How long you watch</div>
+<div class="analysis-desc">Watch time &amp; attention</div>
+</div>
+<div class="analysis-item">
+<div class="analysis-icon">
+<i class="fas fa-eye-slash"></i>
+</div>
+<div class="analysis-title">What you ignore</div>
+<div class="analysis-desc">Skipped content</div>
+</div>
+</div>
+<div class="warning-box">
+<i class="fas fa-exclamation-triangle warning-icon"></i>
+<div class="warning-text">
+<span class="warning-highlight">Result:</span> Everyone sees a different version of the internet
+                        </div>
+</div>
+</div>
+</div>
+<div class="right-section">
+<div class="tracking-box">
+<div class="tracking-text">
+<strong>Personalization Process:</strong> Algorithms analyze your behavior and show content that matches your interests.
+                    </div>
+<div class="analysis-item" style="margin-top: 16px;">
+<div class="analysis-icon">
+<i class="fas fa-filter"></i>
+</div>
+<div class="analysis-title">Personalized Feed</div>
+<div class="analysis-desc">Content tailored to your preferences</div>
+</div>
+<div class="analysis-item" style="margin-top: 12px;">
+<div class="analysis-icon">
+<i class="fas fa-globe"></i>
+</div>
+<div class="analysis-title">Different Internet</div>
+<div class="analysis-desc">Each user sees unique content</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navigation">
+<a class="nav-item" href="f2.html">
+<span class="nav-text">← What is Algorithm</span>
+</a>
+<a class="nav-item" href="f4.html">
+<span class="nav-text">Echo Chambers →</span>
+</a>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div class="footer-text">
+                Licenced &amp; Powered By <span class="footer-brand">Astrl Mind Technologies</span> copyright 2026-2033
+            </div>
+</div>
+<!-- Decorative Elements -->
+<div class="decoration-circle decoration-circle-1"></div>
+<div class="decoration-circle decoration-circle-2"></div>
+</div>
+<script src="script.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function () {
+
+    document.addEventListener("keydown", function(e) {
+
+        let current = window.location.pathname.match(/f(\d+)\.html/);
+        if (!current) return;
+
+        let index = parseInt(current[1]);
+
+        if (e.key === "ArrowRight") {
+            window.location.href = `f${index + 1}.html`;
+        }
+
+        if (e.key === "ArrowLeft" && index > 1) {
+            window.location.href = `f${index - 1}.html`;
+        }
+
+    });
+
+});</script>
+
+
+</body>
+</html>

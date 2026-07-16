@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Smart Summarizer - Slide 7</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+/* FULL SCREEN FIX */
+.slide-wrapper {
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: #FFF6E9;
+    font-family: 'Poppins', sans-serif;
+
+    transform: scale(min(100vw / 1280, 100vh / 720));
+    transform-origin: top left;
+}
+
+p { margin: 0; line-height: 1.5; }
+ul { list-style: none; padding: 0; }
+
+li {
+    margin-bottom: 25px;
+    padding-left: 45px;
+    position: relative;
+}
+
+li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: #2ECC71;
+    font-size: 24px;
+}
+</style>
+</head>
+
+<body>
+<div class="slide-wrapper">
+<div class="slide-container">
+
+<!-- Background -->
+<div style="position:absolute;left:-100px;top:-100px;width:600px;height:600px;background:rgba(255,229,217,0.4);border-radius:50%;"></div>
+<div style="position:absolute;left:800px;top:300px;width:600px;height:600px;background:rgba(255,229,217,0.4);border-radius:50%;"></div>
+
+<!-- HEADER -->
+<div style="position:absolute;top:0;width:1280px;height:60px;background:rgba(255,255,255,0.8);"></div>
+
+<div style="position:absolute;left:40px;top:15px;width:1200px;">
+<p style="font-size:18px;color:#555;font-weight:500;">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</p>
+</div>
+
+<!-- TITLE -->
+<div style="position:absolute;left:60px;top:90px;width:1160px;text-align:center;">
+<p style="font-size:48px;font-weight:700;color:#333;border-bottom:3px solid #D65A31;display:inline-block;">
+Main Ideas vs. Details
+</p>
+</div>
+
+<!-- LEFT CARD -->
+<div style="position:absolute;left:100px;top:220px;width:520px;height:360px;background:#fff;border-radius:20px;border-top:8px solid #D65A31;"></div>
+
+<div style="position:absolute;left:310px;top:250px;color:#D65A31;">
+<i class="fa-solid fa-star" style="font-size:60px;"></i>
+</div>
+
+<div style="position:absolute;left:120px;top:330px;width:480px;text-align:center;">
+<p style="font-size:32px;font-weight:700;">The Main Idea</p>
+</div>
+
+<div style="position:absolute;left:130px;top:390px;width:460px;text-align:center;">
+<p style="font-size:20px;color:#666;">The <b>core point</b> the text is mostly about.</p>
+</div>
+
+<div style="position:absolute;left:140px;top:460px;width:440px;height:80px;background:#FFF6E9;border-radius:10px;"></div>
+
+<div style="position:absolute;left:160px;top:475px;width:400px;text-align:center;">
+<p style="font-size:24px;color:#D65A31;font-weight:600;">"Trees help clean the air"</p>
+</div>
+
+<!-- RIGHT CARD -->
+<div style="position:absolute;left:660px;top:220px;width:520px;height:360px;background:#fff;border-radius:20px;border-top:8px solid #4A90E2;"></div>
+
+<div style="position:absolute;left:870px;top:250px;color:#4A90E2;">
+<i class="fa-solid fa-list-check" style="font-size:60px;"></i>
+</div>
+
+<div style="position:absolute;left:680px;top:330px;width:480px;text-align:center;">
+<p style="font-size:32px;font-weight:700;">The Details</p>
+</div>
+
+<div style="position:absolute;left:690px;top:390px;width:460px;text-align:center;">
+<p style="font-size:20px;color:#666;">Facts that <b>support</b> the main idea.</p>
+</div>
+
+<div style="position:absolute;left:700px;top:460px;width:440px;height:80px;background:#EBF5FF;border-radius:10px;"></div>
+
+<div style="position:absolute;left:720px;top:470px;width:400px;text-align:center;">
+<p style="font-size:18px;color:#4A90E2;">
+1. Leaves trap dust<br>2. Trees produce oxygen
+</p>
+</div>
+
+<!-- NAVIGATION -->
+<div style="position:absolute;bottom:20px;width:100%;display:flex;justify-content:space-between;padding:0 40px;">
+
+<button onclick="window.location.href='f6.html'" style="padding:10px 20px;border:none;border-radius:20px;background:#fff;color:#D65A31;cursor:pointer;">
+⬅ Key Points
+</button>
+
+<button onclick="window.location.href='f8.html'" style="padding:10px 20px;border:none;border-radius:20px;background:#fff;color:#D65A31;cursor:pointer;">
+Notes vs Copying ➡
+</button>
+
+</div>
+
+</div>
+
+<!-- KEYBOARD NAVIGATION -->
+<script>
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === "ArrowRight") {
+        window.location.href = "f8.html";
+    }
+
+    if (e.key === "ArrowLeft") {
+        window.location.href = "f6.html";
+    }
+
+});
+</script>
+
+</body>
+</html>

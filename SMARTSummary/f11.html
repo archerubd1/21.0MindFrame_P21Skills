@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Slide 11</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+/* FULL SCREEN FIX */
+.slide-wrapper {
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: #FFF6E9;
+    font-family: 'Poppins', sans-serif;
+
+    transform: scale(min(100vw / 1280, 100vh / 720));
+    transform-origin: top left;
+}
+
+p { margin: 0; line-height: 1.5; }
+ul { list-style: none; padding: 0; }
+
+li {
+    margin-bottom: 25px;
+    padding-left: 45px;
+    position: relative;
+}
+
+li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: #2ECC71;
+    font-size: 24px;
+}
+</style>
+</head>
+
+<body>
+<div class="slide-wrapper">
+<div class="slide-container">
+
+<!-- BACKGROUND -->
+<div style="position:absolute; left:-100px; top:-100px; width:600px; height:600px; background:rgba(255,229,217,0.4); border-radius:50%;"></div>
+<div style="position:absolute; left:800px; top:300px; width:600px; height:600px; background:rgba(255,229,217,0.4); border-radius:50%;"></div>
+
+<!-- TITLE -->
+<div style="position:absolute;left:100px;top:100px;">
+<p style="font-size:48px;font-weight:700;border-bottom:3px solid #D65A31;">
+Giving Credit
+</p>
+</div>
+
+<!-- LEFT CONTENT -->
+<div style="position:absolute;left:100px;top:220px;width:500px;">
+<p style="font-size:26px;font-weight:600;">The Simple Format:</p>
+
+<div style="margin-top:20px;padding:20px;border:2px dashed #D65A31;border-radius:15px;text-align:center;background:#fff;">
+<p style="font-size:34px;font-weight:700;color:#D65A31;">
+Source + Title
+</p>
+</div>
+
+<p style="margin-top:25px;font-size:20px;color:#555;">
+Just tell where you found it and what it is called.
+</p>
+</div>
+
+<!-- RIGHT CONTENT -->
+<div style="position:absolute;left:700px;top:220px;width:420px;background:#fff;padding:20px;border-radius:15px;">
+
+<p style="font-size:26px;font-weight:600;text-align:center;">Examples</p>
+
+<p style="margin-top:20px;font-size:18px;">
+<strong style="color:#D65A31;">Website:</strong><br>
+National Geographic Kids – Tigers
+</p>
+
+<hr style="margin:20px 0;">
+
+<p style="font-size:18px;">
+<strong style="color:#D65A31;">Book:</strong><br>
+Science Book – Plants
+</p>
+
+</div>
+
+<!-- NAV BAR -->
+<div style="position:absolute;bottom:0;width:100%;height:80px;background:rgba(255,204,170,0.5);"></div>
+
+<!-- BACK BUTTON -->
+<a href="f10.html">
+<div style="position:absolute;left:40px;bottom:15px;width:220px;height:50px;background:#fff;border-radius:25px;display:flex;align-items:center;justify-content:center;">
+<p style="color:#D65A31;font-weight:600;">
+<i class="fa-solid fa-arrow-left"></i> Plagiarism
+</p>
+</div>
+</a>
+
+<!-- NEXT BUTTON -->
+<a href="f12.html">
+<div style="position:absolute;right:40px;bottom:15px;width:260px;height:50px;background:#fff;border-radius:25px;display:flex;align-items:center;justify-content:center;">
+<p style="color:#D65A31;font-weight:600;">
+Final Activity <i class="fa-solid fa-arrow-right"></i>
+</p>
+</div>
+</a>
+
+</div>
+<!-- KEYBOARD NAV -->
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f12 (next slide)
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f12.html';
+    }
+
+    // LEFT → f10 (previous slide)
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f10.html';
+    }
+
+});
+</script>
+
+</body>
+</html>

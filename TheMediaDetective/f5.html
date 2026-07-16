@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Media Detective - Slide 5</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Poppins:wght@600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #FFF8DC;
+            font-family: 'Open Sans', sans-serif;
+            overflow: hidden; /* No scrolling */
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .glass-nav {
+            background: rgba(255, 204, 170, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+        }
+        .nav-btn {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            opacity: 0.9;
+        }
+        .activity-card {
+            transition: all 0.3s ease;
+        }
+        .activity-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="relative">
+<!-- HEADER (MANDATORY) -->
+<header class="fixed top-0 left-0 w-full bg-white/80 backdrop-blur-sm shadow-sm z-50 py-3 px-8 flex items-center justify-between">
+<div class="text-gray-800 font-bold font-[Poppins] text-lg tracking-wide">
+            EduuAspire21.0 Skills <span class="text-gray-400 mx-2">|</span> 21st Century Skills <span class="text-gray-400 mx-2">|</span> Media Literacy
+        </div>
+</header>
+<!-- MAIN CONTENT -->
+<main class="flex-1 flex flex-col items-center justify-center w-full px-4 mt-8 pb-20">
+<div class="text-center mb-10">
+<h1 class="text-5xl font-extrabold text-gray-800 mb-4 tracking-tight">
+                Hidden Ads Activity
+            </h1>
+<div class="w-24 h-2 bg-yellow-400 rounded-full mx-auto mb-6"></div>
+<p class="text-2xl text-gray-600 font-light">
+                What is the goal? <span class="font-bold text-yellow-700">Entertain</span> or <span class="font-bold text-green-700">Sell</span>?
+            </p>
+</div>
+<!-- Activity Section -->
+<div class="grid grid-cols-2 gap-12 w-full max-w-4xl px-8">
+<!-- Option 1: Entertain -->
+<div class="activity-card bg-white/60 backdrop-blur-md rounded-2xl p-8 border-2 border-yellow-200 text-center cursor-pointer group hover:bg-yellow-50">
+<div class="w-20 h-20 bg-yellow-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-yellow-200 transition-colors">
+<i class="fa-solid fa-masks-theater text-4xl text-yellow-600"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 mb-3">To Entertain</h3>
+<p class="text-gray-600 text-sm">
+                    Is it telling a fun story, making you laugh, or showing something cool without asking for money?
+                </p>
+</div>
+<!-- Option 2: Sell -->
+<div class="activity-card bg-white/60 backdrop-blur-md rounded-2xl p-8 border-2 border-green-200 text-center cursor-pointer group hover:bg-green-50">
+<div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-green-200 transition-colors">
+<i class="fa-solid fa-tag text-4xl text-green-600"></i>
+</div>
+<h3 class="text-2xl font-bold text-gray-800 mb-3">To Sell</h3>
+<p class="text-gray-600 text-sm">
+                    Is there a product logo? Are they promising you'll be happier if you buy something?
+                </p>
+</div>
+</div>
+<div class="mt-8 text-gray-500 italic text-sm">
+<i class="fa-solid fa-circle-info mr-2"></i> Look closer! Sometimes ads pretend to be stories.
+        </div>
+</main>
+<!-- NAVIGATION SYSTEM (STRICT) -->
+<nav class="fixed bottom-12 left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl glass-nav py-4 px-8 flex justify-between items-center z-40 shadow-lg">
+<!-- Previous Topic -->
+<div class="w-1/3 text-left">
+<a class="nav-btn inline-flex items-center text-gray-800 hover:text-yellow-700 font-[Poppins] font-bold text-lg no-underline group" href="f4.html">
+<i class="fa-solid fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
+                Story vs Ad
+            </a>
+</div>
+<!-- Current Indicator -->
+<div class="w-1/3 text-center">
+<span class="text-gray-600 font-bold text-xs uppercase tracking-widest">Activity</span>
+</div>
+<!-- Next Topic -->
+<div class="w-1/3 text-right">
+<a class="nav-btn inline-flex items-center text-gray-800 hover:text-yellow-700 font-[Poppins] font-bold text-lg no-underline group" href="f6.html">
+                Who Said It Rule
+                <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+</nav>
+<!-- FOOTER (MANDATORY) -->
+<footer class="fixed bottom-0 left-0 w-full bg-gray-100/90 border-t border-gray-200 py-2 px-4 z-50 text-center">
+<p class="text-[10px] text-[#666] font-[Open Sans]">
+            Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+        </p>
+</footer>
+<!-- KEYBOARD NAVIGATION SCRIPT -->
+<script>
+    document.addEventListener('keydown', function(event) {
+        // Disable navigation when typing in inputs or textareas
+        const activeTag = document.activeElement.tagName.toLowerCase();
+        if (activeTag === 'input' || activeTag === 'textarea') {
+            return;
+        }
+
+        if (event.key === 'ArrowRight') {
+            window.location.href = 'f6.html';
+        } else if (event.key === 'ArrowLeft') {
+            window.location.href = 'f4.html';
+        }
+    });
+</script>
+</body>
+</html>

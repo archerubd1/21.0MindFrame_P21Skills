@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1280, initial-scale=1.0"/>
+<title>The Question Lab - Build Inquiry Map</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Slide Container */
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Navigation */
+.glass-nav {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 204, 170, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.nav-item {
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s;
+}
+.nav-item:hover {
+    transform: translateY(-2px);
+    opacity: 0.7;
+}
+
+/* Cards */
+.grid-card-bg {
+    transition: 0.3s;
+}
+.grid-card-bg:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+</style>
+</head>
+
+<body>
+<div class="slide-container">
+
+<!-- Header -->
+<div style="position:absolute; top:0; width:100%; height:50px; background:rgba(255,255,255,0.6);"></div>
+<p style="position:absolute; top:12px; width:100%; text-align:center; font-size:16px; color:#555;">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</p>
+
+<!-- Title -->
+<h1 style="position:absolute; top:80px; width:100%; text-align:center; font-size:48px; color:#333;">
+Build an <span style="color:#E87A5D;">Inquiry Map</span>
+</h1>
+
+<p style="position:absolute; top:140px; width:100%; text-align:center; color:#666;">
+Include these four essential parts in your roadmap
+</p>
+
+<!-- CARD 1 -->
+<div class="grid-card-bg" style="position:absolute; left:220px; top:190px; width:400px; height:170px; background:#fff; border-radius:16px; border-left:6px solid #E87A5D;">
+<i class="fa-solid fa-bullseye" style="position:absolute; left:20px; top:20px; font-size:40px; color:#E87A5D;"></i>
+<div style="margin-left:90px; padding-top:20px;">
+<h3>1. The Topic</h3>
+<p>Choose a broad subject.<br><small>(e.g., "Volcanoes")</small></p>
+</div>
+</div>
+
+<!-- CARD 2 -->
+<div class="grid-card-bg" style="position:absolute; left:660px; top:190px; width:400px; height:170px; background:#fff; border-radius:16px; border-left:6px solid #4A90E2;">
+<i class="fa-solid fa-circle-question" style="position:absolute; left:20px; top:20px; font-size:40px; color:#4A90E2;"></i>
+<div style="margin-left:90px; padding-top:20px;">
+<h3>2. Questions</h3>
+<p>Ask Why/How questions.<br><small>(e.g., "Why do they erupt?")</small></p>
+</div>
+</div>
+
+<!-- CARD 3 -->
+<div class="grid-card-bg" style="position:absolute; left:220px; top:390px; width:400px; height:170px; background:#fff; border-radius:16px; border-left:6px solid #F4B400;">
+<i class="fa-solid fa-key" style="position:absolute; left:20px; top:20px; font-size:40px; color:#F4B400;"></i>
+<div style="margin-left:90px; padding-top:20px;">
+<h3>3. Keywords</h3>
+<p>List key search terms.<br><small>(e.g., magma, lava)</small></p>
+</div>
+</div>
+
+<!-- CARD 4 -->
+<div class="grid-card-bg" style="position:absolute; left:660px; top:390px; width:400px; height:170px; background:#fff; border-radius:16px; border-left:6px solid #2ECC71;">
+<i class="fa-solid fa-book-open" style="position:absolute; left:20px; top:20px; font-size:40px; color:#2ECC71;"></i>
+<div style="margin-left:90px; padding-top:20px;">
+<h3>4. Sources</h3>
+<p>Choose trusted sources.<br><small>(e.g., World Book)</small></p>
+</div>
+</div>
+
+<!-- Navigation -->
+<div style="position:absolute; bottom:50px; left:190px; width:900px; height:60px;">
+<div class="glass-nav">
+<div class="nav-item"><i class="fa fa-arrow-left"></i> Inquiry Map</div>
+<div class="nav-item">Final Activity <i class="fa fa-arrow-right"></i></div>
+</div>
+</div>
+
+<!-- Footer -->
+<div style="position:absolute; bottom:0; width:100%; height:30px; background:#f0f0f0;"></div>
+<p style="position:absolute; bottom:5px; width:100%; text-align:center; font-size:12px; color:#888;">
+Licensed & Powered By Astrl Mind Technologies © 2026–2033
+</p>
+
+</div>
+<script>
+document.addEventListener("keydown", function (e) {
+    const active = document.activeElement;
+
+    // Disable when typing
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") {
+        window.location.href = "f14.html";
+    }
+
+    if (e.key === "ArrowLeft") {
+        window.location.href = "f12.html";
+    }
+});
+</script>
+
+</body>
+</html>

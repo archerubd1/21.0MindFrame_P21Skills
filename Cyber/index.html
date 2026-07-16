@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cyber Shield Kids - Title Slide</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;600;700&amp;family=Nunito:wght@400;600;700;800&amp;family=Press+Start+2P&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="style.css" rel="stylesheet"/>
+<script src="script.js"></script>
+<style>
+        body {
+        margin: 0;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .slide-container {
+        position: relative;
+        width: 1280px;
+        height: 720px;
+        background-color: #0B1F3A;
+        font-family: 'Inter', sans-serif;
+
+        transform: scale(calc(100vw / 1280));
+        transform-origin: top left;
+    }        
+        /* Cyber Grid Background Pattern */
+        .cyber-grid {
+            background-image: 
+                linear-gradient(rgba(59, 130, 246, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(59, 130, 246, 0.15) 1px, transparent 1px);
+            background-size: 40px 40px;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+
+        /* Glowing effects */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(139, 92, 246, 0.6), 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+        
+        .shield-container {
+            position: relative;
+        }
+        
+        .shield-glow {
+            filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.5));
+        }
+
+        /* Custom Fonts */
+        .font-pixel {
+            font-family: 'Press Start 2P', cursive;
+        }
+        
+        .font-friendly {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+        /* Layout utilities */
+        .slide-container {
+            display: flex;
+            flex-direction: column;
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            padding: 0 60px;
+            position: relative;
+        }
+
+        .header-bar {
+            height: 40px;
+            background-color: rgba(30, 41, 59, 0.9);
+            border-bottom: 2px solid #3b82f6;
+            display: flex;
+            align-items: center;
+            padding: 0 30px;
+            color: #93c5fd;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-bar {
+            height: 30px;
+            background-color: rgba(15, 23, 42, 0.9);
+            border-top: 1px solid #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 12px;
+            margin-bottom: 60px;
+        }
+
+        /* Decorative Elements */
+        .cyber-circle {
+            position: absolute;
+            border-radius: 50%;
+            border: 2px dashed rgba(139, 92, 246, 0.3);
+        }
+        
+        .chip-decoration {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 2px solid #3b82f6;
+            opacity: 0.2;
+        }
+
+        /* Navigation Bar Styles */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: rgba(245, 183, 161, 0.08);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 1000;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #93c5fd;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #93c5fd;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .nav-right:hover {
+            opacity: 0.8;
+            transform: translateY(-2px);
+        }
+
+        .nav-arrow {
+            color: #3b82f6;
+            font-size: 16px;
+        }
+
+        .nav-text {
+            color: #e2e8f0;
+        }
+
+        .nav-topic {
+            color: #60a5fa;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+<!-- Background Pattern -->
+<div class="cyber-grid"></div>
+<!-- Decorative Circles/Shapes -->
+<div class="cyber-circle" style="width: 500px; height: 500px; top: -100px; right: -100px;"></div>
+<div class="cyber-circle" style="width: 300px; height: 300px; bottom: 50px; left: 50px; border-color: rgba(59, 130, 246, 0.3);"></div>
+<!-- Main Slide Container -->
+<div class="slide-container">
+<!-- Header -->
+<div class="header-bar">
+<i class="fas fa-shield-alt mr-2"></i>
+<p>EduuAspire 21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left Side: Text -->
+<div class="flex-1 pr-10 z-10">
+<div class="inline-block bg-blue-900 bg-opacity-50 px-4 py-2 rounded-full border border-blue-400 mb-6">
+<p class="text-cyan-300 font-bold tracking-wider text-sm uppercase"><i class="fas fa-rocket mr-2"></i>Start Your Adventure</p>
+</div>
+<h1 class="text-6xl font-extrabold text-white mb-4 font-friendly leading-tight glow-text">
+                    Cyber Shield <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-400">Kids</span>
+</h1>
+<h2 class="text-3xl text-blue-200 mb-8 font-friendly font-semibold">
+                    Stay Safe, Smart &amp; Strong Online
+                </h2>
+<div class="bg-slate-800 bg-opacity-60 p-6 rounded-xl border-l-4 border-purple-500 backdrop-blur-sm shadow-lg mb-8">
+<p class="text-xl text-white italic font-medium mb-2">"Become a Guardian of the Grid"</p>
+<p class="text-slate-300 text-lg">Welcome to your cyber adventure! Today we learn how to protect ourselves, our friends, and our devices.</p>
+</div>
+<div class="flex space-x-4">
+<div class="flex items-center text-cyan-400 bg-slate-900 px-4 py-2 rounded-lg border border-slate-700">
+<i class="fas fa-lock text-xl mr-3"></i>
+<p class="font-bold">Privacy</p>
+</div>
+<div class="flex items-center text-purple-400 bg-slate-900 px-4 py-2 rounded-lg border border-slate-700">
+<i class="fas fa-brain text-xl mr-3"></i>
+<p class="font-bold">Smart Choices</p>
+</div>
+<div class="flex items-center text-green-400 bg-slate-900 px-4 py-2 rounded-lg border border-slate-700">
+<i class="fas fa-heart text-xl mr-3"></i>
+<p class="font-bold">Kindness</p>
+</div>
+</div>
+</div>
+<!-- Right Side: Visuals -->
+<div class="flex-1 flex justify-center items-center relative z-10 pl-8">
+<!-- Central Image Composition -->
+<div class="relative w-full max-w-lg aspect-square">
+<!-- Background Glow -->
+<div class="absolute inset-0 bg-blue-600 rounded-full blur-[80px] opacity-20 animate-pulse"></div>
+<!-- Main Hero Image -->
+<div class="relative z-10 w-full h-full rounded-2xl overflow-hidden border-4 border-cyan-500 shadow-2xl shield-glow bg-slate-800">
+<img alt="Diverse group of happy kids using tablets and laptops safely" class="w-full h-full object-cover" src="image1.webp"/>
+<!-- Overlay Badge -->
+<div class="absolute bottom-0 left-0 w-full bg-gradient-to-t from-slate-900 to-transparent p-6 pt-20">
+<div class="flex items-center justify-between">
+<div>
+<p class="text-white font-bold text-lg font-friendly">Team Cyber Safe</p>
+<p class="text-cyan-300 text-sm">Ready to learn!</p>
+</div>
+<div class="bg-purple-600 rounded-full p-3 shadow-lg border-2 border-white">
+<i class="fas fa-shield-virus text-white text-2xl"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Floating Icons -->
+<div class="absolute -top-6 -right-6 bg-yellow-400 text-yellow-900 p-4 rounded-xl shadow-lg border-2 border-white transform rotate-6 z-20">
+<i class="fas fa-key text-2xl"></i>
+</div>
+<div class="absolute -bottom-4 -left-6 bg-green-500 text-white p-3 rounded-xl shadow-lg border-2 border-white transform -rotate-6 z-20">
+<i class="fas fa-check-circle text-2xl"></i>
+</div>
+<!-- Tech decorations -->
+<div class="absolute top-1/2 -right-12 text-cyan-600 text-4xl opacity-50">
+<i class="fas fa-wifi"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<!-- Bottom Navigation Bar -->
+<div class="bottom-nav">
+<div class="nav-left">
+<span class="nav-arrow"><i class="fas fa-chevron-left"></i></span>
+<span class="nav-text">← </span>
+<span class="nav-topic">Welcome</span>
+</div>
+<div class="nav-right" onclick="window.location.href='f2.html'">
+<span class="nav-topic">Online Safety</span>
+<span class="nav-text"> →</span>
+<span class="nav-arrow"><i class="fas fa-chevron-right"></i></span>
+</div>
+</div>
+<script>
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        // Check if user is typing in an input field
+        if (document.activeElement.tagName === 'INPUT' || 
+            document.activeElement.tagName === 'TEXTAREA' || 
+            document.activeElement.isContentEditable) {
+            return;
+        }
+        
+        if (e.key === 'ArrowRight') {
+            window.location.href = 'f2.html';
+        } else if (e.key === 'ArrowLeft') {
+            // No previous slide for slide 1
+        }
+    });
+</script>
+</body>
+</html>

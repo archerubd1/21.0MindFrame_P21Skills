@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport">
+<title>Synthesis Matrix - Synthesis &amp; Insight Lab</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F0F9FF;
+    display: flex;
+    justify-content: center;   /* CENTER horizontally */
+    align-items: center;       /* CENTER vertically */
+}
+ .slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+        /* Decorative background elements */
+        .bg-circle-1 {
+            position: absolute;
+            top: -150px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            background-color: #E0F2FE;
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        .bg-circle-2 {
+            position: absolute;
+            bottom: -50px;
+            left: -100px;
+            width: 400px;
+            height: 400px;
+            background-color: #E0F2FE;
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* Header */
+        .header {
+            height: 40px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.95);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 20;
+            position: absolute;
+            top: 0;
+        }
+        .header-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #546E7A;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            height: 30px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            z-index: 20;
+            position: absolute;
+            bottom: 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .footer-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 11px;
+            color: #90A4AE;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+            background-color: rgba(255, 218, 185, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
+            z-index: 10;
+        }
+        
+        .nav-link {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #455A64;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease-in-out;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link:hover {
+            color: #0288D1;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-top: 70px; /* Header offset + spacing */
+            padding-bottom: 100px; /* Nav offset */
+            z-index: 5;
+            position: relative;
+            width: 100%;
+        }
+
+        .title-block {
+            text-align: center;
+            margin-bottom: 30px;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #1E293B;
+            margin: 0 0 8px 0;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #64748B;
+            margin: 0;
+        }
+
+        /* Matrix Table Styles */
+        .matrix-container {
+            width: 1000px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+            overflow: hidden;
+            border: 1px solid #E2E8F0;
+        }
+
+        .matrix-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .matrix-table th {
+            background-color: #334155;
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            padding: 15px 20px;
+            text-align: left;
+            letter-spacing: 0.5px;
+        }
+
+        .matrix-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #F1F5F9;
+            font-size: 14px;
+            color: #475569;
+            vertical-align: middle;
+            line-height: 1.4;
+        }
+
+        .matrix-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .source-col {
+            font-weight: 600;
+            color: #1E293B;
+            width: 15%;
+            background-color: #F8FAFC;
+        }
+
+        /* Status Tags */
+        .status-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .status-converge {
+            background-color: #DCFCE7;
+            color: #166534;
+            border: 1px solid #BBF7D0;
+        }
+
+        .status-diverge {
+            background-color: #FFEDD5;
+            color: #9A3412;
+            border: 1px solid #FED7AA;
+        }
+
+        .status-uncertain {
+            background-color: #F3F4F6;
+            color: #4B5563;
+            border: 1px solid #E5E7EB;
+        }
+
+        /* Legend */
+        .legend-bar {
+            display: flex;
+            gap: 24px;
+            margin-top: 20px;
+            justify-content: center;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #64748B;
+            font-weight: 500;
+        }
+        
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Background Decor -->
+<div class="bg-circle-1"></div>
+<div class="bg-circle-2"></div>
+<!-- Header -->
+<header class="header">
+<p class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Information Literacy</p>
+</header>
+<!-- Main Content -->
+<main class="content">
+<div class="title-block">
+<h1>Synthesis Matrix</h1>
+<h2>Organizing evidence to visualize patterns, conflicts, and gaps.</h2>
+</div>
+<div class="matrix-container">
+<table class="matrix-table">
+<thead>
+<tr>
+<th>Source</th>
+<th>Constructs</th>
+<th>Methods</th>
+<th>Findings</th>
+<th>Context</th>
+<th>Quality</th>
+</tr>
+</thead>
+<tbody>
+<!-- Source A -->
+<tr>
+<td class="source-col">
+<p>Smith (2024)</p>
+</td>
+<td>
+<p>Screen Time, Sleep</p>
+</td>
+<td>
+<p>Longitudinal Survey (n=450)</p>
+</td>
+<td>
+<span class="status-tag status-converge">
+<i class="fa-solid fa-check"></i> Negative Impact
+                                </span>
+</td>
+<td>
+<p>Undergrads (US)</p>
+</td>
+<td>
+<div class="flex text-yellow-400 text-xs">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-regular fa-star"></i>
+</div>
+</td>
+</tr>
+<!-- Source B -->
+<tr>
+<td class="source-col">
+<p>Chen (2023)</p>
+</td>
+<td>
+<p>Digital Detox, GPA</p>
+</td>
+<td>
+<p>RCT Experiment (n=60)</p>
+</td>
+<td>
+<span class="status-tag status-converge">
+<i class="fa-solid fa-check"></i> Improved GPA
+                                </span>
+</td>
+<td>
+<p>High School (CN)</p>
+</td>
+<td>
+<div class="flex text-yellow-400 text-xs">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+</div>
+</td>
+</tr>
+<!-- Source C -->
+<tr>
+<td class="source-col">
+<p>Lopez (2022)</p>
+</td>
+<td>
+<p>Social Media Use</p>
+</td>
+<td>
+<p>Qualitative Interview (n=15)</p>
+</td>
+<td>
+<span class="status-tag status-diverge">
+<i class="fa-solid fa-xmark"></i> No Correlation
+                                </span>
+</td>
+<td>
+<p>Adult Learners</p>
+</td>
+<td>
+<div class="flex text-yellow-400 text-xs">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half-stroke"></i>
+<i class="fa-regular fa-star"></i>
+<i class="fa-regular fa-star"></i>
+</div>
+</td>
+</tr>
+<!-- Source D -->
+<tr>
+<td class="source-col">
+<p>Patel (2025)</p>
+</td>
+<td>
+<p>Tech Fatigue</p>
+</td>
+<td>
+<p>Meta-Analysis (k=30)</p>
+</td>
+<td>
+<span class="status-tag status-uncertain">
+<i class="fa-solid fa-question"></i> Mixed Effects
+                                </span>
+</td>
+<td>
+<p>Global / Remote</p>
+</td>
+<td>
+<div class="flex text-yellow-400 text-xs">
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star-half-stroke"></i>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Legend -->
+<div class="legend-bar">
+<div class="legend-item">
+<div class="legend-dot bg-green-500"></div>
+<p>Convergence (Agreement)</p>
+</div>
+<div class="legend-item">
+<div class="legend-dot bg-orange-500"></div>
+<p>Divergence (Conflict)</p>
+</div>
+<div class="legend-item">
+<div class="legend-dot bg-gray-500"></div>
+<p>Uncertainty (Gaps)</p>
+</div>
+</div>
+</main>
+<!-- Navigation -->
+<nav class="nav-bar">
+<a class="nav-link" href="f12.html">
+<i class="fa-solid fa-arrow-left"></i>
+            Report Structure
+        </a>
+<a class="nav-link" href="f14.html">
+            Open Source Tools
+            <i class="fa-solid fa-arrow-right"></i>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="footer">
+<p class="footer-text">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f14.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f12.html';
+    }
+
+});
+</script>
+</body></html>

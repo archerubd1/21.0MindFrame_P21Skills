@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Practical Application - The Integrity Protocol</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        /* Main container layout */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FAFAFA;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Pseudo-gradient background */
+        .bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: #FDF4FF;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.45;
+        }
+        
+        .blob-1 {
+            top: -100px;
+            left: -100px;
+            width: 600px;
+            height: 600px;
+            background-color: #FBCFE8; /* Light Pink */
+        }
+        
+        .blob-2 {
+            bottom: -150px;
+            right: -100px;
+            width: 700px;
+            height: 700px;
+            background-color: #E9D5FF; /* Light Purple */
+        }
+
+        /* Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Glassmorphism Elements */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* Steps Container */
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 24px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .step-card {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 24px;
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 8px 32px rgba(167, 139, 250, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(167, 139, 250, 0.12);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .step-number {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 4rem;
+            font-weight: 800;
+            color: rgba(167, 139, 250, 0.1);
+            line-height: 1;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .icon-circle {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 1.25rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Distinct color themes for steps */
+        .theme-1 .icon-circle { background: #FCE7F3; color: #DB2777; }
+        .theme-2 .icon-circle { background: #EDE9FE; color: #7C3AED; }
+        .theme-3 .icon-circle { background: #DBEAFE; color: #2563EB; }
+        .theme-4 .icon-circle { background: #F3E8FF; color: #9333EA; }
+
+        .tool-pill {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 6px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: #6B7280;
+            margin: 2px;
+            border: 1px solid rgba(0,0,0,0.05);
+        }
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FDF4FF;
+    border-radius: 10px;
+    z-index: 99999;
+}
+
+
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+<div class="slide-container" id="slide-11">
+<!-- Background Elements -->
+<div class="bg-layer">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+</div>
+<!-- Main Content Wrapper -->
+<div class="content-layer">
+<!-- Header -->
+<header class="px-12 py-6 w-full flex justify-between items-center opacity-80 border-b border-purple-100 border-opacity-30">
+<p class="text-[11px] font-bold tracking-widest text-gray-500 uppercase font-sans">
+                EduuAspire21.0 Skills <span class="mx-2 text-purple-300">|</span> 21st Century Skills <span class="mx-2 text-purple-300">|</span> Information Literacy
+            </p>
+<div class="h-1 w-16 bg-purple-200 rounded-full"></div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col px-16 py-6 justify-center">
+<!-- Section Header -->
+<div class="mb-10 text-center">
+<h1 class="text-4xl font-bold text-gray-800 mb-2">
+                Practical Application
+            </h1>
+<p class="text-xl text-gray-500 font-light">
+                Applying the Protocol: Tools &amp; Workflow
+            </p>
+</div>
+<!-- Steps Workflow -->
+<div class="steps-container">
+<!-- Step 1: Writing -->
+<div class="step-card theme-1">
+<div class="step-number">1</div>
+<div class="icon-circle">
+<i class="fas fa-pen-nib"></i>
+</div>
+<h3 class="text-lg font-bold text-gray-800 mb-2">Write &amp; Cite</h3>
+<p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Integrate citations during the drafting phase, not after. Create an outline with sources attached.
+                    </p>
+<div class="mt-auto flex flex-wrap justify-center gap-1">
+<span class="tool-pill">Drafting</span>
+<span class="tool-pill">In-text</span>
+</div>
+</div>
+<!-- Step 2: Tools -->
+<div class="step-card theme-2">
+<div class="step-number">2</div>
+<div class="icon-circle">
+<i class="fas fa-book"></i>
+</div>
+<h3 class="text-lg font-bold text-gray-800 mb-2">Manage Sources</h3>
+<p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Use reference management software to organize research and generate bibliographies automatically.
+                    </p>
+<div class="mt-auto flex flex-wrap justify-center gap-1">
+<span class="tool-pill">Zotero</span>
+<span class="tool-pill">Mendeley</span>
+<span class="tool-pill">EndNote</span>
+</div>
+</div>
+<!-- Step 3: Check -->
+<div class="step-card theme-3">
+<div class="step-number">3</div>
+<div class="icon-circle">
+<i class="fas fa-search-plus"></i>
+</div>
+<h3 class="text-lg font-bold text-gray-800 mb-2">Verify Originality</h3>
+<p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Run similarity reports to catch unintentional plagiarism and ensure proper paraphrasing.
+                    </p>
+<div class="mt-auto flex flex-wrap justify-center gap-1">
+<span class="tool-pill">Turnitin</span>
+<span class="tool-pill">Grammarly</span>
+<span class="tool-pill">Unicheck</span>
+</div>
+</div>
+<!-- Step 4: Fair Use -->
+<div class="step-card theme-4">
+<div class="step-number">4</div>
+<div class="icon-circle">
+<i class="fas fa-balance-scale"></i>
+</div>
+<h3 class="text-lg font-bold text-gray-800 mb-2">Apply Fair Use</h3>
+<p class="text-sm text-gray-600 mb-4 leading-relaxed">
+                        Analyze the 4 factors before reusing media. Seek explicit permission when in doubt.
+                    </p>
+<div class="mt-auto flex flex-wrap justify-center gap-1">
+<span class="tool-pill">Analysis</span>
+<span class="tool-pill">Permissions</span>
+<span class="tool-pill">CC Licenses</span>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="px-12 py-15 w-full text-center relative z-20 mb-12">
+<p class="text-[10px] text-gray-400 font-medium tracking-wide">
+                Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033
+            </p>
+</footer>
+<!-- 🔥 NAVIGATION -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Outcomes</div>
+    <div class="nav-link" onclick="next()">Excellence →</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+
+// Navigation
+function next() {
+    window.location.href = "a12.html";   // ✅ FIXED
+}
+
+function prev() {
+    window.location.href = "a10.html";   // first slide fallback
+}
+
+// Keyboard
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+</script></body>
+</html>

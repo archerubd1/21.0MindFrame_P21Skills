@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pixel Storytellers - Slide 2</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            overflow: hidden;
+display: flex;              /* IMPORTANT */
+    justify-content: center;    /* horizontal center */
+    align-items: center;        /* vertical center */
+    height: 100vh;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FFF2E6; /* Light pastel orange base */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Shapes to simulate gradient/depth */
+        .shape-blob-1 {
+            position: absolute;
+            top: -150px;
+            right: -100px;
+            width: 600px;
+            height: 600px;
+            background-color: #FFE4E6; /* Soft Rose */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .shape-blob-2 {
+            position: absolute;
+            bottom: -100px;
+            left: -150px;
+            width: 700px;
+            height: 700px;
+            background-color: #FFEDD5; /* Soft Orange */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        .shape-blob-3 {
+            position: absolute;
+            top: 40%;
+            left: 40%;
+            width: 300px;
+            height: 300px;
+            background-color: #FECACA; /* Very light red */
+            border-radius: 50%;
+            opacity: 0.4;
+            filter: blur(40px);
+            z-index: 0;
+        }
+
+        /* Header Styles */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            color: #7c2d12; /* Darker orange/brown */
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Footer Styles */
+        .footer {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 10px;
+            color: #9ca3af;
+            z-index: 10;
+            padding-bottom: 5px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            background: #f1f5f9;
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-radius: 10px;
+            z-index: 20;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .nav-link {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: #ea580c;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content Layout */
+        .main-content {
+            display: flex;
+            flex: 1;
+            padding: 80px 80px 100px 80px; /* Top, Right, Bottom (for nav), Left */
+            align-items: center;
+            justify-content: center;
+            gap: 60px;
+            z-index: 5;
+        }
+
+        .left-visual {
+            flex: 0 0 40%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .visual-circle {
+            width: 350px;
+            height: 350px;
+            background-color: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(234, 88, 12, 0.1);
+            border: 4px solid #fff;
+        }
+
+        .main-icon {
+            font-size: 120px;
+            color: #F87171;
+            z-index: 2;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
+        }
+
+        .floating-icon {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            font-size: 30px;
+            color: #FB923C;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .icon-1 { top: 20px; right: 20px; animation-delay: 0s; }
+        .icon-2 { bottom: 30px; left: 10px; animation-delay: 1.5s; font-size: 28px; color: #EF4444; }
+        .icon-3 { top: 40px; left: -20px; animation-delay: 0.8s; font-size: 24px; color: #FCA5A5; }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .right-content {
+            flex: 1;
+        }
+
+        h1 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 56px;
+            color: #ea580c; /* Orange-600 */
+            margin: 0 0 30px 0;
+            line-height: 1.1;
+        }
+
+        .content-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            padding: 30px 40px;
+            border-radius: 20px;
+            border: 2px solid #fff;
+            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.05);
+        }
+
+        .bullet-point {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+            font-size: 24px;
+            color: #4b5563;
+            line-height: 1.4;
+        }
+
+        .bullet-point:last-child {
+            margin-bottom: 0;
+        }
+
+        .bullet-icon {
+            min-width: 40px;
+            height: 40px;
+            background-color: #FED7AA;
+            color: #C2410C;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            margin-right: 20px;
+            margin-top: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        strong {
+            color: #C2410C;
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Shapes -->
+<div class="shape-blob-1"></div>
+<div class="shape-blob-2"></div>
+<div class="shape-blob-3"></div>
+<!-- Header -->
+<div class="header">
+<p>EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<!-- Left Column: Visual -->
+<div class="left-visual">
+<div class="visual-circle">
+<i class="fa-solid fa-photo-film main-icon"></i>
+<!-- Floating elements for visual interest -->
+<div class="floating-icon icon-1"><i class="fa-solid fa-music"></i></div>
+<div class="floating-icon icon-2"><i class="fa-brands fa-youtube"></i></div>
+<div class="floating-icon icon-3"><i class="fa-solid fa-newspaper"></i></div>
+</div>
+</div>
+<!-- Right Column: Text Content -->
+<div class="right-content">
+<h1>What is Media?</h1>
+<div class="content-card">
+<div class="bullet-point">
+<div class="bullet-icon"><i class="fa-solid fa-comment-dots"></i></div>
+<p><strong>Media</strong> means messages we see or hear every day.</p>
+</div>
+<div class="bullet-point">
+<div class="bullet-icon"><i class="fa-solid fa-icons"></i></div>
+<p>Examples include <strong>videos</strong>, <strong>images</strong>, games, and <strong>stories</strong>.</p>
+</div>
+<div class="bullet-point">
+<div class="bullet-icon"><i class="fa-solid fa-earth-americas"></i></div>
+<p>Media is <strong>everywhere</strong> around us!</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navbar">
+<div class="nav-link" onclick="prev()"><i class="fa-solid fa-arrow-left"></i> Pixel storytellers</div>
+<div class="nav-link" onclick="next()">Why media matters <i class="fa-solid fa-arrow-right"></i></div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<script>
+    function next() {
+        window.location.href = "c3.html";
+    }
+
+    function prev() {
+        window.location.href = "c1.html";
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+    });
+</script>
+</body>
+</html>

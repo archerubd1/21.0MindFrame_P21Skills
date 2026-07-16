@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, height=720">
+
+<title>Reliability Rangers - Slide 3</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide {
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(135deg, #0B132B, #071029);
+    overflow: hidden;
+}
+
+/* HEADER */
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #1C2541;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    color: #E2E8F0;
+    font-size: 15px;
+    border-bottom: 2px solid #3A86FF;
+}
+
+/* TITLE */
+.title {
+    position: absolute;
+    top: 80px;
+    width: 100%;
+    text-align: center;
+    font-size: 42px;
+    font-weight: 700;
+    color: #F1F5F9;
+}
+
+/* DEFINITION BOX */
+.definition {
+    position: absolute;
+    top: 140px;
+    width: 100%;
+    text-align: center;
+}
+
+.definition span {
+    background: rgba(58,134,255,0.1);
+    padding: 15px 30px;
+    border-radius: 50px;
+    border: 1px solid #3A86FF;
+    color: #E2E8F0;
+    font-size: 20px;
+}
+
+/* GRID SECTION */
+.grid-section {
+    position: absolute;
+    top: 240px;
+    width: 100%;
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 1000px;
+    margin: auto;
+}
+
+/* CARDS */
+.action-card {
+    height: 120px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.action-card:hover {
+    transform: translateY(-4px);
+    background: rgba(255,255,255,0.1);
+}
+
+.action-icon {
+    font-size: 30px;
+    color: #FFD166;
+}
+
+.action-title {
+    color: #F1F5F9;
+    font-weight: 600;
+}
+
+.action-content {
+    display: none;
+    font-size: 13px;
+    color: #E2E8F0;
+    padding: 8px;
+}
+
+.action-card.revealed .action-icon { display: none; }
+.action-card.revealed .action-content { display: block; }
+
+/* NAV BAR */
+.nav-bar {
+    position: absolute;
+    bottom: 90px;
+    left: 140px;
+    width: 1000px;
+    height: 70px;
+    background: rgba(255,204,170,0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+/* BUTTON */
+.nav-btn {
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #1C2541;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0B132B;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</div>
+
+<div class="title">What is Information Literacy?</div>
+
+<div class="definition">
+<span>“The ability to find, evaluate, and use information wisely.”</span>
+</div>
+
+<div class="grid-section">
+<p style="color:#94A3B8;">👉 Click cards to reveal details</p>
+
+<div class="grid">
+
+<div class="action-card" onclick="this.classList.toggle('revealed')">
+<i class="fas fa-bullseye action-icon"></i>
+<div class="action-title">Define Need</div>
+<div class="action-content">Know what you're looking for.</div>
+</div>
+
+<div class="action-card" onclick="this.classList.toggle('revealed')">
+<i class="fas fa-search action-icon"></i>
+<div class="action-title">Search Smart</div>
+<div class="action-content">Use good keywords & sources.</div>
+</div>
+
+<div class="action-card" onclick="this.classList.toggle('revealed')">
+<i class="fas fa-balance-scale action-icon"></i>
+<div class="action-title">Evaluate</div>
+<div class="action-content">Check accuracy & bias.</div>
+</div>
+
+<div class="action-card" onclick="this.classList.toggle('revealed')">
+<i class="fas fa-clock action-icon"></i>
+<div class="action-title">Check Context</div>
+<div class="action-content">Ensure info is current.</div>
+</div>
+
+<div class="action-card" onclick="this.classList.toggle('revealed')">
+<i class="fas fa-check-double action-icon"></i>
+<div class="action-title">Cross-Check</div>
+<div class="action-content">Verify with other sources.</div>
+</div>
+
+<div class="action-card" onclick="this.classList.toggle('revealed')">
+<i class="fas fa-pen-nib action-icon"></i>
+<div class="action-title">Use Ethically</div>
+<div class="action-content">Give proper credit.</div>
+</div>
+
+</div>
+</div>
+
+<div class="nav-bar">
+<button class="nav-btn" onclick="goToSlide('f2.html')">
+<i class="fas fa-arrow-left"></i> Why It Matters
+</button>
+
+<div style="font-weight:700;">CORE CONCEPTS</div>
+
+<button class="nav-btn" onclick="goToSlide('f4.html')">
+Meet Rangers <i class="fas fa-arrow-right"></i>
+</button>
+</div>
+
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+</div>
+
+<script>
+function goToSlide(page){
+    window.location.href = page;
+}
+
+document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowRight") goToSlide("f4.html");
+    if(e.key === "ArrowLeft") goToSlide("f2.html");
+});
+</script>
+
+</body>
+</html>

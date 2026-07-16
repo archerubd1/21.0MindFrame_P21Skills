@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Golden Rule 2.0</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&amp;family=Inter:wght@300;400;600&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #0f1020;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Ambient Glows */
+        .glow-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.25;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .glow-1 {
+            width: 600px;
+            height: 600px;
+            background-color: #facc15; /* Yellow Accent */
+            top: -250px;
+            left: 20%;
+        }
+
+        .glow-2 {
+            width: 500px;
+            height: 500px;
+            background-color: #4c1d95; /* Deep Purple */
+            bottom: -150px;
+            right: 5%;
+        }
+
+        /* Header & Footer */
+        .header {
+            position: absolute;
+            top: 40px;
+            left: 50px;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #a5b4fc;
+            font-size: 18px;
+            letter-spacing: 1px;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 30px;
+            width: 100%;
+            text-align: center;
+            font-family: 'Inter', sans-serif;
+            color: #64748b;
+            font-size: 14px;
+            z-index: 20;
+        }
+
+        /* Content Wrapper */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 90px 60px 80px 60px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .main-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 56px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .highlight-yellow {
+            color: #facc15;
+            text-shadow: 0 0 25px rgba(250, 204, 21, 0.4);
+        }
+
+        /* Hero Rule Card */
+        .rule-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 2px solid #facc15;
+            border-radius: 24px;
+            padding: 30px 50px;
+            text-align: center;
+            margin-bottom: 40px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 0 40px rgba(250, 204, 21, 0.1);
+            width: 100%;
+            max-width: 900px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 10px;
+            height: 100%;
+            background-color: #facc15;
+        }
+
+        .rule-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 32px;
+            color: #ffffff;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .rule-icon {
+            color: #facc15;
+            margin-right: 15px;
+            font-size: 32px;
+            vertical-align: middle;
+        }
+
+        /* Do / Don't Columns */
+        .lists-container {
+            display: flex;
+            gap: 40px;
+            width: 100%;
+            max-width: 1000px;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .list-col {
+            flex: 1;
+            background-color: rgba(30, 41, 59, 0.5);
+            border-radius: 20px;
+            padding: 25px 30px;
+            border-top: 5px solid;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .list-col:hover {
+            transform: translateY(-5px);
+        }
+
+        .col-do {
+            border-top-color: #34d399; /* Green */
+        }
+
+        .col-dont {
+            border-top-color: #f87171; /* Red */
+        }
+        
+        .col-header {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .do-header { color: #34d399; }
+        .dont-header { color: #f87171; }
+
+        .list-items {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+            color: #e2e8f0;
+            font-size: 18px;
+            line-height: 1.5;
+        }
+
+        .item-icon {
+            margin-right: 15px;
+            margin-top: 5px;
+            font-size: 16px;
+        }
+
+        /* Quick Swap Bar */
+        .swap-card {
+            background-color: #1e293b;
+            padding: 15px 40px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            border: 1px solid #475569;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .swap-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            color: #cbd5e1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 16px;
+            margin-right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .bad-phrase {
+            color: #f87171;
+            text-decoration: line-through;
+            opacity: 0.8;
+            font-size: 18px;
+        }
+
+        .good-phrase {
+            color: #34d399;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .arrow-icon {
+            color: #facc15;
+            font-size: 20px;
+        }
+
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="glow-blob glow-1"></div>
+<div class="glow-blob glow-2"></div>
+<!-- Header -->
+<header class="header">
+<i class="fa-solid fa-graduation-cap"></i>
+<p>EduuAspire 21.0 Skills | 21st Century Skills Digital Literacy</p>
+</header>
+<!-- Main Content -->
+<div class="content-wrapper">
+<h1 class="main-title">Golden Rule <span class="highlight-yellow">2.0</span></h1>
+<!-- Hero Rule -->
+<div class="rule-card">
+<p class="rule-text">
+<i class="fa-solid fa-crown rule-icon"></i>
+                    "Treat others online the way you want to be treated."
+                </p>
+</div>
+<!-- Do / Don't Grid -->
+<div class="lists-container">
+<!-- DO Column -->
+<div class="list-col col-do">
+<div class="col-header do-header">
+<i class="fa-solid fa-circle-check mr-3"></i> DO THIS
+                    </div>
+<ul class="list-items">
+<li class="list-item">
+<i class="fa-solid fa-check item-icon text-green-400"></i>
+<p class="m-0">Be clear, patient, and polite.</p>
+</li>
+<li class="list-item">
+<i class="fa-solid fa-check item-icon text-green-400"></i>
+<p class="m-0">Ask questions before assuming.</p>
+</li>
+<li class="list-item">
+<i class="fa-solid fa-check item-icon text-green-400"></i>
+<p class="m-0">Use emojis to show kindness. 😊</p>
+</li>
+</ul>
+</div>
+<!-- DON'T Column -->
+<div class="list-col col-dont">
+<div class="col-header dont-header">
+<i class="fa-solid fa-circle-xmark mr-3"></i> NOT THIS
+                    </div>
+<ul class="list-items">
+<li class="list-item">
+<i class="fa-solid fa-x item-icon text-red-400"></i>
+<p class="m-0">Spam or mock others.</p>
+</li>
+<li class="list-item">
+<i class="fa-solid fa-x item-icon text-red-400"></i>
+<p class="m-0">Post when you are angry.</p>
+</li>
+<li class="list-item">
+<i class="fa-solid fa-x item-icon text-red-400"></i>
+<p class="m-0">Type in ALL CAPS (it's shouting!).</p>
+</li>
+</ul>
+</div>
+</div>
+<!-- Quick Swap Example -->
+<div class="swap-card">
+<div class="swap-label">
+<i class="fa-solid fa-rotate"></i> Quick Swap:
+                </div>
+<div class="bad-phrase">"Calm down!"</div>
+<div class="arrow-icon">
+<i class="fa-solid fa-arrow-right-long"></i>
+</div>
+<div class="good-phrase">"I'm here. Let's sort this out."</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p>Licensed and Powered by Astrl mind Technologies | Copyright © 2026-2033</p>
+</footer>
+</div>
+<!-- PREVIOUS BUTTON -->
+<a href="f3.html"
+   class="absolute bottom-16 left-12 z-50 px-6 py-3
+          bg-gray-800 text-white text-sm font-semibold uppercase
+          hover:bg-gray-700 transition rounded-lg">
+← 
+</a>
+
+<!-- NEXT BUTTON -->
+<a href="f5.html"
+   class="absolute bottom-16 right-12 z-50 px-6 py-3
+          bg-gray-900 text-white text-sm font-semibold uppercase
+          hover:bg-gray-800 transition rounded-lg">
+Next →
+</a>
+</body></html>

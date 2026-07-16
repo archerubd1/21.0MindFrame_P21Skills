@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Research Architect – Workshop (Slide 1)</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+    :root{
+      --lavender-1:#F4F0FF;
+      --lavender-2:#EDE7FF;
+      --lavender-3:#E3DCFF;
+
+      --beige:#E8DCC4;
+      --beige-2:#F3EADB;
+
+      --matcha:#E8F2E6;
+      --cherry:#C93A63;
+
+      --ink:#1F2430;
+      --muted:#556070;
+      --card:#FFFFFF;
+    }
+
+    html, body { height:100%; }
+    body{
+      margin:0;
+      background:#0b0b10;
+      font-family:"Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:24px;
+    }
+
+    /* Slide canvas */
+    .slide{
+      width:1280px;
+      height:720px;
+      position:relative;
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      background: var(--lavender-1);
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* No CSS gradients (export-safe). Use layered soft blocks instead. */
+    .bg-layer{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+    }
+    .bg-matcha{
+      position:absolute;
+      left:-120px; top:-140px;
+      width:640px; height:640px;
+      background: var(--matcha);
+      border-radius:9999px;
+      filter: blur(2px);
+      opacity:.95;
+    }
+    .bg-lavender{
+      position:absolute;
+      right:-220px; top:40px;
+      width:820px; height:820px;
+      background: var(--lavender-2);
+      border-radius:9999px;
+      opacity:.95;
+    }
+    .bg-cherry{
+      position:absolute;
+      right:110px; bottom:-210px;
+      width:520px; height:520px;
+      background: rgba(201,58,99,.14);
+      border-radius:9999px;
+    }
+    .bg-grid{
+      position:absolute;
+      inset:0;
+      background-image: radial-gradient(rgba(31,36,48,0.05) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity:.65;
+    }
+
+    /* Header / Footer / Nav spacing */
+    .header{
+      position:absolute;
+      top:0; left:0; right:0;
+      height:64px;
+      z-index:5;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      padding:0 28px;
+      box-shadow: 0 6px 18px rgba(31,36,48,.08);
+    }
+    .footer{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:44px;
+      z-index:5;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 18px;
+    }
+    .nav{
+      position:absolute;
+      left:0; right:0;
+      bottom:44px; /* sits above footer */
+      height:64px;
+      z-index:6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 26px;
+      gap:18px;
+      background: rgba(244,240,255,.72);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(31,36,48,.06);
+    }
+
+    .content{
+      position:relative;
+      z-index:2;
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 88px 84px 136px; /* header + nav+footer clearance */
+    }
+
+    .deck-card{
+      width:100%;
+      max-width: 1040px;
+      background: rgba(255,255,255,.72);
+      border: 1px solid rgba(31,36,48,.08);
+      border-radius: 22px;
+      padding: 44px 56px;
+      box-shadow: 0 18px 40px rgba(31,36,48,.10);
+      display:flex;
+      gap:30px;
+      align-items:flex-start;
+    }
+
+    .brand-pill{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:9999px;
+      border:1px solid rgba(31,36,48,.10);
+      background: rgba(232,220,196,.55);
+      color: var(--ink);
+      font-size:14px;
+      line-height:1;
+      font-weight:600;
+    }
+    .cherry-dot{
+      width:10px; height:10px;
+      border-radius:9999px;
+      background: var(--cherry);
+      box-shadow: 0 8px 18px rgba(201,58,99,.25);
+    }
+
+    .title{
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      font-weight:700;
+      font-size:54px;
+      line-height:1.08;
+      letter-spacing:-0.02em;
+      margin:14px 0 0;
+    }
+    .subtitle{
+      margin-top:14px;
+      color: var(--muted);
+      font-size:18px;
+      line-height:1.55;
+      max-width: 52ch;
+    }
+
+    .accent{
+      color: var(--cherry);
+      font-weight:700;
+    }
+
+    .mini-grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      margin-top: 22px;
+      max-width: 520px;
+    }
+    .mini-item{
+      background: rgba(237,231,255,.70);
+      border:1px solid rgba(31,36,48,.08);
+      border-radius: 14px;
+      padding: 12px 14px;
+      display:flex;
+      align-items:flex-start;
+      gap:10px;
+      min-height:52px;
+    }
+    .mini-ico{
+      width:34px; height:34px;
+      border-radius:12px;
+      background: rgba(232,220,196,.70);
+      border:1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--cherry);
+      flex:0 0 auto;
+    }
+    .mini-text p{
+      margin:0;
+      font-size:13px;
+      color: rgba(31,36,48,.78);
+      line-height:1.35;
+      font-weight:600;
+    }
+
+    .right-rail{
+      margin-left:auto;
+      width: 320px;
+      flex:0 0 320px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:stretch;
+    }
+    .rail-card{
+      background: rgba(255,255,255,.78);
+      border:1px solid rgba(31,36,48,.08);
+      border-radius: 18px;
+      padding: 16px 16px;
+    }
+    .rail-title{
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:700;
+      font-size:14px;
+      letter-spacing:.02em;
+      color: rgba(31,36,48,.86);
+      margin:0 0 10px;
+    }
+    .rail-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .rail-row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .rail-bullet{
+      width:10px; height:10px;
+      border-radius:9999px;
+      background: rgba(201,58,99,.85);
+      margin-top:6px;
+      flex:0 0 auto;
+    }
+    .rail-row p{
+      margin:0;
+      font-size:13px;
+      line-height:1.4;
+      color: rgba(31,36,48,.78);
+      font-weight:600;
+    }
+
+    /* Navigation buttons (topic-based) */
+    .nav-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(31,36,48,.10);
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 10px 20px rgba(31,36,48,.10);
+      color: rgba(31,36,48,.88);
+      font-weight:700;
+      text-decoration:none;
+      transition: transform .22s ease, opacity .22s ease, box-shadow .22s ease;
+      min-width: 168px;
+      justify-content:center;
+    }
+    .nav-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(31,36,48,.14);
+      opacity: .98;
+    }
+    .nav-btn .label{
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:14px;
+      letter-spacing:.01em;
+    }
+    .nav-btn .ico{
+      color: var(--cherry);
+      font-size:14px;
+    }
+    .nav-btn.is-disabled{
+      opacity:.45;
+      pointer-events:none;
+      transform:none;
+      box-shadow:none;
+    }
+
+    /* Header text */
+    .header p{
+      margin:0;
+      font-size:14px;
+      color: rgba(31,36,48,.78);
+      font-weight:700;
+      letter-spacing:.01em;
+    }
+
+    .footer p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.70);
+      font-weight:600;
+    }
+
+    /* Scale down for smaller screens while keeping 1280x720 design ratio */
+    @media (max-width: 1360px){
+      body{ padding:16px; }
+      .slide{
+        transform: scale(.92);
+        transform-origin: top center;
+      }
+    }
+    @media (max-width: 1180px){
+      .slide{
+        transform: scale(.82);
+      }
+    }
+    @media (max-width: 980px){
+      .slide{
+        transform: scale(.70);
+      }
+    }
+  </style>
+</head>
+<body style="">
+<section aria-label="Slide 1: Cover – Clean Center (cover_center)" class="slide">
+<!-- Background layers (no gradients) -->
+<div aria-hidden="true" class="bg-layer">
+<div class="bg-matcha"></div>
+<div class="bg-lavender"></div>
+<div class="bg-cherry"></div>
+<div class="bg-grid"></div>
+</div>
+<!-- Fixed Header -->
+<header class="header" role="banner">
+<p>EduuAspire21.0 Skills | 21st Century Skills | Information Literacy </p>
+</header>
+<!-- Main Content -->
+<main class="content" role="main">
+<div class="deck-card">
+<div class="left">
+<div class="brand-pill">
+<span aria-hidden="true" class="cherry-dot"></span>
+<p>Workshop Series • Research &amp; Digital Literacy</p>
+</div>
+<h1 class="title">The Research Architect&nbsp;Workshop</h1>
+
+<div aria-label="Core pillars preview" class="mini-grid">
+<div class="mini-item" style="position: relative; transform: translate(0px, 11.446px);">
+<div aria-hidden="true" class="mini-ico"><i class="fa-solid fa-magnifying-glass"></i></div>
+<div class="mini-text"><p>Search strategy</p></div>
+</div>
+<div class="mini-item" style="position: relative; transform: translate(-1.43075px, 12.8768px);">
+<div aria-hidden="true" class="mini-ico"><i class="fa-solid fa-filter"></i></div>
+<div class="mini-text"><p>Boolean logic</p></div>
+</div>
+<div class="mini-item" style="position: relative; transform: translate(-4.05731px, 20.2865px);">
+<div aria-hidden="true" class="mini-ico"><i class="fa-solid fa-shield-check"></i></div>
+<div class="mini-text"><p>Authority checks</p></div>
+</div>
+<div class="mini-item" style="position: relative; transform: translate(-1.38492px, 21.3391px);">
+<div aria-hidden="true" class="mini-ico"><i class="fa-solid fa-book-open"></i></div>
+<div class="mini-text"><p>Citation-ready notes</p></div>
+</div>
+</div>
+</div>
+<aside aria-label="Workshop flow preview" class="right-rail">
+<div class="rail-card">
+<p class="rail-title">Today’s flow</p>
+<ul class="rail-list">
+<li class="rail-row">
+<span aria-hidden="true" class="rail-bullet"></span>
+<p>Logic first: structure questions into <span class="accent">queries</span></p>
+</li>
+<li class="rail-row">
+<span aria-hidden="true" class="rail-bullet"></span>
+<p>Evaluate: credibility with <span class="accent">CRAAP</span></p>
+</li>
+<li class="rail-row">
+<span aria-hidden="true" class="rail-bullet"></span>
+<p>Tools: databases + <span class="accent">DOAJ</span> exploration</p>
+</li>
+<li class="rail-row">
+<span aria-hidden="true" class="rail-bullet"></span>
+<p>Outcome: save, cite, and repeat the process</p>
+</li>
+</ul>
+</div>
+<div class="rail-card">
+<p class="rail-title">Tip</p>
+<ul class="rail-list">
+<li class="rail-row">
+<span aria-hidden="true" class="rail-bullet"></span>
+<p>Use the bottom bar to move by <span class="accent">topic</span> (not “Next/Previous”).</p>
+</li>
+</ul>
+</div>
+</aside>
+</div>
+</main>
+<!-- Fixed Navigation (Topic-based) -->
+<nav aria-label="Slide navigation" class="nav" style="transform: translate(-5.72302px, -4.29226px);">
+<a aria-disabled="true" class="nav-btn is-disabled" href="f1.html">
+<span class="label"><br></span>
+</a>
+<a class="nav-btn" href="f2.html" style="position: relative; transform: translate(384.873px, -1.43075px);">
+<span class="label">Objectives</span>
+<i aria-hidden="true" class="fa-solid fa-arrow-right ico"></i>
+</a>
+</nav>
+<!-- Fixed Footer -->
+<footer class="footer" role="contentinfo">
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+<script>
+document.addEventListener("keydown", function (e) {
+  const activeElement = document.activeElement;
+
+  // 🚫 Disable when typing in input or textarea
+  if (
+    activeElement.tagName === "INPUT" ||
+    activeElement.tagName === "TEXTAREA"
+  ) {
+    return;
+  }
+
+  // 👉 Get navigation buttons
+  const prevBtn = document.querySelector(".nav a:first-child");
+  const nextBtn = document.querySelector(".nav a:last-child");
+
+  // ⬅️ Left Arrow → Previous slide
+  if (e.key === "ArrowLeft") {
+    if (prevBtn && !prevBtn.classList.contains("is-disabled")) {
+      window.location.href = prevBtn.getAttribute("href");
+    }
+  }
+
+  // ➡️ Right Arrow → Next slide
+  if (e.key === "ArrowRight") {
+    if (nextBtn && !nextBtn.classList.contains("is-disabled")) {
+      window.location.href = nextBtn.getAttribute("href");
+    }
+  }
+});
+</script>
+</section>
+
+</body></html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Output – Audit Report - Slide 8</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+     
+         body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #0f0f0f;
+    font-family: 'Open Sans', sans-serif;
+
+    display: flex;              /* 🔥 ADD THIS */
+    justify-content: center;    /* 🔥 CENTER HORIZONTALLY */
+    align-items: center;        /* 🔥 CENTER VERTICALLY */
+    height: 100vh;              /* 🔥 FULL SCREEN HEIGHT */
+}
+     
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #065f46 0%, #047857 50%, #059669 100%);
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #059669;
+        }
+        
+        .header-divider {
+            width: 1px;
+            height: 20px;
+            background: #e5e7eb;
+        }
+        
+        .header-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #374151;
+            font-weight: 500;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-badge {
+            background: #059669;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+     .main-content {
+    position: absolute;
+    top: 70px;
+    bottom: 120px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+        
+        .content-wrapper {
+            display: flex;
+            gap: 40px;
+            align-items: flex-start;
+            justify-content: center;
+            width: 100%;
+            /* Fix: Increased max-width to provide more space for text in grid items, resolving textExceedsShape. */
+            /* The main-content padding is 60px on each side (120px total), so 1280 - 120 = 1160px is the maximum available width. */
+            max-width: 1160px;
+        }
+        
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .right-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 4px;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .report-box {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 20px;
+        }
+        
+        .report-text {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+        
+        .questions-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 12px;
+        }
+        
+        .question-item {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 12px;
+            padding: 12px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .question-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(59, 130, 246, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #3b82f6;
+            flex-shrink: 0;
+        }
+        
+        .question-content {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .question-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 2px;
+        }
+        
+        .question-desc {
+            font-size: 11px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.4;
+        }
+        
+        .goal-box {
+            background: rgba(251, 191, 36, 0.2);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            margin-top: 12px;
+        }
+        
+        .goal-text {
+            font-size: 14px;
+            color: rgba(255,255,255,0.9);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .goal-icon {
+            font-size: 16px;
+            color: #fbbf24;
+        }
+        
+        .goal-highlight {
+            color: #fbbf24;
+            font-weight: 600;
+        }
+        
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 204, 170, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 1000;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #065f46;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            z-index: 1000;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+        }
+        
+        .footer-brand {
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Decorative Elements */
+        .decoration-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            pointer-events: none;
+        }
+        
+        .decoration-circle-1 {
+            width: 200px;
+            height: 200px;
+            top: 100px;
+            right: 100px;
+        }
+        
+        .decoration-circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 150px;
+            left: 80px;
+        }
+        
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 8px;
+        }
+        
+        .checklist-icon {
+            font-size: 12px;
+            color: #10b981;
+        }
+        
+        .checklist-text {
+            font-size: 12px;
+            color: rgba(255,255,255,0.9);
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header">
+<div class="header-left">
+<div class="header-logo">EduuAspire21.0</div>
+<div class="header-divider"></div>
+<div class="header-text">21st Century Skills | Media Literacy</div>
+</div>
+<div class="header-right">
+<div class="header-badge">Workshop Module</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="section-title">Output – Audit Report</div>
+<div class="section-subtitle">Create a simple report including:</div>
+<div class="content-wrapper">
+<div class="left-section">
+<div class="report-box">
+<div class="report-text">
+<strong>📝 Report Questions:</strong> Analyze your feed patterns and document your findings
+                    </div>
+<div class="questions-grid">
+<div class="question-item">
+<div class="question-icon">
+<i class="fas fa-chart-pie"></i>
+</div>
+<div class="question-content">
+<div class="question-title">What dominates your feed?</div>
+<div class="question-desc">Identify the main content types in your feed</div>
+</div>
+</div>
+<div class="question-item">
+<div class="question-icon">
+<i class="fas fa-search"></i>
+</div>
+<div class="question-content">
+<div class="question-title">What patterns did you notice?</div>
+<div class="question-desc">Observe repetition and trends</div>
+</div>
+</div>
+<div class="question-item">
+<div class="question-icon">
+<i class="fas fa-balance-scale"></i>
+</div>
+<div class="question-content">
+<div class="question-title">Any bias or repetition?</div>
+<div class="question-desc">Check for one-sided content</div>
+</div>
+</div>
+<div class="question-item">
+<div class="question-icon">
+<i class="fas fa-surprise"></i>
+</div>
+<div class="question-content">
+<div class="question-title">What surprised you?</div>
+<div class="question-desc">Note unexpected findings</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="right-section">
+<div class="report-box">
+<div class="report-text">
+<strong>🎯 Goal:</strong> Become aware of your digital environment
+                    </div>
+<div class="goal-box">
+<div class="goal-text">
+<i class="fas fa-bullseye goal-icon"></i>
+<span>Document your <span class="goal-highlight">digital environment</span> and how algorithms shape your view</span>
+</div>
+<div class="checklist-item">
+<i class="fas fa-check-circle checklist-icon"></i>
+<div class="checklist-text">Identify dominant content types</div>
+</div>
+<div class="checklist-item">
+<i class="fas fa-check-circle checklist-icon"></i>
+<div class="checklist-text">Recognize patterns and biases</div>
+</div>
+<div class="checklist-item">
+<i class="fas fa-check-circle checklist-icon"></i>
+<div class="checklist-text">Note any surprises or concerns</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navigation">
+<a class="nav-item" href="f7.html">
+<span class="nav-text">← Algorithm Audit</span>
+</a>
+<a class="nav-item" href="f9.html">
+<span class="nav-text">Investigation Tools →</span>
+</a>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div class="footer-text">
+                Licenced &amp; Powered By <span class="footer-brand">Astrl Mind Technologies</span> copyright 2026-2033
+            </div>
+</div>
+<!-- Decorative Elements -->
+<div class="decoration-circle decoration-circle-1"></div>
+<div class="decoration-circle decoration-circle-2"></div>
+</div>
+<script src="script.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function () {
+
+    document.addEventListener("keydown", function(e) {
+
+        let current = window.location.pathname.match(/f(\d+)\.html/);
+        if (!current) return;
+
+        let index = parseInt(current[1]);
+
+        if (e.key === "ArrowRight") {
+            window.location.href = `f${index + 1}.html`;
+        }
+
+        if (e.key === "ArrowLeft" && index > 1) {
+            window.location.href = `f${index - 1}.html`;
+        }
+
+    });
+
+});</script>
+
+
+</body>
+</html>

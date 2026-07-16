@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Fact Definition - Slide 4</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        /* SHARED CSS START */
+        :root {
+            --bg-gradient-start: #FFF6E9;
+            --bg-gradient-end: #FFE5D9;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-color: #FF8A65;
+            --nav-bg: rgba(255, 204, 170, 0.5);
+            --nav-border: rgba(255, 255, 255, 0.3);
+            --glass-bg: rgba(255, 255, 255, 0.6);
+        }
+
+        body {
+    margin: 0;
+    background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+    font-family: 'Poppins', sans-serif;
+
+    transform: scale(calc(100vw / 1280));
+    transform-origin: top left;
+}
+
+        /* Header */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Center vertically */
+            align-items: center;
+            padding: 80px 60px 100px 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 48px;
+            font-weight: 700;
+            color: #2D3748;
+            margin-bottom: 30px;
+            text-align: center;
+            letter-spacing: -0.5px;
+        }
+
+        /* Template Specific: Definition Box */
+        .definition-box {
+            background: rgba(255, 255, 255, 0.7);
+            border-left: 6px solid var(--accent-color);
+            padding: 25px 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
+            width: 100%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .definition-text {
+            font-size: 22px;
+            font-weight: 500;
+            color: #4A5568;
+            line-height: 1.5;
+        }
+        
+        .definition-features {
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+            color: #E57373;
+            font-weight: 600;
+        }
+
+        /* Template Specific: Examples Grid */
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px; /* Increased gap slightly for better spacing with fewer items */
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .example-card {
+            background: rgba(255, 255, 255, 0.5);
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            transition: transform 0.2s;
+            border: 1px solid rgba(255,255,255,0.6);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .example-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .example-icon {
+            font-size: 36px;
+            color: var(--accent-color);
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .example-text {
+            font-size: 18px;
+            font-weight: 500;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1100px;
+            height: 60px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--nav-border);
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            z-index: 90;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4A5568;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.4);
+            transform: translateY(-2px);
+            color: #2D3748;
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 8px 0;
+            text-align: center;
+            background: rgba(255,255,255,0.3);
+            z-index: 100;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+        /* SHARED CSS END */
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- HEADER -->
+<header>
+<div class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Media Literacy</div>
+</header>
+<!-- MAIN CONTENT -->
+<main>
+<h1>Fact Definition</h1>
+<!-- Definition Block -->
+<div class="definition-box">
+<p class="definition-text">
+                "A fact is information that can be checked and proven true or false."
+            </p>
+<span class="definition-features"><i class="fa-solid fa-check-double mr-2"></i>Objective &amp; Measurable</span>
+</div>
+<!-- Examples Grid -->
+<div class="examples-grid">
+<!-- Example 1 -->
+<div class="example-card">
+<div class="example-icon"><i class="fa-solid fa-temperature-three-quarters"></i></div>
+<p class="example-text">Water boils at 100°C</p>
+</div>
+<!-- Example 2 -->
+<div class="example-card">
+<div class="example-icon"><i class="fa-solid fa-clock"></i></div>
+<p class="example-text">Library closes at 5:00 PM</p>
+</div>
+<!-- Example 3 -->
+<div class="example-card">
+<div class="example-icon"><i class="fa-solid fa-earth-africa"></i></div>
+<p class="example-text">Kenya is in East Africa</p>
+</div>
+</div>
+</main>
+<!-- NAVIGATION -->
+<div class="nav-container">
+<!-- Left: Previous Topic -->
+<a class="nav-btn" href="f3.html" id="prev-btn">
+<i class="fa-solid fa-arrow-left"></i>
+<span>Why Awareness Matters</span>
+</a>
+<!-- Right: Next Topic -->
+<a class="nav-btn" href="f5.html" id="next-btn">
+<span>Opinion Definition</span>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+<!-- FOOTER -->
+<footer>
+<div class="footer-text">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</div>
+</footer>
+</div>
+<!-- SHARED JAVASCRIPT LOGIC -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Keyboard Navigation
+            document.addEventListener('keydown', (e) => {
+                if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+                    return;
+                }
+                const prevBtn = document.getElementById('prev-btn');
+                const nextBtn = document.getElementById('next-btn');
+                if (e.key === 'ArrowRight' && nextBtn) nextBtn.click();
+                if (e.key === 'ArrowLeft' && prevBtn) prevBtn.click();
+            });
+        });
+    </script>
+
+</body></html>

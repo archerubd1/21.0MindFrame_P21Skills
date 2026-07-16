@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Module 1: Photo vs Reality</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Roboto+Mono:wght@400;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #050510;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* Neon Utilities */
+        .neon-text-blue {
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .neon-text-purple {
+            text-shadow: 0 0 5px rgba(168, 85, 247, 0.8), 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .neon-border-blue {
+            border: 1px solid rgba(59, 130, 246, 0.5);
+            box-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+        }
+
+        .neon-box {
+            background-color: rgba(15, 23, 42, 0.8);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            backdrop-filter: blur(5px);
+        }
+
+        /* Grid Background Pattern (No Gradients) */
+        .grid-line-h {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+        
+        .grid-line-v {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+
+        /* Module Badge */
+        .module-badge {
+            background-color: rgba(30, 58, 138, 0.3);
+            border-left: 4px solid #3b82f6;
+            color: #93c5fd;
+        }
+
+        /* Checklist Items */
+        .check-item {
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(59, 130, 246, 0.1);
+        }
+        
+        .check-item:last-child {
+            border-bottom: none;
+        }
+
+        .check-icon-box {
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            background-color: rgba(168, 85, 247, 0.1);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+            color: #a855f7;
+        }
+
+        /* Visual Analysis Overlay */
+        .analysis-overlay {
+            position: absolute;
+            border: 2px solid #ef4444;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.5);
+            animation: pulse-border 2s infinite;
+        }
+
+        .analysis-line {
+            position: absolute;
+            height: 1px;
+            background-color: #ef4444;
+            transform-origin: left center;
+        }
+
+        .analysis-label {
+            position: absolute;
+            background-color: rgba(15, 23, 42, 0.9);
+            border: 1px solid #ef4444;
+            color: #fca5a5;
+            padding: 4px 8px;
+            font-family: 'Roboto Mono', monospace;
+            font-size: 10px;
+            border-radius: 2px;
+            white-space: nowrap;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        @keyframes pulse-border {
+            0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+        }
+
+        /* Custom Scrollbar hide */
+        ::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body style="">
+<div class="slide-container text-white">
+<!-- Background Grid -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<div class="grid-line-h" style="top: 10%"></div>
+<div class="grid-line-h" style="top: 20%"></div>
+<div class="grid-line-h" style="top: 30%"></div>
+<div class="grid-line-h" style="top: 40%"></div>
+<div class="grid-line-h" style="top: 50%"></div>
+<div class="grid-line-h" style="top: 60%"></div>
+<div class="grid-line-h" style="top: 70%"></div>
+<div class="grid-line-h" style="top: 80%"></div>
+<div class="grid-line-h" style="top: 90%"></div>
+<div class="grid-line-v" style="left: 10%"></div>
+<div class="grid-line-v" style="left: 20%"></div>
+<div class="grid-line-v" style="left: 30%"></div>
+<div class="grid-line-v" style="left: 40%"></div>
+<div class="grid-line-v" style="left: 50%"></div>
+<div class="grid-line-v" style="left: 60%"></div>
+<div class="grid-line-v" style="left: 70%"></div>
+<div class="grid-line-v" style="left: 80%"></div>
+<div class="grid-line-v" style="left: 90%"></div>
+</div>
+<!-- Top Global Header -->
+<div class="absolute top-0 left-0 w-full z-30 flex justify-center py-1 bg-black bg-opacity-40 backdrop-filter backdrop-blur-sm border-b border-blue-900 border-opacity-30">
+<p class="font-['Space_Grotesk'] text-xs tracking-widest text-blue-400 neon-text-blue uppercase">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Header (Adjusted padding-top) -->
+<header class="flex justify-between items-center px-12 pt-8 pb-4 z-20 border-b border-gray-800 bg-gray-900 bg-opacity-90 mt-2">
+<div class="flex items-center space-x-4">
+<i class="fas fa-camera text-purple-500 text-2xl"></i>
+<h2 class="font-['Space_Grotesk'] text-2xl font-bold tracking-wider text-gray-200">VISUAL FORENSICS</h2>
+</div>
+<div class="flex items-center space-x-2 font-['Roboto_Mono'] text-purple-400 text-sm tracking-widest">
+<i class="fas fa-layer-group"></i>
+<span>MODULE 01</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex px-12 py-6 space-x-8 z-10 relative" style="transform: translate(0px, -15.0869px);">
+<!-- Left Column: Educational Content -->
+<div class="w-1/2 flex flex-col justify-center space-y-4" style="position: relative; transform: translate(-1.37154px, -21.9446px);">
+<div>
+<div class="module-badge inline-block px-4 py-2 mb-2">
+<p class="font-['Roboto_Mono'] text-xs uppercase tracking-widest font-bold">Detection Protocol Alpha</p>
+</div>
+<h1 class="font-['Space_Grotesk'] text-4xl font-bold leading-tight mb-2" style="position: relative; transform: translate(5.48615px, -6.85769px);">
+                    Photo vs <span class="neon-text-purple">Reality</span>
+</h1>
+<p class="font-['Inter'] text-gray-400 text-base leading-relaxed" style="position: relative; transform: translate(-1.37154px, -13.7154px);">
+                    Digital manipulation is sophisticated, but AI often leaves breadcrumbs. Train your eyes to spot the glitches in the matrix using these 4 checks.
+                </p>
+</div>
+<!-- Checklist Card -->
+<div class="neon-box rounded-lg p-5">
+<div class="space-y-3" style="position: relative; transform: translate(-5.48615px, -31.5454px);">
+<!-- Item 1 -->
+<div class="check-item flex items-start space-x-3 pb-2">
+<div class="check-icon-box flex-shrink-0 w-7 h-7">
+<i class="fas fa-lightbulb text-sm"></i>
+</div>
+<div>
+<p class="font-bold text-gray-200 text-xs font-['Space_Grotesk']" style="position: relative; transform: translate(-2.74308px, 2.74308px);">LIGHTING &amp; SHADOWS</p>
+<p class="text-gray-400 text-[10px] mt-0.5">Check for inconsistent light sources or missing shadows where objects meet the ground.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="check-item flex items-start space-x-3 pb-2">
+<div class="check-icon-box flex-shrink-0 w-7 h-7">
+<i class="fas fa-eye-dropper text-sm"></i>
+</div>
+<div>
+<p class="font-bold text-gray-200 text-xs font-['Space_Grotesk']">BLUR &amp; EDGES</p>
+<p class="text-gray-400 text-[10px] mt-0.5">Look for unnatural smooth skin textures or warped edges around hair and clothing.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="check-item flex items-start space-x-3 pb-2">
+<div class="check-icon-box flex-shrink-0 w-7 h-7">
+<i class="fas fa-glasses text-sm"></i>
+</div>
+<div>
+<p class="font-bold text-gray-200 text-xs font-['Space_Grotesk']">REFLECTIONS</p>
+<p class="text-gray-400 text-[10px] mt-0.5">Reflections in eyes, glasses, or windows often don't match the surrounding scene in fakes.</p>
+</div>
+</div>
+<!-- Item 4 -->
+<div class="check-item flex items-start space-x-3">
+<div class="check-icon-box flex-shrink-0 w-7 h-7">
+<i class="fas fa-fingerprint text-sm"></i>
+</div>
+<div>
+<p class="font-bold text-gray-200 text-xs font-['Space_Grotesk']">AI ARTIFACTS</p>
+<p class="text-gray-400 text-[10px] mt-0.5">Count fingers (often &gt;5), check for melted text in backgrounds, or asymmetric jewelry.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visual Analysis -->
+<div class="w-1/2 flex items-center justify-center relative">
+<!-- Image Container -->
+<div class="relative w-full max-w-lg scale-90">
+<!-- Frame -->
+<div class="absolute -inset-1 border border-purple-500 opacity-30 rounded-lg"></div>
+<div class="absolute -inset-2 border border-blue-500 opacity-20 rounded-lg"></div>
+<!-- Corner Accents -->
+<div class="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-purple-500"></div>
+<div class="absolute -top-2 -right-2 w-4 h-4 border-t-2 border-r-2 border-purple-500"></div>
+<div class="absolute -bottom-2 -left-2 w-4 h-4 border-b-2 border-l-2 border-purple-500"></div>
+<div class="absolute -bottom-2 -right-2 w-4 h-4 border-b-2 border-r-2 border-purple-500"></div>
+<!-- Main Image -->
+<div class="relative rounded-lg overflow-hidden bg-gray-800 shadow-2xl">
+<!-- Placeholder for AI Face -->
+<img alt="AI Generated Face Analysis" class="w-full h-auto object-cover opacity-90" src="image7.webp" data-height-listener-added="true">
+<!-- Scanning Line Animation -->
+<div class="absolute top-0 left-0 w-full h-1 bg-purple-500 shadow-[0_0_15px_#a855f7] opacity-50 animate-scan" style="animation: scan 3s linear infinite;"></div>
+<style>
+                        @keyframes scan {
+                            0% { top: 0%; opacity: 0; }
+                            10% { opacity: 0.8; }
+                            90% { opacity: 0.8; }
+                            100% { top: 100%; opacity: 0; }
+                        }
+                    </style>
+<!-- Analysis Points -->
+<!-- Point 1: Eyes/Reflection -->
+<div class="analysis-overlay" style="top: 35%; left: 45%; width: 40px; height: 20px;"></div>
+<div class="analysis-line" style="top: 40%; left: 52%; width: 60px; transform: rotate(-20deg);"></div>
+<div class="analysis-label" style="top: 30%; left: 65%;">
+<i class="fas fa-exclamation-triangle mr-1 text-red-500"></i>ASYMMETRIC PUPILS
+                    </div>
+<!-- Point 2: Hair/Background Blur -->
+<div class="analysis-overlay" style="top: 20%; left: 75%; width: 50px; height: 50px;"></div>
+<div class="analysis-line" style="top: 25%; left: 85%; width: 40px; transform: rotate(0deg);"></div>
+<div class="analysis-label" style="top: 20%; left: 95%;">
+<i class="fas fa-bug mr-1 text-red-500"></i>UNNATURAL BLUR
+                    </div>
+<!-- Point 3: Artifacts (Earring/Jewelry) -->
+<div class="analysis-overlay" style="top: 55%; left: 25%; width: 30px; height: 40px;"></div>
+<div class="analysis-line" style="top: 60%; left: 10%; width: 50px; transform: rotate(180deg);"></div>
+<div class="analysis-label" style="top: 55%; left: -5%;">
+<i class="fas fa-magic mr-1 text-red-500"></i>GLITCHED EARRING
+                    </div>
+</div>
+<!-- Image Caption -->
+<div class="absolute bottom-0 left-0 w-full bg-black bg-opacity-80 backdrop-filter backdrop-blur-sm p-3 border-t border-purple-900 flex justify-between items-center">
+<div>
+<p class="font-['Roboto_Mono'] text-xs text-purple-400 font-bold">ANALYSIS TARGET: IMG_9924.jpg</p>
+<p class="text-[10px] text-gray-500">AI PROBABILITY: 98.7%</p>
+</div>
+<div class="flex space-x-2">
+<span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+<span class="text-[10px] text-red-400 font-bold uppercase">FAKE DETECTED</span>
+</div>
+</div>
+</div>
+</div>
+</main></div>
+<!-- Bottom Global Footer -->
+<div class="absolute bottom-0 left-0 w-full z-30 flex justify-center py-1 bg-black bg-opacity-60 backdrop-filter backdrop-blur-sm border-t border-purple-900 border-opacity-30">
+<p class="font-['Roboto_Mono'] text-[10px] tracking-wider text-purple-300 neon-text-purple opacity-80">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f8.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f6.html';
+    }
+
+});
+</script>
+</body></html>

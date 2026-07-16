@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Credit Utilization Rule</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+         body {
+    margin: 0;
+    background: #000; /* black sides (like presentation) */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: #0B1F3A;
+    font-family: 'Inter', sans-serif;
+
+    transform: scale(calc(100vw / 1280));
+    transform-origin: top left;
+}
+        .nav-prev:hover,
+.nav-next:hover {
+    opacity: 0.6;
+    transform: translateY(-2px);
+}</style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 40px; top: 20px; width: 1200px; height: 40px; z-index: 10;">
+<p style="margin: 0; font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 10px;">
+                EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+            </p>
+</div>
+<!-- Main Title -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 80px; width: 1160px; height: 100px; z-index: 10;">
+<h1 style="margin: 0; font-size: 42px; font-weight: 700; color: #FFFFFF; letter-spacing: -0.5px;">
+                Credit Utilization Rule
+            </h1>
+<p style="margin: 8px 0 0; font-size: 20px; font-weight: 300; color: #B0B8C4;">
+                The second biggest factor (30%) of your credit score.
+            </p>
+</div>
+<!-- Decorative Line -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 175px; width: 100px; height: 4px; background-color: #FFDAB9; border-radius: 2px; z-index: 1;"></div>
+<!-- Formula Section Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 210px; width: 1160px; height: 100px; background-color: rgba(255, 218, 185, 0.05); border: 1px solid rgba(255, 218, 185, 0.2); border-radius: 12px; z-index: 1;"></div>
+<!-- Formula Icon -->
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 90px; top: 235px; width: 50px; height: 50px; z-index: 10; display: flex; align-items: center; justify-content: center;">
+<i class="fa-solid fa-calculator" style="font-size: 32px; color: #FFDAB9;"></i>
+</div>
+<!-- Formula Text -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 160px; top: 230px; width: 1000px; height: 60px; z-index: 10; display: flex; align-items: center;">
+<p style="margin: 0; font-size: 28px; color: #FFFFFF; font-family: 'Inter', monospace; font-weight: 500;">
+                Utilization % = <span style="color: #FFDAB9; border-bottom: 2px solid #FFDAB9; padding-bottom: 2px;">Total Statement Balances</span> / <span style="color: #81C784; border-bottom: 2px solid #81C784; padding-bottom: 2px;">Total Credit Limits</span>
+</p>
+</div>
+<!-- Left Column: Targets (KPIs) Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 330px; width: 400px; height: 280px; background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; z-index: 1;"></div>
+<!-- Targets Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 345px; width: 360px; height: 30px; z-index: 10;">
+<h3 style="margin: 0; font-size: 18px; color: #B0B8C4; text-transform: uppercase; letter-spacing: 1px;">Utilization Targets</h3>
+</div>
+<!-- Target Visuals -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 80px; top: 390px; width: 360px; height: 220px; z-index: 10;">
+<!-- Excellent -->
+<div style="margin-bottom: 20px;">
+<div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+<span style="color: #81C784; font-weight: 600;">Optimal (High Growth)</span>
+<span style="color: #81C784;">1% – 9%</span>
+</div>
+<div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px;">
+<div style="width: 9%; height: 100%; background: #81C784; border-radius: 4px;"></div>
+</div>
+</div>
+<!-- Good -->
+<div style="margin-bottom: 20px;">
+<div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+<span style="color: #FFD54F; font-weight: 600;">Acceptable (Maintain)</span>
+<span style="color: #FFD54F;">&lt; 30%</span>
+</div>
+<div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px;">
+<div style="width: 30%; height: 100%; background: #FFD54F; border-radius: 4px;"></div>
+</div>
+</div>
+<!-- Bad -->
+<div>
+<div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+<span style="color: #E57373; font-weight: 600;">Risk Zone (Damage)</span>
+<span style="color: #E57373;">&gt; 30%</span>
+</div>
+<div style="width: 100%; height: 8px; background: rgba(255,255,255,0.1); border-radius: 4px;">
+<div style="width: 60%; height: 100%; background: #E57373; border-radius: 4px;"></div>
+</div>
+</div>
+</div>
+<!-- Middle Column: Practical Tactics Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 480px; top: 330px; width: 340px; height: 280px; background-color: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; z-index: 1;"></div>
+<!-- Tactics Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 500px; top: 345px; width: 300px; height: 30px; z-index: 10;">
+<h3 style="margin: 0; font-size: 18px; color: #B0B8C4; text-transform: uppercase; letter-spacing: 1px;">Execution Tactics</h3>
+</div>
+<!-- Tactics List -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 500px; top: 390px; width: 300px; height: 220px; z-index: 10;">
+<div style="display: flex; flex-direction: column; gap: 15px;">
+<div style="display: flex; align-items: start;">
+<i class="fa-solid fa-calendar-check" style="color: #FFDAB9; margin-top: 4px; margin-right: 12px;"></i>
+<p style="margin: 0; color: #E0E6ED; font-size: 15px;">
+<strong>Pay Before Cut Date:</strong> Pay balance 2 days before statement closes to report $0 or low balance.
+                    </p>
+</div>
+<div style="display: flex; align-items: start;">
+<i class="fa-solid fa-arrow-up-right-dots" style="color: #FFDAB9; margin-top: 4px; margin-right: 12px;"></i>
+<p style="margin: 0; color: #E0E6ED; font-size: 15px;">
+<strong>Limit Increases:</strong> Request every 6-12 mos. Increases denominator → lowers %.
+                    </p>
+</div>
+<div style="display: flex; align-items: start;">
+<i class="fa-solid fa-shuffle" style="color: #FFDAB9; margin-top: 4px; margin-right: 12px;"></i>
+<p style="margin: 0; color: #E0E6ED; font-size: 15px;">
+<strong>Spread It Out:</strong> Don't max one card; spread spend across two.
+                    </p>
+</div>
+</div>
+</div>
+<!-- Right Column: Real World Example Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 840px; top: 330px; width: 380px; height: 280px; background-color: rgba(33, 150, 243, 0.08); border: 1px solid rgba(33, 150, 243, 0.3); border-radius: 12px; z-index: 1;"></div>
+<!-- Example Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 860px; top: 345px; width: 340px; height: 30px; z-index: 10;">
+<h3 style="margin: 0; font-size: 18px; color: #64B5F6; text-transform: uppercase; letter-spacing: 1px;">The Math in Action</h3>
+</div>
+<!-- Example Content -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 860px; top: 390px; width: 340px; height: 220px; z-index: 10;">
+<div style="background: rgba(0,0,0,0.2); padding: 15px; border-radius: 8px; margin-bottom: 15px;">
+<p style="margin: 0; color: #B0B8C4; font-size: 14px;">Scenario: Limit $3,000 | Spent $900</p>
+<p style="margin: 5px 0 0; color: #FFFFFF; font-size: 20px; font-weight: 600;">
+                    Current: 30% <span style="color: #FFD54F; font-size: 14px; font-weight: 400;">(Borderline)</span>
+</p>
+</div>
+<div style="text-align: center; margin-bottom: 15px;">
+<i class="fa-solid fa-arrow-down" style="color: #64B5F6;"></i>
+<span style="color: #64B5F6; font-size: 12px; margin-left: 5px;">STRATEGY: Pay $300 before statement</span>
+</div>
+<div style="background: rgba(33, 150, 243, 0.15); padding: 15px; border-radius: 8px; border: 1px solid rgba(33, 150, 243, 0.3);">
+<p style="margin: 0; color: #B0B8C4; font-size: 14px;">Reported Balance: $600</p>
+<p style="margin: 5px 0 0; color: #FFFFFF; font-size: 20px; font-weight: 600;">
+                    Result: 20% <span style="color: #81C784; font-size: 14px; font-weight: 400;">(Safe Zone)</span>
+</p>
+</div>
+</div>
+<!-- Glass Navigation Bar -->
+<div style="
+    position: absolute;
+    bottom: 40px;
+    left: 0;
+    width: 1280px;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 60px;
+    background: rgba(255, 218, 185, 0.08);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    z-index: 9999;
+">
+
+    <!-- LEFT -->
+    <a href="f5.html" class="nav-prev" style="
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 500;
+    ">
+        ← Credit Score System
+    </a>
+
+    <!-- RIGHT -->
+    <a href="f7.html" class="nav-next" style="
+        text-decoration: none;
+        color: #FFFFFF;
+        font-size: 16px;
+        font-weight: 500;
+    ">
+        Smart Credit Strategy →
+    </a>
+
+</div>
+<!-- Footer -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 0; top: 680px; width: 1280px; height: 40px; z-index: 10; text-align: center; display: flex; align-items: center; justify-content: center;">
+<p style="margin: 0; font-size: 12px; color: rgba(255,255,255,0.35); font-weight: 300;">
+                Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+            </p>
+</div>
+</div>
+<script>
+document.addEventListener("keydown", function(e) {
+
+    var active = document.activeElement;
+    var isTyping =
+        active.tagName === "INPUT" ||
+        active.tagName === "TEXTAREA" ||
+        active.isContentEditable;
+
+    if (isTyping) return;
+
+    if (e.key === "ArrowRight") {
+        var next = document.querySelector(".nav-next");
+        if (next) window.location.href = next.href;
+    }
+
+    if (e.key === "ArrowLeft") {
+        var prev = document.querySelector(".nav-prev");
+        if (prev) window.location.href = prev.href;
+    }
+
+});
+</script>
+</body></html>

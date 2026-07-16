@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Summary & Next Steps</title>
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Poppins', sans-serif;
+    background: #0f172a;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+}
+
+/* HEADER */
+.header-bar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: rgba(15,23,42,0.95);
+    border-bottom: 2px solid #2EC4B6;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+}
+
+.header-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.header-icon {
+    color: #2EC4B6;
+    margin-right: 10px;
+}
+
+/* TITLE */
+.title-box {
+    position: absolute;
+    top: 80px;
+    left: 190px;
+    width: 900px;
+    height: 60px;
+    background: #2EC4B6;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.title-box h1 {
+    margin: 0;
+    color: #0f172a;
+}
+
+/* CONTENT */
+.content {
+    position: absolute;
+    top: 160px;
+    left: 190px;
+    width: 900px;
+    height: 420px;
+    background: rgba(30,41,59,0.8);
+    border-radius: 12px;
+    padding: 20px;
+    color: white;
+}
+
+/* GRID */
+.grid {
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 0 0 10px;
+}
+
+.card ul {
+    padding-left: 18px;
+    margin: 0;
+}
+
+/* ACTIVITY */
+.activity {
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(46,196,182,0.1);
+    border-radius: 8px;
+}
+
+/* QUOTE */
+.quote {
+    margin-top: 15px;
+    padding: 12px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 8px;
+    font-style: italic;
+}
+
+/* NAV */
+.nav-bar {
+    position: absolute;
+    bottom: 50px;
+    left: 190px;
+    width: 900px;
+    height: 50px;
+    background: rgba(255,204,170,0.5);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-btn {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(15,23,42,0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #94a3b8;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<!-- HEADER -->
+<div class="header-bar">
+<i class="fas fa-graduation-cap header-icon"></i>
+<span class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy</span>
+</div>
+
+<!-- TITLE -->
+<div class="title-box">
+<h1>Summary & Next Steps</h1>
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+
+<div class="grid">
+<div class="card">
+<h3>Key Points</h3>
+<ul>
+<li>Digital money is real</li>
+<li>Always check receipts</li>
+<li>Stay safe online</li>
+<li>Save regularly</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Next Steps</h3>
+<ul>
+<li>Show tracker to parents</li>
+<li>Practice daily tracking</li>
+<li>Set savings goals</li>
+<li>Review weekly spending</li>
+</ul>
+</div>
+</div>
+
+<div class="activity">
+<strong>Activity:</strong> Show your 7-day tracker to parents and discuss spending.
+</div>
+
+<div class="quote">
+"It's not about how much you make, but how much you save."
+</div>
+
+</div>
+
+<!-- NAV -->
+<div class="nav-bar">
+<div class="nav-btn" onclick="goToSlide(12)">
+<i class="fas fa-chevron-left"></i>
+<span>Habits</span>
+</div>
+
+<div class="nav-btn" onclick="finishCourse()">
+<span>Finish</span>
+<i class="fas fa-flag-checkered"></i>
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies © 2026–2033
+</div>
+
+</div>
+
+<script>
+function goToSlide(num){
+    window.location.href = "f" + num + ".html";
+}
+
+function finishCourse(){
+    alert("🎉 Congratulations! You have completed the course.");
+}
+
+document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowLeft") goToSlide(12);
+});
+</script>
+
+</body>
+</html>

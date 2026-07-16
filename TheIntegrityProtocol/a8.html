@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 3 – Fair Use Laws</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        /* Main container layout */
+        .slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background-color: #FAFAFA;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 100px; /* ✅ SPACE FOR NAV + FOOTER */
+}
+        /* Pseudo-gradient background */
+        .bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: #FDF4FF;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+        
+        .blob-1 {
+            top: -150px;
+            right: -50px;
+            width: 700px;
+            height: 700px;
+            background-color: #E9D5FF; /* Light Purple */
+        }
+        
+        .blob-2 {
+            bottom: -150px;
+            left: -100px;
+            width: 600px;
+            height: 600px;
+            background-color: #FBCFE8; /* Light Pink */
+        }
+
+        /* Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Glassmorphism Elements */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-icon-container {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 40px;
+            box-shadow: 0 15px 35px rgba(167, 139, 250, 0.15);
+            width: 280px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Simulating gradient border/glow with solid colors and blur due to no-gradient rule */
+        .glass-icon-container::before {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border-radius: 50px;
+            background-color: rgba(236, 72, 153, 0.2);
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.6;
+        }
+
+        /* Content Styling */
+        .module-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(139, 92, 246, 0.1);
+            color: #7C3AED;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .custom-bullet-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            background: rgba(255, 255, 255, 0.4);
+                padding: 0.9rem 1rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: transform 0.2s ease;
+        }
+
+        .custom-bullet-item:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: translateX(5px);
+        }
+
+        .bullet-icon {
+            min-width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background-color: #FBCFE8;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9333EA;
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .text-gradient-sim {
+            color: #DB2777; /* Fallback for gradient text */
+        }
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FDF4FF;
+    border-radius: 10px;
+    z-index: 99999;
+}
+
+
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+
+
+    </style>
+</head>
+<body>
+<div class="slide-container" id="slide-8">
+<!-- Background Elements -->
+<div class="bg-layer">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+</div>
+<!-- Main Content Wrapper -->
+<div class="content-layer">
+<!-- Header -->
+<header class="px-12 py-6 w-full flex justify-between items-center opacity-80 border-b border-purple-100 border-opacity-30">
+<p class="text-[11px] font-bold tracking-widest text-gray-500 uppercase font-sans">
+                EduuAspire21.0 Skills <span class="mx-2 text-purple-300">|</span> 21st Century Skills <span class="mx-2 text-purple-300">|</span> Information Literacy
+            </p>
+<div class="h-1 w-16 bg-purple-200 rounded-full"></div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex items-center px-20 py-2 gap-16">
+<!-- Left Column: Large Icon Visual -->
+<div class="w-5/12 flex justify-center items-center">
+<div class="glass-icon-container transform hover:scale-105 transition-transform duration-500">
+<i class="fas fa-scale-balanced text-9xl text-purple-600 filter drop-shadow-lg"></i>
+<!-- Floating decorative elements -->
+<div class="absolute -top-4 -right-4 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center animate-bounce" style="animation-duration: 3s;">
+<i class="fas fa-gavel text-2xl text-pink-500"></i>
+</div>
+<div class="absolute -bottom-4 -left-4 w-12 h-12 bg-purple-100 rounded-full shadow-lg flex items-center justify-center animate-pulse">
+<i class="fas fa-balance-scale-right text-purple-500"></i>
+</div>
+</div>
+</div>
+<!-- Right Column: Content -->
+<div class="w-7/12">
+<div class="mb-2">
+<span class="module-tag">Module 3</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-800 mb-2 leading-tight">
+                    Fair Use Laws
+                </h1>
+<h2 class="text-xl font-light text-gray-500 mb-8">
+                    Understanding Legal Reuse &amp; Limitations
+                </h2>
+<div class="space-y-1">
+<!-- Point 1 -->
+<div class="custom-bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-book-reader"></i>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-800 mb-1">Definition</h4>
+<p class="text-gray-600 text-sm leading-relaxed">
+                                Fair use allows limited reuse of copyrighted material without permission for purposes such as criticism, news reporting, teaching, and research.
+                            </p>
+</div>
+</div>
+<!-- Point 2 -->
+<div class="custom-bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-list-ol"></i>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-800 mb-1">The Four Factors</h4>
+<p class="text-gray-600 text-sm leading-relaxed">
+                                Courts weigh: (1) Purpose of use, (2) Nature of the work, (3) Amount used, and (4) Effect on the potential market.
+                            </p>
+</div>
+</div>
+<!-- Point 3 -->
+<div class="custom-bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-school"></i>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-800 mb-1">Educational Considerations</h4>
+<p class="text-gray-600 text-sm leading-relaxed">
+                                Not all educational use is automatically "fair." Transformative works that add new meaning or value are more likely to be protected.
+                            </p>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer style="
+    position:absolute;
+    bottom:10px;
+    width:100%;
+    text-align:center;
+    z-index:50;
+">
+<p class="text-[10px] text-gray-400 font-medium tracking-wide">
+Licenced & Powered By Astrl Mind Technologies © 2026–2033
+</p>
+</footer>
+<!-- 🔥 NAVIGATION -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Intellectucal property</div>
+    <div class="nav-link" onclick="next()"> Key skills→</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+
+// Navigation
+function next() {
+    window.location.href = "a9.html";   // ✅ FIXED
+}
+
+function prev() {
+    window.location.href = "a7.html";   // first slide fallback
+}
+
+// Keyboard
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+</script>
+</body>
+</html>

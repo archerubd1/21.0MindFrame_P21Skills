@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Outcome &amp; Skills</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Lora:wght@500;600&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fffdf4;
+    --card:#ffffff;
+    --ink:#111827;
+    --muted:#4b5563;
+    --line:#e5e7eb;
+    --butter:#fde68a;
+    --butter2:#fff2b8;
+  }
+  html,body{height:100%;margin:0;background:#f3f4f6;}
+  .slide{
+    width:1280px;height:720px;
+    margin:0 auto;
+    background:var(--bg);
+    display:flex;flex-direction:column;
+    color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    position:relative;
+    overflow:hidden;
+  }
+  .header{
+    height:64px;flex:0 0 64px;
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid var(--line);
+    background:#ffffff;
+    z-index:3;
+  }
+  .footer{
+    height:46px;flex:0 0 46px;
+    display:flex;align-items:center;justify-content:center;
+    border-top:1px solid var(--line);
+    background:#ffffff;
+    z-index:3;
+  }
+  .nav{
+    height:56px;flex:0 0 56px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 72px;
+    background:rgba(255,255,255,0.92);
+    border-top:1px solid var(--line);
+    z-index:3;
+  }
+  .main{
+    flex:1;
+    padding:32px 72px 20px 72px;
+    position:relative;
+    z-index:2;
+    display:flex;
+    min-height:0;
+  }
+  .frame{
+    flex:1;
+    display:flex;
+    border:1px solid var(--line);
+    background:var(--card);
+    box-shadow:0 10px 24px rgba(17,24,39,0.08);
+    border-radius:22px;
+    overflow:hidden;
+    position:relative;
+    min-height:0;
+  }
+
+  .hdrText,.ftrText{margin:0;letter-spacing:0.01em;}
+  .hdrText{font-size:14px;color:#111827;}
+  .hdrText span{opacity:.7}
+  .ftrText{font-size:12.5px;color:#111827;opacity:.8}
+
+  .content{
+    flex:1;
+    padding:38px 46px;
+    display:flex;
+    gap:18px;
+    min-width:0;
+    min-height:0;
+    position:relative;
+    z-index:2;
+  }
+  .left{
+    flex:1.05;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+    min-width:0;
+    min-height:0;
+  }
+  .right{
+    flex:0.95;
+    border-left:1px solid var(--line);
+    background:var(--butter2);
+    padding:26px 28px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-width:0;
+    min-height:0;
+  }
+
+  .kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 14px;
+    border:1px solid rgba(17,24,39,0.08);
+    background:#fff;
+    border-radius:999px;
+    width:max-content;
+    box-shadow:0 6px 14px rgba(17,24,39,0.06);
+  }
+  .kDot{
+    width:10px;height:10px;border-radius:999px;
+    background:var(--butter);
+    border:1px solid rgba(17,24,39,0.12);
+  }
+  .title{
+    margin:0;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    line-height:1.08;
+    font-size:52px;
+  }
+  .sub{
+    margin:6px 0 0 0;
+    font-family:Lora,Georgia,serif;
+    font-weight:600;
+    color:#1f2937;
+    font-size:20px;
+    line-height:1.35;
+    max-width:78ch;
+  }
+
+  .outcomeCard{
+    border:1px solid rgba(17,24,39,0.10);
+    background:#ffffff;
+    border-radius:18px;
+    box-shadow:0 10px 22px rgba(17,24,39,0.07);
+    padding:16px 16px;
+    display:flex;
+    align-items:flex-start;
+    gap:14px;
+    min-width:0;
+  }
+  .oIcon{
+    width:46px;height:46px;border-radius:18px;
+    background:var(--butter);
+    border:1px solid rgba(17,24,39,0.12);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 46px;
+    box-shadow:0 10px 18px rgba(17,24,39,0.08);
+  }
+  .oIcon i{font-size:20px;color:#111827;opacity:.92}
+  .oTitle{
+    margin:0;
+    font-weight:900;
+    letter-spacing:-0.01em;
+    font-size:18px;
+    line-height:1.2;
+  }
+  .oText{
+    margin:6px 0 0 0;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.55;
+  }
+  .oPills{
+    margin-top:10px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(17,24,39,0.10);
+    background:var(--butter2);
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:0.01em;
+    color:#111827;
+    white-space:nowrap;
+  }
+  .pill i{opacity:.9}
+  .mono{
+    font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    font-weight:700;
+    font-size:12.5px;
+    color:#111827;
+    background:#ffffff;
+    border:1px solid rgba(17,24,39,0.10);
+    padding:2px 6px;
+    border-radius:8px;
+    white-space:nowrap;
+  }
+
+  .skillsWrap{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-height:0;
+  }
+  .skillsHeader{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:12px;
+    margin-top:4px;
+  }
+  .skillsTitle{
+    margin:0;
+    font-weight:900;
+    letter-spacing:-0.01em;
+    font-size:18px;
+    line-height:1.2;
+  }
+  .skillsNote{
+    margin:0;
+    font-size:13px;
+    color:#374151;
+    opacity:.85;
+    font-weight:800;
+  }
+  .skillsGrid{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap:12px;
+    align-items:stretch;
+    min-height:0;
+  }
+  .skillCard{
+    border:1px solid rgba(17,24,39,0.10);
+    border-radius:18px;
+    background:#fff;
+    box-shadow:0 10px 22px rgba(17,24,39,0.07);
+    padding:14px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    min-width:0;
+  }
+  .skillTop{
+    display:flex;
+    align-items:flex-start;
+    justify-content:space-between;
+    gap:10px;
+  }
+  .sIcon{
+    width:44px;height:44px;border-radius:16px;
+    background:var(--butter2);
+    border:1px solid rgba(17,24,39,0.12);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 44px;
+  }
+  .sIcon i{font-size:18px;color:#111827;opacity:.9}
+  .sBadge{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(17,24,39,0.10);
+    background:#ffffff;
+    font-size:12px;
+    font-weight:900;
+    letter-spacing:0.01em;
+    color:#111827;
+    white-space:nowrap;
+  }
+  .sBadge .dot{width:8px;height:8px;border-radius:999px;background:#111827;opacity:.75}
+  .sName{
+    margin:0;
+    font-weight:900;
+    letter-spacing:-0.01em;
+    font-size:18px;
+    line-height:1.2;
+  }
+  .sText{
+    margin:0;
+    color:var(--muted);
+    font-size:15.5px;
+    line-height:1.5;
+  }
+  .miniList{
+    margin-top:auto;
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+  }
+  .miniItem{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:10px 10px;
+    border:1px solid rgba(17,24,39,0.08);
+    border-radius:14px;
+    background:#fff;
+  }
+  .miIcon{
+    width:30px;height:30px;border-radius:12px;
+    background:#ffffff;
+    border:1px solid rgba(17,24,39,0.10);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 30px;
+    box-shadow:0 8px 16px rgba(17,24,39,0.06);
+  }
+  .miIcon i{font-size:13px;color:#111827;opacity:.85}
+  .miText{
+    margin:0;
+    font-size:13.5px;
+    color:#111827;
+    font-weight:800;
+    line-height:1.35;
+  }
+
+  .badgeCard{
+    border:1px solid rgba(17,24,39,0.12);
+    background:#ffffff;
+    border-radius:20px;
+    box-shadow:0 12px 26px rgba(17,24,39,0.10);
+    padding:16px 16px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    min-width:0;
+  }
+  .badgeRow{
+    display:flex;
+    gap:14px;
+    align-items:center;
+    min-width:0;
+  }
+  .medal{
+    width:86px;height:86px;border-radius:26px;
+    background:var(--butter);
+    border:1px solid rgba(17,24,39,0.14);
+    display:flex;align-items:center;justify-content:center;
+    box-shadow:0 14px 24px rgba(17,24,39,0.10);
+    flex:0 0 86px;
+    position:relative;
+  }
+  .medal i{font-size:34px;color:#111827;opacity:.95}
+  .medal:after{
+    content:"";
+    position:absolute;
+    inset:10px;
+    border-radius:20px;
+    border:1px dashed rgba(17,24,39,0.22);
+    pointer-events:none;
+  }
+  .awardTitle{
+    margin:0;
+    font-weight:900;
+    letter-spacing:-0.02em;
+    font-size:22px;
+    line-height:1.15;
+  }
+  .awardRole{
+    margin:6px 0 0 0;
+    font-family:Lora,Georgia,serif;
+    font-weight:700;
+    color:#111827;
+    font-size:20px;
+    line-height:1.2;
+  }
+  .awardRole span{
+    padding:2px 8px;
+    border-radius:999px;
+    border:1px solid rgba(17,24,39,0.12);
+    background:var(--butter2);
+    font-weight:900;
+  }
+  .awardText{
+    margin:0;
+    color:#374151;
+    font-size:14.5px;
+    line-height:1.55;
+    font-weight:700;
+  }
+
+  .evidenceCard{
+    border:1px solid rgba(17,24,39,0.12);
+    background:#ffffff;
+    border-radius:18px;
+    box-shadow:0 12px 26px rgba(17,24,39,0.10);
+    padding:14px 14px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    min-width:0;
+  }
+  .rTitle{
+    margin:0;
+    font-weight:900;
+    letter-spacing:-0.01em;
+    font-size:16px;
+    line-height:1.2;
+  }
+  .rItem{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+    padding:10px 10px;
+    border:1px solid rgba(17,24,39,0.08);
+    border-radius:14px;
+    background:#fff;
+    min-width:0;
+  }
+  .rIcon{
+    width:32px;height:32px;border-radius:12px;
+    background:var(--butter);
+    border:1px solid rgba(17,24,39,0.12);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 32px;
+  }
+  .rIcon i{font-size:14px;color:#111827;opacity:.9}
+  .rText{
+    margin:0;
+    font-size:13.5px;
+    color:#1f2937;
+    line-height:1.45;
+    font-weight:800;
+  }
+  .rText span{font-weight:900;}
+
+  .progressPill{
+    position:absolute;
+    top:18px;right:18px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(17,24,39,0.10);
+    background:#fff;
+    font-size:12px;
+    color:#111827;
+    display:flex;align-items:center;gap:8px;
+    z-index:3;
+  }
+  .progressPill .miniDot{width:8px;height:8px;border-radius:999px;background:#111827;opacity:.75}
+
+  .bgShapes{position:absolute;inset:0;pointer-events:none;z-index:1;}
+  .shapeA{
+    position:absolute;
+    left:-160px;top:-170px;
+    width:480px;height:480px;
+    border-radius:96px;
+    background:var(--butter);
+    opacity:0.23;
+    border:1px solid rgba(17,24,39,0.06);
+    transform:rotate(9deg);
+  }
+  .shapeB{
+    position:absolute;
+    right:-180px;bottom:-190px;
+    width:520px;height:520px;
+    border-radius:110px;
+    background:#ffffff;
+    opacity:0.55;
+    border:1px solid rgba(17,24,39,0.08);
+    transform:rotate(-9deg);
+  }
+  .shapeC{
+    position:absolute;
+    right:120px;top:110px;
+    width:230px;height:230px;
+    border-radius:999px;
+    background:#ffffff;
+    opacity:0.55;
+    border:1px solid rgba(17,24,39,0.10);
+  }
+  .shapeD{
+    position:absolute;
+    left:220px;bottom:-110px;
+    width:340px;height:340px;
+    border-radius:999px;
+    background:#ffffff;
+    opacity:0.35;
+    border:1px solid rgba(17,24,39,0.08);
+  }
+
+  .navBtn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 16px;
+    border-radius:14px;
+    border:1px solid rgba(17,24,39,0.12);
+    background:#ffffff;
+    box-shadow:0 10px 18px rgba(17,24,39,0.08);
+    color:#111827;
+    text-decoration:none;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    transition:transform .16s ease, opacity .16s ease, box-shadow .16s ease;
+    max-width:260px;
+  }
+  .navBtn:hover{transform:translateY(-2px);box-shadow:0 14px 26px rgba(17,24,39,0.10);}
+  .navBtn .label{margin:0;font-size:16px;white-space:nowrap;}
+  .navBtn .muted{margin:0;font-size:12px;color:#374151;opacity:.75;font-weight:700;letter-spacing:0.01em;white-space:nowrap;}
+  .navStack{display:flex;flex-direction:column;line-height:1.05}
+</style>
+</head>
+<body style="">
+<div class="slide">
+<header class="header">
+<p class="hdrText"><strong>EduuAspire21.0 Skills</strong> <span>|</span> 21st Century Skills <span>|</span> Digital Literacy</p>
+</header>
+<main class="main">
+<section class="frame">
+<div aria-hidden="true" class="bgShapes">
+<div class="shapeA"></div>
+<div class="shapeB"></div>
+<div class="shapeC"></div>
+<div class="shapeD"></div>
+</div>
+
+<div class="content">
+<div class="left">
+
+<div>
+<p class="title" style="position: relative; transform: translate(-8.25215px, -33.0086px);">Outcome &amp; Skills</p>
+
+</div>
+<div aria-label="Outcome" class="outcomeCard" style="position: relative; transform: translate(1.37535px, -37.1347px);">
+<div class="oIcon"><i class="fa-solid fa-book-open-reader"></i></div>
+<div style="min-width:0;">
+<p class="oTitle">Outcome: Peer-reviewed bibliography</p>
+<p class="oText">A curated list of scholarly sources you can cite confidently—ready to support essays, reports, and projects.</p>
+<div aria-label="Bibliography components" class="oPills">
+<div class="pill"><i class="fa-solid fa-check"></i><p style="margin:0;">Peer-reviewed</p></div>
+<div class="pill"><i class="fa-solid fa-quote-right"></i><p style="margin:0;">Correct citations</p></div>
+<div class="pill"><i class="fa-solid fa-folder-tree"></i><p style="margin:0;">Organized sources</p></div>
+<div class="pill"><i class="fa-solid fa-tags"></i><p style="margin:0;">Style-consistent: <span class="mono">APA</span>/<span class="mono">MLA</span>/<span class="mono">Chicago</span></p></div>
+</div>
+</div>
+</div>
+<div aria-label="Skills earned" class="skillsWrap">
+
+<div class="skillsGrid" style="position: relative; transform: translate(-1.37536px, -38.5099px);">
+<article class="skillCard">
+<div class="skillTop">
+<div class="sIcon"><i class="fa-solid fa-brain"></i></div>
+<div class="sBadge"><span class="dot"></span><p style="margin:0;">Reason</p></div>
+</div>
+<div>
+<p class="sName">Critical Thinking</p>
+
+</div>
+<div aria-label="Critical thinking behaviors" class="miniList">
+
+
+</div>
+</article>
+<article class="skillCard">
+<div class="skillTop">
+<div class="sIcon"><i class="fa-solid fa-database"></i></div>
+<div class="sBadge"><span class="dot"></span><p style="margin:0;">Interpret</p></div>
+</div>
+<div>
+<p class="sName">Data Literacy</p>
+
+</div>
+<div aria-label="Data literacy behaviors" class="miniList">
+
+
+</div>
+</article>
+<article class="skillCard">
+<div class="skillTop">
+<div class="sIcon"><i class="fa-solid fa-shield-heart"></i></div>
+<div class="sBadge"><span class="dot"></span><p style="margin:0;">Ethical</p></div>
+</div>
+<div>
+<p class="sName">Academic Integrity</p>
+
+</div>
+<div aria-label="Integrity behaviors" class="miniList">
+
+
+</div>
+</article>
+</div>
+</div>
+</div>
+<aside class="right" style="position: relative; transform: translate(-2.75072px, -26.1318px);">
+<div aria-label="Title awarded" class="badgeCard" style="position: relative; transform: translate(-5.50143px, -20.6304px);">
+<div class="badgeRow">
+<div class="medal"><i class="fa-solid fa-award"></i></div>
+<div style="min-width:0;">
+<p class="awardTitle">Title Awarded</p>
+<p class="awardRole"><span>Information Architect</span></p>
+<p class="awardText">You can locate trusted research, organize evidence, and build ethical, traceable work that others can verify.</p>
+</div>
+</div>
+</div>
+<div aria-label="What to keep doing" class="evidenceCard" style="position: relative; transform: translate(-4.12608px, -30.2578px);">
+<p class="rTitle">Keep this workflow</p>
+<div class="rItem">
+<div class="rIcon"><i class="fa-solid fa-magnifying-glass"></i></div>
+<p class="rText"><span>Search</span> with keywords + filters in academic databases.</p>
+</div>
+<div class="rItem">
+<div class="rIcon"><i class="fa-solid fa-box-archive"></i></div>
+<p class="rText"><span>Store</span> every source in a reference manager (e.g., Zotero/Mendeley).</p>
+</div>
+<div class="rItem">
+<div class="rIcon"><i class="fa-solid fa-pen-nib"></i></div>
+<p class="rText"><span>Write</span> using paraphrases + citations (quote when needed).</p>
+</div>
+<div class="rItem">
+<div class="rIcon"><i class="fa-solid fa-shield-halved"></i></div>
+<p class="rText"><span>Verify</span> with similarity checks before submitting.</p>
+</div>
+</div>
+<div aria-label="Final note" class="evidenceCard" style="margin-top:auto;">
+<p class="rTitle">Final reminder</p>
+<div class="rItem" style="background:var(--butter2);border-color:rgba(17,24,39,0.10);">
+<div class="rIcon" style="background:#fff;border-color:rgba(17,24,39,0.10);"><i class="fa-solid fa-circle-check"></i></div>
+<p class="rText">Ethical research is a habit: <span>track sources</span>, <span>credit authors</span>, and <span>build trust</span> in your work.</p>
+</div>
+</div>
+</aside>
+</div>
+</section>
+</main>
+<nav aria-label="Topic navigation" class="nav">
+<a class="navBtn" href="f11.html">
+<i class="fa-solid fa-arrow-left"></i>
+<div class="navStack">
+<p class="label">&nbsp;Avoiding</p>
+
+</div>
+</a>
+<a class="navBtn" href="f1.html">
+<div class="navStack" style="text-align:right;">
+<p class="label">Cover&nbsp;</p>
+
+</div>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</nav>
+<footer class="footer"><strong>
+<p class="ftrText">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</strong></footer>
+</div>
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') {
+      // Goes to next slide
+      window.location.href = 'f1.html'; 
+    } else if (e.key === 'ArrowLeft') {
+      // Goes to previous slide
+      window.location.href = 'f10.html';
+    }
+  });
+</script>
+
+
+</body></html>

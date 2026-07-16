@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Key Skills</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: linear-gradient(135deg,#1a1446,#2a1e6a);
+    color: white;
+}
+
+.container { padding: 40px; }
+
+h1 { text-align: center; }
+.top-bar {
+    position: absolute;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+    
+    width: 100%;
+}
+
+.grid {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    padding: 30px;
+    width: 300px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.skills span {
+    display: inline-block;
+    background: rgba(255,255,255,0.1);
+    padding: 8px 15px;
+    margin: 20px;
+    border-radius: 20px;
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #060621;
+    text-align: center;
+    padding: 10px;
+    color: #aaa;
+}
+.navbar {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+
+    background: rgba(255, 218, 185, 0.25);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+
+    z-index: 9999;   /* 🔥 FIX CLICK ISSUE */
+}
+
+.nav-link {
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+
+</style>
+
+</head>
+<body>
+<div class="slider">
+
+    <!-- Slide 1 -->
+    <div class="slide active">
+        <div class="top-bar">
+            EDUUASPIRE21.0 SKILLS | 21ST CENTURY SKILLS | DIGITAL LITERACY
+        </div>
+
+<div class="container">
+
+<h1>💡 Key Skills Gained</h1>
+
+<div class="grid">
+    <div class="card">
+        <h3>Creativity</h3>
+        <p>Express ideas visually and narratively using digital tools.</p>
+    </div>
+
+    <div class="card">
+        <h3>Communication</h3>
+        <p>Communicate stories and ideas effectively through digital media.</p>
+    </div>
+</div>
+
+<h3 style="text-align:center;margin-top:40px;">Supporting Skills</h3>
+
+<div class="skills" style="text-align:center;">
+    <span>Collaboration</span>
+    <span>Digital Literacy</span>
+    <span>Critical Thinking</span>
+    <span>Problem Solving</span>
+    <span>Media Literacy</span>
+</div>
+
+</div>
+<div class="navbar">
+    <div class="nav-link" onclick="goTo('f7.html')">← Outcomes</div>
+    <div class="nav-link" onclick="goTo('f9.html')">Glance →</div>
+</div>
+
+<div class="footer">
+Licensed & Powered By Astrl Minds Technologies © 2026–2033
+</div>
+<script>
+
+// ✅ MAIN FIX → this was missing
+function goTo(page) {
+    window.location.href = page;
+}
+
+// Optional (you can keep or remove)
+function next() {
+    goTo("f9.html");
+}
+
+function prev() {
+    goTo("f7.html");
+}
+
+// ✅ Keyboard navigation (fixed)
+document.addEventListener("keydown", function(e) {
+
+    const active = document.activeElement.tagName.toLowerCase();
+
+    if (active === "input" || active === "textarea") return;
+
+    if (e.key === "ArrowRight") {
+        goTo("f9.html");
+    }
+
+    if (e.key === "ArrowLeft") {
+        goTo("f7.html");
+    }
+
+});
+
+</script>
+</body>
+</html>

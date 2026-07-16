@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pixel Storytellers - Slide 9</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            overflow: hidden;
+display: flex;              /* IMPORTANT */
+    justify-content: center;    /* horizontal center */
+    align-items: center;        /* vertical center */
+    height: 100vh;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FFF2E6; /* Light pastel orange base */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Shapes */
+        .shape-blob-1 {
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background-color: #FED7AA; /* Orange-200 */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        
+        .shape-blob-2 {
+            position: absolute;
+            bottom: -80px;
+            right: -80px;
+            width: 600px;
+            height: 600px;
+            background-color: #FFE4E6; /* Rose-100 */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* Header Styles */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            color: #7c2d12;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Footer Styles */
+        .footer {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 10px;
+            color: #9ca3af;
+            z-index: 10;
+            padding-bottom: 5px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            background: #f1f5f9;
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-radius: 10px;
+            z-index: 20;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .nav-link {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: #ea580c;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            padding: 40px 0 80px 0; /* Space for nav */
+        }
+
+        h1 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 52px;
+            color: #ea580c;
+            margin: 0 0 30px 0;
+            text-align: center;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        /* Comparison Layout */
+        .comparison-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            width: 90%;
+            margin-bottom: 30px;
+        }
+
+        .card-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .compare-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 30px;
+            width: 100%;
+            max-width: 450px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(234, 88, 12, 0.1);
+            border: 4px solid #fff;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .compare-card:hover {
+            transform: translateY(-8px);
+        }
+
+        /* Fact Card Specifics */
+        .fact-card {
+            border-bottom: 8px solid #FCD34D; /* Amber border */
+        }
+
+        .fact-icon-circle {
+            width: 100px;
+            height: 100px;
+            background-color: #FEF3C7; /* Amber-100 */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: #D97706;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(217, 119, 6, 0.15);
+        }
+
+        /* Opinion Card Specifics */
+        .opinion-card {
+            border-bottom: 8px solid #FDA4AF; /* Rose border */
+        }
+
+        .opinion-icon-circle {
+            width: 100px;
+            height: 100px;
+            background-color: #FFE4E6; /* Rose-100 */
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            color: #E11D48;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 10px rgba(225, 29, 72, 0.15);
+        }
+
+        .card-title {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 32px;
+            margin: 0 0 15px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .title-fact { color: #D97706; }
+        .title-opinion { color: #E11D48; }
+
+        .card-desc {
+            font-size: 20px;
+            color: #4b5563;
+            margin: 0;
+            line-height: 1.5;
+            background: rgba(255,255,255,0.6);
+            padding: 10px 15px;
+            border-radius: 12px;
+            width: 100%;
+        }
+
+        /* VS Badge */
+        .vs-badge {
+            width: 80px;
+            height: 80px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 900;
+            font-size: 32px;
+            color: #EA580C;
+            border: 4px solid #FED7AA;
+            box-shadow: 0 0 20px rgba(234, 88, 12, 0.15);
+            z-index: 10;
+            flex-shrink: 0;
+        }
+
+        /* Summary Banner */
+        .summary-banner {
+            background-color: #fff;
+            padding: 12px 40px;
+            border-radius: 50px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 10px;
+            border: 2px solid #FED7AA;
+            animation: bounce 2s infinite;
+        }
+
+        .summary-text {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 22px;
+            color: #7C2D12;
+            margin: 0;
+        }
+
+        .summary-icon {
+            color: #F97316;
+            font-size: 24px;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Shapes -->
+<div class="shape-blob-1"></div>
+<div class="shape-blob-2"></div>
+<!-- Header -->
+<div class="header">
+<p>EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<h1>Facts vs Opinions</h1>
+<div class="comparison-container">
+<!-- Card 1: Facts -->
+<div class="card-wrapper">
+<div class="compare-card fact-card">
+<div class="fact-icon-circle">
+<i class="fa-solid fa-check-double"></i>
+</div>
+<h2 class="card-title title-fact">Facts</h2>
+<div class="card-desc">
+<p><strong>True Information</strong></p>
+<p style="font-size: 16px; margin-top: 5px; color: #6b7280;">(Something that can be proven)</p>
+</div>
+</div>
+</div>
+<!-- VS Badge -->
+<div class="vs-badge">VS</div>
+<!-- Card 2: Opinions -->
+<div class="card-wrapper">
+<div class="compare-card opinion-card">
+<div class="opinion-icon-circle">
+<i class="fa-solid fa-heart"></i>
+</div>
+<h2 class="card-title title-opinion">Opinions</h2>
+<div class="card-desc">
+<p><strong>Personal Beliefs</strong></p>
+<p style="font-size: 16px; margin-top: 5px; color: #6b7280;">(How someone feels or thinks)</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Summary -->
+<div class="summary-banner">
+<i class="fa-solid fa-magnifying-glass summary-icon"></i>
+<p class="summary-text">Learn to identify both!</p>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navbar">
+<div class="nav-link" onclick="prev()"><i class="fa-solid fa-arrow-left"></i> Colours & Shapes</div>
+<div class="nav-link" onclick="next()">Understanding bias <i class="fa-solid fa-arrow-right"></i></div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<script>
+    function next() {
+        window.location.href = "c10.html";
+    }
+
+    function prev() {
+        window.location.href = "c8.html";
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+    });
+</script>
+</body>
+</html>

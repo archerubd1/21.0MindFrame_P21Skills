@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide 14 - Conclusion</title>
+<!-- Tailwind CSS for layout and utility classes -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- FontAwesome for Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        /* Base Styling & Dimensions */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #eceff1;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #fdf6e3;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Typography */
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+
+        /* Theme Colors */
+        .text-deep-brown { color: #3e2723; }
+        .text-soft-brown { color: #8d6e63; }
+        .bg-cream-accent { background-color: #f5f1e8; }
+        .border-brown-light { border-color: rgba(141, 110, 99, 0.2); }
+        .bg-deep-brown { background-color: #3e2723; }
+
+        /* Navigation CSS */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            background: #f5f1e8;
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+            border: 1px solid rgba(141, 110, 99, 0.15);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            z-index: 50;
+        }
+        .nav-link {
+            cursor: pointer;
+            color: #5a3e2b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 1s ease-out forwards; }
+        .slide-up { animation: slideUp 0.8s ease-out forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+.footer {
+    position: absolute;
+    bottom: 0;   /* 🔥 sticks to bottom */
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f1e8;
+    border-top: 1px solid rgba(141, 110, 99, 0.2);
+    z-index: 40;
+}
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="w-full py-6 px-12 flex justify-between items-center border-b border-brown-light fade-in">
+<div>
+<p class="text-xs font-inter font-semibold tracking-widest text-soft-brown uppercase">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<div>
+<i class="fa-solid fa-flag-checkered text-soft-brown text-xl"></i>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col justify-center px-24 pb-20 pt-4 relative z-10 w-full">
+<!-- Title -->
+<div class="mb-6 text-center fade-in">
+<div class="inline-flex items-center justify-center h-12 w-12 rounded-full bg-cream-accent border border-brown-light mb-3 shadow-sm">
+<i class="fa-solid fa-flag-checkered text-2xl text-deep-brown"></i>
+</div>
+<h1 class="text-4xl font-playfair font-bold text-deep-brown">
+<p>Conclusion</p>
+</h1>
+<div class="h-1 w-20 bg-soft-brown mx-auto mt-4 rounded-full opacity-60"></div>
+<div class="mt-2 text-lg font-inter text-soft-brown">
+<p>Securing your professional and financial journey for the road ahead.</p>
+</div>
+</div>
+<!-- Content Area: Emphasized Summary List -->
+<div class="flex flex-col gap-4 w-full max-w-4xl mx-auto">
+<!-- Item 1 -->
+<div class="flex items-center bg-cream-accent px-6 py-4 rounded-2xl border border-brown-light shadow-sm slide-up delay-1 transform transition duration-300 hover:scale-105">
+<div class="h-12 w-12 rounded-full bg-white flex items-center justify-center mr-6 shadow-sm text-soft-brown text-xl flex-shrink-0 border border-brown-light">
+<i class="fa-solid fa-shield-halved"></i>
+</div>
+<div>
+<p class="text-2xl font-inter text-deep-brown font-semibold">Financial confidence</p>
+<p class="text-base font-inter text-soft-brown mt-0.5">Achieve peace of mind through structured income planning and disciplined wealth management.</p>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="flex items-center bg-cream-accent px-6 py-4 rounded-2xl border border-brown-light shadow-sm slide-up delay-2 transform transition duration-300 hover:scale-105">
+<div class="h-12 w-12 rounded-full bg-white flex items-center justify-center mr-6 shadow-sm text-soft-brown text-xl flex-shrink-0 border border-brown-light">
+<i class="fa-solid fa-scale-balanced"></i>
+</div>
+<div>
+<p class="text-2xl font-inter text-deep-brown font-semibold">Long-term stability</p>
+<p class="text-base font-inter text-soft-brown mt-0.5">Build a resilient financial foundation designed to withstand economic fluctuations and risks.</p>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="flex items-center bg-cream-accent px-6 py-4 rounded-2xl border border-brown-light shadow-sm slide-up delay-3 transform transition duration-300 hover:scale-105">
+<div class="h-12 w-12 rounded-full bg-white flex items-center justify-center mr-6 shadow-sm text-soft-brown text-xl flex-shrink-0 border border-brown-light">
+<i class="fa-solid fa-user-shield"></i>
+</div>
+<div>
+<p class="text-2xl font-inter text-deep-brown font-semibold">Secure professional future</p>
+<p class="text-base font-inter text-soft-brown mt-0.5">Empower your career trajectory with comprehensive protection and retirement strategies.</p>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer">
+    <p class="text-xs font-inter text-soft-brown opacity-80">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </p>
+</footer>
+<!-- Navigation -->
+<nav class="navbar">
+<div class="nav-link" onclick="prev()">
+<i class="fa-solid fa-arrow-left"></i> <p>Outcomes</p>
+</div>
+<!-- Only Previous for Slide 14 -->
+</nav>
+</div>
+<!-- Navigation Script -->
+<script>
+    function prev() {
+        window.location.href = "s13.html";
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "ArrowLeft") prev();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conclusion - Truth Detectives</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Roboto+Mono:wght@400;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #050510;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* Neon Utilities */
+        .neon-text-blue {
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .neon-text-green {
+            text-shadow: 0 0 5px rgba(16, 185, 129, 0.8), 0 0 15px rgba(16, 185, 129, 0.4);
+        }
+        
+        .neon-text-purple {
+            text-shadow: 0 0 5px rgba(168, 85, 247, 0.8), 0 0 10px rgba(168, 85, 247, 0.4);
+        }
+
+        .neon-box {
+            background-color: rgba(15, 23, 42, 0.6);
+            border: 1px solid rgba(59, 130, 246, 0.3);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
+
+        /* Grid Background Pattern */
+        .grid-line-h {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+        
+        .grid-line-v {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+
+        /* Magnifying Glass Construction */
+        .magnifying-glass-container {
+            position: relative;
+            width: 380px;
+            height: 380px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: rotate(-15deg);
+        }
+
+        .glass-rim {
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            border: 12px solid #3b82f6;
+            box-shadow: 0 0 30px rgba(59, 130, 246, 0.5), inset 0 0 20px rgba(59, 130, 246, 0.3);
+            background-color: rgba(30, 41, 59, 0.3);
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .glass-handle {
+            position: absolute;
+            bottom: -50px;
+            right: 30px;
+            width: 35px;
+            height: 120px;
+            background-color: #1e293b;
+            border: 2px solid #3b82f6;
+            transform: rotate(-45deg);
+            border-radius: 20px;
+            z-index: 5;
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        .glass-handle::after {
+            content: '';
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 18px;
+            height: 50px;
+            background-color: rgba(59, 130, 246, 0.2);
+            border-radius: 10px;
+        }
+
+        /* Verification Check */
+        .big-check {
+            font-size: 120px;
+            color: #10b981;
+            text-shadow: 0 0 30px rgba(16, 185, 129, 0.8);
+            opacity: 1; /* Removed animation for export consistency */
+        }
+
+        /* Scanning Effect */
+        .scan-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            border: 2px dashed #a855f7;
+            border-radius: 50%;
+            opacity: 0.6;
+            /* Removed animation for export consistency */
+        }
+
+        /* Takeaway Cards */
+        .takeaway-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.25rem;
+            padding: 0.85rem;
+            border-left: 4px solid transparent;
+            background-color: rgba(15, 23, 42, 0.3);
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .takeaway-item:hover {
+            background-color: rgba(15, 23, 42, 0.6);
+            transform: translateX(10px);
+        }
+
+        .takeaway-1:hover { border-left-color: #3b82f6; box-shadow: -10px 0 20px -10px rgba(59, 130, 246, 0.3); }
+        .takeaway-2:hover { border-left-color: #a855f7; box-shadow: -10px 0 20px -10px rgba(168, 85, 247, 0.3); }
+        .takeaway-3:hover { border-left-color: #10b981; box-shadow: -10px 0 20px -10px rgba(16, 185, 129, 0.3); }
+
+        .icon-box {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1.25rem;
+            flex-shrink: 0;
+            background-color: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* Success Story Badge */
+        .success-badge {
+            position: absolute;
+            bottom: 20px;
+            right: -10px;
+            background-color: #0f172a;
+            border: 1px solid #10b981;
+            padding: 0.85rem;
+            border-radius: 8px;
+            max-width: 300px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px rgba(16, 185, 129, 0.2);
+            z-index: 20;
+            transform: rotate(-2deg);
+        }
+
+        .success-badge::before {
+            content: 'SUCCESS STORY';
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background-color: #10b981;
+            color: #000;
+            font-size: 10px;
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 2px;
+            font-family: 'Roboto Mono', monospace;
+        }
+
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body>
+<div class="slide-container text-white">
+<!-- Background Grid -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<div class="grid-line-h" style="top: 10%"></div>
+<div class="grid-line-h" style="top: 20%"></div>
+<div class="grid-line-h" style="top: 30%"></div>
+<div class="grid-line-h" style="top: 40%"></div>
+<div class="grid-line-h" style="top: 50%"></div>
+<div class="grid-line-h" style="top: 60%"></div>
+<div class="grid-line-h" style="top: 70%"></div>
+<div class="grid-line-h" style="top: 80%"></div>
+<div class="grid-line-h" style="top: 90%"></div>
+<div class="grid-line-v" style="left: 10%"></div>
+<div class="grid-line-v" style="left: 20%"></div>
+<div class="grid-line-v" style="left: 30%"></div>
+<div class="grid-line-v" style="left: 40%"></div>
+<div class="grid-line-v" style="left: 50%"></div>
+<div class="grid-line-v" style="left: 60%"></div>
+<div class="grid-line-v" style="left: 70%"></div>
+<div class="grid-line-v" style="left: 80%"></div>
+<div class="grid-line-v" style="left: 90%"></div>
+<!-- Glow Effects -->
+<div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[600px] bg-blue-900 rounded-full filter blur-[150px] opacity-10"></div>
+</div>
+<!-- Custom Header -->
+<div class="absolute top-0 left-0 w-full bg-gray-900 bg-opacity-90 border-b border-blue-900 z-30 py-2 px-6 flex justify-center items-center">
+<p class="font-['Roboto_Mono'] text-blue-400 text-xs tracking-widest uppercase neon-text-blue">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Original Header (Moved down slightly) -->
+<header class="flex justify-between items-center px-12 pt-12 pb-4 z-20 relative">
+<div class="flex items-center space-x-4">
+<i class="fas fa-certificate text-green-500 text-2xl"></i>
+<h2 class="font-['Space_Grotesk'] text-2xl font-bold tracking-wider text-gray-200">FINAL REPORT</h2>
+</div>
+<div class="flex items-center space-x-2 font-['Roboto_Mono'] text-green-400 text-sm tracking-widest">
+<i class="fas fa-check-double"></i>
+<span>STATUS: CERTIFIED</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex px-12 py-4 z-10 relative overflow-hidden">
+<!-- Left Column: Key Takeaways -->
+<div class="w-7/12 flex flex-col justify-center pr-8">
+<div class="mb-6">
+<p class="font-['Roboto_Mono'] text-blue-400 text-xs mb-2 uppercase tracking-widest">Case Closed</p>
+<h1 class="font-['Space_Grotesk'] text-4xl font-bold leading-tight mb-4">
+<p>You Are Now a <br/><span class="neon-text-blue">Truth Detective</span></p>
+</h1>
+<p class="font-['Inter'] text-gray-400 text-base leading-relaxed">
+<p>You have the mindset, the tools, and the skills. The internet is a safer place when you question what you see.</p>
+</p>
+</div>
+<!-- Takeaway List -->
+<div class="space-y-2">
+<!-- Point 1 -->
+<div class="takeaway-item takeaway-1">
+<div class="icon-box text-blue-400">
+<i class="fas fa-hand-paper text-lg"></i>
+</div>
+<div>
+<h3 class="font-['Space_Grotesk'] font-bold text-white text-lg"><p>Pause &amp; Check</p></h3>
+<p class="text-xs text-gray-400"><p>Don't share instantly. Verify before you amplify.</p></p>
+</div>
+</div>
+<!-- Point 2 -->
+<div class="takeaway-item takeaway-2">
+<div class="icon-box text-purple-400">
+<i class="fas fa-toolbox text-lg"></i>
+</div>
+<div>
+<h3 class="font-['Space_Grotesk'] font-bold text-white text-lg"><p>Use Tools + Ask WHY</p></h3>
+<p class="text-xs text-gray-400"><p>Use reverse search and check sources. Who benefits from this?</p></p>
+</div>
+</div>
+<!-- Point 3 -->
+<div class="takeaway-item takeaway-3">
+<div class="icon-box text-green-400">
+<i class="fas fa-users text-lg"></i>
+</div>
+<div>
+<h3 class="font-['Space_Grotesk'] font-bold text-white text-lg"><p>Lead by Example</p></h3>
+<p class="text-xs text-gray-400"><p>Help friends spot fakes kindly. Be the expert in the group.</p></p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Big Visual -->
+<div class="w-5/12 flex items-center justify-center relative">
+<!-- Magnifying Glass Visual -->
+<div class="magnifying-glass-container">
+<div class="glass-handle"></div>
+<div class="glass-rim">
+<div class="scan-ring"></div>
+<!-- Inner Content -->
+<div class="flex flex-col items-center justify-center">
+<i class="fas fa-check big-check"></i>
+<p class="font-['Roboto_Mono'] text-green-400 text-xs tracking-[0.2em] mt-2 opacity-80 font-bold"><p>TRUTH FOUND</p></p>
+</div>
+</div>
+</div>
+<!-- Case Study Float Card -->
+<div class="success-badge">
+<div class="flex items-start space-x-3">
+<div class="w-8 h-8 rounded bg-gray-800 border border-gray-600 flex items-center justify-center flex-shrink-0">
+<i class="fas fa-voicemail text-gray-400"></i>
+</div>
+<div>
+<p class="text-[10px] text-gray-400 font-['Roboto_Mono'] mb-1"><p>REAL LIFE WIN</p></p>
+<p class="text-white text-xs font-bold leading-tight"><p>Class Debunked Fake Principal Voicemail</p></p>
+<p class="text-[9px] text-gray-500 mt-1"><p>Method: Audio Reverse Search &amp; Source Check</p></p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Custom Footer -->
+<div class="absolute bottom-0 left-0 w-full bg-gray-900 bg-opacity-90 border-t border-purple-900 z-30 py-2 px-6 flex justify-center items-center">
+<p class="font-['Inter'] text-gray-400 text-[10px] neon-text-purple tracking-wide">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+<!-- Original Footer (Hidden/Adjusted) -->
+<footer class="h-8 border-t border-gray-800 bg-gray-900 flex items-center justify-between px-12 z-20 mb-8 opacity-50">
+<div class="flex items-center space-x-4">
+<span class="text-gray-500 text-[10px] font-['Roboto_Mono']">END OF SIMULATION</span>
+<span class="text-blue-500 text-[10px]"><i class="fas fa-circle"></i> RECORD SAVED</span>
+</div>
+<div class="flex items-center space-x-2">
+<span class="text-gray-500 text-[10px] font-['Roboto_Mono']">16 / 17</span>
+<div class="w-16 h-1 bg-gray-800 rounded-full overflow-hidden">
+<div class="h-full bg-blue-500 w-[94%]"></div>
+</div>
+</div>
+</footer>
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f15.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f13.html';
+    }
+
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Key Skills Development</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f3f4f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* SLIDE */
+.slide{
+    width:1280px;
+    height:720px;
+    background:#fff;
+    position:relative;
+}
+
+/* HEADER */
+.header{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    color:#6b7280;
+    border-bottom:1px solid #eee;
+}
+
+/* CONTENT */
+.content{
+    position:absolute;
+    top:80px;
+    bottom:120px;
+    width:100%;
+    padding:0 80px;
+}
+
+/* TITLE */
+.title{
+    font-size:34px;
+    font-weight:600;
+    margin-bottom:60px;
+}
+
+/* CENTER LINE */
+.line{
+    position:absolute;
+    top:55%;
+    left:80px;
+    right:80px;
+    height:10px;
+    background:#90a4ae;
+    border-radius:5px;
+}
+
+/* CIRCLES */
+.circle{
+    width:160px;
+    height:160px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff;
+    position:absolute;
+    z-index:2;
+}
+
+.circle.dark{
+    border:14px solid #2f6f6b;
+}
+
+.circle.light{
+    border:14px solid #90a4ae;
+}
+
+/* ICON */
+.icon{
+    font-size:26px;
+}
+
+/* TEXT */
+.text{
+    position:absolute;
+    width:260px;
+    text-align:center;
+}
+
+.text h3{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.text p{
+    font-size:13px;
+    color:#6b7280;
+    line-height:1.2;
+}
+
+/* POSITIONS */
+
+/* LEFT TOP */
+.c1{ top:180px; left:80px; }
+.t1{ top:180px; left:280px; }
+
+/* LEFT BOTTOM */
+.c2{ top:330px; left:350px; }
+.t2{ top:450px; left:80px; }
+
+/* RIGHT TOP */
+.c3{ top:180px; right:350px; }
+.t3{ top:180px; right:62px; }
+
+/* RIGHT BOTTOM */
+.c4{ top:330px; right:80px; }
+.t4{ top:450px; right:260px; }
+
+/* NAVBAR */
+.navbar{
+    position:absolute;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    padding:10px 25px;
+    display:flex;
+    justify-content:space-between;
+    background:#f1f5f9;
+    backdrop-filter:blur(8px);
+    border-radius:10px;
+}
+
+.nav-link{
+    cursor:pointer;
+    font-size:14px;
+}
+
+.next{
+    color:#7c3aed;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:#6b7280;
+    border-top:1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+    <!-- HEADER -->
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="title">Key Skills Development</div>
+
+        <div class="line"></div>
+
+        <!-- CIRCLES -->
+        <div class="circle dark c1"><div class="icon">🕒</div></div>
+        <div class="circle light c2"><div class="icon">📄</div></div>
+        <div class="circle dark c3"><div class="icon">💼</div></div>
+        <div class="circle light c4"><div class="icon">🪐</div></div>
+
+        <!-- TEXT -->
+        <div class="text t1">
+            <h3>Content Strategy</h3>
+            <p>
+                Developing compelling narratives, multimedia storytelling, audience segmentation, and message amplification techniques.
+            </p>
+        </div>
+
+        <div class="text t2">
+            <h3>Civic Literacy</h3>
+            <p>
+                Understanding governance structures, rights frameworks, policy processes, and community advocacy mechanisms effectively.
+            </p>
+        </div>
+
+        <div class="text t3">
+            <h3>Responsible Communication</h3>
+            <p>
+                Ethical messaging, accountability, transparency, and impact-conscious digital citizenship practices.
+            </p>
+        </div>
+
+        <div class="text t4">
+            <h3>Critical Thinking</h3>
+            <p>
+                Evaluating claims, identifying logical fallacies, assessing evidence quality, and synthesizing diverse perspectives.
+            </p>
+        </div>
+
+    </div>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Constructive</div>
+        <div class="nav-link next" onclick="next()">Outcomes →</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+
+<script>
+function next() {
+    window.location.href = "d8.html"; // update
+}
+
+function prev() {
+    window.location.href = "d6.html"; // update
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+});
+</script>
+
+</body>
+</html>

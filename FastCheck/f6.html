@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Forensic Verification Process</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Preload next slide for smooth UX -->
+<link rel="prefetch" href="f7.html">
+
+<style>
+:root {
+    --neon-cyan: #00f3ff;
+    --electric-purple: #bc13fe;
+    --dark-bg: #050a14;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    overflow: hidden;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background-color: #020408;
+    display: flex;
+    flex-direction: column;
+}
+
+/* GRID */
+.bg-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0z' fill='%2300f3ff' fill-opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+}
+
+/* HEADER */
+.header-bar {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 50px;
+    border-bottom: 1px solid rgba(0,243,255,0.3);
+    font-family: 'Share Tech Mono';
+    color: var(--neon-cyan);
+}
+
+/* FOOTER */
+.footer-bar {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(188,19,254,0.3);
+    font-family: 'Share Tech Mono';
+    font-size: 12px;
+    color: #aaa;
+}
+
+/* CONTENT */
+.content-area {
+    flex: 1;
+    padding: 30px 50px;
+}
+
+/* TITLE */
+.title-block {
+    border-left: 4px solid var(--neon-cyan);
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-family: 'Orbitron';
+    font-size: 40px;
+}
+
+.subtitle {
+    color: var(--electric-purple);
+    font-family: 'Share Tech Mono';
+}
+
+/* STEPS */
+.main-layout {
+    display: flex;
+    gap: 30px;
+}
+
+.stepper-container {
+    flex: 2;
+}
+
+.step-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid transparent;
+    transition: 0.3s;
+}
+
+.step-item:hover {
+    border-color: var(--neon-cyan);
+    transform: translateX(10px);
+}
+
+.step-number {
+    width: 50px;
+    height: 50px;
+    border: 2px solid var(--neon-cyan);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Orbitron';
+}
+
+.step-content h3 {
+    margin: 0;
+}
+
+.tool-spotlight {
+    flex: 1;
+    border: 1px solid var(--electric-purple);
+    padding: 20px;
+}
+
+.tool-name {
+    color: var(--electric-purple);
+    font-family: 'Orbitron';
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<div class="bg-grid"></div>
+
+<!-- HEADER -->
+<div class="header-bar">
+<div>EduuAspire 21.0 Skills |21st century skills| digital literacy</div>
+</div>
+
+<!-- CONTENT -->
+<div class="content-area">
+
+<div class="title-block">
+<h1>Forensic Verification Process</h1>
+<p class="subtitle">STANDARD OPERATING PROCEDURE</p>
+</div>
+
+<div class="main-layout">
+
+<!-- LEFT -->
+<div class="stepper-container">
+
+<div class="step-item">
+<div class="step-number">01</div>
+<div class="step-content">
+<h3>Reverse Image Search</h3>
+<p>Find original source using Google Lens, TinEye.</p>
+</div>
+</div>
+
+<div class="step-item">
+<div class="step-number">02</div>
+<div class="step-content">
+<h3>Metadata Check</h3>
+<p>Check EXIF data for inconsistencies.</p>
+</div>
+</div>
+
+<div class="step-item">
+<div class="step-number">03</div>
+<div class="step-content">
+<h3>Frame Analysis</h3>
+<p>Analyze video frames for edits.</p>
+</div>
+</div>
+
+<div class="step-item">
+<div class="step-number">04</div>
+<div class="step-content">
+<h3>Source Comparison</h3>
+<p>Verify with trusted sources.</p>
+</div>
+</div>
+
+</div>
+
+<!-- RIGHT -->
+<div class="tool-spotlight">
+<h2 class="tool-name">Check (Meedan)</h2>
+<p>Platform for collaborative fact-checking.</p>
+
+<ul>
+<li>✔ Team workflows</li>
+<li>✔ Social media integration</li>
+<li>✔ Fact-check matching</li>
+<li>✔ Annotation tools</li>
+</ul>
+</div>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+<p>Licensed and powered by Astrl mind Technologies copyright 2026-2033</p>
+</div>
+
+</div>
+
+<!-- ✅ FIXED NAVIGATION -->
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const tag = document.activeElement.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f7.html'; // NEXT
+    }
+
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f5.html'; // PREVIOUS
+    }
+
+});
+</script>
+
+<!-- BUTTONS -->
+<a href="f5.html"
+class="absolute bottom-16 left-12 px-6 py-3 bg-gray-800 text-white rounded-lg">
+←
+</a>
+
+<a href="f7.html"
+class="absolute bottom-16 right-12 px-6 py-3 bg-gray-900 text-white rounded-lg">
+Next →
+</a>
+
+</body>
+</html>

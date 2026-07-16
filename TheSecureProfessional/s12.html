@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Slide 12 - Key Skills</title>
+<!-- Tailwind CSS for layout and utility classes -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:wght@600;700&amp;display=swap" rel="stylesheet"/>
+<!-- FontAwesome for Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        /* Base Styling & Dimensions */
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #eceff1;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #fdf6e3;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Typography */
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        .font-inter { font-family: 'Inter', sans-serif; }
+
+        /* Theme Colors */
+        .text-deep-brown { color: #3e2723; }
+        .text-soft-brown { color: #8d6e63; }
+        .bg-cream-accent { background-color: #f5f1e8; }
+        .border-brown-light { border-color: rgba(141, 110, 99, 0.2); }
+        .bg-deep-brown { background-color: #3e2723; }
+
+        /* Navigation CSS */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            background: #f5f1e8;
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+            border: 1px solid rgba(141, 110, 99, 0.15);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            z-index: 50;
+        }
+        .nav-link {
+            cursor: pointer;
+            color: #5a3e2b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+        .nav-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Animations */
+        .fade-in { animation: fadeIn 1s ease-out forwards; }
+        .slide-up { animation: slideUp 0.8s ease-out forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.1s; }
+        .delay-2 { animation-delay: 0.2s; }
+        .delay-3 { animation-delay: 0.3s; }
+        .delay-4 { animation-delay: 0.4s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+.footer {
+    position: absolute;
+    bottom: 0;   /* 🔥 sticks to bottom */
+    left: 0;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f1e8;
+    border-top: 1px solid rgba(141, 110, 99, 0.2);
+    z-index: 40;
+}
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<header class="w-full py-6 px-12 flex justify-between items-center border-b border-brown-light fade-in">
+<div>
+<p class="text-xs font-inter font-semibold tracking-widest text-soft-brown uppercase">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<div>
+<i class="fa-solid fa-layer-group text-soft-brown text-xl"></i>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex flex-col justify-center px-24 pb-20 relative z-10 w-full">
+<!-- Title -->
+<div class="mb-6 text-center fade-in">
+<h1 class="text-4xl font-playfair font-bold text-deep-brown">
+<p>Key Skills</p>
+</h1>
+<div class="h-1 w-20 bg-soft-brown mx-auto mt-4 rounded-full opacity-60"></div>
+<div class="mt-2 text-base font-inter text-soft-brown">
+<p>Core competencies required for strategic mastery and professional security.</p>
+</div>
+</div>
+<!-- 2x2 Grid Layout -->
+<div class="grid grid-cols-2 gap-6 w-full max-w-5xl mx-auto">
+<!-- Card 1: Risk Management -->
+<div class="bg-cream-accent p-6 rounded-2xl border border-brown-light shadow-sm slide-up delay-1 flex flex-col h-full transform transition duration-300 hover:-translate-y-1">
+<div class="h-12 w-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-brown-light mb-4">
+<i class="fa-solid fa-shield-virus text-lg text-soft-brown"></i>
+</div>
+<div>
+<h2 class="text-xl font-inter text-deep-brown font-semibold mb-2">
+<p>Risk Management</p>
+</h2>
+<div class="text-sm font-inter text-soft-brown leading-relaxed">
+<p>Proactively identifying and mitigating financial and operational exposures to ensure long-term career and wealth stability.</p>
+</div>
+</div>
+</div>
+<!-- Card 2: Security Awareness -->
+<div class="bg-cream-accent p-6 rounded-2xl border border-brown-light shadow-sm slide-up delay-2 flex flex-col h-full transform transition duration-300 hover:-translate-y-1">
+<div class="h-12 w-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-brown-light mb-4">
+<i class="fa-solid fa-user-shield text-lg text-soft-brown"></i>
+</div>
+<div>
+<h2 class="text-xl font-inter text-deep-brown font-semibold mb-2">
+<p>Security Awareness</p>
+</h2>
+<div class="text-sm font-inter text-soft-brown leading-relaxed">
+<p>Maintaining high vigilance against financial fraud, scams, and digital vulnerabilities in daily professional operations.</p>
+</div>
+</div>
+</div>
+<!-- Card 3: Financial Planning -->
+<div class="bg-cream-accent p-6 rounded-2xl border border-brown-light shadow-sm slide-up delay-3 flex flex-col h-full transform transition duration-300 hover:-translate-y-1">
+<div class="h-12 w-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-brown-light mb-4">
+<i class="fa-solid fa-chart-pie text-lg text-soft-brown"></i>
+</div>
+<div>
+<h2 class="text-xl font-inter text-deep-brown font-semibold mb-2">
+<p>Financial Planning</p>
+</h2>
+<div class="text-sm font-inter text-soft-brown leading-relaxed">
+<p>Structuring income streams, optimizing taxes, and managing investments to maximize overall wealth accumulation.</p>
+</div>
+</div>
+</div>
+<!-- Card 4: Strategic Thinking -->
+<div class="bg-cream-accent p-6 rounded-2xl border border-brown-light shadow-sm slide-up delay-4 flex flex-col h-full transform transition duration-300 hover:-translate-y-1">
+<div class="h-12 w-12 bg-white rounded-full flex items-center justify-center shadow-sm border border-brown-light mb-4">
+<i class="fa-solid fa-chess-knight text-lg text-soft-brown"></i>
+</div>
+<div>
+<h2 class="text-xl font-inter text-deep-brown font-semibold mb-2">
+<p>Strategic Thinking</p>
+</h2>
+<div class="text-sm font-inter text-soft-brown leading-relaxed">
+<p>Applying analytical foresight to align immediate career decisions with overarching long-term professional objectives.</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="footer">
+    <p class="text-xs font-inter text-soft-brown opacity-80">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </p>
+</footer>
+<!-- Navigation -->
+<nav class="navbar">
+<div class="nav-link" onclick="prev()">
+<i class="fa-solid fa-arrow-left"></i> <p>Forecasting</p>
+</div>
+<div class="nav-link" onclick="next()">
+<p>Outcomes</p> <i class="fa-solid fa-arrow-right"></i>
+</div>
+</nav>
+</div>
+<!-- Navigation Script -->
+<script>
+        function next() {
+            window.location.href = "s13.html";
+        }
+        function prev() {
+            window.location.href = "s11.html";
+        }
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "ArrowRight") next();
+            if (e.key === "ArrowLeft") prev();
+        });
+    </script>
+</body>
+</html>

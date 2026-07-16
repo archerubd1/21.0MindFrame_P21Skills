@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Outcomes & Assessment</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f3f4f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* SLIDE */
+.slide{
+    width:1280px;
+    height:720px;
+    background:#ffffff;
+    position:relative;
+}
+
+/* HEADER */
+.header{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    color:#6b7280;
+    border-bottom:1px solid #eee;
+}
+
+/* CONTENT */
+.content{
+    position:absolute;
+    top:80px;
+    bottom:120px;
+    width:100%;
+    padding:0 60px;
+}
+
+/* TITLE */
+.title{
+    font-size:34px;
+    font-weight:600;
+    margin-bottom:30px;
+}
+
+/* GRID TOP TEXT */
+.top-grid{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:30px;
+    margin-bottom:30px;
+}
+
+.block h3{
+    font-size:15px;
+    font-weight:600;
+    margin-bottom:8px;
+}
+
+.block p{
+    font-size:13px;
+    color:#6b7280;
+    line-height:1.5;
+}
+
+/* LOWER SECTION */
+.bottom{
+    display:flex;
+    gap:40px;
+    align-items:center;
+}
+
+
+
+/* TABLE */
+.table{
+    flex:1;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+}
+
+th{
+    background:#2f6f6b;
+    color:#fff;
+    padding:12px;
+    text-align:left;
+}
+
+td{
+    padding:12px;
+    border:1px solid #e5e7eb;
+}
+
+tr:nth-child(even){
+    background:#f9fafb;
+}
+
+/* NAVBAR */
+.navbar{
+    position:absolute;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    padding:10px 25px;
+    display:flex;
+    justify-content:space-between;
+    background:#f1f5f9;
+    backdrop-filter:blur(8px);
+    border-radius:10px;
+}
+
+.nav-link{
+    cursor:pointer;
+    font-size:14px;
+}
+
+.next{
+    color:#7c3aed;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:#6b7280;
+    border-top:1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+    <!-- HEADER -->
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="title">Learning Outcomes & Assessment</div>
+
+        <!-- TOP TEXT -->
+        <div class="top-grid">
+
+            <div class="block">
+                <h3>Proficiency Metrics</h3>
+                <p>
+                    Civic literacy score reached 85% with mastery in policy and governance concepts,
+                    validated through comprehensive knowledge assessments across all participant cohorts.
+                </p>
+            </div>
+
+            <div class="block">
+                <h3>Campaign Verification Standards</h3>
+                <p>
+                    Seventy percent of campaign claims verified through credible sources before publication,
+                    ensuring authenticity and reliability across all digital initiatives.
+                </p>
+            </div>
+
+            <div class="block">
+                <h3>Engagement & Sentiment Analysis</h3>
+                <p>
+                    Dialogue quality demonstrated average positive engagement sentiment of plus seventy percent
+                    versus baseline, measured through advanced social listening tools.
+                </p>
+            </div>
+
+            <div class="block">
+                <h3>Critical Thinking Development</h3>
+                <p>
+                    Participants achieved average rubric score of four out of five across claim evaluation,
+                    source credibility assessment, and bias recognition exercises.
+                </p>
+            </div>
+
+        </div>
+
+        <!-- BOTTOM -->
+        <div class="bottom">
+
+            <!-- CHART -->
+            <div class="chart">
+                <div class="chart-line"></div>
+                <div class="chart-line horizontal"></div>
+            </div>
+
+            <!-- TABLE -->
+            <div class="table">
+                <table>
+                    <tr>
+                        <th>Outcome Category</th>
+                        <th>Metric</th>
+                        <th>Target Achievement</th>
+                    </tr>
+                    <tr>
+                        <td>Participants Trained</td>
+                        <td>College Students</td>
+                        <td>500+</td>
+                    </tr>
+                    <tr>
+                        <td>Campaigns Launched</td>
+                        <td>Verified Initiatives</td>
+                        <td>15+</td>
+                    </tr>
+                    <tr>
+                        <td>Content Reach</td>
+                        <td>Total Impressions</td>
+                        <td>250,000+</td>
+                    </tr>
+                    <tr>
+                        <td>Peer Engagement</td>
+                        <td>Verified Conversations</td>
+                        <td>10,000+</td>
+                    </tr>
+                </table>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Key skills</div>
+        <div class="nav-link next" onclick="next()">Standrads →</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+
+<script>
+function next() {
+    window.location.href = "d9.html"; // update
+}
+
+function prev() {
+    window.location.href = "d7.html"; // update
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+});
+</script>
+
+</body>
+</html>

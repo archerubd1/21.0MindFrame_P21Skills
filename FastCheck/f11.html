@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Professional Toolkit</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Rajdhani:wght@400;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --neon-cyan: #00f3ff;
+            --electric-purple: #bc13fe;
+            --history-amber: #ffae00;
+            --dark-bg: #050a14;
+            --card-bg: rgba(5, 10, 20, 0.85);
+            --grid-color: rgba(0, 243, 255, 0.1);
+        }
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            overflow: hidden;
+        }
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #020408;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Grid Background (SVG) */
+        .bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%2300f3ff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Header Styling */
+        .header-bar {
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+            background-color: rgba(5, 10, 20, 0.9);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 16px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 20;
+        }
+
+        /* Footer Styling */
+        .footer-bar {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid rgba(188, 19, 254, 0.3);
+            background-color: rgba(5, 10, 20, 0.9);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 1px;
+            z-index: 20;
+            margin-top: auto;
+        }
+
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 50px;
+            z-index: 10;
+        }
+
+        .title-block {
+            margin-bottom: 30px;
+            border-left: 4px solid var(--neon-cyan);
+            padding-left: 20px;
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 42px;
+            color: white;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(0, 243, 255, 0.3);
+        }
+
+        .subtitle {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--electric-purple);
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        /* Cards Layout */
+        .cards-container {
+            display: flex;
+            gap: 30px;
+            height: 100%;
+            align-items: stretch;
+        }
+
+        .tool-card {
+            flex: 1;
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-5px);
+            z-index: 5;
+        }
+
+        /* Card Header */
+        .card-header {
+            padding: 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            border: 2px solid;
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .card-titles {
+            flex: 1;
+        }
+
+        .tool-name {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            color: white;
+            line-height: 1;
+            margin-bottom: 5px;
+        }
+
+        .tool-type {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Card Body */
+        .card-body {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tool-desc {
+            font-size: 15px;
+            color: #ccc;
+            line-height: 1.5;
+            margin-bottom: 20px;
+            border-left: 2px solid rgba(255, 255, 255, 0.2);
+            padding-left: 10px;
+        }
+
+        /* Usage Section */
+        .usage-section {
+            background: rgba(0, 0, 0, 0.4);
+            margin: -20px;
+            margin-top: auto;
+            padding: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .usage-title {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 14px;
+            color: white;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .usage-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .usage-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #ddd;
+        }
+
+        .usage-bullet {
+            margin-top: 4px;
+            font-size: 10px;
+        }
+
+        /* Specific Card Styles */
+        /* Check (Cyan) */
+        .card-check { border-color: var(--neon-cyan); }
+        .card-check:hover { box-shadow: 0 0 20px rgba(0, 243, 255, 0.15); }
+        .card-check .card-icon { color: var(--neon-cyan); border-color: var(--neon-cyan); box-shadow: 0 0 10px rgba(0, 243, 255, 0.2); }
+        .card-check .tool-type { color: var(--neon-cyan); }
+        .card-check .usage-title { color: var(--neon-cyan); }
+        .card-check .usage-bullet { color: var(--neon-cyan); }
+
+        /* Gephi (Purple) */
+        .card-gephi { border-color: var(--electric-purple); }
+        .card-gephi:hover { box-shadow: 0 0 20px rgba(188, 19, 254, 0.15); }
+        .card-gephi .card-icon { color: var(--electric-purple); border-color: var(--electric-purple); box-shadow: 0 0 10px rgba(188, 19, 254, 0.2); }
+        .card-gephi .tool-type { color: var(--electric-purple); }
+        .card-gephi .usage-title { color: var(--electric-purple); }
+        .card-gephi .usage-bullet { color: var(--electric-purple); }
+
+        /* Wayback (Amber) */
+        .card-wayback { border-color: var(--history-amber); }
+        .card-wayback:hover { box-shadow: 0 0 20px rgba(255, 174, 0, 0.15); }
+        .card-wayback .card-icon { color: var(--history-amber); border-color: var(--history-amber); box-shadow: 0 0 10px rgba(255, 174, 0, 0.2); }
+        .card-wayback .tool-type { color: var(--history-amber); }
+        .card-wayback .usage-title { color: var(--history-amber); }
+        .card-wayback .usage-bullet { color: var(--history-amber); }
+
+        /* Decorative Corners */
+        .corner {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 2px solid;
+            z-index: 10;
+        }
+        .top-left { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .top-right { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+        .bottom-right { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+        .system-id {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            color: rgba(255,255,255,0.3);
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Grid -->
+<div class="bg-grid"></div>
+<!-- Header -->
+<div class="header-bar">
+<div>EduuAspire 21.0</div>
+<div>Skills 21st century skills digital literacy</div>
+</div>
+<!-- Main Content -->
+<div class="content-area">
+<div class="title-block">
+<h1>Professional Toolkit</h1>
+<span class="subtitle">DIGITAL FORENSICS // VERIFICATION SUITE</span>
+</div>
+<div class="cards-container">
+<!-- Card 1: Check -->
+<div class="tool-card card-check">
+<div class="corner top-left" style="border-color: var(--neon-cyan)"></div>
+<div class="corner top-right" style="border-color: var(--neon-cyan)"></div>
+<div class="corner bottom-left" style="border-color: var(--neon-cyan)"></div>
+<div class="corner bottom-right" style="border-color: var(--neon-cyan)"></div>
+<div class="system-id">TOOL_ID: CHK-01</div>
+<div class="card-header">
+<div class="card-icon">
+<i class="fas fa-check-double"></i>
+</div>
+<div class="card-titles">
+<div class="tool-name">Check</div>
+<div class="tool-type">Claim Verification</div>
+</div>
+</div>
+<div class="card-body">
+<p class="tool-desc">
+                            An open-source platform by Meedan designed for collaborative verification. It streamlines the workflow of fact-checking teams by aggregating requests and evidence.
+                        </p>
+<div class="usage-section">
+<div class="usage-title">
+<i class="fas fa-crosshairs"></i> WHEN TO DEPLOY:
+                            </div>
+<ul class="usage-list">
+<li class="usage-item">
+<i class="fas fa-square usage-bullet"></i>
+<span>Verifying viral rumors across messaging apps like WhatsApp.</span>
+</li>
+<li class="usage-item">
+<i class="fas fa-square usage-bullet"></i>
+<span>Coordinating large teams during election monitoring.</span>
+</li>
+<li class="usage-item">
+<i class="fas fa-square usage-bullet"></i>
+<span>Building a database of debunked claims for AI training.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Card 2: Gephi -->
+<div class="tool-card card-gephi">
+<div class="corner top-left" style="border-color: var(--electric-purple)"></div>
+<div class="corner top-right" style="border-color: var(--electric-purple)"></div>
+<div class="corner bottom-left" style="border-color: var(--electric-purple)"></div>
+<div class="corner bottom-right" style="border-color: var(--electric-purple)"></div>
+<div class="system-id">TOOL_ID: GPH-02</div>
+<div class="card-header">
+<div class="card-icon">
+<i class="fas fa-project-diagram"></i>
+</div>
+<div class="card-titles">
+<div class="tool-name">Gephi</div>
+<div class="tool-type">Network Visualization</div>
+</div>
+</div>
+<div class="card-body">
+<p class="tool-desc">
+                            A powerful visualization tool for exploring and manipulating networks. It reveals hidden structures and patterns within complex social data.
+                        </p>
+<div class="usage-section">
+<div class="usage-title">
+<i class="fas fa-crosshairs"></i> WHEN TO DEPLOY:
+                            </div>
+<ul class="usage-list">
+<li class="usage-item">
+<i class="fas fa-square usage-bullet"></i>
+<span>Mapping the spread of disinformation on Twitter/X.</span>
+</li>
+<li class="usage-item">
+<i class="fas fa-square usage-bullet"></i>
+<span>Identifying bot networks and coordinated inauthentic behavior.</span>
+</li>
+<li class="usage-item">
+<i class="fas fa-square usage-bullet"></i>
+<span>Visualizing echo chambers and polarized communities.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Card 3: Wayback Machine -->
+<div class="tool-card card-wayback">
+<div class="corner top-left" style="border-color: var(--history-amber)"></div>
+<div class="corner top-right" style="border-color: var(--history-amber)"></div>
+<div class="corner bottom-left" style="border-color: var(--history-amber)"></div>
+<div class="corner bottom-right" style="border-color: var(--history-amber)"></div>
+<div class="system-id">TOOL_ID: WBM-03</div>
+<div class="card-header">
+<div class="card-icon">
+<i class="fas fa-history"></i>
+</div>
+<div class="card-titles">
+<div class="tool-name">Wayback</div>
+<div class="tool-type">Historical Tracking</div>
+</div>
+</div>
+<div class="card-body">
+<p class="tool-desc">
+                            A digital archive of the World Wide Web. It allows analysts to "go back in time" to see how websites looked in the past.
+                        </p>
+<div class="usage-section">
+<div class="usage-title">
+<i class="fas fa-crosshairs"></i> WHEN TO DEPLOY:
+                            </div>
+<ul class="usage-list">
+<li class="usage-item">
+<i class="fas fa-square usage-bullet"></i>
+<span>Retrieving deleted social media posts or articles.</span>
+</li>
+<li class="usage-item">
+<i class="fas fa-square usage-bullet"></i>
+<span>Proving a website changed its headline or policy silently.</span>
+</li>
+<li class="usage-item">
+<i class="fas fa-square usage-bullet"></i>
+<span>Verifying the original context of a now-removed image.</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<p>Licensed and powered by Astrl mind Technologies copyright 2026-2033</p>
+</div>
+</div>
+   <script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f12
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f12.html';
+    }
+
+    // LEFT → f10
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f10.html';
+    }
+
+});
+</script>
+<!-- NAVIGATION BUTTONS -->
+
+<!-- PREVIOUS BUTTON -->
+<a href="f10.html"
+   class="absolute bottom-16 left-12 z-50 px-6 py-3
+          bg-gray-800 text-white text-sm font-semibold uppercase
+          hover:bg-gray-700 transition rounded-lg shadow-lg">
+← 
+</a>
+
+<!-- NEXT BUTTON -->
+<a href="f12.html"
+   class="absolute bottom-16 right-12 z-50 px-6 py-3
+          bg-gray-900 text-white text-sm font-semibold uppercase
+          hover:bg-gray-800 transition rounded-lg shadow-lg">
+Next →
+</a>
+</body>
+</html>

@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Strategic Evidence Lab - Case Study</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        :root {
+            --bg-dark: #1E1E2F;
+            --bg-panel: #2A2A40;
+            --accent-cyan: #3A6B6B;
+            --accent-green: #4ADE80;
+            --accent-purple: #A78BFA;
+            --accent-blue: #60A5FA;
+            --accent-pink: #F472B6;
+            --accent-orange: #FB923C;
+            --text-heading: #FFFFFF;
+            --text-body: #D1D5DB;
+        }
+
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-body);
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+             width: 100%;  
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+
+        /* Fixed Header */
+        header {
+            height: 60px;
+            background-color: var(--bg-panel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #3A3A50;
+            z-index: 50;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            color: #9CA3AF;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        /* Main Content Area */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .slide-header {
+            margin-bottom: 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .slide-title-group {
+            flex: 1;
+        }
+
+        .slide-title {
+            color: var(--text-heading);
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            display: inline-block;
+            border-left: 6px solid var(--accent-cyan);
+            padding-left: 20px;
+        }
+        
+        .slide-subtitle {
+            color: var(--text-body);
+            font-size: 18px;
+            font-weight: 400;
+            margin-top: 5px;
+            padding-left: 26px;
+            opacity: 0.8;
+        }
+
+        /* Case Study Grid Layout */
+        .case-study-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto 1fr;
+            gap: 20px;
+            height: 460px;
+        }
+
+        /* Context Box (Top Left) */
+        .context-box {
+            grid-column: 1 / 2;
+            background-color: var(--bg-panel);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-purple);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Tools Box (Bottom Left) */
+        .tools-box {
+            grid-column: 1 / 2;
+            background-color: var(--bg-panel);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-blue);
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Evaluation & Recommendation (Right Column - Combined visually or split) */
+        .right-column {
+            grid-column: 2 / 3;
+            grid-row: 1 / 3;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .eval-box {
+            background-color: var(--bg-panel);
+            border-radius: 12px;
+            padding: 20px;
+            border-left: 4px solid var(--accent-orange);
+            flex: 1;
+        }
+
+        .rec-box {
+            background-color: rgba(58, 107, 107, 0.2); /* Tinted background for emphasis */
+            border-radius: 12px;
+            padding: 25px;
+            border: 1px solid var(--accent-cyan);
+            border-left: 6px solid var(--accent-green);
+            flex: 1.2;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Typography */
+        .box-heading {
+            color: var(--text-heading);
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .box-heading i {
+            opacity: 0.8;
+        }
+
+        .context-box .box-heading i { color: var(--accent-purple); }
+        .tools-box .box-heading i { color: var(--accent-blue); }
+        .eval-box .box-heading i { color: var(--accent-orange); }
+        .rec-box .box-heading i { color: var(--accent-green); }
+
+        .content-text {
+            font-size: 14px;
+            line-height: 1.6;
+            color: var(--text-body);
+            margin: 0;
+        }
+
+        .list-styled {
+            list-style: none;
+            padding: 0;
+            margin: 10px 0 0 0;
+        }
+
+        .list-styled li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .list-styled li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: var(--accent-cyan);
+            font-weight: bold;
+        }
+
+        .tag-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .tool-tag {
+            background-color: rgba(96, 165, 250, 0.15);
+            color: var(--accent-blue);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .rec-highlight {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--accent-green);
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            height: 60px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            position: absolute;
+            bottom: 50px; /* Above footer */
+            left: 0;
+            z-index: 40;
+            box-sizing: border-box;
+        }
+
+        .nav-link {
+            color: var(--text-body);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background-color: rgba(42, 42, 64, 0.8);
+            border-radius: 30px;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--text-heading);
+            background-color: rgba(58, 107, 107, 0.6);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            height: 50px;
+            background-color: var(--bg-panel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid #3A3A50;
+            z-index: 50;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-text {
+            color: #6B7280;
+            font-size: 12px;
+            margin: 0;
+        }
+        
+        /* Map decoration */
+        .map-bg {
+            position: absolute;
+            right: 40px;
+            top: 140px;
+            width: 300px;
+            height: 300px;
+            opacity: 0.05;
+            z-index: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' fill='%23FFFFFF'%3E%3Cpath d='M50 0C22.4 0 0 22.4 0 50s22.4 50 50 50 50-22.4 50-50S77.6 0 50 0zm0 90C27.9 90 10 72.1 10 50S27.9 10 50 10s40 17.9 40 40-17.9 40-40 40z'/%3E%3C/svg%3E"); 
+            background-repeat: no-repeat;
+            pointer-events: none;
+        }
+
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}</style></head>
+<body style="">
+<!-- Header -->
+<header>
+<p class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Information Literacy </p>
+</header>
+<!-- Background Elements -->
+<div class="map-bg"></div>
+<!-- Main Content -->
+<main>
+<div class="slide-header">
+<div class="slide-title-group">
+<p class="slide-title">Case Study: India Launch</p>
+<p class="slide-subtitle">Applying the Strategic Evidence framework to a real-world scenario</p>
+</div>
+</div>
+<div class="case-study-grid">
+<!-- 1. Context -->
+<div class="context-box">
+<p class="box-heading"><i class="fa-solid fa-flag"></i> Context</p>
+<div class="content-text">
+<p>
+                        A mid-sized SaaS company is planning to launch a new project management tool in the Indian market. They need to validate the market potential and competitive landscape before committing budget.
+                    </p>
+</div>
+</div>
+<!-- 2. Tools Used -->
+<div class="tools-box">
+<p class="box-heading"><i class="fa-solid fa-screwdriver-wrench"></i> Tools Applied</p>
+<div class="content-text">
+<p>Primary data gathering platforms utilized for this analysis:</p>
+<div class="tag-container">
+<div class="tool-tag">
+<i class="fa-brands fa-searchengin"></i> Semrush
+                        </div>
+<div class="tool-tag">
+<i class="fa-solid fa-chart-bar"></i> Statista
+                        </div>
+</div>
+<ul class="list-styled">
+<li><strong>Semrush:</strong> Analyzed search volume for "project management software" in India and identified top 5 organic competitors.</li>
+<li><strong>Statista:</strong> Retrieved data on internet penetration growth, mobile usage stats, and SME digitalization trends in India.</li>
+</ul>
+</div>
+</div>
+<!-- Right Column -->
+<div class="right-column">
+<!-- 3. Evaluation -->
+<div class="eval-box">
+<p class="box-heading"><i class="fa-solid fa-microscope"></i> Evaluation (CRAAP)</p>
+<div class="content-text">
+<ul class="list-styled">
+<li><strong>Currency:</strong> Filtered all data for post-2023 to ensure relevance to current digital infrastructure.</li>
+<li><strong>Accuracy:</strong> Cross-referenced Statista growth projections with World Bank economic reports to verify consistency.</li>
+<li><strong>Bias Check:</strong> Discarded a "Market Boom" report sponsored by a competitor due to potential conflict of interest.</li>
+</ul>
+</div>
+</div>
+<!-- 4. Recommendation -->
+<div class="rec-box">
+<p class="box-heading"><i class="fa-solid fa-chess-knight"></i> Strategic Recommendation</p>
+<div class="content-text">
+<p class="rec-highlight">Go/No-Go Decision: <strong>GO - Phased Approach</strong></p>
+<p>
+                        Based on the evidence that Tier-1 cities drive 70% of demand but show high price sensitivity:
+                    </p>
+<ul class="list-styled">
+
+<li><strong>Localization:</strong> Essential. Offer UI in English but support content in Hindi/Hinglish.</li>
+<li><strong>Pricing:</strong> Implement a "freemium" model to capture the SME sector identified in Statista data.</li>
+<li><strong>Monitoring:</strong> Track brand search volume monthly via Semrush to gauge traction.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation -->
+<div class="nav-bar">
+<a class="nav-link" href="f9.html">
+<i class="fas fa-arrow-left"></i> <span>Decision Framework</span>
+</a>
+<a class="nav-link" href="f11.html">
+<span>Outcomes</span> <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+<!-- Footer -->
+<footer>
+<p class="footer-text">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+<script>
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(event) {
+            // Disable if input is focused
+            if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+            
+            if (event.key === 'ArrowRight') {
+                window.location.href = 'f11.html';
+            } else if (event.key === 'ArrowLeft') {
+                window.location.href = 'f9.html';
+            }
+        });
+    </script>
+
+</body></html>

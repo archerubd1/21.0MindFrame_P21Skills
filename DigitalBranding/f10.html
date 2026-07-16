@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Branding 101 - Types of Content</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        /* Base Reset & Setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Slide Container */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFE5D9; /* Peach background */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Layout Elements */
+        .header {
+            padding: 40px 60px 0 60px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .header p {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2C3E50;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-icon {
+            color: #E07A5F;
+            font-size: 18px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 60px 30px 60px;
+            z-index: 10;
+        }
+
+        .footer {
+            padding: 0 60px 30px 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .footer p {
+            font-size: 12px;
+            font-weight: 500;
+            color: #4A5568;
+            letter-spacing: 0.5px;
+        }
+
+        /* Typography & Content Styling */
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #1A252F;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .title-accent {
+            width: 80px;
+            height: 6px;
+            background-color: #E07A5F;
+            border-radius: 3px;
+            margin-bottom: 30px;
+        }
+
+        /* Content Grid Layout */
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 30px;
+            flex: 1;
+            height: 100%;
+        }
+
+        .content-card {
+            background-color: #FFFFFF;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 15px 35px rgba(26, 37, 47, 0.06);
+            display: flex;
+            gap: 24px;
+            align-items: center;
+            border-left: 8px solid #E07A5F;
+            transition: transform 0.3s ease;
+        }
+
+        .content-card.dark-accent {
+            border-left-color: #1A252F;
+        }
+
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            flex-shrink: 0;
+        }
+
+        .icon-peach {
+            background-color: rgba(224, 122, 95, 0.1);
+            color: #E07A5F;
+        }
+
+        .icon-dark {
+            background-color: rgba(26, 37, 47, 0.05);
+            color: #1A252F;
+        }
+
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1A252F;
+        }
+
+        .card-desc {
+            font-size: 16px;
+            color: #4A5568;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+        
+        .example-tag {
+            display: inline-block;
+            background-color: #f0f4f8;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            color: #2C3E50;
+            font-weight: 600;
+            margin-top: 6px;
+            align-self: flex-start;
+            border: 1px solid #e2e8f0;
+        }
+
+        /* Decorative Elements */
+        .deco-circle-1 {
+            position: absolute;
+            width: 450px;
+            height: 450px;
+            border-radius: 50%;
+            background-color: #FFDAC1;
+            top: -200px;
+            right: -100px;
+            z-index: 1;
+            opacity: 0.5;
+        }
+
+        .deco-dots {
+            position: absolute;
+            bottom: 60px;
+            right: 60px;
+            font-size: 30px;
+            color: #1A252F;
+            opacity: 0.1;
+            letter-spacing: 12px;
+            line-height: 1;
+            z-index: 1;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="deco-circle-1"></div>
+<div class="deco-dots">
+<p>+ + +</p>
+<p>+ + +</p>
+</div>
+<!-- Header -->
+<div class="header">
+<p><i class="fas fa-layer-group header-icon"></i> EduuAspire21.0 Skills <span style="color: #E07A5F; margin: 0 8px;">|</span> 21st Century Skills <span style="color: #E07A5F; margin: 0 8px;">|</span> Digital Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<p class="slide-title">Types of Content</p>
+<div class="title-accent"></div>
+<!-- 2x2 Content Grid -->
+<div class="content-grid">
+<!-- Card 1: Educational -->
+<div class="content-card">
+<div class="icon-container icon-peach">
+<i class="fas fa-lightbulb"></i>
+</div>
+<div class="text-container">
+<p class="card-title">Educational</p>
+<p class="card-desc">Share tips, tutorials, or industry insights to establish authority and help others learn.</p>
+<p class="example-tag">E.g. "How to optimize your resume in 3 steps"</p>
+</div>
+</div>
+<!-- Card 2: Personal Growth -->
+<div class="content-card dark-accent">
+<div class="icon-container icon-dark">
+<i class="fas fa-seedling"></i>
+</div>
+<div class="text-container">
+<p class="card-title">Personal Growth</p>
+<p class="card-desc">Document your learning journey, failures, and reflections to show authenticity and growth mindset.</p>
+<p class="example-tag">E.g. "What I learned from my first internship"</p>
+</div>
+</div>
+<!-- Card 3: Achievements -->
+<div class="content-card dark-accent">
+<div class="icon-container icon-dark">
+<i class="fas fa-trophy"></i>
+</div>
+<div class="text-container">
+<p class="card-title">Achievements</p>
+<p class="card-desc">Highlight milestones, completed projects, certifications, or awards to build credibility.</p>
+<p class="example-tag">E.g. "Just earned my Digital Marketing Certificate!"</p>
+</div>
+</div>
+<!-- Card 4: Creative Pieces -->
+<div class="content-card">
+<div class="icon-container icon-peach">
+<i class="fas fa-paint-brush"></i>
+</div>
+<div class="text-container">
+<p class="card-title">Creative Work</p>
+<p class="card-desc">Showcase your practical skills through original designs, code snippets, or long-form writing.</p>
+<p class="example-tag">E.g. "Sharing a landing page I designed today"</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f11.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f9.html';
+    }
+
+});
+</script>
+</body>
+</html>

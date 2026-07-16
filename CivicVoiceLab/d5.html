@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Activism Fundamentals</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f3f4f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* SLIDE */
+.slide{
+    width:1280px;
+    height:720px;
+    background:#ffffff;
+    position:relative;
+}
+
+/* HEADER */
+.header{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    color:#6b7280;
+    border-bottom:1px solid #eee;
+}
+
+/* CONTENT */
+.content{
+    position:absolute;
+    top:80px;
+    bottom:120px;
+    width:100%;
+    padding:0 60px;
+}
+
+/* TITLE */
+.title{
+    font-size:34px;
+    font-weight:600;
+    margin-bottom:40px;
+}
+
+/* TIMELINE */
+.timeline{
+    position:relative;
+    height:40px;
+    margin-bottom:30px;
+}
+
+.line{
+    position:absolute;
+    top:20px;
+    left:0;
+    right:0;
+    height:2px;
+    background:#d1d5db;
+}
+
+.dot{
+    width:14px;
+    height:14px;
+    border-radius:50%;
+    background:#2f6f6b;
+    position:absolute;
+    top:13px;
+}
+
+.dot:nth-child(2){ left:0%; }
+.dot:nth-child(3){ left:25%; background:#9ca3af;}
+.dot:nth-child(4){ left:50%; }
+.dot:nth-child(5){ left:75%; background:#9ca3af;}
+.dot:nth-child(6){ left:100%; transform:translateX(-100%); }
+
+/* CARDS */
+.cards{
+    display:grid;
+    grid-template-columns:repeat(5,1fr);
+    gap:20px;
+}
+
+/* CARD */
+.card{
+    background:#e5e7eb;
+    border-radius:12px;
+    padding:20px;
+    height:260px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-start;
+}
+
+/* ACTIVE HEADER */
+.card .step{
+    background:#2f6f6b;
+    color:#fff;
+    padding:10px;
+    border-radius:10px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+/* INACTIVE HEADER */
+.card .step.light{
+    background:#94a3b8;
+}
+
+/* TEXT */
+.card p{
+    font-size:13px;
+    color:#374151;
+    line-height:1.5;
+}
+
+/* NAVBAR */
+.navbar{
+    position:absolute;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    padding:10px 25px;
+    display:flex;
+    justify-content:space-between;
+    background:#f1f5f9;
+    backdrop-filter:blur(8px);
+    border-radius:10px;
+}
+
+.nav-link{
+    cursor:pointer;
+    font-size:14px;
+}
+
+.next{
+    color:#7c3aed;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:#6b7280;
+    border-top:1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+    <!-- HEADER -->
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="title">Digital Activism Fundamentals</div>
+
+        <!-- TIMELINE -->
+        <div class="timeline">
+            <div class="line"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+
+        <!-- CARDS -->
+        <div class="cards">
+
+            <div class="card">
+                <div class="step">Step 1 – Identify Social Issues</div>
+                <p>
+                    Research and select local or global causes aligned with personal values and interests.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="step light">Step 2 – Platform Selection</div>
+                <p>
+                    Choose appropriate digital channels like social media, blogs, or petitions for target audience.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="step">Step 3 – Campaign Design</div>
+                <p>
+                    Craft compelling messages, hashtags, and visuals to drive awareness and community mobilization.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="step light">Step 4 – Engagement Strategy</div>
+                <p>
+                    Foster community dialogue, amplify diverse voices, and measure overall campaign impact.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="step">Step 5 – Iterate & Optimize</div>
+                <p>
+                    Analyze feedback, refine messaging, and scale successful initiatives for greater reach.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR (Slides 2–7 example) -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Objectives</div>
+        <div class="nav-link next" onclick="next()">Constructive →</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+
+<script>
+function next() {
+    window.location.href = "d6.html"; // update per slide
+}
+
+function prev() {
+    window.location.href = "d4.html"; // update per slide
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+});
+</script>
+
+</body>
+</html>

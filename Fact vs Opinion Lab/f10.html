@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Pause Before Sharing - Slide 10</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        /* SHARED CSS START */
+        :root {
+            --bg-gradient-start: #FFF6E9;
+            --bg-gradient-end: #FFE5D9;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-color: #FF8A65;
+            --accent-secondary: #FFCCBC;
+            --nav-bg: rgba(255, 204, 170, 0.5);
+            --nav-border: rgba(255, 255, 255, 0.3);
+            --card-bg: rgba(255, 255, 255, 0.7);
+            --step-bg: #FFFFFF;
+        }
+
+        body {
+    margin: 0;
+    background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+    font-family: 'Poppins', sans-serif;
+
+    transform: scale(calc(100vw / 1280));
+    transform-origin: top left;
+}
+
+        /* Header */
+        header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 15px 40px;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .header-text {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 60px 100px 60px;
+            max-width: 1100px;
+            margin: 0 auto;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: 700;
+            color: #2D3748;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        /* Template Specific: Checklist Grid */
+        .checklist-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: auto auto;
+            gap: 20px;
+            width: 100%;
+            max-width: 1050px;
+        }
+
+        /* Center the last 3 items in the second row */
+        .checklist-container > .step-card:nth-child(5) {
+            grid-column-start: 1;
+            grid-column-end: 2;
+            margin-left: 50%; /* Shift right */
+        }
+        
+        /* Revised Grid Strategy for 7 items: 4 on top, 3 on bottom centered */
+        .top-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .bottom-row {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .step-card {
+            background: var(--step-bg);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-bottom: 4px solid var(--accent-color);
+            min-width: 200px;
+            flex: 1;
+            max-width: 250px;
+        }
+
+        .step-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .step-number {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background: var(--accent-color);
+            color: white;
+            font-weight: 700;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .step-icon {
+            font-size: 28px;
+            color: #555;
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .step-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #2D3748;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .step-desc {
+            font-size: 13px;
+            color: #718096;
+            line-height: 1.4;
+        }
+
+        /* Highlight the final step */
+        .step-card.final-step {
+            background: #FFF3E0;
+            border-bottom-color: #D84315;
+        }
+        
+        .step-card.final-step .step-number {
+            background: #D84315;
+        }
+        
+        .step-card.final-step .step-icon {
+            color: #D84315;
+        }
+
+        /* Navigation */
+        .nav-container {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 1100px;
+            height: 60px;
+            background: var(--nav-bg);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid var(--nav-border);
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 30px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            z-index: 90;
+        }
+
+        .nav-btn {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #4A5568;
+            font-weight: 600;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.4);
+            transform: translateY(-2px);
+            color: #2D3748;
+        }
+
+        /* Footer */
+        footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 8px 0;
+            text-align: center;
+            background: rgba(255,255,255,0.3);
+            z-index: 100;
+        }
+
+        .footer-text {
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+        /* SHARED CSS END */
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- HEADER -->
+<header>
+<div class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Media Literacy</div>
+</header>
+<!-- MAIN CONTENT -->
+<main>
+<h1>Pause Before Sharing</h1>
+<!-- Steps Grid Layout -->
+<div style="width: 100%; max-width: 1000px;">
+<!-- Top Row (4 Items) -->
+<div class="top-row">
+<!-- Step 1 -->
+<div class="step-card">
+<div class="step-number">1</div>
+<i class="fa-solid fa-book-open step-icon"></i>
+<h3 class="step-title">Read Fully</h3>
+<p class="step-desc">Don't just read the headline. Read the whole story.</p>
+</div>
+<!-- Step 2 -->
+<div class="step-card">
+<div class="step-number">2</div>
+<i class="fa-regular fa-calendar-check step-icon"></i>
+<h3 class="step-title">Check Context</h3>
+<p class="step-desc">Is it old news? Is the date current?</p>
+</div>
+<!-- Step 3 -->
+<div class="step-card">
+<div class="step-number">3</div>
+<i class="fa-solid fa-user-tag step-icon"></i>
+<h3 class="step-title">Identify Source</h3>
+<p class="step-desc">Who wrote this? Is it a credible organization?</p>
+</div>
+<!-- Step 4 -->
+<div class="step-card">
+<div class="step-number">4</div>
+<i class="fa-solid fa-magnifying-glass-plus step-icon"></i>
+<h3 class="step-title">Look for Proof</h3>
+<p class="step-desc">Are there links to evidence or data?</p>
+</div>
+</div>
+<!-- Bottom Row (3 Items) -->
+<div class="bottom-row">
+<!-- Step 5 -->
+<div class="step-card">
+<div class="step-number">5</div>
+<i class="fa-solid fa-scale-balanced step-icon"></i>
+<h3 class="step-title">Compare Sources</h3>
+<p class="step-desc">Do other trusted news sites say the same thing?</p>
+</div>
+<!-- Step 6 -->
+<div class="step-card">
+<div class="step-number">6</div>
+<i class="fa-solid fa-heart-pulse step-icon"></i>
+<h3 class="step-title">Check Feelings</h3>
+<p class="step-desc">Are you sharing because you are angry or excited?</p>
+</div>
+<!-- Step 7 -->
+<div class="step-card final-step">
+<div class="step-number">7</div>
+<i class="fa-solid fa-hand step-icon"></i>
+<h3 class="step-title">If Unsure</h3>
+<p class="step-desc">Do not share it. It's better to wait.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- NAVIGATION -->
+<div class="nav-container">
+<!-- Left: Previous Topic -->
+<a class="nav-btn" href="f9.html" id="prev-btn">
+<i class="fa-solid fa-arrow-left"></i>
+<span>Why People Share</span>
+</a>
+<!-- Right: Next Topic -->
+<a class="nav-btn" href="f11.html" id="next-btn">
+<span>Trusted Sources</span>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</div>
+<!-- FOOTER -->
+<footer>
+<div class="footer-text">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</div>
+</footer>
+</div>
+<!-- SHARED JAVASCRIPT LOGIC -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Keyboard Navigation
+            document.addEventListener('keydown', (e) => {
+                if (['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
+                    return;
+                }
+                const prevBtn = document.getElementById('prev-btn');
+                const nextBtn = document.getElementById('next-btn');
+
+                if (e.key === 'ArrowRight' && nextBtn) {
+                    nextBtn.click();
+                } else if (e.key === 'ArrowLeft' && prevBtn) {
+                    prevBtn.click();
+                }
+            });
+        });
+    </script>
+
+</body></html>

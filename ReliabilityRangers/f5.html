@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, height=720">
+
+<title>Reliability Rangers - Author's Clues</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide {
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(135deg, #0B132B, #071029);
+    overflow: hidden;
+}
+
+/* HEADER */
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #1C2541;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    color: #E2E8F0;
+    border-bottom: 2px solid #3A86FF;
+}
+
+/* TITLE */
+.title {
+    position: absolute;
+    top: 85px;
+    left: 100px;
+    color: #F1F5F9;
+}
+
+.title h1 {
+    font-size: 40px;
+    margin: 0;
+}
+
+.title span {
+    color: #94A3B8;
+    font-weight: 300;
+    font-size: 24px;
+}
+
+/* LEFT PANEL */
+.left-box {
+    position: absolute;
+    left: 100px;
+    top: 180px;
+    width: 680px;
+    height: 400px;
+    background: rgba(255,255,255,0.03);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* RIGHT PANEL */
+.right-box {
+    position: absolute;
+    left: 820px;
+    top: 180px;
+    width: 360px;
+    height: 400px;
+    background: rgba(239,68,68,0.05);
+    border-radius: 20px;
+    padding: 20px;
+}
+
+/* CHECK ITEMS */
+.check-item {
+    display: flex;
+    margin-bottom: 12px;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    background: rgba(255,255,255,0.05);
+}
+
+.check-item.checked {
+    background: rgba(58,134,255,0.2);
+}
+
+.check-box {
+    width: 22px;
+    height: 22px;
+    border: 2px solid #94A3B8;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.check-item.checked .check-box {
+    background: #3A86FF;
+}
+
+.check-icon {
+    display: none;
+}
+
+.check-item.checked .check-icon {
+    display: block;
+    color: white;
+}
+
+/* FLAG */
+.flag {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.flag i {
+    color: #EF4444;
+    margin-right: 10px;
+}
+
+/* NAV */
+.nav-bar {
+    position: absolute;
+    bottom: 80px;
+    left: 140px;
+    width: 1000px;
+    height: 70px;
+    background: rgba(255,204,170,0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+.nav-btn {
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #1C2541;
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0B132B;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</div>
+
+<div class="title">
+<h1>Author’s Clues <span>| Who is behind the screen?</span></h1>
+</div>
+
+<!-- LEFT -->
+<div class="left-box">
+<h3 style="color:#3A86FF;">Investigation Checklist</h3>
+
+<div class="check-item" onclick="this.classList.toggle('checked')">
+<div class="check-box"><i class="fas fa-check check-icon"></i></div>
+<div>Who wrote it?</div>
+</div>
+
+<div class="check-item" onclick="this.classList.toggle('checked')">
+<div class="check-box"><i class="fas fa-check check-icon"></i></div>
+<div>Are they qualified?</div>
+</div>
+
+<div class="check-item" onclick="this.classList.toggle('checked')">
+<div class="check-box"><i class="fas fa-check check-icon"></i></div>
+<div>Is the source trusted?</div>
+</div>
+
+<div class="check-item" onclick="this.classList.toggle('checked')">
+<div class="check-box"><i class="fas fa-check check-icon"></i></div>
+<div>Is contact info available?</div>
+</div>
+
+</div>
+
+<!-- RIGHT -->
+<div class="right-box">
+<h3 style="color:#EF4444;">Warning Signs</h3>
+
+<div class="flag"><i class="fas fa-user-slash"></i> No author listed</div>
+<div class="flag"><i class="fas fa-id-card"></i> Fake profiles</div>
+<div class="flag"><i class="fas fa-balance-scale"></i> Unverifiable claims</div>
+
+</div>
+
+<!-- NAV -->
+<div class="nav-bar">
+
+<button class="nav-btn" onclick="goToSlide('f4.html')">
+⬅ Meet Rangers
+</button>
+
+<div><b>THE SOURCE</b></div>
+
+<button class="nav-btn" onclick="goToSlide('f6.html')">
+Smart Questions ➡
+</button>
+
+</div>
+
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+</div>
+
+<script>
+function goToSlide(page){
+    window.location.href = page;
+}
+
+document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowRight") goToSlide("f6.html");
+    if(e.key === "ArrowLeft") goToSlide("f4.html");
+});
+</script>
+
+</body>
+</html>

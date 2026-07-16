@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>What Exactly is Money?</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* FULLSCREEN */
+#slide-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SLIDE */
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background: #121212;
+    transform-origin: center;
+}
+
+/* HEADER */
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    background: rgba(255,215,0,0.05);
+    border-bottom: 1px solid rgba(255,215,0,0.3);
+    z-index: 10;
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    z-index: 10;
+}
+
+/* TITLE */
+.title {
+    text-align: center;
+    color: #FFD700;
+    font-size: 48px;
+    margin-top: 60px;
+    text-shadow: 0 0 15px rgba(255,215,0,0.4);
+}
+
+/* CARD */
+.card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,215,0,0.2);
+    border-radius: 15px;
+    padding: 20px;
+    color: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* GREEN CARD */
+.green-card {
+    background: rgba(57,255,20,0.05);
+    border: 1px solid rgba(57,255,20,0.4);
+    color: #39FF14;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+    position: absolute;
+    bottom: 50px;
+    padding: 10px 20px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.nav-btn:hover {
+    background: gold;
+    color: black;
+}
+
+.left-btn { left: 20px; }
+.right-btn { right: 20px; }
+
+</style>
+</head>
+
+<body>
+
+<div id="slide-wrapper">
+<div class="slide-container" id="slide">
+
+<!-- HEADER -->
+<div class="header">
+    <p style="margin:8px 20px;color:#ccc;font-size:14px;">
+        EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+    </p>
+</div>
+
+<!-- TITLE -->
+<h1 class="title">What Exactly is Money?</h1>
+
+<!-- TOP CARD -->
+<div class="card" style="position:absolute;left:140px;top:140px;width:1000px;">
+    <i class="fas fa-coins" style="color:#FFD700;font-size:30px;"></i>
+    <span style="font-size:24px;margin-left:10px;">
+        Money is a tool to buy things we need or want.
+    </span>
+    <div style="color:#39FF14;margin-top:10px;font-size:20px;">
+        It makes trading easy (Medium of Exchange).
+    </div>
+</div>
+
+<!-- LEFT CARD -->
+<div class="card" style="position:absolute;left:140px;top:300px;width:460px;">
+    <h3 style="color:#FFD700;">Before Money</h3>
+    <p>People used the <b>Barter System</b> to trade goods directly.</p>
+</div>
+
+<!-- RIGHT CARD -->
+<div class="card" style="position:absolute;left:680px;top:300px;width:460px;">
+    <h3 style="color:#FFD700;">Example</h3>
+    <p>You would trade <b>rice</b> to get <b>milk</b>.</p>
+</div>
+
+<!-- GREEN TRUST CARD -->
+<div class="card green-card" style="position:absolute;left:140px;top:480px;width:1000px;">
+    💡 Money works because people TRUST it
+</div>
+
+<!-- NAVIGATION -->
+<button class="nav-btn left-btn" onclick="goPrev()">← Roadmap</button>
+<button class="nav-btn right-btn" onclick="goNext()">Evolution of Money →</button>
+
+<!-- FOOTER -->
+<div class="footer">
+    <p style="text-align:center;color:#666;font-size:12px;">
+        Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+    </p>
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* SCALE FIX */
+function scaleSlide() {
+    const slide = document.getElementById("slide");
+    const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    slide.style.transform = "scale(" + scale + ")";
+}
+
+window.addEventListener("load", scaleSlide);
+window.addEventListener("resize", scaleSlide);
+
+/* NAVIGATION */
+function goNext() {
+    window.location.href = "f4.html";
+}
+
+function goPrev() {
+    window.location.href = "f2.html";
+}
+
+/* KEYBOARD */
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") goNext();
+    if (e.key === "ArrowLeft") goPrev();
+});
+
+/* FOCUS FIX */
+window.onload = () => document.body.focus();
+
+</script>
+
+</body>
+</html>

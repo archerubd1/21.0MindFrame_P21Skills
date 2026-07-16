@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>AI &amp; Information Integrity: Strategic Takeaway</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        :root {
+            --bg-purple: #e5d4f5;
+            --text-dark: #2d2d2d;
+            --glass-bg: rgba(229, 212, 245, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.5);
+            --accent-white: rgba(255, 255, 255, 0.8);
+            --card-border: rgba(45, 45, 45, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #d1bce6;
+            font-family: 'Inter', sans-serif;
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: var(--bg-purple);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .header {
+            padding: 24px 48px;
+            border-bottom: 1px solid rgba(45, 45, 45, 0.1);
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 10;
+            height: 68px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 100px 120px 100px;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .hero-title {
+            font-size: 3.25rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            margin: 0 0 16px 0;
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-subtitle {
+            font-size: 1.35rem;
+            color: rgba(45, 45, 45, 0.85);
+            margin: 0 0 36px 0;
+            max-width: 900px;
+            line-height: 1.5;
+            font-weight: 500;
+        }
+
+        .investment-grid {
+            display: flex;
+            gap: 24px;
+            width: 100%;
+            margin-bottom: 36px;
+        }
+
+        .investment-card {
+            flex: 1;
+            background: var(--accent-white);
+            border: 1px solid var(--card-border);
+            border-top: 4px solid var(--text-dark);
+            padding: 28px 24px;
+            border-radius: 8px;
+            text-align: left;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .card-icon {
+            font-size: 2rem;
+            color: var(--text-dark);
+            margin-bottom: 4px;
+        }
+
+        .investment-card h2 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .investment-card p {
+            font-size: 1.125rem;
+            line-height: 1.5;
+            color: rgba(45, 45, 45, 0.85);
+            margin: 0;
+        }
+
+        .takeaway-banner {
+            background: var(--text-dark);
+            color: #ffffff;
+            border-radius: 8px;
+            padding: 20px 32px;
+            display: flex;
+            align-items: center;
+            gap: 24px;
+            width: 100%;
+            text-align: left;
+        }
+
+        .takeaway-icon {
+            font-size: 2rem;
+            color: var(--bg-purple);
+        }
+
+        .takeaway-text-container {
+            flex: 1;
+        }
+
+        .takeaway-label {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            margin: 0 0 6px 0;
+            color: rgba(229, 212, 245, 0.7);
+        }
+
+        .takeaway-text {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .glass-nav {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid var(--glass-border);
+            position: absolute;
+            bottom: 40px;
+            width: 100%;
+            height: 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 48px;
+            z-index: 20;
+        }
+
+        .nav-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.125rem;
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            opacity: 0.6;
+        }
+
+        .nav-link.prev:hover {
+            transform: translateX(-4px);
+        }
+
+        .nav-spacer {
+            width: 100px;
+        }
+
+        .footer {
+            height: 40px;
+            background-color: var(--bg-purple);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 48px;
+            z-index: 30;
+            font-size: 0.75rem;
+            font-weight: 500;
+            opacity: 0.7;
+        }
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Header -->
+<header class="header">
+<div>
+<p>EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<div>
+<p>Strategic Takeaway</p>
+</div>
+</header>
+<!-- Main Content -->
+<main class="main-content">
+<div>
+<h1 class="hero-title">Governance Transforms AI into a Strategic Asset</h1>
+</div>
+<div style="position: relative; transform: translate(0px, -22.0057px);">
+<p class="hero-subtitle">Trustworthy AI converts operational risk into a durable competitive advantage.</p>
+</div>
+<div class="investment-grid">
+<!-- Investment Card 1 -->
+<div class="investment-card" style="transform: translate(1.37536px, -33.0086px);">
+<div class="card-icon">
+<i class="fa-solid fa-sliders"></i>
+</div>
+<div>
+<h2>Architectural Controls</h2>
+</div>
+<div>
+<p>Institutionalize validation workflows and cross-model verification pipelines.</p>
+</div>
+</div>
+<!-- Investment Card 2 -->
+<div class="investment-card" style="transform: translate(-1.37536px, -31.6332px);">
+<div class="card-icon">
+<i class="fa-solid fa-satellite-dish"></i>
+</div>
+<div>
+<h2>Telemetry &amp; Audit</h2>
+</div>
+<div>
+<p>Deploy continuous monitoring for model drift and compliance deviations.</p>
+</div>
+</div>
+<!-- Investment Card 3 -->
+<div class="investment-card" style="transform: translate(-5.50143px, -30.2579px);">
+<div class="card-icon">
+<i class="fa-solid fa-user-shield"></i>
+</div>
+<div>
+<h2>Accountable Ownership</h2>
+</div>
+<div>
+<p>Maintain clear human accountability across all automated AI decisions.</p>
+</div>
+</div>
+</div>
+<!-- Takeaway Banner -->
+<div class="takeaway-banner" style="position: relative; transform: translate(2.75072px, -63.2665px);">
+<div class="takeaway-icon">
+<i class="fa-solid fa-flag-checkered"></i>
+</div>
+<div class="takeaway-text-container">
+<div>
+<p class="takeaway-label">Final Executive Mandate</p>
+</div>
+<div>
+<p class="takeaway-text">Make verifiable information integrity the non-negotiable enterprise operating standard.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- Glassmorphism Navigation -->
+<nav class="glass-nav">
+<a class="nav-link prev" href="f14.html" id="nav-prev">
+<p>← Best Practices</p>
+</a>
+<div class="nav-spacer"></div>
+</nav>
+<!-- Footer -->
+<footer class="footer">
+<div>
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+<div>
+<p>Slide 15 of 15</p>
+</div>
+</footer>
+</div>
+<!-- Keyboard Navigation Script -->
+<script>
+        document.addEventListener('keydown', function(event) {
+            const activeElement = document.activeElement;
+            const isInput = activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA' || activeElement.isContentEditable;
+            
+            if (isInput) return;
+            
+            if (event.key === 'ArrowLeft') {
+                const prevLink = document.getElementById('nav-prev');
+                if (prevLink) {
+                    window.location.href = prevLink.getAttribute('href');
+                }
+            }
+        });
+    </script>
+
+</body></html>

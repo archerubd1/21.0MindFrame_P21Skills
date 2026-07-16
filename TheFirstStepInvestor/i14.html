@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The First-Step Investor - Conclusion</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<!-- Font Awesome -->
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        /* Base typography */
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #e2e8f0;
+            height: 100vh;
+        }
+
+        .font-poppins {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        /* Slide Container */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #fdfbfb;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* CSS Gradient Workaround: using blurred background blobs for pastel effect */
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+        }
+        .blob-1 {
+            width: 600px;
+            height: 600px;
+            background-color: #d1fae5; /* mint green */
+            top: -200px;
+            left: -100px;
+        }
+        .blob-2 {
+            width: 700px;
+            height: 700px;
+            background-color: #fce7f3; /* blush pink */
+            bottom: -300px;
+            right: -100px;
+        }
+        .blob-3 {
+            width: 500px;
+            height: 500px;
+            background-color: #ffe4e6; /* light rose */
+            top: 20%;
+            left: 30%;
+            opacity: 0.6;
+        }
+
+        /* Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            padding: 40px 60px;
+        }
+
+        /* Header and Footer */
+        .slide-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+        }
+        .slide-footer {
+            position: absolute;
+            bottom: 20px;
+            left: 60px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+            z-index: 10;
+        }
+
+        /* Glassmorphic Cards */
+        .glass-card {
+            background-color: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease;
+        }
+
+        /* Mandatory Navigation CSS */
+        .navbar {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            background: rgba(241, 245, 249, 0.7);
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+            z-index: 20;
+        }
+        .nav-link {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #475569;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .nav-link:hover {
+            color: #0f172a;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Blobs to simulate soft pastel gradient -->
+<div class="bg-blob blob-1"></div>
+<div class="bg-blob blob-2"></div>
+<div class="bg-blob blob-3"></div>
+<div class="content-layer">
+<!-- Header -->
+<div class="slide-header">
+<p>EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy</p>
+<p>The First-Step Investor</p>
+</div>
+<!-- Main Content -->
+<div class="flex-1 flex flex-col justify-center items-center mt-[-40px]">
+<div class="text-center mb-16">
+<p class="text-sm font-semibold tracking-widest text-pink-500 uppercase mb-2">Conclusion</p>
+<h1 class="text-5xl font-bold text-gray-800 font-poppins mb-4">Your Financial Journey Begins</h1>
+<p class="text-xl text-gray-600 max-w-2xl mx-auto">Mastering your finances today paves the way for a secure and prosperous tomorrow.</p>
+</div>
+<!-- 3 Key Takeaways Layout -->
+<div class="flex gap-8 w-full max-w-5xl justify-center px-4">
+<!-- Card 1 -->
+<div class="glass-card flex-1 rounded-3xl p-8 flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 text-emerald-500 text-3xl">
+<i class="fas fa-brain"></i>
+</div>
+<p class="text-xl font-semibold text-gray-800 font-poppins leading-tight">Financial independence mindset</p>
+</div>
+<!-- Card 2 -->
+<div class="glass-card flex-1 rounded-3xl p-8 flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 text-pink-500 text-3xl">
+<i class="fas fa-seedling"></i>
+</div>
+<p class="text-xl font-semibold text-gray-800 font-poppins leading-tight">Smart investing habits</p>
+</div>
+<!-- Card 3 -->
+<div class="glass-card flex-1 rounded-3xl p-8 flex flex-col items-center text-center">
+<div class="w-20 h-20 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-6 text-teal-600 text-3xl">
+<i class="fas fa-shield-alt"></i>
+</div>
+<p class="text-xl font-semibold text-gray-800 font-poppins leading-tight">Future financial security</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="slide-footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+<!-- Mandatory Navigation -->
+<div class="navbar" id="nav01">
+<div class="nav-link" onclick="prev()">
+<i class="fas fa-chevron-left"></i>
+<p>Practical application</p>
+</div>
+<!-- Empty div to maintain space-between alignment for Previous button -->
+<div></div>
+</div>
+</div>
+<!-- Navigation Script -->
+<script id="nav02">
+        function prev() {
+            window.location.href = "i13.html"; 
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "ArrowLeft") prev();
+        });
+    </script>
+</body>
+</html>

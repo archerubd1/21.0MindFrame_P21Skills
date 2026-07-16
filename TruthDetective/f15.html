@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thank You - Q&amp;A</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&amp;family=Roboto+Mono:wght@400;700&amp;family=Inter:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #050510;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+        }
+
+        /* Neon Utilities */
+        .neon-text-pink {
+            text-shadow: 0 0 5px rgba(236, 72, 153, 0.8), 0 0 15px rgba(236, 72, 153, 0.4);
+        }
+        
+        .neon-text-blue {
+            text-shadow: 0 0 5px rgba(59, 130, 246, 0.8), 0 0 15px rgba(59, 130, 246, 0.4);
+        }
+        
+        .neon-text-purple {
+            text-shadow: 0 0 5px rgba(168, 85, 247, 0.8), 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .neon-border-pink {
+            border: 1px solid rgba(236, 72, 153, 0.5);
+            box-shadow: 0 0 10px rgba(236, 72, 153, 0.2);
+        }
+
+        /* Grid Background Pattern */
+        .grid-line-h {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+        
+        .grid-line-v {
+            position: absolute;
+            top: 0;
+            height: 100%;
+            width: 1px;
+            background-color: #3b82f6;
+            opacity: 0.1;
+        }
+
+        /* Floating Animation */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes float-delayed {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+        }
+
+        .float-1 { animation: float 4s ease-in-out infinite; }
+        .float-2 { animation: float-delayed 5s ease-in-out infinite; }
+        .float-3 { animation: float 3.5s ease-in-out infinite; }
+
+        /* Question Mark Cluster */
+        .qm-cluster {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .qm-main {
+            font-size: 180px;
+            color: #ec4899; /* Pink */
+            text-shadow: 0 0 40px rgba(236, 72, 153, 0.6);
+            z-index: 10;
+        }
+
+        .qm-small {
+            position: absolute;
+            font-size: 60px;
+            color: #3b82f6; /* Blue */
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+            opacity: 0.6;
+        }
+
+        .qm-tiny {
+            position: absolute;
+            font-size: 30px;
+            color: #a855f7; /* Purple */
+            opacity: 0.4;
+        }
+
+        /* Spotlight Effect (No Gradients) */
+        .spotlight {
+            position: absolute;
+            top: -100px;
+            right: 150px;
+            width: 300px;
+            height: 600px;
+            background-color: rgba(236, 72, 153, 0.05);
+            filter: blur(60px);
+            transform: rotate(20deg);
+            z-index: 0;
+            border-radius: 40%;
+            pointer-events: none;
+        }
+
+        /* Interaction Cards */
+        .action-card {
+            background-color: rgba(15, 23, 42, 0.4);
+            border-left: 3px solid #ec4899;
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            border-radius: 0 8px 8px 0;
+            transition: all 0.3s ease;
+        }
+
+        .action-card:hover {
+            background-color: rgba(236, 72, 153, 0.1);
+            transform: translateX(10px);
+        }
+
+        /* Live Verification Example Card */
+        .live-case-card {
+            position: absolute;
+            bottom: 20px;
+            left: -40px;
+            width: 280px;
+            background-color: #0f172a;
+            border: 1px solid #3b82f6;
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            z-index: 20;
+            transform: rotate(-5deg);
+        }
+
+        .scam-stamp {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            border: 3px solid #ef4444;
+            color: #ef4444;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: bold;
+            font-size: 1.5rem;
+            padding: 0.25rem 1rem;
+            background-color: rgba(15, 23, 42, 0.9);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
+        }
+
+        ::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body>
+<div class="slide-container text-white">
+<!-- Top Header Bar -->
+<div class="w-full h-8 bg-gray-900 border-b border-blue-900 flex items-center justify-center z-30">
+<p class="font-['Space_Grotesk'] text-sm tracking-widest text-blue-400 neon-text-blue uppercase">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Background Grid -->
+<div class="absolute inset-0 pointer-events-none z-0">
+<div class="grid-line-h" style="top: 10%"></div>
+<div class="grid-line-h" style="top: 20%"></div>
+<div class="grid-line-h" style="top: 30%"></div>
+<div class="grid-line-h" style="top: 40%"></div>
+<div class="grid-line-h" style="top: 50%"></div>
+<div class="grid-line-h" style="top: 60%"></div>
+<div class="grid-line-h" style="top: 70%"></div>
+<div class="grid-line-h" style="top: 80%"></div>
+<div class="grid-line-h" style="top: 90%"></div>
+<div class="grid-line-v" style="left: 10%"></div>
+<div class="grid-line-v" style="left: 20%"></div>
+<div class="grid-line-v" style="left: 30%"></div>
+<div class="grid-line-v" style="left: 40%"></div>
+<div class="grid-line-v" style="left: 50%"></div>
+<div class="grid-line-v" style="left: 60%"></div>
+<div class="grid-line-v" style="left: 70%"></div>
+<div class="grid-line-v" style="left: 80%"></div>
+<div class="grid-line-v" style="left: 90%"></div>
+<!-- Glow Effects -->
+<div class="absolute bottom-0 left-0 w-[500px] h-[500px] bg-blue-900 rounded-full filter blur-[150px] opacity-10"></div>
+<div class="absolute top-0 right-0 w-[400px] h-[400px] bg-pink-900 rounded-full filter blur-[120px] opacity-10"></div>
+</div>
+<!-- Slide Header -->
+<header class="flex justify-between items-center px-12 py-4 z-20 border-b border-gray-800 bg-gray-900 bg-opacity-90">
+<div class="flex items-center space-x-4">
+<i class="fas fa-comments text-pink-500 text-2xl"></i>
+<h2 class="font-['Space_Grotesk'] text-2xl font-bold tracking-wider text-gray-200">MISSION DEBRIEF</h2>
+</div>
+<div class="flex items-center space-x-2 font-['Roboto_Mono'] text-pink-400 text-sm tracking-widest">
+<i class="fas fa-broadcast-tower animate-pulse"></i>
+<span>STATUS: OPEN COMMS</span>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-1 flex px-12 py-6 space-x-12 z-10 relative overflow-hidden">
+<!-- Left Column: Content -->
+<div class="w-1/2 flex flex-col justify-center space-y-5">
+<div>
+<h1 class="font-['Space_Grotesk'] text-6xl font-bold leading-tight mb-2">
+                        Thank <span class="text-gray-500">You</span>
+</h1>
+<h2 class="font-['Space_Grotesk'] text-4xl font-bold neon-text-pink mb-4">
+                        Any Questions?
+                    </h2>
+<p class="font-['Inter'] text-gray-400 text-lg leading-relaxed mb-6">
+                        The investigation doesn't end here. Let's solve your last clues together. What digital mysteries have you found lately?
+                    </p>
+</div>
+<!-- Action Items -->
+<div class="space-y-2">
+<div class="action-card">
+<div class="flex items-center space-x-4">
+<i class="fas fa-search-dollar text-pink-400 text-xl"></i>
+<div>
+<p class="font-['Space_Grotesk'] text-white font-bold text-lg">Bring Tricky Posts</p>
+<p class="text-xs text-gray-400">Seen something weird? Let's analyze it now.</p>
+</div>
+</div>
+</div>
+<div class="action-card" style="border-left-color: #a855f7;">
+<div class="flex items-center space-x-4">
+<i class="fas fa-microscope text-purple-400 text-xl"></i>
+<div>
+<p class="font-['Space_Grotesk'] text-white font-bold text-lg">Verify Live Together</p>
+<p class="text-xs text-gray-400">We'll use our tools in real-time to find the truth.</p>
+</div>
+</div>
+</div>
+<div class="action-card" style="border-left-color: #3b82f6;">
+<div class="flex items-center space-x-4">
+<i class="fas fa-lightbulb text-blue-400 text-xl"></i>
+<div>
+<p class="font-['Space_Grotesk'] text-white font-bold text-lg">Share Best Tips</p>
+<p class="text-xs text-gray-400">What's your secret to spotting a fake?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Visuals -->
+<div class="w-1/2 flex items-center justify-center relative">
+<!-- Spotlight Background -->
+<div class="spotlight"></div>
+<!-- Floating Question Marks Cluster -->
+<div class="qm-cluster">
+<div class="qm-main float-1">?</div>
+<!-- Surrounding marks -->
+<i class="fas fa-question qm-small float-2" style="top: 20px; right: 20px; transform: rotate(15deg);"></i>
+<i class="fas fa-question qm-small float-3" style="bottom: 40px; left: 0px; color: #a855f7; transform: rotate(-10deg);"></i>
+<i class="fas fa-question qm-tiny float-1" style="top: 0; left: 50px;"></i>
+<i class="fas fa-question qm-tiny float-2" style="bottom: 80px; right: 20px; color: #ec4899;"></i>
+<i class="fas fa-question qm-tiny float-3" style="top: 150px; left: -20px;"></i>
+<!-- Live Case Example -->
+<div class="live-case-card float-2">
+<div class="flex justify-between items-center mb-2 border-b border-gray-700 pb-2">
+<span class="text-[10px] font-['Roboto_Mono'] text-gray-400">LIVE SUBMISSION</span>
+<span class="text-[10px] text-pink-500 font-bold animate-pulse">● ANALYZING</span>
+</div>
+<div class="flex items-start space-x-3 mb-3">
+<div class="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center flex-shrink-0">
+<i class="fas fa-gift text-yellow-400"></i>
+</div>
+<div>
+<p class="text-xs text-white font-bold">"FREE PS6 GIVEAWAY!"</p>
+<p class="text-[10px] text-gray-400">Shared by: Anonymous</p>
+</div>
+</div>
+<!-- Evidence List -->
+<div class="bg-gray-900 p-2 rounded mb-2">
+<p class="text-[10px] text-gray-500 font-bold mb-1">EVIDENCE FOUND:</p>
+<div class="flex items-center space-x-1 mb-1">
+<i class="fas fa-times-circle text-red-500 text-[10px]"></i>
+<p class="text-[10px] text-gray-300">Account 1 day old</p>
+</div>
+<div class="flex items-center space-x-1">
+<i class="fas fa-times-circle text-red-500 text-[10px]"></i>
+<p class="text-[10px] text-gray-300">Link redirects to phishing</p>
+</div>
+</div>
+<!-- SCAM Stamp -->
+<div class="scam-stamp">
+                            SCAM
+                        </div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer info -->
+<div class="w-full h-8 bg-gray-900 border-t border-purple-900 flex items-center justify-center z-30">
+<p class="font-['Roboto_Mono'] text-[10px] tracking-wider text-purple-400 neon-text-purple">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+
+</div>
+<script>
+document.addEventListener("keydown", function(event) {
+
+    // LEFT ARROW → Previous Heading
+    if (event.key === "ArrowLeft") {
+        window.location.href = "f14.html";
+    }
+
+    // RIGHT ARROW → Disabled (last slide)
+    if (event.key === "ArrowRight") {
+        // Do nothing OR show message (optional)
+        console.log("This is the last slide");
+    }
+
+});
+</script>
+</body>
+</html>

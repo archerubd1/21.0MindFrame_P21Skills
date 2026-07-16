@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>CODE Framework</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    body {
+        margin: 0;
+        background: #000;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .slide-container {
+        position: relative;
+        width: 1280px;
+        height: 720px;
+        background-color: #0B1F3A;
+        font-family: 'Inter', sans-serif;
+
+        transform: scale(calc(100vw / 1280));
+        transform-origin: top left;
+    }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Ambient Mesh -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: -100px; top: -100px; width: 800px; height: 800px; background-color: #1E3A8A; border-radius: 50%; opacity: 0.4; filter: blur(100px); z-index: 1;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 700px; top: 300px; width: 700px; height: 600px; background-color: #0B1F3A; border-radius: 50%; opacity: 0.8; filter: blur(80px); z-index: 1;"></div>
+<!-- Decorative Accents -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 200px; top: 500px; width: 300px; height: 300px; background-color: #F5B7A1; border-radius: 50%; opacity: 0.05; filter: blur(60px); z-index: 1;"></div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 1000px; top: 100px; width: 300px; height: 300px; background-color: #A5F3FC; border-radius: 50%; opacity: 0.05; filter: blur(60px); z-index: 1;"></div>
+<!-- Header -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 40px; top: 24px; width: 1200px; height: 30px; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 14px; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 1.5px;">EduuAspire21.0 Skills | 21st Century Skills | Information Literacy</p>
+</div>
+<!-- Title Section -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 80px; width: 1160px; height: 75px; z-index: 10;">
+<p style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 42px; color: #FFFFFF; letter-spacing: -0.5px;">CODE Framework</p>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 140px; width: 80px; height: 4px; background-color: #A5F3FC; border-radius: 2px; z-index: 10;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 160px; width: 900px; height: 40px; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-weight: 300; font-size: 20px; color: #D1D5DB; line-height: 1.5;">The universal workflow for modern knowledge management.</p>
+</div>
+<!-- Card 1: Capture (Peach) -->
+<!-- Reduced card width slightly (270 -> 260) and adjusted spacing to fit all 4 comfortably within 1280px -->
+<!-- Gap calculation: (1280 - (4*260) - 120 (margins)) / 3 gaps ~= 40px gaps? Or stick to tighter spacing. -->
+<!-- Current layout uses approx 300px steps. Let's fix overlap by spacing them more evenly.
+         Total width available ~1160px (60 left to 1220 right). 4 cards.
+         Let's resize cards to 260px width to add breathing room.
+         Positions:
+         Card 1: Left 60
+         Card 2: Left 350
+         Card 3: Left 640
+         Card 4: Left 930
+         Total span: 930 + 260 = 1190. Fits within 1280.
+    -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 60px; top: 240px; width: 260px; height: 360px; background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 2;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 60px; top: 260px; width: 260px; height: 30px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px;">Step 01</p>
+</div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 160px; top: 295px; width: 60px; height: 60px; color: #F5B7A1; font-size: 44px; z-index: 10;">
+<i class="fas fa-inbox"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 75px; top: 370px; width: 230px; height: 40px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 26px; color: #FFFFFF;">Capture</p>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 175px; top: 415px; width: 30px; height: 2px; background-color: #F5B7A1; opacity: 0.5; z-index: 10;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 75px; top: 435px; width: 230px; height: 140px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 15px; color: #D1D5DB; line-height: 1.6;">Keep what resonates in a trusted system outside your head.</p>
+</div>
+<!-- Arrow 1 -->
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 330px; top: 400px; width: 20px; height: 40px; color: rgba(255,255,255,0.15); font-size: 24px; z-index: 10;">
+<i class="fas fa-chevron-right"></i>
+</div>
+<!-- Card 2: Organize (Cyan) -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 360px; top: 240px; width: 260px; height: 360px; background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 2;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 360px; top: 260px; width: 260px; height: 30px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px;">Step 02</p>
+</div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 460px; top: 295px; width: 60px; height: 60px; color: #A5F3FC; font-size: 44px; z-index: 10;">
+<i class="fas fa-folder-tree"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 375px; top: 370px; width: 230px; height: 40px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 26px; color: #FFFFFF;">Organize</p>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 475px; top: 415px; width: 30px; height: 2px; background-color: #A5F3FC; opacity: 0.5; z-index: 10;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 375px; top: 435px; width: 230px; height: 140px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 15px; color: #D1D5DB; line-height: 1.6;">Save for actionability based on projects, not by topic.</p>
+</div>
+<!-- Arrow 2 -->
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 630px; top: 400px; width: 20px; height: 40px; color: rgba(255,255,255,0.15); font-size: 24px; z-index: 10;">
+<i class="fas fa-chevron-right"></i>
+</div>
+<!-- Card 3: Distill (Peach) -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 660px; top: 240px; width: 260px; height: 360px; background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 2;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 660px; top: 260px; width: 260px; height: 30px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px;">Step 03</p>
+</div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 760px; top: 295px; width: 60px; height: 60px; color: #F5B7A1; font-size: 44px; z-index: 10;">
+<i class="fas fa-highlighter"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 675px; top: 370px; width: 230px; height: 40px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 26px; color: #FFFFFF;">Distill</p>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 775px; top: 415px; width: 30px; height: 2px; background-color: #F5B7A1; opacity: 0.5; z-index: 10;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 675px; top: 435px; width: 230px; height: 140px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 15px; color: #D1D5DB; line-height: 1.6;">Find the essence and condense ideas to their core meaning.</p>
+</div>
+<!-- Arrow 3 -->
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 930px; top: 400px; width: 20px; height: 40px; color: rgba(255,255,255,0.15); font-size: 24px; z-index: 10;">
+<i class="fas fa-chevron-right"></i>
+</div>
+<!-- Card 4: Express (Cyan) -->
+<!-- Moved left significantly to prevent overflow on the right edge. Originally near 1000px, now 960px. -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 960px; top: 240px; width: 260px; height: 360px; background: rgba(255,255,255,0.05); backdrop-filter: blur(12px); border: 1px solid rgba(255,255,255,0.1); border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.1); z-index: 2;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 960px; top: 260px; width: 260px; height: 30px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-weight: 700; font-size: 12px; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 2px;">Step 04</p>
+</div>
+<div data-object="true" data-object-type="icon" style="position: absolute; left: 1060px; top: 295px; width: 60px; height: 60px; color: #A5F3FC; font-size: 44px; z-index: 10;">
+<i class="fas fa-share-nodes"></i>
+</div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 975px; top: 370px; width: 230px; height: 40px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 26px; color: #FFFFFF;">Express</p>
+</div>
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 1075px; top: 415px; width: 30px; height: 2px; background-color: #A5F3FC; opacity: 0.5; z-index: 10;"></div>
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 975px; top: 435px; width: 230px; height: 140px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 15px; color: #D1D5DB; line-height: 1.6;">Show your work and use your knowledge to create value.</p>
+</div>
+<!-- Bottom Navigation Bar -->
+<div data-object="true" data-object-type="shape" style="position: absolute; left: 0; top: 650px; width: 1280px; height: 50px; background: rgba(245, 183, 161, 0.08); backdrop-filter: blur(10px); border-top: 1px solid rgba(255,255,255,0.1); z-index: 9;"></div>
+<!-- Nav Left -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 50px; top: 662px; width: 400px; height: 30px; z-index: 10;">
+<p style="margin: 0;"><a href="f4.html" style="text-decoration: none; color: #FFFFFF; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.5px; opacity: 0.8; transition: opacity 0.3s;">← Second Brain Concept</a></p>
+</div>
+<!-- Nav Right -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 830px; top: 662px; width: 400px; height: 30px; text-align: right; z-index: 10;">
+<p style="margin: 0;"><a href="f6.html" style="text-decoration: none; color: #FFFFFF; font-family: 'Inter', sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.5px; opacity: 0.8; transition: opacity 0.3s;">Curating Streams →</a></p>
+</div>
+<!-- Footer -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; left: 20px; top: 702px; width: 1240px; height: 18px; text-align: center; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 10px; color: rgba(255,255,255,0.35);">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+</div>
+<script>
+    document.addEventListener('keydown', function(event) {
+        if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+        if (event.key === 'ArrowLeft') {
+            window.location.href = 'f4.html';
+        } else if (event.key === 'ArrowRight') {
+            window.location.href = 'f6.html';
+        }
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guardian of the Grid - Conclusion</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;family=Nunito:wght@400;600;700;800&amp;family=Black+Ops+One&amp;display=swap" rel="stylesheet"/>
+<style>
+       body {
+    margin: 0;
+    padding: 0;
+
+    /* REMOVE fixed size */
+    /* width: 1280px; */
+    /* height: 720px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;   /* full screen height */
+    background-color: #0f172a;
+
+    font-family: 'Nunito', sans-serif;
+    color: #e2e8f0;
+}
+        .slide-container {
+    display: flex;
+    flex-direction: column;
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background-color: #0f172a;
+}
+        /* Header & Footer */
+        .header-bar {
+            height: 50px;
+            background-color: #1e293b;
+            border-bottom: 2px solid #fbbf24; /* Gold for achievement */
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            color: #fcd34d;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            z-index: 20;
+            flex-shrink: 0;
+        }
+
+        .footer-bar {
+            height: 30px;
+            background-color: #0f172a;
+            border-top: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 12px;
+            z-index: 20;
+            flex-shrink: 0;
+        }
+
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 0;
+            position: relative;
+            z-index: 10;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Background Confetti Effects */
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f0f;
+            z-index: 1;
+        }
+
+        .c1 { top: 10%; left: 10%; background: #fbbf24; transform: rotate(15deg); }
+        .c2 { top: 20%; right: 15%; background: #3b82f6; transform: rotate(-10deg); width: 15px; height: 8px; }
+        .c3 { bottom: 15%; left: 20%; background: #ef4444; transform: rotate(45deg); width: 12px; height: 12px; border-radius: 50%; }
+        .c4 { top: 15%; right: 30%; background: #10b981; transform: rotate(30deg); }
+        .c5 { bottom: 30%; right: 10%; background: #8b5cf6; transform: rotate(-25deg); width: 8px; height: 15px; }
+        
+        /* Sunburst Background Effect (using borders instead of gradient) */
+        .sunburst {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 1000px;
+            height: 1000px;
+            z-index: 0;
+            opacity: 0.05;
+            border-radius: 50%;
+            border: 200px solid #fbbf24;
+            box-shadow: 0 0 100px #fbbf24;
+        }
+
+        /* Badge Container */
+        .badge-container {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .shield-base {
+            position: absolute;
+            font-size: 420px;
+            color: #1e293b;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.5));
+            z-index: 5;
+        }
+
+        .shield-outline {
+            position: absolute;
+            font-size: 380px;
+            color: #0f172a;
+            z-index: 6;
+        }
+
+        .shield-inner-gold {
+            position: absolute;
+            font-size: 360px;
+            color: #fbbf24; /* Gold */
+            z-index: 7;
+            opacity: 0.1;
+        }
+
+        /* Badge Content */
+        .badge-content {
+            position: relative;
+            z-index: 20;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 300px;
+        }
+
+        .badge-icon {
+            font-size: 80px;
+            color: #fbbf24;
+            margin-bottom: 10px;
+            filter: drop-shadow(0 4px 6px rgba(0,0,0,0.3));
+        }
+
+        .badge-title {
+            font-family: 'Black Ops One', cursive;
+            font-size: 32px;
+            color: #fcd34d;
+            line-height: 1.1;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            text-shadow: 2px 2px 0px #000;
+        }
+
+        .badge-subtitle {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 18px;
+            color: #93c5fd;
+            font-weight: 600;
+            margin-bottom: 20px;
+            background-color: rgba(15, 23, 42, 0.8);
+            padding: 4px 12px;
+            border-radius: 12px;
+        }
+
+        /* Ribbon */
+        .ribbon {
+            position: absolute;
+            bottom: 40px;
+            background-color: #b91c1c;
+            color: white;
+            padding: 10px 40px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            z-index: 25;
+            border: 2px solid #fecaca;
+            transform: translateY(20px);
+        }
+
+        .ribbon::before, .ribbon::after {
+            content: '';
+            position: absolute;
+            top: 10px;
+            z-index: -1;
+            border: 20px solid #7f1d1d;
+        }
+
+        .ribbon::before {
+            left: -30px;
+            border-left-color: transparent;
+        }
+
+        .ribbon::after {
+            right: -30px;
+            border-right-color: transparent;
+        }
+
+        /* Oath Card */
+        .oath-card {
+            background-color: #1e293b;
+            border: 4px solid #fbbf24;
+            border-radius: 20px;
+            padding: 25px 40px;
+            margin-top: -40px; /* Overlap with badge bottom */
+            z-index: 30;
+            max-width: 700px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            text-align: center;
+            position: relative;
+        }
+
+        .oath-title {
+            color: #fbbf24;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 15px;
+        }
+
+        .oath-text {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 26px;
+            color: #fff;
+            line-height: 1.4;
+            font-style: italic;
+        }
+
+        .quote-icon {
+            color: #475569;
+            font-size: 40px;
+            position: absolute;
+        }
+
+        .quote-left { top: 10px; left: 15px; }
+        .quote-right { bottom: 10px; right: 15px; }
+
+        /* Left/Right Text Blocks */
+        .side-text {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 250px;
+            z-index: 20;
+        }
+
+        .left-text { left: 60px; text-align: right; }
+        .right-text { right: 60px; text-align: left; }
+
+        .summary-item {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .left-text .summary-item { justify-content: flex-end; }
+        .right-text .summary-item { justify-content: flex-start; }
+
+        .summary-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #334155;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fbbf24;
+            font-size: 18px;
+            flex-shrink: 0;
+            border: 2px solid #475569;
+        }
+
+        .summary-text {
+            font-size: 16px;
+            color: #cbd5e1;
+            font-weight: 600;
+        }
+
+        /* Characters */
+        .character-img {
+            position: absolute;
+            bottom: 0;
+            height: 250px;
+            z-index: 15;
+            opacity: 0.9;
+        }
+        
+        .char-left { left: 100px; transform: rotate(-5deg); }
+        .char-right { right: 100px; transform: rotate(5deg); }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="sunburst"></div>
+<div class="confetti c1"></div>
+<div class="confetti c2"></div>
+<div class="confetti c3"></div>
+<div class="confetti c4"></div>
+<div class="confetti c5"></div>
+<!-- Header -->
+<div class="header-bar">
+<i class="fas fa-certificate mr-2"></i>
+<p>EduuAspire 21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Left Side Summary -->
+<div class="side-text left-text">
+<div class="summary-item">
+<p class="summary-text">Strong Passwords</p>
+<div class="summary-icon"><i class="fas fa-key"></i></div>
+</div>
+<div class="summary-item">
+<p class="summary-text">Private Info Safe</p>
+<div class="summary-icon"><i class="fas fa-user-shield"></i></div>
+</div>
+<div class="summary-item">
+<p class="summary-text">Critical Thinking</p>
+<div class="summary-icon"><i class="fas fa-brain"></i></div>
+</div>
+</div>
+<!-- Center Badge -->
+<div class="badge-container">
+<!-- Shield Layers -->
+<i class="fas fa-shield-alt shield-base"></i>
+<i class="fas fa-shield-alt shield-outline"></i>
+<i class="fas fa-shield-alt shield-inner-gold"></i>
+<!-- Content Inside Badge -->
+<div class="badge-content">
+<i class="fas fa-star badge-icon"></i>
+<h1 class="badge-title">Guardian<br/>of the<br/>Grid</h1>
+<p class="badge-subtitle">Certified Cyber Smart</p>
+<!-- Stars Row -->
+<div class="flex gap-2 mt-4 text-yellow-400 text-xl">
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+<i class="fas fa-star"></i>
+</div>
+</div>
+<!-- Ribbon -->
+<div class="ribbon">OFFICIAL MEMBER</div>
+</div>
+<!-- Oath Card -->
+<div class="oath-card">
+<i class="fas fa-quote-left quote-icon quote-left"></i>
+<i class="fas fa-quote-right quote-icon quote-right"></i>
+<p class="oath-title">The Cyber Guardian Oath</p>
+<p class="oath-text">"I will stay safe online, protect my information, and help others make smart digital choices."</p>
+</div>
+<!-- Right Side Summary -->
+<div class="side-text right-text">
+<div class="summary-item">
+<div class="summary-icon"><i class="fas fa-ban"></i></div>
+<p class="summary-text">Block &amp; Report</p>
+</div>
+<div class="summary-item">
+<div class="summary-icon"><i class="fas fa-heart"></i></div>
+<p class="summary-text">Be Kind Online</p>
+</div>
+<div class="summary-item">
+<div class="summary-icon"><i class="fas fa-hands-helping"></i></div>
+<p class="summary-text">Ask for Help</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<script>
+document.addEventListener("keydown", function(event) {
+
+    // LEFT ARROW → Previous Heading
+    if (event.key === "ArrowLeft") {
+        window.location.href = "f14.html";
+    }
+
+    // RIGHT ARROW → Disabled (last slide)
+    if (event.key === "ArrowRight") {
+        // Do nothing OR show message (optional)
+        console.log("This is the last slide");
+    }
+
+});
+</script></body>
+</html>

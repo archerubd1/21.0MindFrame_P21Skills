@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ACTIVITY – Spot the Fake</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+:root {
+    --neon-cyan: #00f3ff;
+    --electric-purple: #bc13fe;
+    --alert-red: #ff2a2a;
+    --dark-bg: #050a14;
+}
+
+/* GLOBAL */
+body {
+    margin: 0;
+    background-color: var(--dark-bg);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    overflow: hidden;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    display: flex;
+    flex-direction: column;
+    background: #020408;
+    position: relative;
+}
+
+/* HEADER / FOOTER */
+.header-bar, .footer-bar {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    font-family: 'Share Tech Mono';
+    color: var(--neon-cyan);
+    border-bottom: 1px solid rgba(0,243,255,0.3);
+}
+
+.footer-bar {
+    height: 40px;
+    justify-content: center;
+    border-top: 1px solid rgba(188,19,254,0.3);
+    color: #888;
+}
+
+/* CONTENT */
+.content-area {
+    flex: 1;
+    padding: 20px 50px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* TITLE */
+.title-block {
+    display: flex;
+    justify-content: space-between;
+    border-left: 4px solid var(--electric-purple);
+    padding-left: 20px;
+}
+
+h1 {
+    font-family: 'Orbitron';
+    font-size: 36px;
+    margin: 0;
+}
+
+.subtitle {
+    font-family: 'Share Tech Mono';
+    color: var(--neon-cyan);
+    font-size: 14px;
+}
+
+/* GRID */
+.activity-grid {
+    display: flex;
+    gap: 30px;
+    flex: 1;
+}
+
+/* MEDIA */
+.media-frame {
+    flex: 1;
+    border: 2px solid #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.media-frame:hover {
+    border-color: var(--neon-cyan);
+}
+
+.overlay-grid {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: 20px 20px;
+    background-image: linear-gradient(rgba(0,243,255,0.1) 1px, transparent 1px);
+}
+
+/* ANIMATION */
+@keyframes slide {
+    0% { left: -30%; }
+    100% { left: 100%; }
+}
+
+/* SIDEBAR */
+.sidebar-area {
+    width: 350px;
+}
+
+.task-panel {
+    border: 1px solid rgba(0,243,255,0.3);
+    padding: 20px;
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+    position: absolute;
+    bottom: 60px;
+    padding: 10px 20px;
+    background: #111;
+    color: white;
+}
+.left { left: 50px; }
+.right { right: 50px; }
+
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<!-- HEADER -->
+<div class="header-bar">
+<div>EduuAspire 21.0 Skills |21st century skills| digital literacy</div>
+
+</div>
+
+<!-- CONTENT -->
+<div class="content-area">
+
+<div class="title-block">
+<div>
+<h1>ACTIVITY – Spot the Fake</h1>
+<div class="subtitle">INTERACTIVE ANALYSIS</div>
+</div>
+</div>
+
+<div class="activity-grid">
+
+<!-- LEFT MEDIA -->
+<div style="flex:2; display:flex; gap:20px;">
+
+<div class="media-frame">
+<div class="overlay-grid"></div>
+<i class="fas fa-user fa-4x"></i>
+</div>
+
+<div class="media-frame">
+<div class="overlay-grid"></div>
+<i class="fas fa-user-secret fa-4x"></i>
+</div>
+
+</div>
+
+<!-- RIGHT PANEL -->
+<div class="sidebar-area">
+<div class="task-panel">
+<h3>MISSION</h3>
+<p>Identify which media is fake and justify your answer.</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+Licensed and powered by Astrl mind Technologies copyright 2026-2033</div>
+
+</div>
+
+<!-- NAVIGATION SCRIPT -->
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const tag = document.activeElement.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f8.html'; // FIXED
+    }
+
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f6.html'; // FIXED
+    }
+
+});
+</script>
+
+<!-- BUTTONS -->
+<a href="f6.html" class="nav-btn left">←</a>
+<a href="f8.html" class="nav-btn right">Next →</a>
+
+</body>
+</html>

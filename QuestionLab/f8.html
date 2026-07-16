@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Question Lab - Find Keywords Activity</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .slide-container {
+        width: 1280px;
+        height: 720px;
+        position: relative;
+        background: transparent;
+        transform: scale(0.9);
+        transform-origin: center;
+    }
+
+    /* Header */
+    .header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        background: rgba(255,255,255,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    /* Title */
+    .title {
+        position: absolute;
+        top: 80px;
+        width: 100%;
+        text-align: center;
+        font-size: 48px;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .highlight {
+        color: #E87A5D;
+    }
+
+    /* Cards */
+    .card {
+        position: absolute;
+        width: 480px;
+        height: 400px;
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.05);
+        padding: 25px;
+    }
+
+    .left-card {
+        left: 140px;
+        top: 180px;
+        border-left: 8px solid #E87A5D;
+    }
+
+    .right-card {
+        left: 660px;
+        top: 180px;
+        border-left: 8px solid #4A90E2;
+    }
+
+    .card h2 {
+        margin: 0;
+        font-size: 28px;
+    }
+
+    .challenge-title {
+        color: #E87A5D;
+    }
+
+    .hint-title {
+        color: #4A90E2;
+    }
+
+    .topic {
+        margin-top: 20px;
+    }
+
+    .topic strong {
+        font-size: 30px;
+        display: block;
+        margin-top: 5px;
+    }
+
+    .box {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .challenge-box {
+        background: #FFF6E9;
+        border: 1px dashed #E87A5D;
+    }
+
+    .hint-box {
+        background: #E6F0FA;
+        border-left: 4px solid #4A90E2;
+    }
+
+    /* Keywords */
+    .keywords {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 10px;
+    }
+
+    .keyword {
+        background: #fff;
+        padding: 5px 12px;
+        border-radius: 6px;
+        color: #4A90E2;
+        font-weight: 700;
+        border: 1px solid #cce0f5;
+    }
+
+    .removed {
+        text-decoration: line-through;
+        color: #999;
+        background: #F0F0F0;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
+
+    /* Navigation */
+    .nav {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 900px;
+        height: 60px;
+        background: rgba(255, 204, 170, 0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+    }
+
+    .nav-item {
+        font-weight: 600;
+        color: #444;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    /* Footer */
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        background: #f0f0f0;
+        text-align: center;
+        font-size: 12px;
+        color: #888;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+    </div>
+
+    <div class="title">
+        Activity – <span class="highlight">Find Keywords</span>
+    </div>
+
+    <!-- LEFT CARD -->
+    <div class="card left-card">
+        <h2 class="challenge-title"><i class="fa-solid fa-flag-checkered"></i> Your Challenge</h2>
+
+        <div class="topic">
+            <span style="font-size:14px; color:#888;">QUESTION</span>
+            <strong>"How do volcanoes erupt?"</strong>
+        </div>
+
+        <div class="box challenge-box">
+            <b>Mission:</b><br>
+            Identify the <span class="highlight"><b>core keywords</b></span>.
+        </div>
+    </div>
+
+    <!-- RIGHT CARD -->
+    <div class="card right-card">
+        <h2 class="hint-title"><i class="fa-solid fa-lightbulb"></i> Helpful Hints</h2>
+
+        <p style="margin-top:20px;">
+            Remove helper words:
+        </p>
+
+        <div style="display:flex; gap:10px;">
+            <span class="removed">How</span>
+            <span class="removed">do</span>
+        </div>
+
+        <p style="margin-top:20px; font-size:14px; color:#888;">ANSWER:</p>
+
+        <div class="box hint-box">
+            <div class="keywords">
+                <span class="keyword">volcano</span>
+                <span class="keyword">erupt</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAV -->
+    <div class="nav">
+        <div class="nav-item">
+            <i class="fa-solid fa-arrow-left"></i> Keyword Magic
+        </div>
+        <div class="nav-item">
+            Search Tools <i class="fa-solid fa-arrow-right"></i>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Licensed & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+<script>
+document.addEventListener("keydown", function (e) {
+    const active = document.activeElement;
+
+    // Disable when typing
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") {
+        window.location.href = "f9.html";
+    }
+
+    if (e.key === "ArrowLeft") {
+        window.location.href = "f7.html";
+    }
+});
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Key Skills Gained - The Integrity Protocol</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        /* Main container layout */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FAFAFA;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Pseudo-gradient background */
+        .bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: #FDF4FF;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.45;
+        }
+        
+        .blob-1 {
+            top: -100px;
+            left: -100px;
+            width: 600px;
+            height: 600px;
+            background-color: #E9D5FF; /* Light Purple */
+        }
+        
+        .blob-2 {
+            bottom: -100px;
+            right: -100px;
+            width: 700px;
+            height: 700px;
+            background-color: #FBCFE8; /* Light Pink */
+        }
+        
+        .blob-3 {
+            top: 40%;
+            left: 40%;
+            width: 400px;
+            height: 400px;
+            background-color: #FFFFFF;
+            opacity: 0.5;
+        }
+
+        /* Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        /* Grid Card Styling */
+        .skill-card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-8px);
+            background: rgba(255, 255, 255, 0.85);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02);
+            border-color: rgba(167, 139, 250, 0.4);
+        }
+
+        .icon-box {
+            width: 64px;
+            height: 64px;
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+            font-size: 1.75rem;
+            transition: all 0.3s ease;
+        }
+
+        /* Card Variations */
+        .card-ethics .icon-box { background-color: #FEF2F2; color: #DC2626; }
+        .card-ethics:hover .icon-box { background-color: #DC2626; color: white; }
+
+        .card-legal .icon-box { background-color: #F3E8FF; color: #9333EA; }
+        .card-legal:hover .icon-box { background-color: #9333EA; color: white; }
+
+        .card-research .icon-box { background-color: #ECFDF5; color: #059669; }
+        .card-research:hover .icon-box { background-color: #059669; color: white; }
+
+        .card-critical .icon-box { background-color: #FFFBEB; color: #D97706; }
+        .card-critical:hover .icon-box { background-color: #D97706; color: white; }
+
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+  margin: 5px auto 0 auto;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FDF4FF;
+    border-radius: 10px;
+    z-index: 99999;
+}
+
+
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+<div class="slide-container" id="slide-9">
+<!-- Background Elements -->
+<div class="bg-layer">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+</div>
+<!-- Main Content Wrapper -->
+<div class="content-layer">
+<!-- Header -->
+<header class="px-12 py-6 w-full flex justify-between items-center opacity-80 border-b border-purple-100 border-opacity-30">
+<p class="text-[11px] font-bold tracking-widest text-gray-500 uppercase font-sans">
+                EduuAspire21.0 Skills <span class="mx-2 text-purple-300">|</span> 21st Century Skills <span class="mx-2 text-purple-300">|</span> Information Literacy
+            </p>
+<div class="h-1 w-16 bg-purple-200 rounded-full"></div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex flex-col justify-start px-24 pt-0.1 pb-0.1">
+<!-- Section Title -->
+<div class="text-center mb-2">
+<h1 class="text-4xl font-bold text-gray-800 mb-3">
+                    Key Skills Gained
+                </h1>
+<p class="text-gray-500 text-lg font-light">
+                    Core competencies developed through the Integrity Protocol
+                </p>
+</div>
+<!-- 2x2 Grid Layout -->
+<div class="grid grid-cols-2 gap-0.5 mt-2 w-full max-w-5xl mx-auto h-[400px]">
+<!-- Card 1: Ethics -->
+<div class="skill-card card-ethics">
+<div class="icon-box">
+<i class="fas fa-shield-heart"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Professional Ethics</h3>
+<p class="text-gray-600 text-sm leading-relaxed font-sans">
+                        Cultivating a strong moral compass, understanding the value of honesty, and building a reputation for personal accountability in all academic endeavors.
+                    </p>
+</div>
+<!-- Card 2: Legal Awareness -->
+<div class="skill-card card-legal">
+<div class="icon-box">
+<i class="fas fa-gavel"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Legal Awareness</h3>
+<p class="text-gray-600 text-sm leading-relaxed font-sans">
+                        Navigating the complexities of intellectual property rights, copyright laws, and understanding the legal boundaries of content usage.
+                    </p>
+</div>
+<!-- Card 3: Research Integrity -->
+<div class="skill-card card-research">
+<div class="icon-box">
+<i class="fas fa-book-bookmark"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Research Integrity</h3>
+<p class="text-gray-600 text-sm leading-relaxed font-sans">
+                        Mastering proper sourcing techniques, ensuring data transparency, and consistently attributing ideas to their original creators.
+                    </p>
+</div>
+<!-- Card 4: Critical Thinking -->
+<div class="skill-card card-critical">
+<div class="icon-box">
+<i class="fas fa-lightbulb"></i>
+</div>
+<h3 class="text-xl font-bold text-gray-800 mb-3">Critical Thinking</h3>
+<p class="text-gray-600 text-sm leading-relaxed font-sans">
+                        Evaluating information sources effectively, reflecting on ethical implications, and making informed decisions about content usage.
+                    </p>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer style="
+    position:absolute;
+    bottom:7px;
+    width:100%;
+    text-align:center;
+    z-index:50;
+">
+<p class="text-[10px] text-gray-400 font-medium tracking-wide">
+                Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033
+            </p>
+</footer>
+<!-- 🔥 NAVIGATION -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Citation examples</div>
+    <div class="nav-link" onclick="next()">Fair use law →</div>
+</div>
+</div>
+</div>
+</div>
+<script>
+
+// Navigation
+function next() {
+    window.location.href = "a10.html";   // ✅ FIXED
+}
+
+function prev() {
+    window.location.href = "a8.html";   // first slide fallback
+}
+
+// Keyboard
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+</script>
+</body>
+</html>

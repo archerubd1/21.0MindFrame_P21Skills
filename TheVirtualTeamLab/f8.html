@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Key Skills Gained - The Virtual Team Lab</title>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f1f5f9;
+    font-family: 'Inter', sans-serif;
+}
+        
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #e8f4f8 0%, #f0f4ff 50%, #f5f0ff 100%);
+        }
+        
+        /* Header Bar */
+        .header-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a5f;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .header-separator {
+            color: #94a3b8;
+            font-size: 14px;
+        }
+        
+        .header-item {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-badge {
+            background: #e0f2fe;
+            color: #0369a1;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        /* Footer Bar */
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.9);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .footer-left {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        /* Main Content */
+        .main-content {
+            position: absolute;
+            top: 50px;
+            left: 0;
+            right: 0;
+            bottom: 40px;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 40px;
+        }
+        
+        .content-header {
+            margin-bottom: 25px;
+        }
+        
+        .page-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .page-subtitle {
+            font-size: 15px;
+            color: #64748b;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            flex: 1;
+        }
+        
+        .skill-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px 25px; /* Adjusted padding to ensure more space for text on the right */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.2s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: #f0f9ff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .skill-icon i {
+            font-size: 24px;
+            color: #3b82f6;
+        }
+        
+        .skill-info {
+            flex: 1;
+        }
+        
+        .skill-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e3a5f;
+            margin-bottom: 5px;
+        }
+        
+        .skill-level {
+            font-size: 12px;
+            color: #64748b;
+        }
+        
+        .card-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        .skill-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+        
+        .check-dot {
+            width: 8px;
+            height: 8px;
+            background: #3b82f6;
+            border-radius: 50%;
+            margin-top: 6px;
+            flex-shrink: 0;
+        }
+        
+        .skill-text {
+            font-size: 13px;
+            color: #64748b;
+            line-height: 1.5;
+        }
+        
+        .progress-bar {
+            height: 6px;
+            background: #e2e8f0;
+            border-radius: 3px;
+            margin-top: 10px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        /* Navigation */
+        .nav-controls {
+            position: absolute;
+            bottom: 60px;
+            right: 40px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .nav-btn {
+            background: white;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 20px;
+            font-size: 14px;
+            color: #64748b;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s;
+        }
+        
+        .nav-btn:hover {
+            background: #f8fafc;
+            border-color: #3b82f6;
+            color: #3b82f6;
+        }
+        
+        .nav-btn.next {
+            background: #3b82f6;
+            color: white;
+            border-color: #3b82f6;
+        }
+        
+        .nav-btn.next:hover {
+            background: #2563eb;
+        }
+        
+        .data-object {
+            position: absolute;
+        }
+        
+        .highlight {
+            color: #3b82f6;
+            font-weight: 600;
+        }
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background: #f1f5f9;
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header-bar">
+<div class="header-left">
+<div class="header-logo">EduuAspire21.0 Skills</div>
+<div class="header-separator">|</div>
+<div class="header-item">21st Century Skills</div>
+<div class="header-separator">|</div>
+<div class="header-item">Digital Literacy</div>
+</div>
+<div class="header-right">
+<div class="header-badge">Active</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="content-header">
+<div class="page-title">Key Skills Gained</div>
+<div class="page-subtitle">Develop essential competencies for remote work and virtual collaboration</div>
+</div>
+<div class="skills-grid">
+<!-- Skill 1: Collaboration -->
+<div class="skill-card">
+<div class="card-header">
+<div class="skill-icon">
+<i class="fas fa-users"></i>
+</div>
+<div class="skill-info">
+<div class="skill-name">Collaboration</div>
+<div class="skill-level">Teamwork &amp; Coordination</div>
+</div>
+</div>
+<div class="card-content">
+<div class="skill-item">
+<div class="check-dot"></div>
+<div class="skill-text">Work effectively in distributed teams with clear role definitions</div>
+</div>
+<div class="skill-item">
+<div class="check-dot"></div>
+<div class="skill-text">Practice handoffs, feedback loops, and peer reviews</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 85%;"></div>
+</div>
+</div>
+</div>
+<!-- Skill 2: Technical Agility -->
+<div class="skill-card">
+<div class="card-header">
+<div class="skill-icon">
+<i class="fas fa-cogs"></i>
+</div>
+<div class="skill-info">
+<div class="skill-name">Technical Agility</div>
+<div class="skill-level">Cloud &amp; Tools Mastery</div>
+</div>
+</div>
+<div class="card-content">
+<div class="skill-item">
+<div class="check-dot"></div>
+<div class="skill-text">Master cloud platforms, Git, and digital tools</div>
+</div>
+<div class="skill-item">
+<div class="check-dot"></div>
+<div class="skill-text">Navigate new technologies with confidence</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 90%;"></div>
+</div>
+</div>
+</div>
+<!-- Skill 3: Communication -->
+<div class="skill-card">
+<div class="card-header">
+<div class="skill-icon">
+<i class="fas fa-comments"></i>
+</div>
+<div class="skill-info">
+<div class="skill-name">Communication</div>
+<div class="skill-level">Clear &amp; Inclusive</div>
+</div>
+</div>
+<div class="card-content">
+<div class="skill-item">
+<div class="check-dot"></div>
+<div class="skill-text">Express ideas clearly in written and verbal formats</div>
+</div>
+<div class="skill-item">
+<div class="check-dot"></div>
+<div class="skill-text">Practice inclusive, concise communication</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 88%;"></div>
+</div>
+</div>
+</div>
+<!-- Skill 4: Time Management -->
+<div class="skill-card">
+<div class="card-header">
+<div class="skill-icon">
+<i class="fas fa-clock"></i>
+</div>
+<div class="skill-info">
+<div class="skill-name">Time Management</div>
+<div class="skill-level">Prioritize &amp; Plan</div>
+</div>
+</div>
+<div class="card-content">
+<div class="skill-item">
+<div class="check-dot"></div>
+<div class="skill-text">Prioritize tasks and manage deadlines effectively</div>
+</div>
+<div class="skill-item">
+<div class="check-dot"></div>
+<div class="skill-text">Balance multiple projects and responsibilities</div>
+</div>
+<div class="progress-bar">
+<div class="progress-fill" style="width: 82%;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- 🔥 NAVIGATION -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Management</div>
+    <div class="nav-link" onclick="next()">Outcomes →</div>
+</div>
+</div>
+<div class="nav-btn next" onclick="nextSlide()">
+<span>Next</span>
+<i class="fas fa-chevron-right"></i>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<div class="footer-left">
+<span>Licenced &amp; Powered By Astrl Mind Technologies</span>
+</div>
+<div class="footer-right">
+<span class="footer-text">© 2026–2033</span>
+</div>
+</div>
+</div>
+<script>
+
+// Navigation
+function next() {
+    window.location.href = "f9.html";   // ✅ FIXED
+}
+
+function prev() {
+    window.location.href = "f7.html";   // first slide fallback
+}
+
+// Keyboard
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+</script>
+</body>
+</html>

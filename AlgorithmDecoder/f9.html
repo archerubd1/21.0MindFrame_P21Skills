@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tools to Investigate Algorithms - Slide 9</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&amp;family=Open+Sans:wght@400;500;600&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        
+         body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #0f0f0f;
+    font-family: 'Open Sans', sans-serif;
+
+    display: flex;              /* 🔥 ADD THIS */
+    justify-content: center;    /* 🔥 CENTER HORIZONTALLY */
+    align-items: center;        /* 🔥 CENTER VERTICALLY */
+    height: 100vh;              /* 🔥 FULL SCREEN HEIGHT */
+}
+     
+        
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background: linear-gradient(135deg, #065f46 0%, #047857 50%, #059669 100%);
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            font-size: 18px;
+            color: #059669;
+        }
+        
+        .header-divider {
+            width: 1px;
+            height: 20px;
+            background: #e5e7eb;
+        }
+        
+        .header-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #374151;
+            font-weight: 500;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .header-badge {
+            background: #059669;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        /* Main Content */
+    .main-content {
+    position: absolute;
+    top: 70px;
+    bottom: 120px;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+        
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            width: 100%;
+            max-width: 1100px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+        
+        .section-subtitle {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+        
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+        
+        .tool-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: all 0.3s ease;
+        }
+        
+        .tool-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: rgba(59, 130, 246, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            color: #3b82f6;
+            flex-shrink: 0;
+        }
+        
+        .tool-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        
+        .tool-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .tool-name {
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: white;
+        }
+        
+        .tool-tag {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+            padding: 5px 8px; /* Increased vertical padding from 4px to 5px to prevent text overflow */
+            border-radius: 8px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        .tool-description {
+            font-size: 14px;
+            color: rgba(255,255,255,0.8);
+            line-height: 1.5;
+        }
+        
+        .benefits-section {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 16px;
+            padding: 20px;
+            margin-top: 8px;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            margin-top: 12px;
+        }
+        
+        .benefit-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .benefit-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: rgba(16, 185, 129, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #10b981;
+            flex-shrink: 0;
+        }
+        
+        .benefit-text {
+            font-size: 13px;
+            color: white;
+        }
+        
+        /* Navigation */
+        .navigation {
+            position: fixed;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            background: rgba(255, 204, 170, 0.5);
+            backdrop-filter: blur(10px);
+            padding: 12px 24px;
+            border-radius: 30px;
+            border: 1px solid rgba(255,255,255,0.3);
+            z-index: 1000;
+        }
+        
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .nav-item:hover {
+            background: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .nav-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #065f46;
+            font-weight: 600;
+        }
+        
+        /* Footer */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 40px;
+            background: rgba(0,0,0,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 40px;
+            z-index: 1000;
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+        }
+        
+        .footer-brand {
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Decorative Elements */
+        .decoration-circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            pointer-events: none;
+        }
+        
+        .decoration-circle-1 {
+            width: 200px;
+            height: 200px;
+            top: 100px;
+            right: 100px;
+        }
+        
+        .decoration-circle-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 150px;
+            left: 80px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header">
+<div class="header-left">
+<div class="header-logo">EduuAspire21.0</div>
+<div class="header-divider"></div>
+<div class="header-text">21st Century Skills | Media Literacy</div>
+</div>
+<div class="header-right">
+<div class="header-badge">Workshop Module</div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="content-wrapper">
+<div class="section-title">Tools to Investigate Algorithms</div>
+<div class="section-subtitle">Digital literacy tools for critical thinking</div>
+<div class="tools-grid">
+<div class="tool-card">
+<div class="tool-icon">
+<i class="fas fa-robot"></i>
+</div>
+<div class="tool-content">
+<div class="tool-header">
+<div class="tool-name">Botometer</div>
+<div class="tool-tag">Bot Detection</div>
+</div>
+<div class="tool-description">Detect fake/bot accounts on social media platforms. Analyzes account behavior patterns to identify automated or suspicious activity.</div>
+</div>
+</div>
+<div class="tool-card">
+<div class="tool-icon">
+<i class="fas fa-newspaper"></i>
+</div>
+<div class="tool-content">
+<div class="tool-header">
+<div class="tool-name">Ground News</div>
+<div class="tool-tag">News Bias</div>
+</div>
+<div class="tool-description">Compare news coverage from different sources to identify bias and get a balanced view of current events.</div>
+</div>
+</div>
+</div>
+<div class="benefits-section">
+<div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
+<i class="fas fa-check-circle" style="color: #10b981; font-size: 16px;"></i>
+<span style="font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; color: white;">Benefits of using these tools</span>
+</div>
+<div class="benefits-grid">
+<div class="benefit-item">
+<div class="benefit-icon">
+<i class="fas fa-brain"></i>
+</div>
+<div class="benefit-text">Think critically</div>
+</div>
+<div class="benefit-item">
+<div class="benefit-icon">
+<i class="fas fa-check-double"></i>
+</div>
+<div class="benefit-text">Verify information</div>
+</div>
+<div class="benefit-item">
+<div class="benefit-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div class="benefit-text">Avoid manipulation</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navigation">
+<a class="nav-item" href="f8.html">
+<span class="nav-text">← Audit Report</span>
+</a>
+<a class="nav-item" href="f10.html">
+<span class="nav-text">Key Takeaways →</span>
+</a>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div class="footer-text">
+                Licenced &amp; Powered By <span class="footer-brand">Astrl Mind Technologies</span> copyright 2026-2033
+            </div>
+</div>
+<!-- Decorative Elements -->
+<div class="decoration-circle decoration-circle-1"></div>
+<div class="decoration-circle decoration-circle-2"></div>
+</div>
+<script src="script.js"></script>
+<script>document.addEventListener("DOMContentLoaded", function () {
+
+    document.addEventListener("keydown", function(e) {
+
+        let current = window.location.pathname.match(/f(\d+)\.html/);
+        if (!current) return;
+
+        let index = parseInt(current[1]);
+
+        if (e.key === "ArrowRight") {
+            window.location.href = `f${index + 1}.html`;
+        }
+
+        if (e.key === "ArrowLeft" && index > 1) {
+            window.location.href = `f${index - 1}.html`;
+        }
+
+    });
+
+});</script>
+
+
+</body>
+</html>

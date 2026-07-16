@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Module 1 – Citation Styles (APA / MLA)</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        /* Main container layout */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FAFAFA;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Pseudo-gradient background */
+        .bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: #FDF4FF;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+        
+        .blob-1 {
+            top: -150px;
+            right: -50px;
+            width: 700px;
+            height: 700px;
+            background-color: #E9D5FF; /* Light Purple */
+        }
+        
+        .blob-2 {
+            bottom: -150px;
+            left: -100px;
+            width: 600px;
+            height: 600px;
+            background-color: #FBCFE8; /* Light Pink */
+        }
+
+        /* Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+    padding-bottom: 60px;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Glassmorphism Elements */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-icon-container {
+            background: rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            border-radius: 40px;
+            box-shadow: 0 15px 35px rgba(167, 139, 250, 0.15);
+            width: 280px;
+            height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .glass-icon-container::before {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.2), rgba(139, 92, 246, 0.2));
+            z-index: -1;
+            filter: blur(20px);
+            opacity: 0.6;
+        }
+
+        /* Content Styling */
+        .module-tag {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: rgba(139, 92, 246, 0.1);
+            color: #7C3AED;
+            border-radius: 8px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            border: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .custom-bullet-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+            background: rgba(255, 255, 255, 0.4);
+            padding: 1.25rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            transition: transform 0.2s ease;
+        }
+
+        .custom-bullet-item:hover {
+            background: rgba(255, 255, 255, 0.7);
+            transform: translateX(5px);
+        }
+
+        .bullet-icon {
+            min-width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #FBCFE8 0%, #E9D5FF 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #9333EA;
+            margin-right: 1rem;
+            font-size: 1.1rem;
+        }
+.navbar {
+    position: absolute;
+    bottom: 47px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FDF4FF;
+    border-radius: 10px;
+    z-index: 99999;
+}
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+<div class="slide-container" id="slide-5">
+<!-- Background Elements -->
+<div class="bg-layer">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+</div>
+<!-- Main Content Wrapper -->
+<div class="content-layer">
+<!-- Header -->
+<header class="px-12 py-6 w-full flex justify-between items-center opacity-80 border-b border-purple-100 border-opacity-30">
+<p class="text-[11px] font-bold tracking-widest text-gray-500 uppercase font-sans">
+                EduuAspire21.0 Skills <span class="mx-2 text-purple-300">|</span> 21st Century Skills <span class="mx-2 text-purple-300">|</span> Information Literacy
+            </p>
+<div class="h-1 w-16 bg-purple-200 rounded-full"></div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex items-center px-20 py-1 gap-20">
+<!-- Left Column: Large Icon Visual -->
+<div class="w-5/12 flex justify-center items-center">
+<div class="glass-icon-container transform hover:scale-105 transition-transform duration-500">
+<i class="fas fa-file-pen text-9xl text-transparent bg-clip-text bg-gradient-to-br from-pink-500 to-purple-600 filter drop-shadow-lg"></i>
+<!-- Floating decorative elements -->
+<div class="absolute -top-4 -right-4 w-16 h-16 bg-white rounded-2xl shadow-lg flex items-center justify-center animate-bounce" style="animation-duration: 3s;">
+<span class="text-xl font-bold text-gray-700">" "</span>
+</div>
+<div class="absolute -bottom-4 -left-4 w-12 h-12 bg-purple-100 rounded-full shadow-lg flex items-center justify-center animate-pulse">
+<i class="fas fa-check text-purple-500"></i>
+</div>
+</div>
+</div>
+<!-- Right Column: Content -->
+<div class="w-7/12">
+<div class="mb-2">
+<span class="module-tag">Module 1</span>
+</div>
+<h1 class="text-4xl font-bold text-gray-800 mb-2 leading-tight">
+                    Citation Styles
+                </h1>
+<h2 class="text-2xl font-light text-gray-500 mb-10">
+                    Mastering APA &amp; MLA Formats
+                </h2>
+<div class="space-y-0">
+<!-- Point 1 -->
+<div class="custom-bullet-item mb-1">
+<div class="bullet-icon">
+<i class="fas fa-quote-right"></i>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-800 mb-1">Why We Cite</h4>
+<p class="text-gray-600 text-sm leading-relaxed">
+                                Citing credits original sources, allows readers to verify information, and demonstrates scholarly rigor in your work.
+                            </p>
+</div>
+</div>
+<!-- Point 2 -->
+<div class="custom-bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-book-open"></i>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-800 mb-1">Style Basics</h4>
+<p class="text-gray-600 text-sm leading-relaxed">
+<span class="font-medium text-purple-700">APA:</span> Focuses on Author &amp; Year (Science/Social Science).<br/>
+<span class="font-medium text-pink-600">MLA:</span> Focuses on Author &amp; Page Number (Humanities).
+                            </p>
+</div>
+</div>
+<!-- Point 3 -->
+<div class="custom-bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div>
+<h4 class="text-lg font-semibold text-gray-800 mb-1">Avoiding Plagiarism</h4>
+<p class="text-gray-600 text-sm leading-relaxed">
+                                Always quote accurately, paraphrase with original wording, and cite every source to maintain academic integrity.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="px-12 py-4 w-full text-center absolute bottom-2 z-20">
+<p class="text-[10px] text-gray-400 font-medium tracking-wide">
+                Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033
+            </p>
+</footer>
+<!-- 🔥 NAVIGATION -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Why Inegrity matters</div>
+    <div class="nav-link" onclick="next()">Citation style →</div>
+</div>
+
+</div>
+</div>
+</div>
+<script>
+
+// Navigation
+function next() {
+    window.location.href = "a6.html";   // ✅ FIXED
+}
+
+function prev() {
+    window.location.href = "a4.html";   // first slide fallback
+}
+
+// Keyboard
+document.addEventListener('keydown', function(e) {
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+</script>
+</body>
+</html>

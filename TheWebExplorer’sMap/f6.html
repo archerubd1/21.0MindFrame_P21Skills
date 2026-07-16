@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Slide 6 — Search Strings</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+    /* Fixed 1280x720 slide canvas */
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      background:#111827;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .slide{
+      width:1280px;
+      height:720px;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      border-radius:24px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.35);
+      background:#F6D3C0; /* fallback */
+    }
+
+    /* IMPORTANT: No CSS gradients (export-safe). Use layered soft blocks. */
+    .bg{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:#FFE1CF;
+    }
+    .bg .peach{
+      position:absolute;
+      left:-150px;
+      top:-170px;
+      width:760px;
+      height:760px;
+      background:#FFDAB9;
+      border-radius:72px;
+      opacity:.95;
+      transform: rotate(10deg);
+      box-shadow: 0 30px 80px rgba(31,41,55,.12);
+    }
+    .bg .blue{
+      position:absolute;
+      right:-220px;
+      bottom:-240px;
+      width:1040px;
+      height:1040px;
+      background:#ADD8E6;
+      border-radius:92px;
+      opacity:.85;
+      transform: rotate(-9deg);
+      box-shadow: 0 30px 80px rgba(31,41,55,.12);
+    }
+    .bg .mist{
+      position:absolute;
+      left:320px;
+      top:120px;
+      width:720px;
+      height:500px;
+      background:#FFFFFF;
+      border-radius:52px;
+      opacity:.28;
+      box-shadow: 0 22px 60px rgba(31,41,55,.10);
+    }
+
+    header{
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:64px;
+      z-index:3;
+      background:rgba(255,255,255,.85);
+      backdrop-filter: blur(6px);
+      display:flex;
+      align-items:center;
+      padding:0 28px;
+      box-shadow: 0 8px 18px rgba(31,41,55,.10);
+    }
+    header .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#0f172a;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    header .badge{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:#0ea5e9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 10px 20px rgba(14,165,233,.25);
+      flex:0 0 auto;
+    }
+    header .badge i{ color:white; font-size:16px; }
+
+    footer{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      height:48px;
+      z-index:3;
+      background:rgba(255,255,255,.9);
+      backdrop-filter: blur(6px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 18px;
+      box-shadow: 0 -10px 24px rgba(31,41,55,.10);
+    }
+    footer p{
+      margin:0;
+      color:#334155;
+      font-size:14px;
+      font-weight:600;
+      text-align:center;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 1200px;
+    }
+
+    /* Navigation bar above footer */
+    .nav{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:48px;
+      height:62px;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 22px;
+      background:rgba(255,255,255,.70);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 -8px 18px rgba(31,41,55,.08);
+    }
+    .nav a{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 16px;
+      border-radius:16px;
+      text-decoration:none;
+      color:#0f172a;
+      font-weight:800;
+      letter-spacing:.2px;
+      background:#ffffff;
+      box-shadow: 0 10px 24px rgba(31,41,55,.10);
+      transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
+      max-width: 380px;
+    }
+    .nav a:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(31,41,55,.14);
+      opacity:.98;
+    }
+    .nav .hint{
+      font-size:12px;
+      font-weight:700;
+      color:#64748b;
+      margin-left:10px;
+    }
+    .nav .topic{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+    .nav .topic p{
+      margin:0;
+      font-size:14px;
+      color:#64748b;
+      font-weight:800;
+    }
+    .nav .topic strong{
+      font-size:16px;
+      color:#0f172a;
+      font-weight:900;
+    }
+
+    main{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex:1;
+      flex-direction:column;
+      padding:84px 64px 130px; /* header + nav/footer */
+      gap:18px;
+    }
+
+    .title-row{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+    }
+    h1{
+      margin:0;
+      font-size:44px;
+      line-height:1.1;
+      color:#0f172a;
+      font-weight:900;
+      letter-spacing:-.4px;
+    }
+    .subnote{
+      margin:0 0 6px 0;
+      font-size:16px;
+      font-weight:800;
+      color:#475569;
+      text-align:right;
+      white-space:nowrap;
+    }
+
+    .grid{
+      flex:1;
+      display:flex;
+      gap:22px;
+      align-items:stretch;
+      min-height:0;
+    }
+
+    .col{
+      flex:1;
+      min-width:0;
+      border-radius:24px;
+      background:rgba(255,255,255,.78);
+      box-shadow: 0 26px 70px rgba(31,41,55,.14);
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+      overflow:hidden;
+    }
+
+    .col-header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding-bottom:14px;
+      border-bottom: 2px solid rgba(15,23,42,.06);
+    }
+    .col-header .label{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .col-icon{
+      width:52px;
+      height:52px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      box-shadow: 0 16px 34px rgba(31,41,55,.12);
+    }
+    .col-icon i{ font-size:20px; color:#0f172a; }
+    .col-title{
+      min-width:0;
+    }
+    .col-title p{
+      margin:0;
+      font-weight:900;
+      font-size:18px;
+      color:#0f172a;
+      line-height:1.2;
+    }
+    .col-title .small{
+      margin-top:6px;
+      font-weight:700;
+      font-size:13px;
+      color:#64748b;
+    }
+
+    .chips{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:#ffffff;
+      box-shadow: 0 10px 18px rgba(31,41,55,.08);
+      font-weight:900;
+      color:#0f172a;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .chip i{ color:#0ea5e9; }
+
+    .bullet{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding:14px 14px;
+      border-radius:18px;
+      background:#ffffff;
+      box-shadow: 0 12px 24px rgba(31,41,55,.09);
+    }
+    .b-ic{
+      width:40px;
+      height:40px;
+      border-radius:14px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      box-shadow: 0 12px 22px rgba(31,41,55,.10);
+      background:#f1f5f9;
+    }
+    .b-ic i{ color:#0f172a; font-size:16px; }
+    .b-txt p{
+      margin:0;
+      font-size:18px;
+      line-height:1.25;
+      color:#0f172a;
+      font-weight:800;
+      letter-spacing:-.1px;
+    }
+    .b-sub{
+      margin-top:8px;
+      font-size:14px;
+      line-height:1.35;
+      color:#475569;
+      font-weight:700;
+    }
+    .kw{
+      padding:2px 10px;
+      border-radius:999px;
+      background:#ffffff;
+      box-shadow: 0 10px 18px rgba(31,41,55,.10);
+      font-weight:900;
+      white-space:nowrap;
+    }
+
+    /* Example box */
+    .example{
+      border-radius:20px;
+      background:#ffffff;
+      box-shadow: 0 14px 28px rgba(31,41,55,.10);
+      padding:14px;
+    }
+    .example .row{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .kbd{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:14px;
+      background:#f8fafc;
+      box-shadow: inset 0 0 0 2px rgba(15,23,42,.05);
+      font-weight:900;
+      color:#0f172a;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .code{
+      margin-top:10px;
+      padding:12px 12px;
+      border-radius:16px;
+      background:#0f172a;
+      color:#e2e8f0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:14px;
+      font-weight:800;
+      line-height:1.35;
+      box-shadow: 0 14px 28px rgba(2,6,23,.25);
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+
+    /* Accent colors */
+    .accent-left{ background:#cfefff; }     /* light blue */
+    .accent-right{ background:#ffe7d6; }    /* peach */
+
+    /* Responsiveness: scale down */
+    .scale-wrap{
+      width:1280px;
+      height:720px;
+      transform-origin: top left;
+    }
+    @media (max-width: 1320px), (max-height: 760px){
+      body{ padding: 12px; }
+      .scale-wrap{
+        transform: scale(min(calc((100vw - 24px) / 1280), calc((100vh - 24px) / 720)));
+      }
+    }
+  </style>
+</head>
+<body style="">
+<div class="scale-wrap">
+<section aria-label="Search Strings — Slide 6" class="slide" role="application">
+<!-- Background layers -->
+<div aria-hidden="true" class="bg">
+<div class="peach"></div>
+<div class="blue"></div>
+<div class="mist"></div>
+</div>
+<!-- Header (mandatory) -->
+<header>
+<div class="brand">
+<div aria-hidden="true" class="badge">
+<i class="fa-solid fa-compass"></i>
+</div>
+<p style="margin:0; font-size:16px;">
+            EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy
+          </p>
+</div>
+</header>
+<!-- Main -->
+<main>
+<div class="title-row">
+<div>
+<h1>Search Strings</h1>
+</div>
+<div>
+
+</div>
+</div>
+<div class="grid">
+<!-- Left column: What are search strings -->
+<section aria-label="What are search strings" class="col">
+<div class="col-header">
+<div class="label">
+<div aria-hidden="true" class="col-icon accent-left">
+<i class="fa-solid fa-magnifying-glass"></i>
+</div>
+<div class="col-title">
+<p>What are they?</p>
+<p class="small">The words you type to search</p>
+</div>
+</div>
+<div aria-hidden="true" class="chips">
+
+
+</div>
+</div>
+<div class="bullet" style="position: relative; transform: translate(0px, 42.4642px);">
+<div aria-hidden="true" class="b-ic" style="background:#e0f2fe;">
+<i class="fa-solid fa-i-cursor"></i>
+</div>
+<div class="b-txt">
+<p>A <span class="kw">search string</span> is the words you type in the search box.</p>
+<p class="b-sub">Example: “volcano facts for kids”</p>
+</div>
+</div>
+<div class="bullet" style="position: relative; transform: translate(-4.24642px, 66.5272px);">
+<div aria-hidden="true" class="b-ic" style="background:#ffe7d6;">
+<i class="fa-solid fa-message"></i>
+</div>
+<div class="b-txt">
+<p>It tells the search engine <span class="kw">what you want</span>.</p>
+<p class="b-sub">The clearer your words, the better your answers.</p>
+</div>
+</div>
+<div style="margin-top:auto;">
+
+</div>
+</section>
+<!-- Right column: Why they matter -->
+<section aria-label="Why search strings matter" class="col">
+<div class="col-header">
+<div class="label">
+<div aria-hidden="true" class="col-icon accent-right">
+<i class="fa-solid fa-bullseye"></i>
+</div>
+<div class="col-title">
+<p>Why they matter</p>
+<p class="small">Better words = better results</p>
+</div>
+</div>
+<div aria-hidden="true" class="chips">
+<span class="chip"><i class="fa-solid fa-clock"></i><p style="margin:0;">Save time</p></span>
+<span class="chip"><i class="fa-solid fa-filter"></i><p style="margin:0;">Better match</p></span>
+</div>
+</div>
+<div class="bullet">
+<div aria-hidden="true" class="b-ic">
+<i class="fa-solid fa-stopwatch"></i>
+</div>
+<div class="b-txt">
+<p>Clear strings <span class="kw">save time</span>.</p>
+<p class="b-sub">You get useful pages faster.</p>
+</div>
+</div>
+<div class="bullet">
+<div aria-hidden="true" class="b-ic" style="background:#dcfce7;">
+<i class="fa-solid fa-circle-check"></i>
+</div>
+<div class="b-txt">
+<p>Specific words give <span class="kw">better results</span>.</p>
+<p class="b-sub">Add details like grade, place, or “for kids”.</p>
+</div>
+</div>
+<div class="bullet">
+<div aria-hidden="true" class="b-ic" style="background:#ffedd5;">
+<i class="fa-solid fa-triangle-exclamation"></i>
+</div>
+<div class="b-txt">
+<p>If results look weird, <span class="kw">change your words</span>.</p>
+<p class="b-sub">Try fewer words or add one helpful detail.</p>
+</div>
+</div>
+<div style="margin-top:auto;">
+<div style="border-radius:20px; background:#f8fafc; box-shadow: inset 0 0 0 2px rgba(15,23,42,.05); padding:14px;">
+<p style="margin:0; font-weight:900; color:#0f172a; font-size:14px;">Shortcut</p>
+<p style="margin-top:8px; font-weight:700; color:#475569; font-size:14px; line-height:1.35;">
+                Think: <span style="font-weight:900; color:#0f172a;">Topic</span> + <span style="font-weight:900; color:#0f172a;">Detail</span> + <span style="font-weight:900; color:#0f172a;">For kids</span>.
+              </p>
+</div>
+</div>
+</section>
+</div>
+</main>
+<!-- Navigation -->
+<nav aria-label="Slide navigation" class="nav">
+<a href="f5.html" title="Go to Safety Rules">
+<i aria-hidden="true" class="fa-solid fa-arrow-left"></i>
+<div class="topic">
+
+<strong>Safety Rules</strong>
+</div>
+</a>
+<div class="hint">
+
+</div>
+<a href="f7.html" title="Go to Smart Search Tips">
+<div class="topic" style="text-align:right;">
+
+<strong>Smart Search</strong>
+</div>
+<i aria-hidden="true" class="fa-solid fa-arrow-right"></i>
+</a>
+</nav>
+<!-- Footer -->
+<footer>
+<p><strong>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</strong></p>
+</footer>
+</section>
+</div>
+<script>
+    // Keyboard navigation: ArrowLeft / ArrowRight
+    // Disabled while typing in inputs/textareas/contenteditable
+    (function () {
+      const prevLink = document.querySelector('nav.nav a[href="f5.html"]');
+      const nextLink = document.querySelector('nav.nav a[href="f7.html"]');
+
+      function isTypingTarget(el) {
+        if (!el) return false;
+        const tag = (el.tagName || '').toLowerCase();
+        return tag === 'input' || tag === 'textarea' || el.isContentEditable === true;
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (isTypingTarget(document.activeElement)) return;
+
+        if (e.key === 'ArrowRight') {
+          if (nextLink) window.location.href = nextLink.getAttribute('href');
+        }
+        if (e.key === 'ArrowLeft') {
+          if (prevLink) window.location.href = prevLink.getAttribute('href');
+        }
+      });
+    })();
+  </script>
+
+</body></html>

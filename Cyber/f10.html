@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Cyber Shield Kids - Password Safety Habits</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<style>
+               body {
+    margin: 0;
+    padding: 0;
+
+    /* REMOVE fixed size */
+    /* width: 1280px; */
+    /* height: 720px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;   /* full screen height */
+    background-color: #0f172a;
+
+    font-family: 'Nunito', sans-serif;
+    color: #e2e8f0;
+}
+        .slide-container {
+    display: flex;
+    flex-direction: column;
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background-color: #0f172a;
+}       
+        /* Header */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header-text {
+            font-size: 14px;
+            font-weight: 500;
+            color: #ffffff;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-item {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Main Content */
+        .main-content {
+            position: absolute;
+            top: 60px;
+            left: 30px;
+            right: 30px;
+            bottom: 80px;
+            display: flex;
+            gap: 20px;
+        }
+        
+        /* Left Section - Title and Image */
+        .left-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .title-box {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+        
+        .subtitle {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .image-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+        
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Right Section - Tips Grid */
+        .right-section {
+            flex: 1.5;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        
+        .tip-card {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            transition: all 0.3s ease;
+        }
+        
+        .tip-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+        }
+        
+        .tip-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .tip-icon i {
+            font-size: 18px;
+            color: #ffffff;
+        }
+        
+        .tip-content {
+            flex: 1;
+        }
+        
+        .tip-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+        
+        .tip-text {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.4;
+        }
+        
+        /* Footer */
+        .footer {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .footer-text {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .footer-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .footer-item {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        /* Navigation Bar */
+        .nav-bar {
+            position: fixed;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background: rgba(245, 183, 161, 0.08);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 100;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .nav-link:hover {
+            color: #ffffff;
+            opacity: 1;
+            transform: translateY(-2px);
+        }
+        
+        .nav-link.disabled {
+            opacity: 0.5;
+            pointer-events: none;
+        }
+        
+        .nav-arrow {
+            font-size: 12px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 1280px) {
+            .slide-container {
+                width: 100%;
+                height: auto;
+                min-height: 720px;
+            }
+        }
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Header -->
+<div class="header">
+<div class="header-text">EduuAspire 21.0 Skills | 21st Century Skills | Digital Literacy</div>
+<div class="header-right">
+<span class="header-item">Cyber Shield Kids</span>
+<span class="header-item">|</span>
+<span class="header-item">Password Safety</span>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<!-- Left Section -->
+<div class="left-section">
+<div class="title-box">
+<div class="title">Password Safety Habits</div>
+<div class="subtitle">Protect your accounts with smart password practices</div>
+</div>
+<div class="image-box">
+<img alt="Password Security" src="image10.webp" style="max-width: 90%; max-height: 90%;" data-height-listener-added="true">
+</div>
+</div>
+<!-- Right Section -->
+<div class="right-section">
+<div class="tips-grid">
+<div class="tip-card">
+<div class="tip-icon">
+<i class="fas fa-lock"></i>
+</div>
+<div class="tip-content">
+<div class="tip-title">Never Share Passwords</div>
+<div class="tip-text">Don't share passwords with anyone, even friends or family members.</div>
+</div>
+</div>
+<div class="tip-card">
+<div class="tip-icon">
+<i class="fas fa-key"></i>
+</div>
+<div class="tip-content">
+<div class="tip-title">Use Password Manager</div>
+<div class="tip-text">Store passwords securely with a trusted password manager.</div>
+</div>
+</div>
+<div class="tip-card">
+<div class="tip-icon">
+<i class="fas fa-mobile-alt"></i>
+</div>
+<div class="tip-content">
+<div class="tip-title">Enable 2FA</div>
+<div class="tip-text">Turn on two-factor authentication for extra security.</div>
+</div>
+</div>
+<div class="tip-card">
+<div class="tip-icon">
+<i class="fas fa-sync-alt"></i>
+</div>
+<div class="tip-content">
+<div class="tip-title">Change if Compromised</div>
+<div class="tip-text">Change passwords immediately if you suspect they've been leaked.</div>
+</div>
+</div>
+</div>
+<div class="tip-card" style="margin-top: 10px;">
+<div class="tip-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div class="tip-content">
+<div class="tip-title">Password Manager Benefits</div>
+<div class="tip-text">Store passwords securely, generate strong passwords, and autofill login forms for better security.</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<div class="footer-text" style="text-align: center; position: relative; transform: translate(431.862px, -2.75072px);">Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</div>
+<div class="footer-right">
+<span class="footer-item">Page 10 of 15</span>
+</div>
+</div>
+<!-- Navigation Bar -->
+<div class="nav-bar">
+<div class="nav-left">
+<a class="nav-link" href="f9.html">
+<span class="nav-arrow">←</span>
+<span>Create Passphrase</span>
+</a>
+</div>
+<div class="nav-right">
+<a class="nav-link" href="f11.html">
+<span>Spot Phishing</span>
+<span class="nav-arrow">→</span>
+</a>
+</div>
+</div>
+</div>
+<script>
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
+            return;
+        }
+        
+        switch(e.key) {
+            case 'ArrowLeft':
+                window.location.href = 'f9.html';
+                break;
+            case 'ArrowRight':
+                window.location.href = 'f11.html';
+                break;
+        }
+    });
+</script>
+
+
+</body></html>

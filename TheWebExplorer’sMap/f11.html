@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Slide 11 — Outcomes &amp; Skills</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet">
+<style>
+    /* Fixed 1280x720 slide canvas */
+    html, body { height: 100%; }
+    body{
+      margin:0;
+      background:#111827;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .slide{
+      width:1280px;
+      height:720px;
+      position:relative;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+      border-radius:24px;
+      box-shadow: 0 24px 70px rgba(0,0,0,.35);
+      background:#F6D3C0; /* fallback */
+    }
+
+    /* IMPORTANT: No CSS gradients (export-safe). Use layered soft blocks to mimic blend. */
+    .bg{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      background:#FFE1CF;
+    }
+    .bg .peach{
+      position:absolute;
+      left:-170px;
+      top:-190px;
+      width:820px;
+      height:820px;
+      background:#FFDAB9;
+      border-radius:78px;
+      opacity:.95;
+      transform: rotate(10deg);
+      box-shadow: 0 30px 80px rgba(31,41,55,.12);
+    }
+    .bg .blue{
+      position:absolute;
+      right:-260px;
+      bottom:-280px;
+      width:1120px;
+      height:1120px;
+      background:#ADD8E6;
+      border-radius:100px;
+      opacity:.85;
+      transform: rotate(-9deg);
+      box-shadow: 0 30px 80px rgba(31,41,55,.12);
+    }
+    .bg .mist{
+      position:absolute;
+      left:290px;
+      top:110px;
+      width:820px;
+      height:530px;
+      background:#FFFFFF;
+      border-radius:56px;
+      opacity:.26;
+      box-shadow: 0 22px 60px rgba(31,41,55,.10);
+    }
+
+    header{
+      position:absolute;
+      top:0;
+      left:0;
+      right:0;
+      height:64px;
+      z-index:3;
+      background:rgba(255,255,255,.85);
+      backdrop-filter: blur(6px);
+      display:flex;
+      align-items:center;
+      padding:0 28px;
+      box-shadow: 0 8px 18px rgba(31,41,55,.10);
+    }
+    header .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      color:#0f172a;
+      font-weight:700;
+      letter-spacing:.2px;
+    }
+    header .badge{
+      width:38px;
+      height:38px;
+      border-radius:12px;
+      background:#0ea5e9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 10px 20px rgba(14,165,233,.25);
+      flex:0 0 auto;
+    }
+    header .badge i{ color:white; font-size:16px; }
+
+    footer{
+      position:absolute;
+      bottom:0;
+      left:0;
+      right:0;
+      height:48px;
+      z-index:3;
+      background:rgba(255,255,255,.9);
+      backdrop-filter: blur(6px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 18px;
+      box-shadow: 0 -10px 24px rgba(31,41,55,.10);
+    }
+    footer p{
+      margin:0;
+      color:#334155;
+      font-size:14px;
+      font-weight:600;
+      text-align:center;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+      max-width: 1200px;
+    }
+
+    /* Navigation bar above footer */
+    .nav{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:48px;
+      height:62px;
+      z-index:3;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:0 22px;
+      background:rgba(255,255,255,.70);
+      backdrop-filter: blur(6px);
+      box-shadow: 0 -8px 18px rgba(31,41,55,.08);
+    }
+    .nav a{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:12px 16px;
+      border-radius:16px;
+      text-decoration:none;
+      color:#0f172a;
+      font-weight:800;
+      letter-spacing:.2px;
+      background:#ffffff;
+      box-shadow: 0 10px 24px rgba(31,41,55,.10);
+      transition: transform .16s ease, box-shadow .16s ease, opacity .16s ease;
+      max-width: 420px;
+    }
+    .nav a:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(31,41,55,.14);
+      opacity:.98;
+    }
+    .nav .hint{
+      font-size:12px;
+      font-weight:700;
+      color:#64748b;
+      margin-left:10px;
+    }
+    .nav .topic{
+      display:flex;
+      flex-direction:column;
+      line-height:1.1;
+    }
+    .nav .topic p{
+      margin:0;
+      font-size:14px;
+      color:#64748b;
+      font-weight:800;
+    }
+    .nav .topic strong{
+      font-size:16px;
+      color:#0f172a;
+      font-weight:900;
+    }
+
+    main{
+      position:relative;
+      z-index:2;
+      display:flex;
+      flex:1;
+      flex-direction:column;
+      padding:84px 64px 130px; /* header + nav/footer */
+      gap:18px;
+      min-height:0;
+    }
+
+    .title-row{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+    }
+    h1{
+      margin:0;
+      font-size:44px;
+      line-height:1.1;
+      color:#0f172a;
+      font-weight:900;
+      letter-spacing:-.4px;
+    }
+    .subnote{
+      margin:0 0 6px 0;
+      font-size:16px;
+      font-weight:800;
+      color:#475569;
+      text-align:right;
+      white-space:nowrap;
+    }
+
+    .frame{
+      flex:1;
+      min-height:0;
+      border-radius:24px;
+      background:rgba(255,255,255,.78);
+      box-shadow: 0 26px 70px rgba(31,41,55,.14);
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      overflow:hidden;
+    }
+
+    .frame-top{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding-bottom:14px;
+      border-bottom: 2px solid rgba(15,23,42,.06);
+    }
+    .frame-top-left{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      min-width:0;
+    }
+    .frame-badge{
+      width:54px;
+      height:54px;
+      border-radius:18px;
+      background:#ede9fe;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 16px 34px rgba(31,41,55,.12);
+      flex:0 0 auto;
+    }
+    .frame-badge i{ font-size:20px; color:#0f172a; }
+    .frame-title{
+      min-width:0;
+    }
+    .frame-title p{
+      margin:0;
+      font-weight:900;
+      font-size:18px;
+      color:#0f172a;
+      line-height:1.2;
+    }
+    .frame-title .small{
+      margin-top:6px;
+      font-weight:700;
+      font-size:13px;
+      color:#64748b;
+    }
+
+    .chips{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      background:#ffffff;
+      box-shadow: 0 10px 18px rgba(31,41,55,.08);
+      font-weight:900;
+      color:#0f172a;
+      font-size:12px;
+      white-space:nowrap;
+    }
+    .chip i{ color:#0ea5e9; }
+
+    .outcomes{
+      flex:1;
+      min-height:0;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      padding-top:16px;
+    }
+
+    .outcome{
+      border-radius:22px;
+      background:#ffffff;
+      box-shadow: 0 16px 40px rgba(31,41,55,.12);
+      padding:18px 18px;
+      display:flex;
+      gap:16px;
+      align-items:stretch;
+      overflow:hidden;
+      min-height:0;
+    }
+
+    .o-ic{
+      width:72px;
+      height:72px;
+      border-radius:22px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      box-shadow: 0 18px 42px rgba(31,41,55,.14);
+    }
+    .o-ic i{
+      font-size:26px;
+      color:#0f172a;
+    }
+
+    .o-body{
+      flex:1;
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:8px;
+    }
+    .o-title{
+      margin:0;
+      font-size:24px;
+      line-height:1.1;
+      font-weight:900;
+      color:#0f172a;
+      letter-spacing:-.15px;
+    }
+    .o-desc{
+      margin:0;
+      font-size:16px;
+      line-height:1.45;
+      font-weight:700;
+      color:#475569;
+    }
+    .kw{
+      padding:2px 10px;
+      border-radius:999px;
+      background:#ffffff;
+      box-shadow: 0 10px 18px rgba(31,41,55,.10);
+      font-weight:900;
+      color:#0f172a;
+      white-space:nowrap;
+    }
+
+    .o-right{
+      width:300px;
+      flex:0 0 auto;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap:10px;
+      align-items:flex-end;
+      text-align:right;
+      min-width:0;
+    }
+    .meter{
+      width:100%;
+      border-radius:999px;
+      background:#f1f5f9;
+      box-shadow: inset 0 0 0 2px rgba(15,23,42,.05);
+      height:14px;
+      overflow:hidden;
+    }
+    .bar{
+      height:100%;
+      border-radius:999px;
+      width: 70%;
+      background:#0ea5e9;
+      opacity:.9;
+    }
+    .o-note{
+      margin:0;
+      font-size:13px;
+      font-weight:800;
+      color:#334155;
+      line-height:1.25;
+      max-width: 300px;
+    }
+
+    /* Accents */
+    .a-ict{ background:#cfefff; }      /* blue */
+    .a-ct{ background:#ffe7d6; }       /* peach */
+    .a-nav{ background:#dcfce7; }      /* green */
+    .bar-ict{ background:#0ea5e9; width: 82%; }
+    .bar-ct{ background:#f97316; width: 76%; }
+    .bar-nav{ background:#22c55e; width: 88%; }
+
+    /* Responsiveness: scale down */
+    .scale-wrap{
+      width:1280px;
+      height:720px;
+      transform-origin: top left;
+    }
+    @media (max-width: 1320px), (max-height: 760px){
+      body{ padding: 12px; }
+      .scale-wrap{
+        transform: scale(min(calc((100vw - 24px) / 1280), calc((100vh - 24px) / 720)));
+      }
+    }
+  </style>
+</head>
+<body style="">
+<div class="scale-wrap">
+<section aria-label="Outcomes &amp; Skills — Slide 11" class="slide" role="application">
+<!-- Background layers -->
+<div aria-hidden="true" class="bg">
+<div class="peach"></div>
+<div class="blue"></div>
+<div class="mist"></div>
+</div>
+<!-- Header (mandatory) -->
+<header>
+<div class="brand">
+<div aria-hidden="true" class="badge">
+<i class="fa-solid fa-compass"></i>
+</div>
+<p style="margin:0; font-size:16px;">
+            EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy
+          </p>
+</div>
+</header>
+<!-- Main -->
+<main>
+<div class="title-row">
+<div>
+<h1>Outcomes &amp; Skills</h1>
+</div>
+<div>
+
+</div>
+</div>
+<section aria-label="Learning outcomes" class="frame">
+<div class="frame-top">
+<div class="frame-top-left">
+<div aria-hidden="true" class="frame-badge">
+<i class="fa-solid fa-graduation-cap"></i>
+</div>
+<div class="frame-title">
+<p>Your Web Explorer Toolkit</p>
+<p class="small">3 skills to practice every time you go online</p>
+</div>
+</div>
+<div aria-hidden="true" class="chips">
+<span class="chip"><i class="fa-solid fa-shield-halved"></i><p style="margin:0;">Safe</p></span>
+<span class="chip"><i class="fa-solid fa-magnifying-glass"></i><p style="margin:0;">Smart</p></span>
+<span class="chip"><i class="fa-solid fa-circle-check"></i><p style="margin:0;">Confident</p></span>
+</div>
+</div>
+<div class="outcomes">
+<!-- Outcome 1 -->
+<article aria-label="ICT Literacy" class="outcome">
+<div aria-hidden="true" class="o-ic a-ict">
+<i class="fa-solid fa-laptop"></i>
+</div>
+<div class="o-body">
+<p class="o-title">ICT Literacy</p>
+<p class="o-desc">
+                  Use <span class="kw">browsers</span> and <span class="kw">search</span> well to find what you need.
+                </p>
+</div>
+<div class="o-right">
+<div aria-hidden="true" class="meter">
+<div class="bar bar-ict"></div>
+</div>
+<p class="o-note">Skill focus: tools + practice</p>
+</div>
+</article>
+<!-- Outcome 2 -->
+<article aria-label="Critical Thinking" class="outcome">
+<div aria-hidden="true" class="o-ic a-ct">
+<i class="fa-solid fa-brain"></i>
+</div>
+<div class="o-body">
+<p class="o-title">Critical Thinking</p>
+<p class="o-desc">
+                  Check and <span class="kw">compare</span> information before you believe it.
+                </p>
+</div>
+<div class="o-right">
+<div aria-hidden="true" class="meter">
+<div class="bar bar-ct"></div>
+</div>
+<p class="o-note">Skill focus: think + verify</p>
+</div>
+</article>
+<!-- Outcome 3 -->
+<article aria-label="Digital Navigator" class="outcome">
+<div aria-hidden="true" class="o-ic a-nav">
+<i class="fa-solid fa-compass"></i>
+</div>
+<div class="o-body">
+<p class="o-title">Digital Navigator</p>
+<p class="o-desc">
+                  Explore <span class="kw">safely</span> and <span class="kw">wisely</span>—and ask for help when unsure.
+                </p>
+</div>
+<div class="o-right">
+<div aria-hidden="true" class="meter">
+<div class="bar bar-nav"></div>
+</div>
+<p class="o-note">Skill focus: safe choices</p>
+</div>
+</article>
+<div style="margin-top:auto;">
+
+</div>
+</div>
+</section>
+</main>
+<!-- Navigation -->
+<nav aria-label="Slide navigation" class="nav">
+<a href="f10.html" title="Go to Online Safety">
+<i aria-hidden="true" class="fa-solid fa-arrow-left"></i>
+<div class="topic">
+
+<strong>Online Safety</strong>
+</div>
+</a>
+<div class="hint">
+
+</div>
+<a aria-disabled="true" href="f11.html" style="opacity:.55; pointer-events:none;" title="You are on the last slide">
+<div class="topic" style="text-align:right;">
+<p><br></p>
+<strong>Finish</strong>
+</div>
+<i aria-hidden="true" class="fa-solid fa-arrow-right"></i>
+</a>
+</nav>
+<!-- Footer (mandatory) -->
+<footer>
+<p><strong>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</strong></p>
+</footer>
+</section>
+</div>
+<script>
+    // Keyboard navigation: ArrowLeft / ArrowRight
+    // Disabled while typing in inputs/textareas/contenteditable
+    (function () {
+      const prevLink = document.querySelector('nav.nav a[href="f10.html"]');
+      const nextLink = null; // last slide
+
+      function isTypingTarget(el) {
+        if (!el) return false;
+        const tag = (el.tagName || '').toLowerCase();
+        return tag === 'input' || tag === 'textarea' || el.isContentEditable === true;
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (isTypingTarget(document.activeElement)) return;
+
+        if (e.key === 'ArrowRight') {
+          if (nextLink) window.location.href = nextLink.getAttribute('href');
+          e.preventDefault();
+        }
+        if (e.key === 'ArrowLeft') {
+          if (prevLink) window.location.href = prevLink.getAttribute('href');
+        }
+      });
+    })();
+  </script>
+
+</body></html>

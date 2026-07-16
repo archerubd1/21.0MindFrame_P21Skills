@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Impactful Content Lab - Conclusion</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+                 body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e0f7fa 0%, #f1f8e9 100%);
+display: flex;              /* IMPORTANT */
+    justify-content: center;    /* horizontal center */
+    align-items: center;        /* vertical center */
+    height: 100vh; 
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #f7fee7; /* Light lime base */
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Decorative shapes for background "gradient" simulation */
+        /* Creating a centered, focused background effect for conclusion */
+        .deco-blob-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 900px;
+            height: 900px;
+            background-color: #fefce8; /* Light yellow center */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.8;
+            filter: blur(60px);
+        }
+
+        .deco-blob-corner-1 {
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background-color: #dcfce7; /* Mint green */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        .deco-blob-corner-2 {
+            position: absolute;
+            bottom: -100px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background-color: #bef264; /* Stronger lime */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.2;
+        }
+
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: flex-end;
+            z-index: 10;
+        }
+
+        .header-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+            z-index: 10;
+        }
+
+        .footer-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 10px;
+            color: #94a3b8;
+        }
+
+        /* Main Content Area */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 5;
+            padding-bottom: 50px; /* Space for nav */
+            width: 100%;
+        }
+
+        .page-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 52px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .title-underline {
+            width: 80px;
+            height: 6px;
+            background-color: #84cc16; /* Lime 500 */
+            border-radius: 3px;
+            margin: 0 auto 60px auto;
+        }
+
+        /* Conclusion Focal Points Container */
+        .conclusion-container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 40px;
+            width: 90%;
+            max-width: 1100px;
+        }
+
+        .conclusion-card {
+            flex: 1;
+            background-color: rgba(255, 255, 255, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            border-radius: 20px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .conclusion-card:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Top accent line on card */
+        .card-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+        }
+        
+        .accent-1 { background-color: #4ade80; } /* Green */
+        .accent-2 { background-color: #84cc16; } /* Lime */
+        .accent-3 { background-color: #facc15; } /* Yellow */
+
+        .icon-wrapper {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 36px;
+            background-color: #f1f5f9;
+            color: #475569;
+            transition: all 0.3s ease;
+        }
+
+        .conclusion-card:hover .icon-wrapper {
+            transform: scale(1.1);
+        }
+
+        .card-1:hover .icon-wrapper { background-color: #dcfce7; color: #166534; }
+        .card-2:hover .icon-wrapper { background-color: #ecfccb; color: #4d7c0f; }
+        .card-3:hover .icon-wrapper { background-color: #fef9c3; color: #a16207; }
+
+        .card-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 24px;
+            font-weight: 600;
+            color: #334155;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+        
+        .card-desc {
+             font-family: 'Inter', sans-serif;
+             font-size: 14px;
+             color: #64748b;
+             margin-top: 10px;
+        }
+
+        /* Checkmark Decoration */
+        .check-icon {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 20px;
+            color: #cbd5e1;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .conclusion-card:hover .check-icon {
+            opacity: 1;
+            transform: scale(1.2);
+            color: #84cc16;
+        }
+
+        /* Navigation Bar */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between; /* Keeps layout consistent even with one item visible */
+            background: rgba(241, 245, 249, 0.85);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            border-radius: 10px;
+            z-index: 20;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+       .nav-link {
+            cursor: pointer;
+            padding: 8px 20px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+            color: #2e7d32;
+            font-size: 14px;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #1e293b;
+        }
+
+        .nav-placeholder {
+            width: 80px; /* Approximate width of Next button to keep Prev centered/balanced if needed, or simply empty */
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Background -->
+<div class="deco-blob-center"></div>
+<div class="deco-blob-corner-1"></div>
+<div class="deco-blob-corner-2"></div>
+<!-- Header -->
+<header class="header">
+<p class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Media Literacy</p>
+</header>
+<!-- Main Content -->
+<div class="content-wrapper">
+<h2 class="page-title">Conclusion</h2>
+<div class="title-underline"></div>
+<div class="conclusion-container">
+<!-- Card 1 -->
+<div class="conclusion-card card-1">
+<div class="card-accent accent-1"></div>
+<div class="icon-wrapper">
+<i class="fas fa-hand-holding-heart"></i>
+</div>
+<h3 class="card-title">Responsible<br/>Leadership</h3>
+<p class="card-desc">Leading with integrity and ethical foresight.</p>
+<i class="fas fa-check-circle check-icon"></i>
+</div>
+<!-- Card 2 -->
+<div class="conclusion-card card-2">
+<div class="card-accent accent-2"></div>
+<div class="icon-wrapper">
+<i class="fas fa-chess-queen"></i>
+</div>
+<h3 class="card-title">Strategic<br/>Influence</h3>
+<p class="card-desc">Shaping narratives that drive meaningful impact.</p>
+<i class="fas fa-check-circle check-icon"></i>
+</div>
+<!-- Card 3 -->
+<div class="conclusion-card card-3">
+<div class="card-accent accent-3"></div>
+<div class="icon-wrapper">
+<i class="fas fa-rocket"></i>
+</div>
+<h3 class="card-title">Professional<br/>Growth</h3>
+<p class="card-desc">Continuous evolution in a dynamic media landscape.</p>
+<i class="fas fa-check-circle check-icon"></i>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navbar">
+<div class="nav-link" onclick="prev()">
+<span>← Pratical application</span>
+</div>
+<!-- Empty placeholder for Next button to maintain potential spacing, or just leave empty -->
+<div class="nav-placeholder"></div>
+</div>
+<!-- Footer -->
+<footer class="footer">
+<p class="footer-text">Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</footer>
+</div>
+<script>
+        function prev() {
+            window.location.href = "g13.html";
+        }
+        document.addEventListener('keydown', function(e) {
+            // No next action for the last slide
+            if (e.key === "ArrowLeft") prev();
+        });
+    </script>
+</body>
+</html>

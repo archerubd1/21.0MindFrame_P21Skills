@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Question Lab - Smart Search Tools</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+        font-family: 'Poppins', sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    .slide-container {
+        width: 1280px;
+        height: 720px;
+        position: relative;
+        transform: scale(0.9);
+        transform-origin: center;
+    }
+
+    /* Header */
+    .header {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        height: 50px;
+        background: rgba(255,255,255,0.6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        color: #555;
+        font-weight: 500;
+    }
+
+    /* Title */
+    .title {
+        position: absolute;
+        top: 120px;
+        width: 100%;
+        text-align: center;
+        font-size: 56px;
+        font-weight: 700;
+        color: #333;
+    }
+
+    .highlight {
+        color: #4A90E2;
+    }
+
+    /* Cards */
+    .card {
+        position: absolute;
+        left: 240px;
+        width: 800px;
+        height: 100px;
+        background: rgba(255,255,255,0.8);
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        padding: 0 25px;
+        gap: 25px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .card i {
+        font-size: 36px;
+        width: 60px;
+        text-align: center;
+    }
+
+    .card p {
+        margin: 0;
+        font-size: 26px;
+        font-weight: 600;
+        color: #444;
+    }
+
+    .card1 { top: 240px; }
+    .card2 { top: 360px; }
+    .card3 { top: 480px; }
+
+    /* Navigation */
+    .nav {
+        position: absolute;
+        bottom: 50px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 900px;
+        height: 60px;
+        background: rgba(255, 204, 170, 0.5);
+        backdrop-filter: blur(10px);
+        border-radius: 12px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 30px;
+    }
+
+    .nav-item {
+        font-weight: 600;
+        color: #444;
+        display: flex;
+        gap: 8px;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    /* Footer */
+    .footer {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 30px;
+        background: #f0f0f0;
+        text-align: center;
+        font-size: 12px;
+        color: #888;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+    <!-- Header -->
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+    </div>
+
+    <!-- Title -->
+    <div class="title">
+        Smart <span class="highlight">Search Tools</span>
+    </div>
+
+    <!-- Cards -->
+    <div class="card card1">
+        <i class="fa-solid fa-check-circle" style="color:#4A90E2;"></i>
+        <p>Use trusted platforms</p>
+    </div>
+
+    <div class="card card2">
+        <i class="fa-solid fa-triangle-exclamation" style="color:#E87A5D;"></i>
+        <p>Avoid random websites</p>
+    </div>
+
+    <div class="card card3">
+        <i class="fa-solid fa-book-open" style="color:#F4B400;"></i>
+        <p style="font-size:24px;">Examples: SweetSearch, World Book Online</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="nav">
+        <div class="nav-item">
+            <i class="fa-solid fa-arrow-left"></i> Find Keywords
+        </div>
+        <div class="nav-item">
+            Fact vs Opinion <i class="fa-solid fa-arrow-right"></i>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        Licensed & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+<script>
+document.addEventListener("keydown", function (e) {
+    const active = document.activeElement;
+
+    // Disable when typing
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") {
+        window.location.href = "f10.html";
+    }
+
+    if (e.key === "ArrowLeft") {
+        window.location.href = "f8.html";
+    }
+});
+</script>
+</body>
+</html>

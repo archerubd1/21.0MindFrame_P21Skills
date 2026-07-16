@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>How We Use Digital Payments</title>
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* MAIN SLIDE */
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f172a, #1e293b);
+    overflow: hidden;
+}
+
+/* BACKGROUND */
+.background-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.05;
+    background-image: 
+        repeating-linear-gradient(0deg, transparent, transparent 35px, #2EC4B6 35px, #2EC4B6 36px),
+        repeating-linear-gradient(90deg, transparent, transparent 35px, #2EC4B6 35px, #2EC4B6 36px);
+}
+
+/* HEADER */
+.header-bar {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 50px;
+    background: #0f172a;
+    border-bottom: 2px solid #2EC4B6;
+    display: flex;
+    align-items: center;
+    padding: 0 40px;
+}
+
+.header-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* TITLE */
+.title-bar {
+    position: absolute;
+    top: 70px;
+    left: 190px;
+    width: 900px;
+    height: 60px;
+    background: linear-gradient(90deg, #2EC4B6, #3dd4c6);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+}
+
+.title-bar i {
+    font-size: 22px;
+    margin-right: 12px;
+    color: #0f172a;
+}
+
+.title-text h1 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.subtitle {
+    font-size: 13px;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    position: absolute;
+    top: 150px;
+    left: 190px;
+    width: 900px;
+    height: 450px;
+    background: rgba(30, 41, 59, 0.85);
+    border-radius: 12px;
+    padding: 20px;
+    border: 1px solid rgba(46,196,182,0.2);
+}
+
+/* HEADER */
+.content-header {
+    color: white;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+/* GRID */
+.examples-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+/* CARD */
+.example-card {
+    background: rgba(15,23,42,0.6);
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid rgba(46,196,182,0.2);
+    transition: 0.3s;
+}
+
+.example-card:hover {
+    transform: translateY(-3px);
+    background: rgba(46,196,182,0.1);
+}
+
+.example-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(46,196,182,0.2);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.example-icon i {
+    color: #2EC4B6;
+    font-size: 20px;
+}
+
+.example-title {
+    color: white;
+    font-size: 13px;
+    margin: 10px 0 5px;
+}
+
+.example-desc {
+    color: #94a3b8;
+    font-size: 11px;
+}
+
+/* DISCUSSION */
+.discussion-prompt {
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(46,196,182,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.prompt-text {
+    color: white;
+    font-size: 13px;
+}
+
+.prompt-btn {
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(46,196,182,0.2);
+    border: none;
+    color: #2EC4B6;
+    cursor: pointer;
+}
+
+/* NAV */
+.nav-bar {
+    position: absolute;
+    bottom: 50px;
+    left: 190px;
+    width: 900px;
+    height: 50px;
+    background: rgba(255,204,170,0.6);
+    border-radius: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.nav-btn {
+    text-decoration: none;
+    color: #0f172a;
+    font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer-text {
+    color: #94a3b8;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<div class="background-pattern"></div>
+
+<div class="header-bar">
+<span class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+</span>
+</div>
+
+<div class="title-bar">
+<i class="fas fa-credit-card"></i>
+<div class="title-text">
+<h1>How We Use Digital Payments</h1>
+<p class="subtitle">Modern Payment Methods</p>
+</div>
+</div>
+
+<div class="main-content">
+
+<div class="content-header">Digital Payment Examples</div>
+
+<div class="examples-grid">
+
+<div class="example-card">
+<div class="example-icon"><i class="fas fa-credit-card"></i></div>
+<div class="example-title">Tap Card</div>
+<div class="example-desc">Contactless payments</div>
+</div>
+
+<div class="example-card">
+<div class="example-icon"><i class="fas fa-shopping-bag"></i></div>
+<div class="example-title">Online Shopping</div>
+<div class="example-desc">Buy on websites</div>
+</div>
+
+<div class="example-card">
+<div class="example-icon"><i class="fas fa-gamepad"></i></div>
+<div class="example-title">Game Purchases</div>
+<div class="example-desc">In-game buying</div>
+</div>
+
+<div class="example-card">
+<div class="example-icon"><i class="fas fa-qrcode"></i></div>
+<div class="example-title">QR Scan</div>
+<div class="example-desc">Scan & pay</div>
+</div>
+
+</div>
+
+<div class="discussion-prompt">
+<span class="prompt-text">Have you used Scan to Pay recently?</span>
+<button class="prompt-btn">Share</button>
+</div>
+
+</div>
+
+<div class="nav-bar">
+<a class="nav-btn" href="#" onclick="goToSlide(4)">⬅ Invisible Cash</a>
+<a class="nav-btn" href="#" onclick="goToSlide(6)">Needs vs Wants ➡</a>
+</div>
+
+<div class="footer">
+<span class="footer-text">Licenced & Powered By Astrl Mind Technologies copyright 2026-2033</span>
+</div>
+
+</div>
+
+<script>
+document.addEventListener("keydown", function(e) {
+
+    const active = document.activeElement;
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") window.location.href = "f6.html";
+    if (e.key === "ArrowLeft") window.location.href = "f4.html";
+
+});
+</script>
+
+</body>
+</html>

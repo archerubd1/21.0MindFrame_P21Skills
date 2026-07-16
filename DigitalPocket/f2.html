@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Your Learning Journey</title>
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #0b192c;
+    color: #e2e8f0;
+}
+
+/* FULLSCREEN */
+.slide-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+/* BACKGROUND */
+.background-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-image:
+        linear-gradient(rgba(46,196,182,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(46,196,182,0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+}
+
+/* HEADER (FIXED LEFT ALIGN) */
+.header-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background: rgba(11,25,44,0.95);
+    border-bottom: 1px solid rgba(46,196,182,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;   /* FIX */
+    padding-left: 20px;            /* FIX */
+    z-index: 100;
+}
+.header-text {
+    color: #2EC4B6;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* TITLE */
+.title-bar {
+    margin-top: 80px;
+    background: #2EC4B6;
+    color: #0b192c;
+    padding: 18px;
+    border-radius: 12px;
+    text-align: center;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    font-weight: 700;
+    font-size: 26px;
+}
+
+/* MAIN */
+.main-card {
+    margin: 30px auto;
+    max-width: 900px;
+    background: rgba(26,43,69,0.7);
+    border-radius: 16px;
+    border: 1px solid rgba(46,196,182,0.2);
+    padding: 30px;
+    text-align: center;
+}
+
+/* GRID */
+.mission-grid {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.mission-item {
+    flex: 1;
+    background: rgba(11,25,44,0.8);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* GOAL */
+.goal-box {
+    margin-top: 25px;
+    background: rgba(46,196,182,0.1);
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 500;
+}
+
+/* NAV (IMPROVED + MATCHES SPEC) */
+.nav {
+    position: fixed;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: rgba(255,204,170,0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 40px;
+    border-top: 1px solid rgba(255,204,170,0.3);
+}
+
+/* NAV BUTTON */
+.nav-btn {
+    text-decoration: none;
+    color: #0b192c;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+
+.nav-label {
+    font-size: 10px;
+    text-transform: uppercase;
+}
+
+.nav-topic {
+    font-size: 16px;
+}
+
+/* FOOTER */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+    padding: 8px;
+}
+
+/* SHIELD */
+.shield {
+    position: fixed;
+    bottom: 120px;
+    right: 30px;
+    font-size: 24px;
+    color: #2EC4B6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<div class="background-pattern"></div>
+
+<!-- HEADER -->
+<div class="header-bar">
+<span class="header-text">
+EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+</span>
+</div>
+
+<!-- TITLE -->
+<div class="title-bar">
+<i class="fas fa-route"></i> Your Learning Journey
+</div>
+
+<!-- CONTENT -->
+<div class="main-card">
+
+<h2 style="color:#2EC4B6;">Today's Mission</h2>
+
+<div class="mission-grid">
+
+<div class="mission-item">
+<i class="fas fa-coins"></i>
+<h4>The Mystery</h4>
+<p>From coins to clicks</p>
+</div>
+
+<div class="mission-item">
+<i class="fas fa-balance-scale"></i>
+<h4>The Choice</h4>
+<p>Needs vs Wants</p>
+</div>
+
+<div class="mission-item">
+<i class="fas fa-shield-alt"></i>
+<h4>The Shield</h4>
+<p>Stay safe online</p>
+</div>
+
+<div class="mission-item">
+<i class="fas fa-chart-line"></i>
+<h4>The Audit</h4>
+<p>Track spending</p>
+</div>
+
+</div>
+
+<div class="goal-box">
+Goal: Become a Digital Money Master by the end of the week
+</div>
+
+</div>
+
+<!-- NAVIGATION -->
+<div class="nav">
+
+<a href="f1.html" class="nav-btn">
+<span class="nav-label">Previous Topic</span>
+<span class="nav-topic">Start</span>
+</a>
+
+<a href="f3.html" class="nav-btn">
+<span class="nav-label">Next Topic</span>
+<span class="nav-topic">Evolution</span>
+</a>
+
+</div>
+
+<!-- SHIELD -->
+<div class="shield">
+<i class="fas fa-shield-alt"></i>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+</div>
+
+<!-- KEYBOARD NAV (FIXED WITH INPUT CHECK) -->
+<script>
+document.addEventListener("keydown", function(e) {
+
+    const active = document.activeElement;
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") window.location.href = "f3.html";
+    if (e.key === "ArrowLeft") window.location.href = "f1.html";
+
+});
+</script>
+
+</body>
+</html>

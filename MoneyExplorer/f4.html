@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Evolution of Money</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background-color: #121212;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* FULLSCREEN WRAPPER */
+#slide-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SLIDE */
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    transform-origin: center;
+    background: #121212;
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+    position: absolute;
+    bottom: 50px;
+    padding: 10px 20px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 20;
+}
+
+.nav-btn:hover {
+    background: gold;
+    color: black;
+}
+
+.left-btn { left: 20px; }
+.right-btn { right: 20px; }
+
+</style>
+</head>
+
+<body>
+
+<div id="slide-wrapper">
+<div class="slide-container" id="slide">
+
+<!-- HEADER -->
+<div style="position:absolute;top:0;width:100%;height:40px;background:rgba(255,215,0,0.05);border-bottom:1px solid rgba(255,215,0,0.3);z-index:10;">
+<p style="margin:8px 20px;color:#E0E0E0;font-size:14px;">
+EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+</p>
+</div>
+
+<!-- TITLE -->
+<p style="position:absolute;top:70px;width:100%;text-align:center;font-size:44px;font-weight:700;color:#FFD700;">
+The Evolution of Money
+</p>
+
+<!-- TIMELINE LINE -->
+<div style="position:absolute;left:240px;top:320px;width:800px;height:4px;background:#FFD700;"></div>
+
+<!-- THEN -->
+<div style="position:absolute;left:140px;top:180px;width:280px;height:260px;background:rgba(255,255,255,0.03);border:2px solid gold;border-radius:20px;text-align:center;">
+<p style="color:#FFD700;font-size:26px;">THEN</p>
+<i class="fas fa-coins" style="font-size:60px;color:#FFD700;"></i>
+<p style="color:white;">Coins<br><span style="color:#aaa;font-size:16px;">Gold & Silver</span></p>
+</div>
+
+<!-- NOW -->
+<div style="position:absolute;left:500px;top:180px;width:280px;height:260px;background:rgba(255,255,255,0.05);border:2px solid #39FF14;border-radius:20px;text-align:center;">
+<p style="color:#39FF14;font-size:26px;">NOW</p>
+<i class="fas fa-money-bill-wave" style="font-size:60px;color:#39FF14;"></i>
+<p style="color:white;">Notes & Cards<br><span style="color:#aaa;font-size:16px;">Paper & Plastic</span></p>
+</div>
+
+<!-- NEXT -->
+<div style="position:absolute;left:860px;top:180px;width:280px;height:260px;background:rgba(255,255,255,0.03);border:2px solid gold;border-radius:20px;text-align:center;">
+<p style="color:#FFD700;font-size:26px;">NEXT</p>
+<i class="fas fa-mobile-screen-button" style="font-size:60px;color:#FFD700;"></i>
+<p style="color:white;">Digital Money<br><span style="color:#aaa;font-size:16px;">Fast & Invisible</span></p>
+</div>
+
+<!-- FUN FACT -->
+<div style="position:absolute;left:240px;top:480px;width:800px;padding:20px;background:rgba(57,255,20,0.05);border:1px solid #39FF14;border-radius:15px;text-align:center;">
+<p style="color:white;font-size:20px;">
+<span style="color:#39FF14;">Fun Fact:</span> Salary comes from Rome — soldiers were paid in 
+<span style="color:#FFD700;">SALT!</span>
+</p>
+</div>
+
+<!-- NAV BUTTONS -->
+<button class="nav-btn left-btn" onclick="goPrev()">← What is Money?</button>
+<button class="nav-btn right-btn" onclick="goNext()">Why Money Matters →</button>
+
+<!-- FOOTER -->
+<div style="position:absolute;bottom:0;width:100%;text-align:center;color:#666;font-size:12px;">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+</div>
+</div>
+
+<script>
+
+/* SCALE */
+function scaleSlide() {
+    const slide = document.getElementById("slide");
+    const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    slide.style.transform = "scale(" + scale + ")";
+}
+
+window.addEventListener("load", scaleSlide);
+window.addEventListener("resize", scaleSlide);
+
+/* NAVIGATION */
+function goNext() {
+    window.location.href = "f5.html";
+}
+
+function goPrev() {
+    window.location.href = "f3.html";
+}
+
+/* KEYBOARD */
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") goNext();
+    if (e.key === "ArrowLeft") goPrev();
+});
+
+</script>
+
+</body>
+</html>

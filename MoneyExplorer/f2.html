@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Explorer's Roadmap</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* FULLSCREEN WRAPPER */
+#slide-wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* SLIDE BASE */
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background: #121212;
+    transform-origin: top left;
+}
+
+/* BUTTON STYLE */
+.nav-btn {
+    position: absolute;
+    bottom: 15px;
+    padding: 10px 20px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: gold;
+    color: black;
+}
+
+.left-btn { left: 20px; }
+.right-btn { right: 20px; }
+
+</style>
+</head>
+
+<body>
+
+<div id="slide-wrapper">
+<div class="slide-container">
+
+<!-- HEADER -->
+<div style="position:absolute;top:0;width:100%;height:40px;background:rgba(255,215,0,0.05);border-bottom:1px solid gold;">
+    <p style="margin:8px 20px;color:#ccc;font-size:14px;">
+      
+EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy 
+    </p>
+</div>
+
+<!-- MAIN CARD -->
+<div style="position:absolute;left:140px;top:80px;width:1000px;height:500px;
+background:rgba(255,255,255,0.03);
+border:1px solid rgba(255,215,0,0.2);
+border-radius:20px;">
+
+<!-- TITLE -->
+<h1 style="text-align:center;color:gold;margin-top:30px;">
+    The Explorer's Roadmap
+</h1>
+
+<p style="text-align:center;color:#39FF14;">
+    What We Will Discover Today
+</p>
+
+<!-- ITEMS -->
+<div style="margin-top:40px;padding-left:100px;color:white;font-size:20px;line-height:2;">
+    📜 Secret History of Money <br>
+    ⚖️ Needs vs Wants <br>
+    🍯 The Savings Jar <br>
+    🗺️ Your Dream Save Plan
+</div>
+
+</div>
+
+<!-- NAV BUTTONS -->
+<button class="nav-btn left-btn" onclick="goPrev()">← The Money Explorer</button>
+<button class="nav-btn right-btn" onclick="goNext()">What is Money?  →</button>
+<!-- FOOTER -->
+<div style="position:absolute;bottom:0;width:100%;text-align:center;color:#666;font-size:12px;">
+ 
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033 
+</div>
+
+</div>
+</div>
+
+<script>
+function goNext() {
+    window.location.href = "f3.html";
+}
+
+function goPrev() {
+    window.location.href = "f1.html";
+}
+
+/* KEYBOARD NAVIGATION */
+document.addEventListener("keydown", function(e) {
+
+    const tag = document.activeElement.tagName.toLowerCase();
+    if (tag === "input" || tag === "textarea") return;
+
+    if (e.key === "ArrowRight") {
+        goNext();
+    }
+
+    if (e.key === "ArrowLeft") {
+        goPrev();
+    }
+
+});
+</script>
+</body>
+</html>

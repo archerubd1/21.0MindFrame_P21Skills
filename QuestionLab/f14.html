@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1280, initial-scale=1.0"/>
+<title>The Question Lab - Final Activity</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #FFF6E9, #FFE5D9);
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Slide */
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+}
+
+/* Navigation */
+.glass-nav {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 204, 170, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+}
+
+.nav-item {
+    font-size: 16px;
+    font-weight: 600;
+    color: #444;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.nav-item:hover {
+    transform: translateY(-2px);
+    opacity: 0.7;
+}
+
+/* Cards */
+.card {
+    position: absolute;
+    left: 240px;
+    width: 800px;
+    height: 85px;
+    background: rgba(255,255,255,0.8);
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    padding-left: 90px;
+}
+.card i {
+    position: absolute;
+    left: 25px;
+    font-size: 34px;
+}
+</style>
+</head>
+
+<body>
+<div class="slide-container">
+
+<!-- Header -->
+<div style="position:absolute; top:0; width:100%; height:50px; background:rgba(255,255,255,0.6);"></div>
+<p style="position:absolute; top:12px; width:100%; text-align:center; font-size:16px; color:#555;">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</p>
+
+<!-- Title -->
+<h1 style="position:absolute; top:90px; width:100%; text-align:center; font-size:52px; color:#333;">
+<span style="color:#E87A5D;">Final Activity</span>: Launch Your Inquiry
+</h1>
+
+<!-- CARD 1 -->
+<div class="card" style="top:200px;">
+<i class="fa-solid fa-compass" style="color:#4A90E2;"></i>
+<p style="font-size:24px; font-weight:600;">Create your Inquiry Map</p>
+</div>
+
+<!-- CARD 2 -->
+<div class="card" style="top:300px;">
+<i class="fa-solid fa-atom" style="color:#27AE60;"></i>
+<p style="font-size:24px; font-weight:600;">Choose a Science or History topic</p>
+</div>
+
+<!-- CARD 3 -->
+<div class="card" style="top:400px; height:100px;">
+<i class="fa-solid fa-lightbulb" style="color:#F4B400;"></i>
+<p style="font-size:20px; font-weight:600; line-height:1.4;">
+If stuck try:<br>
+How do bees make honey? or Why do volcanoes erupt?
+</p>
+</div>
+
+<!-- CARD 4 -->
+<div class="card" style="top:520px; height:100px;">
+<i class="fa-solid fa-clipboard-check" style="color:#E74C3C;"></i>
+<p style="font-size:20px; font-weight:600; line-height:1.4;">
+Deliverable:<br>
+Map with topic, 3 questions, 5 keywords, and 2 sources
+</p>
+</div>
+
+<!-- Navigation -->
+<div style="position:absolute; bottom:50px; left:190px; width:900px; height:60px;">
+<div class="glass-nav">
+<div class="nav-item"><i class="fa fa-arrow-left"></i> Build Map</div>
+<div class="nav-item">Captain Badge <i class="fa fa-arrow-right"></i></div>
+</div>
+</div>
+
+<!-- Footer -->
+<div style="position:absolute; bottom:0; width:100%; height:30px; background:#f0f0f0;"></div>
+<p style="position:absolute; bottom:5px; width:100%; text-align:center; font-size:12px; color:#888;">
+Licensed & Powered By Astrl Mind Technologies © 2026–2033
+</p>
+
+</div>
+<script>
+document.addEventListener("keydown", function (e) {
+    const active = document.activeElement;
+
+    // Disable when typing
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") {
+        window.location.href = "f15.html";
+    }
+
+    if (e.key === "ArrowLeft") {
+        window.location.href = "f13.html";
+    }
+});
+</script>
+
+</body>
+</html>

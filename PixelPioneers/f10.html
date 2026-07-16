@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start Creating</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg,#1a1446,#2a1e6a);
+    color: white;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Header */
+.top-bar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 15px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    background: rgba(0,0,0,0.3);
+}
+
+/* Center Content */
+.container {
+    height: calc(100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    padding: 20px;
+}
+
+/* Tag */
+.tag {
+    background: rgba(255,255,255,0.1);
+    padding: 8px 20px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+/* Title */
+.title {
+    font-size: 50px;
+    font-weight: bold;
+    background: linear-gradient(to right, #00d4ff, #ff4fd8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    line-height: 1.2;
+}
+
+/* Subtitle */
+.subtitle {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #cfcfe6;
+    max-width: 700px;
+}
+
+/* Tags */
+.tags {
+    margin-top: 30px;
+}
+
+.tags span {
+    display: inline-block;
+    margin: 5px;
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.1);
+}
+
+/* Footer */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #060621;
+    text-align: center;
+    padding: 10px;
+    color: #aaa;
+}
+.navbar {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 218, 185, 0.25);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+
+    z-index: 9999;   /* 🔥 VERY IMPORTANT */
+}
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    z-index: 10000;  /* 🔥 ensures click works */
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+</style>
+
+</head>
+<body>
+
+<!-- Header -->
+<div class="top-bar">
+🔵 EDUUASPIRE21.0 SKILLS | 21ST CENTURY SKILLS | DIGITAL LITERACY 🔴
+</div>
+
+<!-- Main Content -->
+<div class="container">
+
+    <div style="font-size:70px;">🚀</div>
+
+    <div class="tag">BEGIN YOUR JOURNEY</div>
+
+    <div class="title">
+        Start Creating.<br>
+        Start Pioneering.
+    </div>
+
+    <div class="subtitle">
+        Every digital pioneer started exactly where you are right now — with curiosity, a blank canvas, and the courage to create something new.
+    </div>
+
+    <div class="tags">
+        <span>🎨 Graphic Basics</span>
+        <span>📖 Digital Storytelling</span>
+        <span>🔁 Remix Culture</span>
+    </div>
+
+</div>
+<!-- Navigation -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Glance</div>
+        <div class="nav-link" onclick="next()"></div>
+    </div>
+
+<!-- Footer -->
+<div class="footer">
+🔒 Licensed & Powered By Astrl Minds Technologies © 2026–2033
+</div>
+<script>
+
+// Previous click
+function prev() {
+    window.location.href = 'f9.html';   // ✅ correct file
+}
+
+// Optional next (last slide)
+function next() {
+    // no next OR loop to s1.html if you want
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // LEFT → previous slide
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f9.html';   // ✅ paste here
+    }
+
+    // RIGHT → no next (last slide)
+    if (e.key === 'ArrowRight') {
+        // optional: window.location.href = 's1.html';
+    }
+
+});
+
+</script>
+</body>
+</html>

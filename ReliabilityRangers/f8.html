@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Reliability Rangers - Why Currency Matters</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background-color: #0B132B;
+}
+
+/* Cards */
+.field-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 14px;
+    padding: 20px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    text-align: center;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.field-card:hover {
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateY(-8px) scale(1.02);
+    border-color: #3A86FF;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+}
+
+.field-icon {
+    font-size: 40px;
+    color: #FFD166;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+}
+
+.field-card:hover .field-icon {
+    transform: scale(1.15);
+    color: #3A86FF;
+}
+
+.field-title {
+    color: #F1F5F9;
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.field-desc {
+    color: #CBD5E1;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Navigation */
+.nav-btn {
+    transition: transform 0.2s, opacity 0.2s;
+}
+.nav-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.85;
+}
+</style>
+</head>
+
+<body>
+<div class="slide-container">
+
+<!-- Background -->
+<div style="position:absolute; width:100%; height:100%; background:#0B132B;"></div>
+
+<!-- Decorative Circles -->
+<div style="position:absolute; left:-100px; top:-100px; width:500px; height:500px; background:#1C2541; border-radius:50%; opacity:0.5;"></div>
+<div style="position:absolute; left:980px; top:420px; width:400px; height:400px; background:#1C2541; border-radius:50%; opacity:0.5;"></div>
+
+<!-- Header -->
+<div style="position:absolute; top:0; width:100%; height:60px; background:rgba(28,37,65,0.95); border-bottom:2px solid #3A86FF; display:flex; align-items:center; padding-left:40px;">
+<p style="color:#F1F5F9; font-size:14px;">EduuAspire21.0 Skills | 21st Century Skills | Information Literacy</p>
+</div>
+
+<!-- Title -->
+<div style="position:absolute; top:80px; width:100%; text-align:center;">
+<h1 style="font-size:42px; color:#F1F5F9;">Why Currency Matters</h1>
+</div>
+
+<!-- Subtitle -->
+<div style="position:absolute; top:140px; width:100%; text-align:center;">
+<p style="color:#3A86FF; font-size:20px;">
+Information has an expiration date. Old facts can be as dangerous as fake ones.
+</p>
+</div>
+
+<!-- Highlight Box -->
+<div style="position:absolute; top:190px; left:200px; width:880px;">
+<div style="background:rgba(255,209,102,0.1); border-left:4px solid #FFD166; padding:12px 20px; border-radius:8px;">
+<p style="color:#F1F5F9;">
+<i class="fas fa-clock" style="color:#FFD166; margin-right:10px;"></i>
+Prefer the most recent, reliable information when accuracy matters.
+</p>
+</div>
+</div>
+
+<!-- Cards -->
+<div style="position:absolute; top:270px; width:100%; display:flex; justify-content:center;">
+<div style="width:1100px; display:flex; gap:20px;">
+
+<div class="field-card">
+<i class="fas fa-heart-pulse field-icon"></i>
+<div class="field-title">Health</div>
+<div class="field-desc">Medical advice changes rapidly. Always check the latest research.</div>
+</div>
+
+<div class="field-card">
+<i class="fas fa-microchip field-icon"></i>
+<div class="field-title">Technology</div>
+<div class="field-desc">Tools, software, and security updates become outdated quickly.</div>
+</div>
+
+<div class="field-card">
+<i class="fas fa-scale-balanced field-icon"></i>
+<div class="field-title">Civics</div>
+<div class="field-desc">Policies, laws, and regulations are frequently updated.</div>
+</div>
+
+<div class="field-card">
+<i class="fas fa-atom field-icon"></i>
+<div class="field-title">Science</div>
+<div class="field-desc">Scientific knowledge evolves with new discoveries.</div>
+</div>
+
+</div>
+</div>
+
+<!-- Bottom Tip -->
+<div style="position:absolute; top:540px; width:100%; text-align:center;">
+<p style="color:#94A3B8;">
+<i class="fas fa-exclamation-circle" style="color:#3A86FF;"></i>
+Always check the "Last Updated" date!
+</p>
+</div>
+
+<!-- Navigation -->
+<div style="position:absolute; bottom:80px; left:140px; width:1000px; height:70px; background:rgba(255,204,170,0.5); backdrop-filter:blur(10px); border-radius:12px; display:flex; align-items:center; justify-content:space-between; padding:0 40px;">
+
+<a class="nav-btn" href="f7.html" style="font-weight:700; color:#1C2541;">
+<i class="fas fa-arrow-left"></i> Date Check
+</a>
+
+<div style="font-weight:700; letter-spacing:2px;">CURRENCY</div>
+
+<a class="nav-btn" href="f9.html" style="font-weight:700; color:#1C2541;">
+Cross-Check <i class="fas fa-arrow-right"></i>
+</a>
+
+</div>
+
+<!-- Footer -->
+<div style="position:absolute; bottom:0; width:100%; height:40px; display:flex; align-items:center; justify-content:center; border-top:1px solid #1C2541;">
+<p style="font-size:12px; color:#666;">Licenced & Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+</div>
+
+<script>
+document.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowRight') window.location.href='f9.html';
+    if(e.key === 'ArrowLeft') window.location.href='f7.html';
+});
+</script>
+
+</body>
+</html>

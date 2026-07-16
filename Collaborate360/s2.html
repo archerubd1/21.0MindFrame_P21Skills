@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Program Overview - Collaborate 360°</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    font-family: 'Inter', sans-serif;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    background-color: #FFFFFF;
+}
+
+/* Header */
+.header {
+    position: absolute;
+    left: 40px;
+    top: 30px;
+    font-size: 14px;
+    color: #64748B;
+    text-transform: uppercase;
+}
+
+/* Title */
+.title {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 48px;
+    font-weight: 800;
+}
+
+/* Subtitle */
+.subtitle {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    color: #0073CF;
+}
+
+/* Content Box */
+.card {
+    position: absolute;
+    left: 140px;
+    top: 230px;
+    width: 1000px;
+    height: 400px;
+    background: #F8FAFC;
+    border-radius: 16px;
+    padding: 30px;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #94A3B8;
+}
+
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 218, 185, 0.25);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+
+.nav-link {
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+    <!-- Header -->
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy
+    </div>
+
+    <!-- Title -->
+    <div class="title">Program Overview</div>
+
+    <!-- Subtitle -->
+    <div class="subtitle">Master end-to-end global collaboration</div>
+
+    <!-- Content -->
+    <div class="card">
+        <p><strong>Context & Needs</strong><br>
+        Driven by the rise of distributed work, complex cross-border projects, and 24/7 delivery demands.</p>
+
+        <hr>
+
+        <p><strong>Delivery Format</strong><br>
+        Expert instructor-led sessions paired with hands-on technical labs and real-world case simulations.</p>
+
+        <hr>
+
+        <p><strong>Time Commitment</strong><br>
+        24–30 flexible hours, structured optimally as a dynamic cohort-based learning experience.</p>
+    </div>
+
+    <!-- Navigation -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Collaborate 360°</div>
+        <div class="nav-link" onclick="next()"> Program Objectives →</div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+
+<script>
+
+// NEXT → s3.html
+function next() {
+    window.location.href = "s3.html";
+}
+
+// PREV → s2.html (as you asked)
+function prev() {
+    window.location.href = "s1.html";
+}
+
+// Keyboard navigation
+document.addEventListener("keydown", function(e) {
+
+    let active = document.activeElement;
+
+    if (active.tagName === "INPUT" || active.tagName === "TEXTAREA") return;
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+
+</script>
+
+</body>
+</html>

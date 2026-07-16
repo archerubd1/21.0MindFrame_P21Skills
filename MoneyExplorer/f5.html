@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Why Does Money Matter?</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* FULLSCREEN */
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SLIDE BASE */
+.slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background: #121212;
+    transform-origin: top left;
+}
+
+/* HEADER */
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 40px;
+    border-bottom: 1px solid gold;
+    background: rgba(255,215,0,0.05);
+    color: #ccc;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+/* TITLE */
+.title {
+    position: absolute;
+    top: 70px;
+    width: 100%;
+    text-align: center;
+    font-size: 44px;
+    color: gold;
+}
+
+/* SUBTITLE */
+.subtitle {
+    position: absolute;
+    top: 130px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #39FF14;
+}
+
+/* CARDS */
+.card {
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 30px;
+}
+
+.card h3 {
+    color: white;
+}
+
+.card p {
+    color: #ccc;
+}
+
+/* COLORS */
+.gold { border: 2px solid gold; }
+.green { border: 2px solid #39FF14; }
+
+/* POSITIONS */
+.c1 { left: 140px; top: 200px; }
+.c2 { left: 500px; top: 200px; }
+.c3 { left: 860px; top: 200px; }
+
+/* THINK BOX */
+.think {
+    position: absolute;
+    left: 240px;
+    top: 520px;
+    width: 800px;
+    height: 80px;
+    border-radius: 15px;
+    border: 1px solid #39FF14;
+    background: rgba(57,255,20,0.05);
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: white;
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+    position: absolute;
+    bottom: 60px;
+    padding: 10px 20px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.nav-btn:hover {
+    background: gold;
+    color: black;
+}
+
+.left { left: 20px; }
+.right { right: 20px; }
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #666;
+}
+</style>
+
+</head>
+
+<body>
+
+<div id="wrapper">
+<div class="slide">
+
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+</div>
+
+<div class="title">Why Does Money Matter?</div>
+<div class="subtitle">The 3 Powers of Money</div>
+
+<!-- CARD 1 -->
+<div class="card gold c1">
+<i class="fas fa-apple-whole" style="font-size:50px;color:gold;"></i>
+<h3>Survival</h3>
+<p>Food, shelter, and health<br>Basic needs</p>
+</div>
+
+<!-- CARD 2 -->
+<div class="card green c2">
+<i class="fas fa-book-open-reader" style="font-size:50px;color:#39FF14;"></i>
+<h3>Growth</h3>
+<p>School, learning, books<br>Build your mind</p>
+</div>
+
+<!-- CARD 3 -->
+<div class="card gold c3">
+<i class="fas fa-star" style="font-size:50px;color:gold;"></i>
+<h3>Dreams</h3>
+<p>Toys, hobbies, helping others<br>Bring joy</p>
+</div>
+
+<!-- THINK -->
+<div class="think">
+<i class="fas fa-comment-dots" style="color:#39FF14;font-size:30px;margin-right:15px;"></i>
+<span><b>Think:</b> How would you buy snacks without money?</span>
+</div>
+
+<!-- NAVIGATION -->
+<button class="nav-btn left" onclick="goBack()">← Evolution of money</button>
+<button class="nav-btn right" onclick="goNext()">Needs vs Wants →</button>
+
+<!-- FOOTER -->
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+
+</div>
+
+</div>
+</div>
+
+<script>
+function scale() {
+    const slide = document.querySelector('.slide');
+    const scale = Math.min(window.innerWidth / 1280, window.innerHeight / 720);
+    slide.style.transform = "scale(" + scale + ")";
+}
+window.addEventListener("load", scale);
+window.addEventListener("resize", scale);
+
+/* NAVIGATION */
+function goNext() {
+    window.location.href = "f6.html";
+}
+
+function goBack() {
+    window.location.href = "f4.html";
+}
+
+/* KEYBOARD */
+document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowRight") goNext();
+    if(e.key === "ArrowLeft") goBack();
+});
+</script>
+
+</body>
+</html>

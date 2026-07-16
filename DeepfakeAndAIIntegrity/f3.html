@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Synthetic Media Overview - Deepfake &amp; AI Integrity</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #E5E5E5;
+        }
+        
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFF4CC;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            color: #1A1A1A;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+        }
+
+        .glass-nav {
+            background-color: rgba(255, 218, 185, 0.4);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .nav-link {
+            transition: opacity 0.2s ease, transform 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        .bullet-item {
+            position: relative;
+            padding-left: 2.5rem;
+            margin-bottom: 1.75rem;
+        }
+
+        .bullet-item::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0.6rem;
+            width: 8px;
+            height: 8px;
+            background-color: #1A1A1A;
+            opacity: 0.7;
+            transform: rotate(45deg);
+        }
+
+        .bullet-item:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- HEADER -->
+<header class="absolute top-0 w-full px-12 pt-8 pb-4 z-20">
+<div>
+<p class="text-sm font-semibold tracking-widest uppercase text-[#1A1A1A] opacity-60">
+                    EduuAspire21.0 Skills | 21st Century Skills | Media Literacy
+                </p>
+</div>
+</header>
+<!-- SLIDE CONTENT AREA -->
+<main class="flex-1 flex flex-col justify-center items-center px-24 w-full h-full pb-24 pt-20 z-0">
+<div class="w-full max-w-5xl">
+<div class="text-center mb-12">
+<p class="text-5xl font-bold text-[#1A1A1A] tracking-tight">
+                        Synthetic Media Overview
+                    </p>
+</div>
+<div class="w-full bg-white bg-opacity-30 p-12 rounded-xl border border-white border-opacity-50 shadow-sm">
+<div class="text-xl text-[#1A1A1A] opacity-90 leading-relaxed space-y-2">
+<div class="bullet-item flex items-start">
+<p><span class="font-bold tracking-wide text-[#1A1A1A]">Definitions:</span> Encompasses deepfakes, highly realistic voice clones, and generative images or video</p>
+</div>
+<div class="bullet-item flex items-start">
+<p><span class="font-bold tracking-wide text-[#1A1A1A]">Drivers:</span> Accelerated by advanced compute capabilities, massive data scale, and robust foundation models</p>
+</div>
+<div class="bullet-item flex items-start">
+<p><span class="font-bold tracking-wide text-[#1A1A1A]">Accessibility:</span> Ranges rapidly from basic consumer-grade applications to sophisticated enterprise pipelines</p>
+</div>
+<div class="bullet-item flex items-start">
+<p><span class="font-bold tracking-wide text-[#1A1A1A]">Use Cases:</span> Spans legitimate applications like marketing and dubbing to malicious exploitation such as fraud</p>
+</div>
+<div class="bullet-item flex items-start">
+<p><span class="font-bold tracking-wide text-[#1A1A1A]">Regulation:</span> Characterized by emerging global compliance trends alongside critical current enforcement gaps</p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<nav class="glass-nav absolute bottom-12 left-6 right-6 h-16 rounded-xl flex justify-between items-center px-10 z-10">
+
+    <!-- LEFT -->
+    <div class="nav-link text-[#1A1A1A] font-medium text-lg">
+        <a href="f2.html">← Objectives</a>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="nav-link text-[#1A1A1A] font-bold text-lg">
+        <a href="f4.html">Technology →</a>
+    </div>
+
+</nav>
+<!-- FOOTER -->
+<footer class="absolute bottom-0 w-full h-12 flex justify-center items-center z-20">
+<div>
+<p class="text-[11px] font-bold text-[#1A1A1A] opacity-40 uppercase tracking-widest">
+                    Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+                </p>
+</div>
+</footer>
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f4
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f4.html';
+    }
+
+    // LEFT → f2
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f2.html';
+    }
+
+});
+</script>
+
+</body></html>

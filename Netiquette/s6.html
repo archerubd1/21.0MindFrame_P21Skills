@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Virtual Meeting Ethics</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;   /* 🔥 THIS MAKES IT CENTER VERTICALLY */
+    background-color: #f1f5f9;
+}
+.navbar {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+
+    background: rgba(255, 218, 185, 0.25);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+
+    z-index: 9999;   /* 🔥 FIX CLICK ISSUE */
+}
+
+.nav-link {
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+</style>
+</head>
+<body style="margin: 0; padding: 0; overflow: hidden; background-color: #ffffff;">
+<div class="slide-container" style="position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff;">
+<!-- Header Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; top: 0px; left: 0px; width: 1280px; height: 50px; background-color: #f8f9fa; border-bottom: 2px solid #e9ecef; z-index: 1;"></div>
+<!-- Header Text -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 16px; left: 40px; width: 1200px; height: 20px; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 13px; color: #6c757d; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Slide Title -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 100px; left: 80px; width: 800px; height: 80px; z-index: 10;">
+<p style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 52px; font-weight: 800; color: #002244; letter-spacing: -1px;">Virtual Meeting Ethics</p>
+</div>
+<!-- Title Accent Line -->
+<div data-object="true" data-object-type="shape" style="position: absolute; top: 180px; left: 80px; width: 100px; height: 6px; background-color: #00a8e8; z-index: 1;"></div>
+<!-- Left Column: Content Textbox -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 220px; left: 80px; width: 640px; height: 420px; z-index: 10;">
+<ul style="margin: 0; padding-left: 28px; font-family: 'Inter', sans-serif; font-size: 20px; color: #495057; line-height: 1.6;">
+<li style="margin-bottom: 20px;">
+<strong style="color: #003366; font-size: 22px;">Preparation:</strong> Consistently join on time and ensure your profile displays a professional name.
+</li>
+<li style="margin-bottom: 20px;">
+<strong style="color: #003366; font-size: 22px;">Camera Etiquette:</strong> Keep your video on when appropriate, utilize a neutral background, and maintain an attentive posture.
+</li>
+<li style="margin-bottom: 20px;">
+<strong style="color: #003366; font-size: 22px;">Microphone Discipline:</strong> Stay muted when you are not speaking, proactively minimize background noise, and use a headset for clarity.
+</li>
+<li style="margin-bottom: 20px;">
+<strong style="color: #003366; font-size: 22px;">Active Participation:</strong> Use digital hand-raising or chat to contribute, avoid interrupting others, and consciously foster an inclusive environment.
+</li>
+</ul>
+</div>
+<!-- Right Column: Visual Background Card -->
+<div data-object="true" data-object-type="shape" style="position: absolute; top: 220px; left: 780px; width: 420px; height: 420px; background-color: #f8f9fa; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,34,68,0.08); border: 1px solid #e9ecef; z-index: 1;"></div>
+<!-- Right Column: Visual Decorative Circle -->
+<div data-object="true" data-object-type="shape" style="position: absolute; top: 280px; left: 840px; width: 300px; height: 300px; background-color: #e6f0fa; border-radius: 50%; z-index: 1;"></div>
+<!-- Right Column: Central Icon -->
+<div data-object="true" data-object-type="icon" style="position: absolute; top: 340px; left: 910px; width: 160px; height: 160px; z-index: 10; display: flex; align-items: center; justify-content: center;">
+<i class="fa-solid fa-video" style="font-size: 120px; color: #00509e;"></i>
+</div>
+<!-- Right Column: Accent/Badge Icon -->
+<div data-object="true" data-object-type="icon" style="position: absolute; top: 310px; left: 1030px; width: 80px; height: 80px; z-index: 10; display: flex; align-items: center; justify-content: center; background-color: #ffffff; border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+<i class="fa-solid fa-check-circle" style="font-size: 60px; color: #00a8e8;"></i>
+</div>
+<!-- Footer Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; top: 670px; left: 0px; width: 1280px; height: 50px; background-color: #f8f9fa; border-top: 2px solid #e9ecef; z-index: 1;"></div>
+<div class="navbar">
+    <div class="nav-link" onclick="goTo('s5.html')">← Email mastery</div>
+    <div class="nav-link" onclick="goTo('s7.html')">Global Communication →</div>
+</div>
+<!-- Footer Text -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 686px; left: 40px; width: 1200px; height: 20px; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 13px; color: #6c757d; font-weight: 500;">Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<script>
+
+// ✅ MAIN FIX → this was missing
+function goTo(page) {
+    window.location.href = page;
+}
+
+// Optional (you can keep or remove)
+function next() {
+    goTo("s7.html");
+}
+
+function prev() {
+    goTo("s5.html");
+}
+
+// ✅ Keyboard navigation (fixed)
+document.addEventListener("keydown", function(e) {
+
+    const active = document.activeElement.tagName.toLowerCase();
+
+    if (active === "input" || active === "textarea") return;
+
+    if (e.key === "ArrowRight") {
+        goTo("s7.html");
+    }
+
+    if (e.key === "ArrowLeft") {
+        goTo("s5.html");
+    }
+
+});
+
+</script>
+</body>
+</html>

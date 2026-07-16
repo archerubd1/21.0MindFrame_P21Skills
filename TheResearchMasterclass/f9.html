@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Research Ethics</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Lora:wght@500;600&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+  :root{
+    --bg:#fffdf4;
+    --card:#ffffff;
+    --ink:#111827;
+    --muted:#4b5563;
+    --line:#e5e7eb;
+    --butter:#fde68a;
+    --butter2:#fff2b8;
+  }
+  html,body{height:100%;margin:0;background:#f3f4f6;}
+  .slide{
+    width:1280px;height:720px;
+    margin:0 auto;
+    background:var(--bg);
+    display:flex;flex-direction:column;
+    color:var(--ink);
+    font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+    position:relative;
+    overflow:hidden;
+  }
+  .header{
+    height:64px;flex:0 0 64px;
+    display:flex;align-items:center;justify-content:center;
+    border-bottom:1px solid var(--line);
+    background:#ffffff;
+    z-index:3;
+  }
+  .footer{
+    height:46px;flex:0 0 46px;
+    display:flex;align-items:center;justify-content:center;
+    border-top:1px solid var(--line);
+    background:#ffffff;
+    z-index:3;
+  }
+  .nav{
+    height:56px;flex:0 0 56px;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 72px;
+    background:rgba(255,255,255,0.92);
+    border-top:1px solid var(--line);
+    z-index:3;
+  }
+  .main{
+    flex:1;
+    padding:36px 72px 28px 72px;
+    position:relative;
+    z-index:2;
+    display:flex;
+  }
+  .frame{
+    flex:1;
+    display:flex;
+    border:1px solid var(--line);
+    background:var(--card);
+    box-shadow:0 10px 24px rgba(17,24,39,0.08);
+    border-radius:22px;
+    overflow:hidden;
+  }
+  .left{
+    flex:1.15;
+    padding:44px 54px;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+  }
+  .right{
+    flex:0.85;
+    border-left:1px solid var(--line);
+    background:var(--butter2);
+    padding:44px 44px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    position:relative;
+    overflow:hidden;
+  }
+  .hdrText,.ftrText{margin:0;letter-spacing:0.01em;}
+  .hdrText{font-size:14px;color:#111827;}
+  .hdrText span{opacity:.7}
+  .ftrText{font-size:12.5px;color:#111827;opacity:.8}
+
+  .kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:10px 14px;
+    border:1px solid rgba(17,24,39,0.08);
+    background:#fff;
+    border-radius:999px;
+    width:max-content;
+    box-shadow:0 6px 14px rgba(17,24,39,0.06);
+  }
+  .kDot{
+    width:10px;height:10px;border-radius:999px;
+    background:var(--butter);
+    border:1px solid rgba(17,24,39,0.12);
+  }
+  .title{
+    margin:0;
+    font-weight:800;
+    letter-spacing:-0.02em;
+    line-height:1.08;
+    font-size:52px;
+  }
+  .sub{
+    margin:0;
+    font-family:Lora,Georgia,serif;
+    font-weight:600;
+    color:#1f2937;
+    font-size:22px;
+    line-height:1.35;
+    max-width:62ch;
+  }
+
+  .list{
+    margin-top:6px;
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+  .item{
+    display:flex;
+    gap:14px;
+    align-items:flex-start;
+    padding:14px 16px;
+    border:1px solid rgba(17,24,39,0.08);
+    border-radius:16px;
+    background:#fff;
+    box-shadow:0 8px 18px rgba(17,24,39,0.06);
+  }
+  .iconWrap{
+    width:40px;height:40px;border-radius:14px;
+    background:var(--butter);
+    border:1px solid rgba(17,24,39,0.10);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 40px;
+  }
+  .iconWrap i{color:#111827;font-size:18px;opacity:.9}
+  .itemTitle{
+    margin:0;
+    font-weight:800;
+    font-size:20px;
+    letter-spacing:-0.01em;
+    line-height:1.25;
+  }
+  .itemText{
+    margin:6px 0 0 0;
+    color:var(--muted);
+    font-size:16px;
+    line-height:1.45;
+    max-width:62ch;
+  }
+
+  .sideCard{
+    border:1px solid rgba(17,24,39,0.10);
+    background:#ffffff;
+    border-radius:20px;
+    box-shadow:0 12px 26px rgba(17,24,39,0.08);
+    padding:18px 18px;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .sideTitle{
+    margin:0;
+    font-weight:800;
+    font-size:16px;
+    letter-spacing:-0.01em;
+  }
+  .sideRow{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+  }
+  .miniIcon{
+    width:32px;height:32px;border-radius:12px;
+    border:1px solid rgba(17,24,39,0.10);
+    background:var(--butter);
+    display:flex;align-items:center;justify-content:center;
+    flex:0 0 32px;
+  }
+  .miniIcon i{font-size:14px;color:#111827;opacity:.9}
+  .sideText{
+    margin:0;
+    color:#374151;
+    font-size:14px;
+    line-height:1.45;
+  }
+  .progressPill{
+    position:absolute;
+    top:18px;right:18px;
+    padding:8px 10px;
+    border-radius:999px;
+    border:1px solid rgba(17,24,39,0.10);
+    background:#fff;
+    font-size:12px;
+    color:#111827;
+    display:flex;align-items:center;gap:8px;
+  }
+  .progressPill .miniDot{width:8px;height:8px;border-radius:999px;background:#111827;opacity:.75}
+
+  .navBtn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 16px;
+    border-radius:14px;
+    border:1px solid rgba(17,24,39,0.12);
+    background:#ffffff;
+    box-shadow:0 10px 18px rgba(17,24,39,0.08);
+    color:#111827;
+    text-decoration:none;
+    font-weight:800;
+    letter-spacing:-0.01em;
+    transition:transform .16s ease, opacity .16s ease, box-shadow .16s ease;
+    max-width:260px;
+  }
+  .navBtn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 14px 26px rgba(17,24,39,0.10);
+  }
+  .navBtn .label{
+    margin:0;
+    font-size:16px;
+    white-space:nowrap;
+  }
+  .navBtn .muted{
+    margin:0;
+    font-size:12px;
+    color:#374151;
+    opacity:.75;
+    font-weight:700;
+    letter-spacing:0.01em;
+    white-space:nowrap;
+  }
+  .navStack{display:flex;flex-direction:column;line-height:1.05}
+</style>
+</head>
+<body style="">
+<div class="slide">
+<header class="header">
+<p class="hdrText"><strong>EduuAspire21.0 Skills</strong> <span>|</span> 21st Century Skills <span>|</span> Digital Literacy</p>
+</header>
+<main class="main" style="transform: translate(0px, -23.3811px);">
+<section class="frame">
+<div class="left" style="position: relative; transform: translate(-2.75072px, -22.0057px);">
+
+<div>
+<p class="title" style="position: relative; transform: translate(-4.12607px, -22.0057px);">Research Ethics</p>
+
+</div>
+<div class="list" role="list">
+<div class="item" role="listitem">
+<div class="iconWrap"><i class="fa-solid fa-ban"></i></div>
+<div>
+<p class="itemTitle">No copying</p>
+<p class="itemText">Use your own words and structure. If you quote or closely follow a source, clearly mark it and cite it.</p>
+</div>
+</div>
+<div class="item" role="listitem">
+<div class="iconWrap"><i class="fa-solid fa-quote-right"></i></div>
+<div>
+<p class="itemTitle">Give credit</p>
+<p class="itemText">Cite ideas, data, images, and exact wording—even when you paraphrase—so authors receive proper acknowledgement.</p>
+</div>
+</div>
+<div class="item" role="listitem">
+<div class="iconWrap"><i class="fa-solid fa-circle-check"></i></div>
+<div>
+<p class="itemTitle">Use trusted sources</p>
+<p class="itemText">Prefer peer-reviewed articles, academic books, and reputable institutions to strengthen accuracy and credibility.</p>
+</div>
+</div>
+</div>
+</div>
+<aside class="right" style="transform: translate(-2.75072px, -24.7564px);">
+
+<div class="sideCard">
+<p class="sideTitle">Ethics checklist</p>
+<div class="sideRow">
+<div class="miniIcon"><i class="fa-solid fa-link"></i></div>
+<p class="sideText">Can someone verify where each key claim came from?</p>
+</div>
+<div class="sideRow">
+<div class="miniIcon"><i class="fa-solid fa-file-lines"></i></div>
+<p class="sideText">Do quotations have quotation marks and citations?</p>
+</div>
+<div class="sideRow">
+<div class="miniIcon"><i class="fa-solid fa-scale-balanced"></i></div>
+<p class="sideText">Is the source credible and appropriate for academic use?</p>
+</div>
+</div>
+<div class="sideCard" style="position: relative; transform: translate(6.87679px, -129.284px);">
+<p class="sideTitle">Tip</p>
+<p class="sideText">When in doubt, cite: it’s better to over-credit than to risk accidental plagiarism.</p>
+</div>
+</aside>
+</section>
+</main>
+<nav aria-label="Topic navigation" class="nav" style="position: relative; transform: translate(2.75072px, -97.6504px);">
+<a class="navBtn" href="f8.html">
+<i class="fa-solid fa-arrow-left"></i>
+<div class="navStack">
+<p class="label">&nbsp;Tools</p>
+
+</div>
+</a>
+<a class="navBtn" href="f10.html">
+<div class="navStack" style="text-align:right;">
+<p class="label">Plagiarism&nbsp;</p>
+
+</div>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</nav>
+<footer class="footer">
+<p class="ftrText">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+</div>
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') {
+      // Goes to next slide
+      window.location.href = 'f10.html'; 
+    } else if (e.key === 'ArrowLeft') {
+      // Goes to previous slide
+      window.location.href = 'f8.html';
+    }
+  });
+</script>
+
+
+<table border="1" style="border-collapse: collapse; width: 100%; margin: 10px 0;"><tbody><tr><td style="padding: 8px; border: 1px solid rgb(204, 204, 204); min-height: 20px; min-width: 60px; position: relative; transform: translate(3.1404px, -70.659px);">&nbsp;
+  
+    <!--StartFragment--><strong style="
+        box-sizing: border-box;
+        border-width: 0px;
+        border-style: solid;
+        border-color: rgb(229, 231, 235);
+        --tw-border-opacity: 1;
+        --tw-shadow: 0 0 #0000;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgba(59, 130, 246, 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        font-weight: bolder;
+        color: rgb(0, 0, 0);
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe UI',
+          Roboto,
+          'Helvetica Neue',
+          Arial,
+          'Noto Sans',
+          sans-serif,
+          'Apple Color Emoji',
+          'Segoe UI Emoji',
+          'Segoe UI Symbol',
+          'Noto Color Emoji';
+        font-size: medium;
+        font-style: normal;
+        font-variant-ligatures: normal;
+        font-variant-caps: normal;
+        letter-spacing: normal;
+        orphans: 2;
+        text-align: start;
+        text-indent: 0px;
+        text-transform: none;
+        widows: 2;
+        word-spacing: 0px;
+        -webkit-text-stroke-width: 0px;
+        white-space: normal;
+        background-color: rgb(243, 244, 246);
+        text-decoration-thickness: initial;
+        text-decoration-style: initial;
+        text-decoration-color: initial;
+      ">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;L</strong><strong style="
+        box-sizing: border-box;
+        border-width: 0px;
+        border-style: solid;
+        border-color: rgb(229, 231, 235);
+        --tw-border-opacity: 1;
+        --tw-shadow: 0 0 #0000;
+        --tw-ring-inset: ;
+        --tw-ring-offset-width: 0px;
+        --tw-ring-offset-color: #fff;
+        --tw-ring-color: rgba(59, 130, 246, 0.5);
+        --tw-ring-offset-shadow: 0 0 #0000;
+        --tw-ring-shadow: 0 0 #0000;
+        font-weight: bolder;
+        color: rgb(0, 0, 0);
+        font-family: inherit;
+        font-size: medium;
+        font-style: normal;
+        font-variant-ligatures: normal;
+        font-variant-caps: normal;
+        letter-spacing: normal;
+        orphans: 2;
+        text-align: start;
+        text-indent: 0px;
+        text-transform: none;
+        widows: 2;
+        word-spacing: 0px;
+        -webkit-text-stroke-width: 0px;
+        white-space: normal;
+        background-color: rgb(243, 244, 246);
+        text-decoration-thickness: initial;
+        text-decoration-style: initial;
+        text-decoration-color: initial;
+      ">icenced &amp; Powered By Astrl Mind technologies copyright 2026 - 2033</strong><!--EndFragment-->
+  
+
+</td></tr><tr><td style="padding: 8px; border: 1px solid #ccc; min-height: 20px; min-width: 60px;">&nbsp;</td></tr></tbody></table></body></html>

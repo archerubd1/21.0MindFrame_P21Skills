@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Constructive Dialogue & Communication</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f3f4f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* SLIDE */
+.slide{
+    width:1280px;
+    height:720px;
+    background:#ffffff;
+    position:relative;
+}
+
+/* HEADER */
+.header{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    color:#6b7280;
+    border-bottom:1px solid #eee;
+}
+
+/* CONTENT */
+.content{
+    position:absolute;
+    top:80px;
+    bottom:120px;
+    width:100%;
+    padding:0 60px;
+}
+
+/* TITLE */
+.title{
+    font-size:34px;
+    font-weight:600;
+    margin-bottom:40px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+/* CARD */
+.card{
+    background:#cfd8dc;
+    border-radius:14px;
+    padding:25px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+    height:150px;
+}
+
+/* LEFT SIDE */
+.left{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    width:120px;
+    text-align:center;
+}
+
+/* NUMBER */
+.number{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#2f6f6b;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+/* TITLE */
+.left h3{
+    font-size:15px;
+    font-weight:600;
+}
+
+/* DIVIDER */
+.divider{
+    width:1px;
+    height:80%;
+    background:#6b9080;
+}
+
+/* TEXT */
+.desc{
+    font-size:14px;
+    color:#374151;
+    line-height:1.5;
+}
+
+/* NAVBAR */
+.navbar{
+    position:absolute;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    padding:10px 25px;
+    display:flex;
+    justify-content:space-between;
+    background:#f1f5f9;
+    backdrop-filter:blur(8px);
+    border-radius:10px;
+}
+
+.nav-link{
+    cursor:pointer;
+    font-size:14px;
+}
+
+.next{
+    color:#7c3aed;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:#6b7280;
+    border-top:1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+    <!-- HEADER -->
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="title">Constructive Dialogue & Communication</div>
+
+        <div class="grid">
+
+            <!-- CARD 1 -->
+            <div class="card">
+                <div class="left">
+                    <div class="number">01</div>
+                    <h3>Respectful Communication</h3>
+                </div>
+                <div class="divider"></div>
+                <div class="desc">
+                    Frameworks for disagreement, empathy-building language, and non-polarizing discourse techniques for inclusive dialogue.
+                </div>
+            </div>
+
+            <!-- CARD 2 -->
+            <div class="card">
+                <div class="left">
+                    <div class="number">02</div>
+                    <h3>Active Listening Skills</h3>
+                </div>
+                <div class="divider"></div>
+                <div class="desc">
+                    Techniques to understand opposing viewpoints, ask clarifying questions, and find common ground in discussions.
+                </div>
+            </div>
+
+            <!-- CARD 3 -->
+            <div class="card">
+                <div class="left">
+                    <div class="number">03</div>
+                    <h3>Clear Idea Expression</h3>
+                </div>
+                <div class="divider"></div>
+                <div class="desc">
+                    Structuring arguments logically, supporting claims with evidence, and adapting tone to diverse audiences effectively.
+                </div>
+            </div>
+
+            <!-- CARD 4 -->
+            <div class="card">
+                <div class="left">
+                    <div class="number">04</div>
+                    <h3>Conflict Resolution</h3>
+                </div>
+                <div class="divider"></div>
+                <div class="desc">
+                    De-escalation strategies, mediating perspectives, and collaborative problem-solving approaches in diverse group settings.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR (Slides 2–7 example) -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Digital activism fundamentals</div>
+        <div class="nav-link next" onclick="next()">Key skills →</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+
+<script>
+function next() {
+    window.location.href = "d7.html"; // update per slide
+}
+
+function prev() {
+    window.location.href = "d5.html"; // update per slide
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+});
+</script>
+
+</body>
+</html>

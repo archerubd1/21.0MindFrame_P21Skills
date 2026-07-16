@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The First-Step Investor - Objectives</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Montserrat:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fbf8; /* Fallback solid color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .slide-container {
+            position: relative;
+            width: 1280px;
+            height: 720px;
+            overflow: hidden;
+            background-color: #fdfafb;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Pseudo-gradient effect using blurred divs to comply with no CSS gradient rule */
+        .bg-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        .blob-1 {
+            width: 800px;
+            height: 800px;
+            background-color: #e8f5e9;
+            top: -200px;
+            left: -200px;
+        }
+
+        .blob-2 {
+            width: 700px;
+            height: 700px;
+            background-color: #fce4ec;
+            bottom: -200px;
+            right: -100px;
+        }
+        
+        /* Header */
+        .header-bar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .header-logo p {
+            font-size: 18px;
+            font-weight: 700;
+            color: #2d3748;
+            font-family: 'Montserrat', sans-serif;
+            margin: 0;
+        }
+        
+        .header-divider {
+            width: 1px;
+            height: 20px;
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-text p {
+            font-size: 13px;
+            color: #718096;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .header-badge {
+            background-color: #e8f5e9;
+            border-radius: 20px;
+            padding: 4px 12px;
+        }
+
+        .header-badge p {
+            font-size: 12px;
+            color: #4caf50;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        /* Main Content */
+        .main-content {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            bottom: 50px;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 60px;
+            z-index: 10;
+        }
+        
+        .title-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .main-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 36px;
+            font-weight: 700;
+            color: #2d3748;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #718096;
+            font-weight: 500;
+        }
+        
+        .content-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .bullet-card {
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            transition: transform 0.2s ease;
+        }
+
+        .bullet-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .bullet-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background-color: #e8f5e9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            font-size: 20px;
+            color: #4caf50;
+        }
+        
+        .bullet-content {
+            flex: 1;
+        }
+        
+        .bullet-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .bullet-title-text {
+            font-size: 18px;
+            font-weight: 600;
+            color: #2d3748;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .bullet-title-emoji {
+            font-size: 16px;
+        }
+        
+        .bullet-text {
+            font-size: 15px;
+            color: #4a5568;
+            line-height: 1.6;
+        }
+        
+        /* Footer */
+        .footer-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50px;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+        
+        .footer-left p {
+            font-size: 12px;
+            color: #718096;
+            margin: 0;
+        }
+        
+        .footer-right p {
+            font-size: 12px;
+            color: #4caf50;
+            font-weight: 600;
+            margin: 0;
+        }
+        
+        /* Navigation Bar */
+        .navbar {
+            position: absolute;
+            bottom: 70px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 12px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(241, 245, 249, 0.85);
+            backdrop-filter: blur(8px);
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            z-index: 200;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-text p {
+            font-size: 13px;
+            color: #718096;
+            font-weight: 500;
+            margin: 0;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .nav-btn {
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .nav-btn-next {
+            background-color: #4caf50;
+            color: white;
+        }
+        
+        .nav-btn-next:hover {
+            background-color: #45a049;
+        }
+        
+        .nav-btn-prev {
+            background-color: #e2e8f0;
+            color: #4a5568;
+        }
+        
+        .nav-btn-prev:hover {
+            background-color: #cbd5e1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Blobs to simulate pastel gradient -->
+<div class="bg-blob blob-1"></div>
+<div class="bg-blob blob-2"></div>
+<!-- Header -->
+<div class="header-bar">
+<div class="header-left">
+<div class="header-logo"><p>EduuAspire21.0 Skills</p></div>
+<div class="header-divider"></div>
+<div class="header-text"><p>21st Century Skills | Financial Literacy</p></div>
+</div>
+<div class="header-right">
+<div class="header-badge"><p>Finance</p></div>
+<div class="header-badge"><p>Investment</p></div>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="title-container">
+<p class="main-title">Objectives</p>
+<p class="subtitle">Set clear goals to guide your first steps into the financial world</p>
+</div>
+<div class="content-grid">
+<!-- Bullet 1 -->
+<div class="bullet-card">
+<div class="bullet-icon">
+<i class="fas fa-book-open"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">
+<p class="bullet-title-text">Understand investing basics</p>
+<p class="bullet-title-emoji">📘</p>
+</div>
+<div class="bullet-text">
+<p>Grasp fundamental concepts of investing, different asset classes, and basic market mechanics to make informed, confident financial decisions.</p>
+</div>
+</div>
+</div>
+<!-- Bullet 2 -->
+<div class="bullet-card">
+<div class="bullet-icon">
+<i class="fas fa-shuffle"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">
+<p class="bullet-title-text">Learn risk diversification</p>
+<p class="bullet-title-emoji">🔀</p>
+</div>
+<div class="bullet-text">
+<p>Discover how to spread investments across various assets and sectors to minimize potential risks while maintaining steady growth opportunities.</p>
+</div>
+</div>
+</div>
+<!-- Bullet 3 -->
+<div class="bullet-card">
+<div class="bullet-icon">
+<i class="fas fa-seedling"></i>
+</div>
+<div class="bullet-content">
+<div class="bullet-title">
+<p class="bullet-title-text">Build long-term financial vision</p>
+<p class="bullet-title-emoji">🌱</p>
+</div>
+<div class="bullet-text">
+<p>Develop a strategic mindset focused on sustainable wealth creation, future planning, and achieving financial independence over an extended timeframe.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<div class="footer-left">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+<div class="footer-right">
+<p>Building Financial Independence</p>
+</div>
+</div>
+<div class="navbar">
+    
+    <!-- LEFT SIDE (Previous) -->
+    <div class="nav-left">
+        <button class="nav-btn nav-btn-prev" onclick="prev()">
+            <i class="fas fa-chevron-left"></i>
+            <span>why it matters</span>
+        </button>
+    </div>
+
+    <!-- RIGHT SIDE (Next) -->
+    <div class="nav-right">
+        <button class="nav-btn nav-btn-next" onclick="next()">
+            <span>Basics</span>
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+</div>
+</div>
+</div>
+<script>
+        function next() {
+            window.location.href = "i5.html";
+        }
+        
+        function prev() {
+            window.location.href = "i3.html";
+        }
+        
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "ArrowRight") next();
+            if (e.key === "ArrowLeft") prev();
+        });
+    </script>
+</body>
+</html>

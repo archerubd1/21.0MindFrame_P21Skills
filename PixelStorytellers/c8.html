@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pixel Storytellers - Slide 8</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            overflow: hidden;
+display: flex;              /* IMPORTANT */
+    justify-content: center;    /* horizontal center */
+    align-items: center;        /* vertical center */
+    height: 100vh;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FFF2E6; /* Light pastel orange base */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Shapes */
+        .shape-blob-1 {
+            position: absolute;
+            top: -150px;
+            right: -100px;
+            width: 650px;
+            height: 650px;
+            background-color: #FFEDD5; /* Orange-100 */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.7;
+        }
+        
+        .shape-blob-2 {
+            position: absolute;
+            bottom: -150px;
+            left: -100px;
+            width: 700px;
+            height: 700px;
+            background-color: #FFE4E6; /* Rose-100 */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        .shape-blob-3 {
+            position: absolute;
+            top: 20%;
+            left: 20%;
+            width: 200px;
+            height: 200px;
+            background-color: #FEE2E2; /* Red-100 */
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: 0;
+            filter: blur(40px);
+        }
+
+        /* Header Styles */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            color: #7c2d12;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Footer Styles */
+        .footer {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 10px;
+            color: #9ca3af;
+            z-index: 10;
+            padding-bottom: 5px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            background: #f1f5f9;
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-radius: 10px;
+            z-index: 20;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .nav-link {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: #ea580c;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            padding: 40px 0 80px 0; /* Space for nav */
+        }
+
+        h1 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 48px;
+            color: #ea580c;
+            margin: 0 0 50px 0;
+            text-align: center;
+            text-shadow: 2px 2px 0px #fff;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 6px;
+            background-color: #FECACA;
+            border-radius: 3px;
+        }
+
+        .examples-row {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 40px;
+            width: 85%;
+        }
+
+        .example-card {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 3px solid #fff;
+            border-radius: 24px;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(234, 88, 12, 0.1);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .example-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .visual-circle {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 50px;
+            margin-bottom: 25px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.05);
+            border: 4px solid #fff;
+        }
+
+        /* Specific Styles for Card 1 */
+        .card-happy .visual-circle {
+            background-color: #FEF08A; /* Yellow-200 */
+            color: #D97706;
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Specific Styles for Card 2 */
+        .card-serious .visual-circle {
+            background-color: #94A3B8; /* Slate-400 */
+            color: #334155;
+        }
+
+        /* Specific Styles for Card 3 */
+        .card-shapes .visual-circle {
+            background-color: #FDA4AF; /* Rose-300 */
+            color: #BE123C;
+        }
+
+        .card-title {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            color: #4b5563;
+            margin: 0 0 10px 0;
+        }
+
+        .card-desc {
+            font-size: 18px;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        strong {
+            font-weight: 700;
+        }
+        
+        .strong-happy { color: #D97706; }
+        .strong-serious { color: #475569; }
+        .strong-guide { color: #BE123C; }
+
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(253, 224, 71, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(253, 224, 71, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(253, 224, 71, 0); }
+        }
+
+        .floating-shape {
+            position: absolute;
+            opacity: 0.1;
+            z-index: 0;
+        }
+        
+        .fs-1 { top: -20px; left: -20px; font-size: 100px; transform: rotate(-20deg); }
+        .fs-2 { bottom: -20px; right: -20px; font-size: 100px; transform: rotate(10deg); }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Shapes -->
+<div class="shape-blob-1"></div>
+<div class="shape-blob-2"></div>
+<div class="shape-blob-3"></div>
+<!-- Header -->
+<div class="header">
+<p>EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<h1>Colors &amp; Shapes</h1>
+<div class="examples-row">
+<!-- Card 1: Bright Colors -->
+<div class="example-card card-happy">
+<div class="floating-shape fs-1"><i class="fa-solid fa-sun"></i></div>
+<div class="visual-circle">
+<i class="fa-solid fa-face-smile-beam"></i>
+</div>
+<p class="card-title">Bright Colors</p>
+<p class="card-desc">They make us feel <strong class="strong-happy">Happy</strong> and energetic!</p>
+</div>
+<!-- Card 2: Dark Colors -->
+<div class="example-card card-serious">
+<div class="floating-shape fs-1"><i class="fa-solid fa-cloud"></i></div>
+<div class="visual-circle">
+<i class="fa-solid fa-glasses"></i>
+</div>
+<p class="card-title">Dark Colors</p>
+<p class="card-desc">They can look <strong class="strong-serious">Serious</strong> or calm.</p>
+</div>
+<!-- Card 3: Shapes -->
+<div class="example-card card-shapes">
+<div class="floating-shape fs-2"><i class="fa-solid fa-location-arrow"></i></div>
+<div class="visual-circle">
+<i class="fa-solid fa-bullseye"></i>
+</div>
+<p class="card-title">Shapes</p>
+<p class="card-desc">They <strong class="strong-guide">Guide</strong> our eyes to what is important.</p>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navbar">
+<div class="nav-link" onclick="prev()"><i class="fa-solid fa-arrow-left"></i> Colors & shapes</div>
+<div class="nav-link" onclick="next()">Facts vs opinions <i class="fa-solid fa-arrow-right"></i></div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<script>
+    function next() {
+        window.location.href = "c9.html";
+    }
+
+    function prev() {
+        window.location.href = "c7.html";
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+    });
+</script>
+</body>
+</html>

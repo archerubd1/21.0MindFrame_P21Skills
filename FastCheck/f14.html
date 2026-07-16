@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Competencies Mastered</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Rajdhani:wght@400;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+        :root {
+            --neon-cyan: #00f3ff;
+            --electric-purple: #bc13fe;
+            --alert-red: #ff2a2a;
+            --success-green: #00ff41;
+            --warning-orange: #ffae00;
+            --dark-bg: #050a14;
+            --panel-bg: rgba(5, 10, 20, 0.85);
+            --card-bg: rgba(5, 10, 20, 0.6);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #020408;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Grid */
+        .bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%2300f3ff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Decorative Background Elements */
+        .cyber-circle {
+            position: absolute;
+            border: 1px solid rgba(0, 243, 255, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+        }
+        .c1 { width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%, -50%); border-style: dashed; }
+        .c2 { width: 800px; height: 800px; top: 50%; left: 50%; transform: translate(-50%, -50%); opacity: 0.5; }
+
+        /* Header Styling */
+        .header-bar {
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+            background-color: rgba(5, 10, 20, 0.95);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 16px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 20;
+        }
+
+        /* Footer Styling */
+        .footer-bar {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid rgba(188, 19, 254, 0.3);
+            background-color: rgba(5, 10, 20, 0.95);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 1px;
+            z-index: 20;
+            margin-top: auto;
+        }
+
+        /* Main Content */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 50px;
+            z-index: 10;
+        }
+
+        .title-block {
+            margin-bottom: 30px;
+            border-left: 4px solid var(--success-green);
+            padding-left: 20px;
+            display: flex;
+            align-items: baseline;
+            gap: 20px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 42px;
+            color: white;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(0, 255, 65, 0.4);
+        }
+
+        .subtitle {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--neon-cyan);
+            font-size: 18px;
+            letter-spacing: 2px;
+        }
+
+        /* Grid Layout */
+        .badges-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 25px;
+            height: 100%;
+            padding: 0 20px;
+        }
+
+        /* Custom placement for 5 items centered */
+        .badge-card:nth-child(4) {
+            grid-column-start: 1; 
+            grid-column-end: 2; 
+            transform: translateX(50%); /* Center adjustment for bottom row */
+            margin-left: 25%;
+        }
+        
+        .badge-card:nth-child(5) {
+            grid-column-start: 2;
+            grid-column-end: 4;
+            transform: translateX(-16%); /* Center adjustment */
+            margin-right: 25%;
+        }
+
+        /* Alternate simpler layout: Flex wrap centered */
+        .badges-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            height: 100%;
+            align-content: center;
+        }
+
+        .badge-card {
+            width: 350px;
+            height: 180px;
+            background: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            display: flex;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            clip-path: polygon(
+                20px 0, 100% 0, 
+                100% calc(100% - 20px), calc(100% - 20px) 100%, 
+                0 100%, 0 20px
+            );
+        }
+
+        .badge-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .badge-icon-area {
+            width: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            border-right: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+        }
+
+        .badge-content {
+            flex: 1;
+            padding: 15px 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .badge-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 18px;
+            color: white;
+            margin-bottom: 5px;
+            line-height: 1.2;
+        }
+
+        .badge-desc {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 14px;
+            color: #ccc;
+            margin-bottom: 15px;
+        }
+
+        .progress-container {
+            width: 100%;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            margin-bottom: 3px;
+        }
+
+        .progress-bar-bg {
+            width: 100%;
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            width: 100%;
+            background: white;
+            box-shadow: 0 0 10px white;
+            transform-origin: left;
+            animation: loadProgress 1.5s ease-out forwards;
+        }
+
+        @keyframes loadProgress {
+            from { transform: scaleX(0); }
+            to { transform: scaleX(1); }
+        }
+
+        .status-stamp {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            padding: 2px 6px;
+            border: 1px solid;
+            text-transform: uppercase;
+            opacity: 0.8;
+        }
+
+        /* Color Variations */
+        /* Critical Thinking - Cyan */
+        .b-cyan { border-color: var(--neon-cyan); }
+        .b-cyan:hover { border-color: var(--neon-cyan); box-shadow: 0 0 15px rgba(0, 243, 255, 0.2); }
+        .b-cyan .badge-icon-area i { color: var(--neon-cyan); text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); }
+        .b-cyan .progress-bar-fill { background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan); }
+        .b-cyan .status-stamp { color: var(--neon-cyan); border-color: var(--neon-cyan); }
+        
+        /* Algorithmic Literacy - Purple */
+        .b-purple { border-color: var(--electric-purple); }
+        .b-purple:hover { border-color: var(--electric-purple); box-shadow: 0 0 15px rgba(188, 19, 254, 0.2); }
+        .b-purple .badge-icon-area i { color: var(--electric-purple); text-shadow: 0 0 10px rgba(188, 19, 254, 0.5); }
+        .b-purple .progress-bar-fill { background: var(--electric-purple); box-shadow: 0 0 10px var(--electric-purple); }
+        .b-purple .status-stamp { color: var(--electric-purple); border-color: var(--electric-purple); }
+
+        /* Data Literacy - Orange */
+        .b-orange { border-color: var(--warning-orange); }
+        .b-orange:hover { border-color: var(--warning-orange); box-shadow: 0 0 15px rgba(255, 174, 0, 0.2); }
+        .b-orange .badge-icon-area i { color: var(--warning-orange); text-shadow: 0 0 10px rgba(255, 174, 0, 0.5); }
+        .b-orange .progress-bar-fill { background: var(--warning-orange); box-shadow: 0 0 10px var(--warning-orange); }
+        .b-orange .status-stamp { color: var(--warning-orange); border-color: var(--warning-orange); }
+
+        /* Digital Citizenship - Green */
+        .b-green { border-color: var(--success-green); }
+        .b-green:hover { border-color: var(--success-green); box-shadow: 0 0 15px rgba(0, 255, 65, 0.2); }
+        .b-green .badge-icon-area i { color: var(--success-green); text-shadow: 0 0 10px rgba(0, 255, 65, 0.5); }
+        .b-green .progress-bar-fill { background: var(--success-green); box-shadow: 0 0 10px var(--success-green); }
+        .b-green .status-stamp { color: var(--success-green); border-color: var(--success-green); }
+
+        /* Analytical Reasoning - Red */
+        .b-red { border-color: var(--alert-red); }
+        .b-red:hover { border-color: var(--alert-red); box-shadow: 0 0 15px rgba(255, 42, 42, 0.2); }
+        .b-red .badge-icon-area i { color: var(--alert-red); text-shadow: 0 0 10px rgba(255, 42, 42, 0.5); }
+        .b-red .progress-bar-fill { background: var(--alert-red); box-shadow: 0 0 10px var(--alert-red); }
+        .b-red .status-stamp { color: var(--alert-red); border-color: var(--alert-red); }
+
+        .icon-hex {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+            position: relative;
+        }
+
+        .icon-hex::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid currentColor;
+            opacity: 0.3;
+            transform: rotate(45deg);
+        }
+
+        /* Particles */
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            border-radius: 50%;
+            animation: float 10s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0) translateX(0); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100px) translateX(20px); opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="bg-grid"></div>
+<div class="cyber-circle c1"></div>
+<div class="cyber-circle c2"></div>
+<!-- Header -->
+<div class="header-bar">
+<div>EduuAspire 21.0</div>
+<div>Skills 21st century skills digital literacy</div>
+</div>
+<!-- Main Content -->
+<div class="content-area">
+<div class="title-block">
+<h1>Competencies Mastered</h1>
+<span class="subtitle">SKILL ACQUISITION COMPLETE // CERTIFIED</span>
+</div>
+<div class="badges-container">
+<!-- Badge 1: Critical Thinking (Cyan) -->
+<div class="badge-card b-cyan">
+<div class="status-stamp">MAX LVL</div>
+<div class="badge-icon-area">
+<div class="icon-hex">
+<i class="fas fa-brain"></i>
+</div>
+</div>
+<div class="badge-content">
+<div class="badge-title">Critical Thinking</div>
+<p class="badge-desc">Evaluated sources for bias, context, and credibility.</p>
+<div class="progress-container">
+<div class="progress-label">
+<span>PROFICIENCY</span>
+<span>100%</span>
+</div>
+<div class="progress-bar-bg">
+<div class="progress-bar-fill" style="width: 100%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Badge 2: Algorithmic Literacy (Purple) -->
+<div class="badge-card b-purple">
+<div class="status-stamp">MAX LVL</div>
+<div class="badge-icon-area">
+<div class="icon-hex">
+<i class="fas fa-cogs"></i>
+</div>
+</div>
+<div class="badge-content">
+<div class="badge-title">Algorithmic Literacy</div>
+<p class="badge-desc">Analyzed how systems filter and amplify information.</p>
+<div class="progress-container">
+<div class="progress-label">
+<span>PROFICIENCY</span>
+<span>100%</span>
+</div>
+<div class="progress-bar-bg">
+<div class="progress-bar-fill" style="width: 100%; animation-delay: 0.2s;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Badge 3: Data Literacy (Orange) -->
+<div class="badge-card b-orange">
+<div class="status-stamp">MAX LVL</div>
+<div class="badge-icon-area">
+<div class="icon-hex">
+<i class="fas fa-chart-pie"></i>
+</div>
+</div>
+<div class="badge-content">
+<div class="badge-title">Data Literacy</div>
+<p class="badge-desc">Identified misleading graphs and statistical manipulation.</p>
+<div class="progress-container">
+<div class="progress-label">
+<span>PROFICIENCY</span>
+<span>100%</span>
+</div>
+<div class="progress-bar-bg">
+<div class="progress-bar-fill" style="width: 100%; animation-delay: 0.4s;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Badge 4: Responsible Digital Citizenship (Green) -->
+<div class="badge-card b-green">
+<div class="status-stamp">MAX LVL</div>
+<div class="badge-icon-area">
+<div class="icon-hex">
+<i class="fas fa-user-shield"></i>
+</div>
+</div>
+<div class="badge-content">
+<div class="badge-title">Digital Citizenship</div>
+<p class="badge-desc">Applied ethical standards to information sharing.</p>
+<div class="progress-container">
+<div class="progress-label">
+<span>PROFICIENCY</span>
+<span>100%</span>
+</div>
+<div class="progress-bar-bg">
+<div class="progress-bar-fill" style="width: 100%; animation-delay: 0.6s;"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Badge 5: Analytical Reasoning (Red) -->
+<div class="badge-card b-red">
+<div class="status-stamp">MAX LVL</div>
+<div class="badge-icon-area">
+<div class="icon-hex">
+<i class="fas fa-microscope"></i>
+</div>
+</div>
+<div class="badge-content">
+<div class="badge-title">Analytical Reasoning</div>
+<p class="badge-desc">Conducted forensic verification of digital media.</p>
+<div class="progress-container">
+<div class="progress-label">
+<span>PROFICIENCY</span>
+<span>100%</span>
+</div>
+<div class="progress-bar-bg">
+<div class="progress-bar-fill" style="width: 100%; animation-delay: 0.8s;"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<p>Licensed and powered by Astrl mind Technologies copyright 2026-2033</p>
+</div>
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f15
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f15.html';
+    }
+
+    // LEFT → f13
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f13.html';
+    }
+
+});
+</script>
+
+<!-- PREVIOUS BUTTON -->
+<a href="f13.html"
+   class="absolute bottom-16 left-12 z-50 px-6 py-3
+          bg-gray-800 text-white text-sm font-semibold uppercase
+          hover:bg-gray-700 transition rounded-lg shadow-lg">
+← Previous
+</a>
+
+<!-- NEXT BUTTON -->
+<a href="f15.html"
+   class="absolute bottom-16 right-12 z-50 px-6 py-3
+          bg-gray-900 text-white text-sm font-semibold uppercase
+          hover:bg-gray-800 transition rounded-lg shadow-lg">
+Next →
+</a>
+</body>
+</html>

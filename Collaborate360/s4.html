@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Key Modules - Collaborate 360°</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #f8f9fa;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Container */
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    background: #ffffff;
+}
+
+/* Header */
+.header {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    font-size: 14px;
+    color: #64748B;
+    text-transform: uppercase;
+}
+
+/* Title */
+.title {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Montserrat';
+    font-size: 48px;
+    font-weight: 800;
+    color: #0F172A;
+}
+
+/* Subtitle */
+.subtitle {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+    color: #64748B;
+}
+
+/* Cards */
+.cards {
+    position: absolute;
+    top: 220px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.card {
+    width: 320px;
+    height: 340px;
+    background: #F8FAFC;
+    border-radius: 16px;
+    border: 1px solid #E2E8F0;
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 8px 12px rgba(0,0,0,0.05);
+}
+
+.card i {
+    font-size: 36px;
+    color: #0073CF;
+    margin-bottom: 15px;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card hr {
+    width: 40px;
+    border: 2px solid #0073CF;
+    margin: 10px auto;
+}
+
+.card ul {
+    text-align: left;
+    margin-top: 20px;
+    padding-left: 20px;
+    color: #475569;
+}
+
+/* Footer */
+.footer {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+    text-align: center;
+    font-size: 12px;
+    color: #94A3B8;
+}
+
+/* Navigation */
+.navbar {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(255, 218, 185, 0.25);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid rgba(255,255,255,0.5);
+    border-radius: 10px;
+}
+.nav-link {
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy
+</div>
+
+<div class="title">Key Modules</div>
+<div class="subtitle">Comprehensive curriculum for global readiness</div>
+
+<div class="cards">
+
+<div class="card">
+<i class="fas fa-cloud"></i>
+<h3>Global Cloud Systems</h3>
+<hr>
+<ul>
+<li>Platforms</li>
+<li>Architecture</li>
+<li>Interoperability</li>
+</ul>
+</div>
+
+<div class="card">
+<i class="fas fa-shield-alt"></i>
+<h3>Security in Transit</h3>
+<hr>
+<ul>
+<li>Data-in-motion</li>
+<li>Encryption basics</li>
+<li>Compliance protocols</li>
+</ul>
+</div>
+
+<div class="card">
+<i class="fas fa-users"></i>
+<h3>Leading Virtual Teams</h3>
+<hr>
+<ul>
+<li>Culture & trust</li>
+<li>Communication cadence</li>
+<li>Performance tracking</li>
+</ul>
+</div>
+
+</div>
+
+<!-- Navigation -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Objectives</div>
+    <div class="nav-link" onclick="next()">Cloud Systems →</div>
+</div>
+
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies © 2026–2033
+</div>
+
+</div>
+
+<script>
+
+// Click navigation
+function next() {
+    window.location.href = "s5.html";
+}
+
+function prev() {
+    window.location.href = "s3.html";
+}
+
+// Keyboard navigation
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    if (e.key === 'ArrowRight') {
+        window.location.href = 's5.html';
+    }
+
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 's3.html';
+    }
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pixel Storytellers - Slide 10</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            overflow: hidden;
+display: flex;              /* IMPORTANT */
+    justify-content: center;    /* horizontal center */
+    align-items: center;        /* vertical center */
+    height: 100vh;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FFF2E6; /* Light pastel orange base */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Shapes */
+        .shape-blob-1 {
+            position: absolute;
+            top: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background-color: #FFE4E6; /* Soft Rose */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+        
+        .shape-blob-2 {
+            position: absolute;
+            bottom: -50px;
+            right: -50px;
+            width: 600px;
+            height: 600px;
+            background-color: #FFEDD5; /* Soft Orange */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* Header Styles */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            color: #7c2d12;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Footer Styles */
+        .footer {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 10px;
+            color: #9ca3af;
+            z-index: 10;
+            padding-bottom: 5px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            background: #f1f5f9;
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-radius: 10px;
+            z-index: 20;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .nav-link {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: #ea580c;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            padding-bottom: 60px; /* Space for nav */
+        }
+
+        h1 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 56px;
+            color: #ea580c;
+            margin: 0 0 40px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 6px;
+            background-color: #FCA5A5;
+            margin: 10px auto 0;
+            border-radius: 3px;
+        }
+
+        .list-container {
+            width: 850px;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .list-item {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(5px);
+            border: 2px solid #fff;
+            border-radius: 20px;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            box-shadow: 0 8px 20px rgba(234, 88, 12, 0.08);
+            transition: transform 0.3s ease;
+        }
+
+        .list-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .icon-box {
+            width: 70px;
+            height: 70px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* Icon specific colors for this slide */
+        .icon-bias {
+            background-color: #FEE2E2; /* Light Red */
+            color: #DC2626;
+        }
+
+        .icon-unfair {
+            background-color: #FFEDD5; /* Soft Orange */
+            color: #EA580C;
+        }
+
+        .icon-critical {
+            background-color: #DCFCE7; /* Soft Green */
+            color: #16A34A;
+        }
+
+        .text-content p {
+            margin: 0;
+            font-size: 24px;
+            color: #4b5563;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+        
+        strong {
+            color: #c2410c;
+            font-weight: 700;
+        }
+
+        /* Animation for icons on load */
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            80% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .icon-box {
+            animation: popIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+        }
+
+        .item-1 .icon-box { animation-delay: 0.1s; }
+        .item-2 .icon-box { animation-delay: 0.3s; }
+        .item-3 .icon-box { animation-delay: 0.5s; }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Shapes -->
+<div class="shape-blob-1"></div>
+<div class="shape-blob-2"></div>
+<!-- Header -->
+<div class="header">
+<p>EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<h1>Understanding Bias</h1>
+<div class="list-container">
+<!-- Item 1: Bias Definition -->
+<div class="list-item item-1">
+<div class="icon-box icon-bias">
+<i class="fa-solid fa-scale-unbalanced"></i>
+</div>
+<div class="text-content">
+<p><strong>Bias</strong> means favoring one side or opinion while ignoring others.</p>
+</div>
+</div>
+<!-- Item 2: Media Fairness -->
+<div class="list-item item-2">
+<div class="icon-box icon-unfair">
+<i class="fa-solid fa-newspaper"></i>
+</div>
+<div class="text-content">
+<p>Media messages <strong>may not always be fair</strong> or tell the whole story.</p>
+</div>
+</div>
+<!-- Item 3: Critical Thinking -->
+<div class="list-item item-3">
+<div class="icon-box icon-critical">
+<i class="fa-solid fa-lightbulb"></i>
+</div>
+<div class="text-content">
+<p>We need to <strong>think critically</strong>: "Who made this and what did they leave out?"</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navbar">
+<div class="nav-link" onclick="prev()"><i class="fa-solid fa-arrow-left"></i> Facts vs opinions</div>
+<div class="nav-link" onclick="next()">Kind <i class="fa-solid fa-arrow-right"></i></div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<script>
+        function next() {
+            window.location.href = "c11.html";
+        }
+
+        function prev() {
+            window.location.href = "c9.html";
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === "ArrowRight") next();
+            if (e.key === "ArrowLeft") prev();
+        });
+    </script>
+</body>
+</html>

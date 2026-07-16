@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Smart Summarizer - Slide 8</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    overflow: hidden;
+}
+
+/* FULL SCREEN FIX */
+.slide-wrapper {
+    width: 1280px;
+    height: 720px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: #FFF6E9;
+    font-family: 'Poppins', sans-serif;
+
+    transform: scale(min(100vw / 1280, 100vh / 720));
+    transform-origin: top left;
+}
+
+p { margin: 0; line-height: 1.5; }
+ul { list-style: none; padding: 0; }
+
+li {
+    margin-bottom: 25px;
+    padding-left: 45px;
+    position: relative;
+}
+
+li::before {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    top: 4px;
+    color: #2ECC71;
+    font-size: 24px;
+}
+</style>
+</head>
+
+<body>
+<div class="slide-wrapper">
+<div class="slide-container">
+
+<!-- BACKGROUND -->
+<div style="position:absolute; left:-100px; top:-100px; width:600px; height:600px; background:rgba(255,229,217,0.4); border-radius:50%;"></div>
+<div style="position:absolute; left:800px; top:300px; width:600px; height:600px; background:rgba(255,229,217,0.4); border-radius:50%;"></div>
+
+<!-- HEADER -->
+<div style="position:absolute; top:0; width:100%; height:60px; background:rgba(255,255,255,0.8);"></div>
+<p style="position:absolute; top:18px; left:40px; font-size:18px; color:#555;">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</p>
+
+<!-- TITLE -->
+<p style="position:absolute; top:80px; width:100%; text-align:center; font-size:48px; font-weight:700; border-bottom:3px solid #4A90E2; display:inline-block;">
+Notes vs. Copying
+</p>
+
+<!-- LEFT CARD -->
+<div style="position:absolute; left:100px; top:170px; width:520px; height:260px; background:#fff; border-radius:20px; border-top:8px solid #4A90E2;"></div>
+<p style="position:absolute; left:100px; top:260px; width:520px; text-align:center; font-size:28px; font-weight:700;">Smart Notes</p>
+<p style="position:absolute; left:100px; top:310px; width:520px; text-align:center; font-size:22px;">
+✔ Short & Concise<br/>
+✔ In your own words
+</p>
+
+<!-- RIGHT CARD -->
+<div style="position:absolute; left:660px; top:170px; width:520px; height:260px; background:#fff; border-radius:20px; border-top:8px solid #D65A31;"></div>
+<p style="position:absolute; left:660px; top:260px; width:520px; text-align:center; font-size:28px; font-weight:700;">Just Copying</p>
+<p style="position:absolute; left:660px; top:310px; width:520px; text-align:center; font-size:22px;">
+✖ Same sentences<br/>
+✖ No thinking
+</p>
+
+<!-- BOTTOM BOX -->
+<div style="position:absolute; left:100px; top:440px; width:1080px; height:130px; background:#fff; border-radius:20px;"></div>
+<p style="position:absolute; top:450px; width:100%; text-align:center; font-weight:700; color:#D65A31;">
+The "Close the Book" Technique
+</p>
+<p style="position:absolute; top:500px; width:100%; text-align:center; font-size:20px;">
+1. Read → 2. Close → 3. Write
+</p>
+
+<!-- NAV BAR -->
+<div style="position:absolute; bottom:40px; width:100%; height:80px; background:rgba(255,204,170,0.5);"></div>
+
+<!-- PREV BUTTON -->
+<a href="f7.html">
+<div style="position:absolute; left:30px; bottom:55px; width:240px; height:50px; background:#fff; border-radius:25px; display:flex; align-items:center; justify-content:center;">
+    <p style="font-weight:600; color:#D65A31;">
+        ← Main Ideas
+    </p>
+</div>
+</a>
+
+<!-- NEXT BUTTON -->
+<a href="f9.html">
+<div style="position:absolute; right:30px; bottom:55px; width:320px; height:50px; background:#fff; border-radius:25px; display:flex; align-items:center; justify-content:center;">
+    <p style="font-weight:600; color:#D65A31;">
+        Writing Steps →
+    </p>
+</div>
+</a>
+
+</div>
+<!-- KEYBOARD NAV -->
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f9 (next slide)
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f9.html';
+    }
+
+    // LEFT → f7 (previous slide)
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f7.html';
+    }
+
+});
+</script>
+
+</body>
+</html>

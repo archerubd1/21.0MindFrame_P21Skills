@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pixel Storytellers - Slide 6</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            overflow: hidden;
+display: flex;              /* IMPORTANT */
+    justify-content: center;    /* horizontal center */
+    align-items: center;        /* vertical center */
+    height: 100vh;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FFF2E6; /* Light pastel orange base */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Shapes */
+        .shape-blob-1 {
+            position: absolute;
+            top: -120px;
+            right: -100px;
+            width: 550px;
+            height: 550px;
+            background-color: #FED7AA; /* Orange-200 */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.5;
+        }
+        
+        .shape-blob-2 {
+            position: absolute;
+            bottom: -80px;
+            left: -80px;
+            width: 600px;
+            height: 600px;
+            background-color: #FFE4E6; /* Rose-100 */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        .shape-blob-3 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 400px;
+            background-color: #FFFFFF;
+            border-radius: 50%;
+            opacity: 0.4;
+            filter: blur(60px);
+            z-index: 0;
+        }
+
+        /* Header Styles */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            color: #7c2d12;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Footer Styles */
+        .footer {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 10px;
+            color: #9ca3af;
+            z-index: 10;
+            padding-bottom: 5px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            background: #f1f5f9;
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-radius: 10px;
+            z-index: 20;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .nav-link {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: #ea580c;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            padding: 40px 0 80px 0; /* Space for nav */
+        }
+
+        h1 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 48px;
+            color: #ea580c;
+            margin: 0 0 10px 0;
+            text-align: center;
+            text-shadow: 2px 2px 0px #fff;
+        }
+
+        .subtitle {
+            font-family: 'Poppins', sans-serif;
+            font-size: 20px;
+            color: #ef4444;
+            margin-bottom: 30px;
+            font-weight: 600;
+            background: rgba(255,255,255,0.6);
+            padding: 5px 20px;
+            border-radius: 20px;
+        }
+
+        /* Practice Card Styles */
+        .practice-card {
+            background: #fff;
+            width: 700px;
+            border-radius: 24px;
+            padding: 0; /* Header separates padding */
+            box-shadow: 0 15px 40px rgba(234, 88, 12, 0.15);
+            position: relative;
+            overflow: hidden;
+            border: 4px solid #fff;
+        }
+
+        .card-header-strip {
+            background-color: #FFEDD5; /* Orange-100 */
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 2px solid #FED7AA;
+        }
+
+        .strip-icon {
+            font-size: 24px;
+            color: #EA580C;
+        }
+
+        .strip-text {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            font-size: 20px;
+            color: #9A3412;
+            margin: 0;
+        }
+
+        .checklist-container {
+            padding: 30px 40px;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+            background-color: #FAFAFA;
+            padding: 15px 20px;
+            border-radius: 12px;
+            transition: transform 0.2s, background-color 0.2s;
+            border: 1px solid #E5E7EB;
+        }
+
+        .checklist-item:hover {
+            transform: scale(1.02);
+            background-color: #FFF7ED; /* Orange-50 */
+            border-color: #FED7AA;
+        }
+
+        .checklist-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .check-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #FEE2E2; /* Red-100 placeholder */
+            color: #EF4444;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            margin-right: 20px;
+            border: 2px solid #FECACA;
+            flex-shrink: 0;
+        }
+
+        .item-text {
+            font-size: 22px;
+            color: #374151;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* Floating decorations */
+        .pencil-deco {
+            position: absolute;
+            right: -20px;
+            top: -20px;
+            font-size: 80px;
+            color: #FDBA74;
+            transform: rotate(15deg);
+            filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.1));
+            z-index: 10;
+        }
+
+        .star-deco {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            font-size: 40px;
+            color: #FCD34D; /* Amber-300 */
+            z-index: 10;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Shapes -->
+<div class="shape-blob-1"></div>
+<div class="shape-blob-2"></div>
+<div class="shape-blob-3"></div>
+<!-- Header -->
+<div class="header">
+<p>EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<h1>Making a Message</h1>
+<div class="subtitle"><p>Let's Practice! <i class="fa-solid fa-star"></i></p></div>
+<div class="practice-card">
+<div class="pencil-deco"><i class="fa-solid fa-pencil"></i></div>
+<!-- Card Header -->
+<div class="card-header-strip">
+<div class="strip-icon"><i class="fa-solid fa-clipboard-list"></i></div>
+<p class="strip-text">Your Checklist</p>
+</div>
+<!-- Checklist Items -->
+<div class="checklist-container">
+<div class="checklist-item">
+<div class="check-circle"><i class="fa-solid fa-1"></i></div>
+<div class="item-text"><p>Choose a <strong>topic</strong></p></div>
+</div>
+<div class="checklist-item">
+<div class="check-circle"><i class="fa-solid fa-2"></i></div>
+<div class="item-text"><p>Decide your <strong>message</strong></p></div>
+</div>
+<div class="checklist-item">
+<div class="check-circle"><i class="fa-solid fa-3"></i></div>
+<div class="item-text"><p>Keep it <strong>simple</strong> and clear</p></div>
+</div>
+</div>
+<!-- Deco inside card -->
+<div class="star-deco"><i class="fa-solid fa-star"></i></div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navbar">
+<div class="nav-link" onclick="prev()"><i class="fa-solid fa-arrow-left"></i> Message</div>
+<div class="nav-link" onclick="next()">Colours & shapes <i class="fa-solid fa-arrow-right"></i></div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<script>
+    function next() {
+        window.location.href = "c7.html";
+    }
+
+    function prev() {
+        window.location.href = "c5.html";
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport"/>
+<title>Reliability Rangers - Become a Ranger</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&display=swap" rel="stylesheet"/>
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    background-color: #0B132B;
+}
+
+/* Input */
+.ranger-input {
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(58,134,255,0.5);
+    border-radius: 8px;
+    color: #F1F5F9;
+    font-size: 20px;
+    padding: 0 20px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.ranger-input:focus {
+    border-color: #3A86FF;
+    background: rgba(255,255,255,0.1);
+    box-shadow: 0 0 15px rgba(58,134,255,0.4);
+}
+
+/* Button */
+.pledge-btn {
+    width: 100%;
+    height: 100%;
+    background-color: #3A86FF;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.pledge-btn:hover {
+    background-color: #2563EB;
+    transform: translateY(-2px);
+}
+
+.pledge-btn:active {
+    transform: scale(0.98);
+}
+
+/* Certificate */
+.certificate-container {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: all 0.5s ease;
+    pointer-events: none;
+}
+
+.certificate-container.visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* Floating badge */
+.badge-icon {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Hidden helper */
+.hidden {
+    display: none !important;
+}
+</style>
+</head>
+
+<body>
+<div class="slide-container">
+
+<!-- HEADER -->
+<div style="position:absolute;top:0;width:100%;height:60px;background:#1C2541;display:flex;align-items:center;padding-left:40px;border-bottom:2px solid #3A86FF;">
+<p style="color:#F1F5F9;margin:0;">EduuAspire21.0 Skills | Information Literacy</p>
+</div>
+
+<!-- TITLE -->
+<div style="position:absolute;top:80px;width:100%;text-align:center;">
+<h1 style="font-size:48px;color:#F1F5F9;margin:0;">Become a Reliability Ranger!</h1>
+<p style="color:#FFD166;font-size:22px;margin:5px 0 0;">You have the power to find the truth.</p>
+</div>
+
+<!-- INPUT BOX -->
+<div style="position:absolute;left:140px;top:220px;width:480px;height:320px;background:rgba(255,255,255,0.03);border-radius:16px;padding:30px;box-sizing:border-box;">
+<h3 style="color:#F1F5F9;text-align:center;margin:0;">Take the Pledge</h3>
+
+<div style="margin-top:30px;height:50px;">
+<input id="rangerName" class="ranger-input" placeholder="Enter your name...">
+</div>
+
+<div style="margin-top:20px;height:50px;">
+<button id="pledgeBtn" class="pledge-btn" onclick="generatePledge()">
+<i class="fas fa-shield-alt"></i> I Promise to Check Facts
+</button>
+</div>
+</div>
+
+<!-- PLACEHOLDER -->
+<div id="placeholder" style="position:absolute;left:660px;top:220px;width:480px;height:320px;border:2px dashed rgba(255,255,255,0.1);border-radius:16px;display:flex;flex-direction:column;justify-content:center;align-items:center;">
+<i class="fas fa-user-secret badge-icon" style="font-size:70px;color:#1C2541;"></i>
+<p style="color:#64748B;">Your badge will appear here</p>
+</div>
+
+<!-- CERTIFICATE -->
+<div id="certificate" class="certificate-container" style="position:absolute;left:660px;top:200px;width:480px;height:360px;">
+
+<div style="background:linear-gradient(135deg,#FFD166,#FFF);height:100%;border-radius:16px;padding:20px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+
+<i class="fas fa-shield-alt" style="font-size:60px;color:#3A86FF;"></i>
+
+<h2 style="margin:10px 0;color:#1C2541;">Official Reliability Ranger</h2>
+
+<p id="outputName" style="font-family:'Caveat',cursive;font-size:32px;color:#3A86FF;margin:10px 0;">Name</p>
+
+<p style="font-size:14px;color:#1C2541;">
+"I pledge to verify facts before I share."
+</p>
+
+<p id="outputDate" style="margin-top:20px;color:#333;font-weight:600;"></p>
+
+</div>
+</div>
+
+</div>
+
+<script>
+function generatePledge() {
+    const nameInput = document.getElementById('rangerName');
+    const btn = document.getElementById('pledgeBtn');
+
+    let name = nameInput.value.trim();
+    if (name === "") name = "Junior Ranger";
+
+    document.getElementById('outputName').innerText = name;
+
+    const date = new Date().toLocaleDateString('en-IN', {
+        day: 'numeric',
+        month: 'short',
+        year: 'numeric'
+    });
+
+    document.getElementById('outputDate').innerText = date;
+
+    // Hide placeholder completely
+    document.getElementById('placeholder').classList.add('hidden');
+
+    // Show certificate
+    document.getElementById('certificate').classList.add('visible');
+
+    // Disable button after click
+    btn.disabled = true;
+    btn.innerText = "Ranger Activated ✓";
+}
+</script>
+
+</body>
+</html>

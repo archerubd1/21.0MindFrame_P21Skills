@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>The Power of Saving</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    background: #121212;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    color: white;
+}
+
+/* HEADER */
+.header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 45px;
+    background: #0f0f0f;
+    border-bottom: 2px solid gold;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* FOOTER */
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0f0f0f;
+    border-top: 1px solid #222;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    font-size: 12px;
+}
+
+/* WRAPPER */
+#wrapper {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* SLIDE */
+.slide {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    transform-origin: center center;
+}
+
+/* TITLE */
+.title {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    text-align: center;
+    font-size: 44px;
+    color: gold;
+}
+
+.subtitle {
+    position: absolute;
+    top: 120px;
+    width: 100%;
+    text-align: center;
+    font-size: 26px;
+    color: #39FF14;
+}
+
+/* CARDS */
+.card {
+    position: absolute;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.left-card {
+    left: 100px;
+    top: 190px;
+    width: 480px;
+    height: 390px;
+    border: 2px solid gold;
+    background: rgba(255,255,255,0.03);
+}
+
+.right-card {
+    right: 100px;
+    top: 190px;
+    width: 480px;
+    height: 390px;
+    border: 2px solid #39FF14;
+    background: rgba(57,255,20,0.05);
+}
+
+/* ICON TEXT */
+.item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.item i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.highlight {
+    border: 1px solid #39FF14;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+/* RIGHT VISUAL */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* NAV BUTTONS */
+button {
+    position: absolute;
+    bottom: 30px;
+    padding: 10px 20px;
+    border: 2px solid gold;
+    background: transparent;
+    color: gold;
+    cursor: pointer;
+    border-radius: 8px;
+}
+
+.left { left: 20px; }
+.right { right: 20px; }
+
+button:hover {
+    background: gold;
+    color: black;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+</div>
+
+<div id="wrapper">
+<div class="slide">
+
+<div class="title">The Power of Saving</div>
+<div class="subtitle">Planting Seeds for Your Future</div>
+
+<!-- LEFT CARD -->
+<div class="card left-card">
+
+<div class="item">
+<i class="fas fa-piggy-bank" style="color:gold;"></i>
+<div>
+<b>What is Saving?</b><br>
+Keeping money for later instead of spending now.
+</div>
+</div>
+
+<div class="item">
+<i class="fas fa-shield-halved" style="color:#39FF14;"></i>
+<div>
+<b>Why Save?</b><br>
+✔ Emergencies<br>
+✔ Achieve dreams
+</div>
+</div>
+
+<div class="highlight">
+<b style="color:#39FF14;">Insight:</b> Saving is paying your future self.
+</div>
+
+</div>
+
+<!-- RIGHT CARD -->
+<div class="card right-card">
+
+<h3 style="text-align:center;color:#39FF14;">Watch Your Money Grow</h3>
+
+<!-- Circles -->
+<div class="circle" style="left:40px; top:120px; width:70px; height:70px; border:2px solid gold;">
+<i class="fas fa-seedling" style="color:gold;"></i>
+</div>
+
+<div class="circle" style="left:180px; top:100px; width:80px; height:80px; border:2px solid #39FF14;">
+<i class="fas fa-leaf" style="color:#39FF14;"></i>
+</div>
+
+<div class="circle" style="left:330px; top:80px; width:90px; height:90px; border:2px solid gold;">
+<i class="fas fa-tree" style="color:gold;"></i>
+</div>
+
+<div style="position:absolute; bottom:20px; width:100%; text-align:center;">
+Like a seed, savings grow into strong security!
+</div>
+
+</div>
+
+<!-- NAV -->
+<button class="left" onclick="goBack()">← Smart Spending</button>
+<button class="right" onclick="goNext()">3-Jar System →</button>
+
+</div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+<script>
+function scaleSlide() {
+    const slide = document.querySelector('.slide');
+    const scale = Math.min(
+        window.innerWidth / 1280,
+        window.innerHeight / 720
+    );
+    slide.style.transform = `scale(${scale})`;
+}
+
+window.addEventListener("load", scaleSlide);
+window.addEventListener("resize", scaleSlide);
+
+function goNext() {
+    window.location.href = "f10.html";
+}
+
+function goBack() {
+    window.location.href = "f8.html";
+}
+
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") goNext();
+    if (e.key === "ArrowLeft") goBack();
+});
+</script>
+
+</body>
+</html>

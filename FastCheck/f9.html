@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Why Algorithms Fail</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+
+<style>
+:root {
+    --neon-cyan: #00f3ff;
+    --electric-purple: #bc13fe;
+    --warning-orange: #ff9f00;
+    --alert-red: #ff2a2a;
+    --dark-bg: #050a14;
+}
+body {
+    margin: 0;
+    background: var(--dark-bg);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    overflow: hidden;
+}
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    background: #020408;
+}
+
+/* HEADER */
+.header-bar {
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 50px;
+    align-items: center;
+    border-bottom: 1px solid rgba(0,243,255,0.3);
+    color: var(--neon-cyan);
+    font-family: 'Share Tech Mono';
+}
+
+/* FOOTER */
+.footer-bar {
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 1px solid rgba(188,19,254,0.3);
+    font-size: 12px;
+}
+
+/* CONTENT */
+.content-area {
+    flex: 1;
+    padding: 30px 50px;
+}
+
+/* TITLE */
+.title-block {
+    border-left: 4px solid var(--neon-cyan);
+    padding-left: 20px;
+    margin-bottom: 30px;
+}
+h1 {
+    font-family: 'Orbitron';
+    font-size: 42px;
+}
+.subtitle {
+    color: var(--electric-purple);
+    font-family: 'Share Tech Mono';
+}
+
+/* CARDS */
+.diagram-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cause-card {
+    width: 30%;
+    padding: 20px;
+    border: 1px solid #333;
+    background: rgba(5,10,20,0.8);
+}
+
+.card-1 { border-color: var(--warning-orange); }
+.card-2 { border-color: var(--electric-purple); }
+.card-3 { border-color: var(--alert-red); }
+
+.card-title {
+    font-family: 'Orbitron';
+    margin-bottom: 10px;
+}
+
+.status-bar {
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+/* ALERT */
+.alert-box {
+    margin-top: 20px;
+    border: 1px solid var(--alert-red);
+    padding: 10px;
+    background: rgba(255,42,42,0.1);
+}
+
+/* NAV BUTTONS */
+.nav-btn {
+    position: absolute;
+    bottom: 40px;
+    padding: 10px 20px;
+    background: #111;
+    color: white;
+    text-transform: uppercase;
+}
+.left-btn { left: 40px; }
+.right-btn { right: 40px; }
+
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<!-- HEADER -->
+<div class="header-bar">
+<div>EduuAspire 21.0 Skills |21st century skills| digital literacy</div>
+
+</div>
+
+<!-- CONTENT -->
+<div class="content-area">
+
+<div class="title-block">
+<h1>Why Algorithms Fail</h1>
+<div class="subtitle">ROOT CAUSE ANALYSIS</div>
+</div>
+
+<div class="diagram-container">
+
+<div class="cause-card card-1">
+<h3 class="card-title">Biased Data</h3>
+<p>Models learn from flawed datasets.</p>
+<div class="status-bar" style="color: var(--warning-orange)">DATA LOW</div>
+</div>
+
+<div class="cause-card card-2">
+<h3 class="card-title">Lack of Diversity</h3>
+<p>Teams miss real-world perspectives.</p>
+<div class="status-bar" style="color: var(--electric-purple)">TEAM NULL</div>
+</div>
+
+<div class="cause-card card-3">
+<h3 class="card-title">Feedback Loops</h3>
+<p>Bias gets amplified over time.</p>
+<div class="status-bar" style="color: var(--alert-red)">HIGH RISK</div>
+</div>
+
+</div>
+
+<div class="alert-box">
+⚠ SYSTEM ALERT: Bias compounds across all layers.
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<div class="footer-bar">
+Licensed and powered by Astrl mind Technologies copyright 2026-2033
+
+</div>
+
+</div>
+
+<!-- NAVIGATION SCRIPT -->
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const tag = document.activeElement.tagName.toLowerCase();
+    if (tag === 'input' || tag === 'textarea') return;
+
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f10.html';
+    }
+
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f8.html';
+    }
+
+});
+</script>
+
+<!-- BUTTONS -->
+<a href="f8.html" class="nav-btn left-btn">←</a>
+<a href="f10.html" class="nav-btn right-btn">Next →</a>
+
+</body>
+</html>

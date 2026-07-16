@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Branding 101 - Final Applied Task</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        /* Base Reset & Setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Slide Container */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFE5D9; /* Peach background */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Layout Elements */
+        .header {
+            padding: 40px 60px 0 60px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .header p {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2C3E50;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-icon {
+            color: #E07A5F;
+            font-size: 18px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 60px 30px 60px;
+            z-index: 10;
+        }
+
+        .footer {
+            padding: 0 60px 30px 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .footer p {
+            font-size: 12px;
+            font-weight: 500;
+            color: #4A5568;
+            letter-spacing: 0.5px;
+        }
+
+        /* Typography & Content Styling */
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #1A252F;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .title-accent {
+            width: 80px;
+            height: 6px;
+            background-color: #E07A5F;
+            border-radius: 3px;
+            margin-bottom: 20px;
+        }
+
+        /* Process Steps Layout */
+        .process-wrapper {
+            display: flex;
+            align-items: stretch;
+            gap: 24px;
+            margin-top: 60px;
+            flex: 1;
+            position: relative;
+        }
+
+        /* Connecting Line */
+        .process-line {
+            position: absolute;
+            top: 35px;
+            left: 10%;
+            width: 80%;
+            height: 4px;
+            background-color: #E07A5F;
+            z-index: 1;
+            opacity: 0.5;
+            border-radius: 2px;
+        }
+
+        .step-card {
+            flex: 1;
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 0 24px 30px 24px;
+            box-shadow: 0 15px 35px rgba(26, 37, 47, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            border: 1px solid rgba(26, 37, 47, 0.05);
+        }
+
+        .step-icon-wrapper {
+            width: 76px;
+            height: 76px;
+            border-radius: 50%;
+            background-color: #1A252F;
+            color: #FFE5D9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-top: -38px;
+            margin-bottom: 24px;
+            border: 6px solid #FFE5D9;
+            box-shadow: 0 8px 20px rgba(26, 37, 47, 0.15);
+            position: relative;
+            z-index: 3;
+        }
+        
+        .step-number {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: #E07A5F;
+            color: #FFFFFF;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            border: 3px solid #FFE5D9;
+        }
+
+        .step-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: #1A252F;
+            margin-bottom: 12px;
+        }
+
+        .step-desc {
+            font-size: 16px;
+            color: #4A5568;
+            line-height: 1.6;
+            font-weight: 500;
+        }
+
+        /* Decorative Elements */
+        .deco-circle-1 {
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            background-color: #FFDAC1;
+            top: -100px;
+            right: 150px;
+            z-index: 1;
+            opacity: 0.6;
+        }
+
+        .deco-dots {
+            position: absolute;
+            bottom: 80px;
+            left: 40px;
+            font-size: 24px;
+            color: #E07A5F;
+            opacity: 0.3;
+            letter-spacing: 8px;
+            line-height: 1.5;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="deco-circle-1"></div>
+<div class="deco-dots">
+<p>• • • •</p>
+<p>• • • •</p>
+</div>
+<!-- Header -->
+<div class="header">
+<p><i class="fas fa-layer-group header-icon"></i> EduuAspire21.0 Skills <span style="color: #E07A5F; margin: 0 8px;">|</span> 21st Century Skills <span style="color: #E07A5F; margin: 0 8px;">|</span> Digital Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<p class="slide-title">Final Applied Task</p>
+<div class="title-accent"></div>
+<!-- 4-Step Process -->
+<div class="process-wrapper">
+<div class="process-line"></div>
+<!-- Step 1 -->
+<div class="step-card">
+<div class="step-icon-wrapper">
+<i class="fas fa-user-edit"></i>
+<p class="step-number">1</p>
+</div>
+<p class="step-title">Update Profile</p>
+<p class="step-desc">Refresh your main profile with a professional, clear photo and a concise bio that states your role and value.</p>
+</div>
+<!-- Step 2 -->
+<div class="step-card">
+<div class="step-icon-wrapper">
+<i class="fas fa-plus-circle"></i>
+<p class="step-number">2</p>
+</div>
+<p class="step-title">Add Skill/Project</p>
+<p class="step-desc">Incorporate at least one new relevant skill or recent project to showcase your ongoing development.</p>
+</div>
+<!-- Step 3 -->
+<div class="step-card">
+<div class="step-icon-wrapper">
+<i class="fas fa-paper-plane"></i>
+<p class="step-number">3</p>
+</div>
+<p class="step-title">Publish Post</p>
+<p class="step-desc">Create and publish one high-quality, professional post that provides value to your target audience.</p>
+</div>
+<!-- Step 4 -->
+<div class="step-card">
+<div class="step-icon-wrapper">
+<i class="fas fa-clipboard-list"></i>
+<p class="step-number">4</p>
+</div>
+<p class="step-title">Draft Content Plan</p>
+<p class="step-desc">Prepare a 1-week content strategy outlining 3-5 planned posts to maintain consistency.</p>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f15.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f13.html';
+    }
+
+});
+</script>
+</body>
+</html>

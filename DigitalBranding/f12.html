@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Digital Branding 101 - Portfolio Building</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Poppins:wght@500;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        /* Base Reset & Setup */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Slide Container */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            background-color: #FFE5D9; /* Peach background */
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        /* Layout Elements */
+        .header {
+            padding: 40px 60px 0 60px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .header p {
+            font-size: 14px;
+            font-weight: 700;
+            color: #2C3E50;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .header-icon {
+            color: #E07A5F;
+            font-size: 18px;
+        }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 60px 10px 60px; /* Reduced bottom padding */
+            z-index: 10;
+        }
+
+        .footer {
+            padding: 0 60px 20px 60px; /* Reduced bottom padding to ensure visibility */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .footer p {
+            font-size: 12px;
+            font-weight: 500;
+            color: #4A5568;
+            letter-spacing: 0.5px;
+        }
+
+        /* Typography & Content Styling */
+        .slide-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 48px;
+            font-weight: 800;
+            color: #1A252F;
+            margin-bottom: 5px; /* Reduced spacing */
+            line-height: 1.2;
+        }
+
+        .title-accent {
+            width: 80px;
+            height: 6px;
+            background-color: #E07A5F;
+            border-radius: 3px;
+            margin-bottom: 20px; /* Reduced spacing */
+        }
+
+        /* Portfolio Showcase Layout */
+        .portfolio-content {
+            display: flex;
+            gap: 50px;
+            flex: 1;
+            align-items: center;
+        }
+
+        .text-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 16px; /* Reduced from 24px */
+        }
+
+        .guideline-card {
+            background-color: #FFFFFF;
+            border-radius: 16px;
+            padding: 16px 20px; /* Reduced from 20px 24px */
+            box-shadow: 0 10px 25px rgba(26, 37, 47, 0.05);
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            border-left: 6px solid #1A252F;
+            transition: transform 0.2s ease;
+        }
+
+        .guideline-card:hover {
+            transform: translateX(10px);
+            border-left-color: #E07A5F;
+        }
+
+        .guideline-icon {
+            width: 44px; /* Reduced from 48px */
+            height: 44px; /* Reduced from 48px */
+            border-radius: 12px;
+            background-color: rgba(26, 37, 47, 0.05);
+            color: #1A252F;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px; /* Reduced from 20px */
+            flex-shrink: 0;
+        }
+
+        .guideline-card:hover .guideline-icon {
+            background-color: rgba(224, 122, 95, 0.1);
+            color: #E07A5F;
+        }
+
+        .guideline-text {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .guideline-title {
+            font-family: 'Poppins', sans-serif;
+            font-size: 18px; /* Reduced from 20px */
+            font-weight: 700;
+            color: #1A252F;
+        }
+
+        .guideline-desc {
+            font-size: 14px; /* Reduced from 15px */
+            color: #4A5568;
+            line-height: 1.4;
+        }
+
+        /* Mockup Section */
+        .mockup-section {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .browser-mockup {
+            width: 100%;
+            height: 350px; /* Reduced from 380px */
+            background-color: #FFFFFF;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(26, 37, 47, 0.15);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 1px solid rgba(26, 37, 47, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .browser-header {
+            height: 30px;
+            background-color: #f1f5f9;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            gap: 6px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .browser-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+
+        .dot-red { background-color: #ef4444; }
+        .dot-yellow { background-color: #eab308; }
+        .dot-green { background-color: #22c55e; }
+
+        .browser-url {
+            margin-left: 12px;
+            background-color: #ffffff;
+            height: 18px;
+            border-radius: 4px;
+            flex: 1;
+            max-width: 200px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .portfolio-layout {
+            flex: 1;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px; /* Reduced from 20px */
+        }
+
+        .portfolio-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .ph-logo {
+            width: 36px; /* Reduced from 40px */
+            height: 36px; /* Reduced from 40px */
+            background-color: #1A252F;
+            border-radius: 50%;
+        }
+
+        .ph-nav {
+            display: flex;
+            gap: 12px;
+        }
+
+        .ph-nav-item {
+            width: 40px;
+            height: 8px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+        }
+
+        .portfolio-hero {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .phero-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px; /* Reduced from 10px */
+        }
+
+        .phero-title {
+            width: 80%;
+            height: 20px;
+            background-color: #1A252F;
+            border-radius: 4px;
+        }
+
+        .phero-subtitle {
+            width: 60%;
+            height: 12px;
+            background-color: #94a3b8;
+            border-radius: 4px;
+        }
+
+        .phero-btn {
+            width: 100px;
+            height: 30px;
+            background-color: #E07A5F;
+            border-radius: 6px;
+            margin-top: 10px;
+        }
+
+        .phero-image {
+            width: 100px; /* Reduced from 120px */
+            height: 100px; /* Reduced from 120px */
+            background-color: #FFDAC1;
+            border-radius: 12px;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 12px;
+        }
+
+        .pg-item {
+            height: 70px; /* Reduced from 80px */
+            background-color: #f1f5f9;
+            border-radius: 8px;
+            border: 2px dashed #cbd5e1;
+        }
+
+        /* Decorative Elements */
+        .deco-blob {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background-color: #FFDAC1;
+            border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1;
+            opacity: 0.8;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background-color: #1A252F;
+            color: #FFE5D9;
+            padding: 8px 16px; /* Reduced from 10px 20px */
+            border-radius: 30px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 13px; /* Reduced from 14px */
+            box-shadow: 0 10px 20px rgba(26, 37, 47, 0.2);
+            z-index: 3;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .badge-1 {
+            top: -15px;
+            right: -20px;
+            background-color: #E07A5F;
+        }
+
+        .badge-2 {
+            bottom: 20px;
+            left: -30px;
+        }
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Decorative Elements -->
+<div class="deco-blob"></div>
+<!-- Header -->
+<div class="header">
+<p><i class="fas fa-layer-group header-icon"></i> EduuAspire21.0 Skills <span style="color: #E07A5F; margin: 0 8px;">|</span> 21st Century Skills <span style="color: #E07A5F; margin: 0 8px;">|</span> Digital Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<p class="slide-title">Portfolio Building</p>
+<div class="title-accent"></div>
+<div class="portfolio-content">
+<!-- Text Section -->
+<div class="text-section">
+<div class="guideline-card">
+<div class="guideline-icon">
+<i class="fas fa-laptop-code"></i>
+</div>
+<div class="guideline-text">
+<p class="guideline-title">Launch a Simple Site</p>
+<p class="guideline-desc">Create a clean, one-page website. You don't need to code it from scratch—use no-code builders to get started fast.</p>
+</div>
+</div>
+<div class="guideline-card">
+<div class="guideline-icon">
+<i class="fas fa-briefcase"></i>
+</div>
+<div class="guideline-text">
+<p class="guideline-title">Showcase Core Work</p>
+<p class="guideline-desc">Highlight specific skills, detailed case studies, and clear outcomes. Focus on quality over quantity.</p>
+</div>
+</div>
+<div class="guideline-card">
+<div class="guideline-icon">
+<i class="fas fa-bars"></i>
+</div>
+<div class="guideline-text">
+<p class="guideline-title">Keep it Structured</p>
+<p class="guideline-desc">Maintain a clean layout with distinct sections: About Me, Projects, Skills, and a clear Contact CTA.</p>
+</div>
+</div>
+<div class="guideline-card">
+<div class="guideline-icon">
+<i class="fas fa-eye"></i>
+</div>
+<div class="guideline-text">
+<p class="guideline-title">Proof &gt; Words</p>
+<p class="guideline-desc">Show, don't just tell. Include live links, screenshots, demos, and metrics to prove your capabilities.</p>
+</div>
+</div>
+</div>
+<!-- Mockup Section -->
+<div class="mockup-section">
+<div class="floating-badge badge-1">
+<i class="fas fa-check-circle"></i> <p>Clean Layout</p>
+</div>
+<div class="floating-badge badge-2">
+<i class="fas fa-link"></i> <p>Live Demos</p>
+</div>
+<div class="browser-mockup">
+<div class="browser-header">
+<div class="browser-dot dot-red"></div>
+<div class="browser-dot dot-yellow"></div>
+<div class="browser-dot dot-green"></div>
+<div class="browser-url"></div>
+</div>
+<div class="portfolio-layout">
+<div class="portfolio-header">
+<div class="ph-logo"></div>
+<div class="ph-nav">
+<div class="ph-nav-item"></div>
+<div class="ph-nav-item"></div>
+<div class="ph-nav-item"></div>
+</div>
+</div>
+<div class="portfolio-hero">
+<div class="phero-text">
+<div class="phero-title"></div>
+<div class="phero-subtitle"></div>
+<div class="phero-subtitle" style="width: 40%;"></div>
+<div class="phero-btn"></div>
+</div>
+<div class="phero-image"></div>
+</div>
+<div class="portfolio-grid">
+<div class="pg-item"></div>
+<div class="pg-item"></div>
+<div class="pg-item"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</div>
+
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f13.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f11.html';
+    }
+
+});
+</script>
+</body>
+</html>

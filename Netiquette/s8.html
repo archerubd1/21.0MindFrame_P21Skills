@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Practical Demonstration</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;   /* 🔥 THIS MAKES IT CENTER VERTICALLY */
+    background-color: #f1f5f9;
+}
+.navbar {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+
+    background: rgba(255, 218, 185, 0.25);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+
+    z-index: 9999;   /* 🔥 FIX CLICK ISSUE */
+}
+
+.nav-link {
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+</style>
+</head>
+<body style="margin: 0; padding: 0; overflow: hidden; background-color: #ffffff;">
+<div class="slide-container" style="position: relative; width: 1280px; height: 720px; overflow: hidden; background-color: #ffffff;">
+<!-- Header Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; top: 0px; left: 0px; width: 1280px; height: 50px; background-color: #f8f9fa; border-bottom: 2px solid #e9ecef; z-index: 1;"></div>
+<!-- Header Text -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 16px; left: 40px; width: 1200px; height: 20px; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 13px; color: #6c757d; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px;">EduuAspire21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Slide Title -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 100px; left: 80px; width: 1000px; height: 70px; z-index: 10;">
+<p style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 52px; font-weight: 800; color: #002244; letter-spacing: -1px;">Practical Demonstration</p>
+</div>
+<!-- Title Accent Line -->
+<div data-object="true" data-object-type="shape" style="position: absolute; top: 180px; left: 80px; width: 100px; height: 6px; background-color: #00a8e8; z-index: 1;"></div>
+<!-- Left Column: Do Card Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; top: 220px; left: 80px; width: 530px; height: 410px; background-color: #f8f9fa; border-top: 6px solid #28a745; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); z-index: 1;"></div>
+<!-- Left Column: Do Header Icon -->
+<div data-object="true" data-object-type="icon" style="position: absolute; top: 250px; left: 110px; width: 40px; height: 40px; z-index: 10; display: flex; align-items: center; justify-content: center;">
+<i class="fa-solid fa-circle-check" style="font-size: 32px; color: #28a745;"></i>
+</div>
+<!-- Left Column: Do Header Text -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 255px; left: 160px; width: 400px; height: 40px; z-index: 10;">
+<p style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; color: #002244;">Best Practices (Do)</p>
+</div>
+<!-- Left Column: Do List Content -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 310px; left: 110px; width: 470px; height: 300px; z-index: 10;">
+<ul style="margin: 0; padding-left: 24px; font-family: 'Inter', sans-serif; font-size: 17px; color: #495057; line-height: 1.5;">
+<li style="margin-bottom: 14px;"><strong>Email Subject:</strong> "Action Required: Q3 Report by Fri"</li>
+<li style="margin-bottom: 14px;"><strong>Email Greeting:</strong> "Dear Dr. Singh,"; structure with a concise ask and clear bullet points.</li>
+<li style="margin-bottom: 14px;"><strong>Email Sign‑off:</strong> End with "Best regards," followed by your complete signature block.</li>
+<li style="margin-bottom: 14px;"><strong>Virtual Meetings:</strong> Test tech beforehand; keep camera on; stay muted when not speaking; utilize the hand‑raise feature.</li>
+</ul>
+</div>
+<!-- Right Column: Don't Card Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; top: 220px; left: 670px; width: 530px; height: 410px; background-color: #f8f9fa; border-top: 6px solid #dc3545; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); z-index: 1;"></div>
+<!-- Right Column: Don't Header Icon -->
+<div data-object="true" data-object-type="icon" style="position: absolute; top: 250px; left: 700px; width: 40px; height: 40px; z-index: 10; display: flex; align-items: center; justify-content: center;">
+<i class="fa-solid fa-circle-xmark" style="font-size: 32px; color: #dc3545;"></i>
+</div>
+<!-- Right Column: Don't Header Text -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 255px; left: 750px; width: 400px; height: 40px; z-index: 10;">
+<p style="margin: 0; font-family: 'Montserrat', sans-serif; font-size: 24px; font-weight: 700; color: #002244;">Common Mistakes (Don't)</p>
+</div>
+<!-- Right Column: Don't List Content -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 310px; left: 700px; width: 470px; height: 300px; z-index: 10;">
+<ul style="margin: 0; padding-left: 24px; font-family: 'Inter', sans-serif; font-size: 17px; color: #495057; line-height: 1.5;">
+<li style="margin-bottom: 14px;"><strong>Email Subject:</strong> Using "Hey" or leaving the subject line completely blank.</li>
+<li style="margin-bottom: 14px;"><strong>Email Greeting:</strong> Relying on generic greetings when the recipient's name is known.</li>
+<li style="margin-bottom: 14px;"><strong>Email Format:</strong> Sending unreadable walls of text; using slang or excessive emojis; typing in ALL CAPS.</li>
+<li style="margin-bottom: 14px;"><strong>Virtual Meetings:</strong> Talking over others; visibly multitasking, eating, or showing obvious distraction.</li>
+</ul>
+</div>
+<!-- Footer Background -->
+<div data-object="true" data-object-type="shape" style="position: absolute; top: 670px; left: 0px; width: 1280px; height: 50px; background-color: #f8f9fa; border-top: 2px solid #e9ecef; z-index: 1;"></div>
+<div class="navbar">
+    <div class="nav-link" onclick="goTo('s7.html')">← Global Communication</div>
+    <div class="nav-link" onclick="goTo('s9.html')">Outcomes →</div>
+</div>
+<!-- Footer Text -->
+<div data-object="true" data-object-type="textbox" style="position: absolute; top: 686px; left: 40px; width: 1200px; height: 20px; z-index: 10;">
+<p style="margin: 0; font-family: 'Inter', sans-serif; font-size: 13px; color: #6c757d; font-weight: 500;">Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<script>
+
+// ✅ MAIN FIX → this was missing
+function goTo(page) {
+    window.location.href = page;
+}
+
+// Optional (you can keep or remove)
+function next() {
+    goTo("s9.html");
+}
+
+function prev() {
+    goTo("s7.html");
+}
+
+// ✅ Keyboard navigation (fixed)
+document.addEventListener("keydown", function(e) {
+
+    const active = document.activeElement.tagName.toLowerCase();
+
+    if (active === "input" || active === "textarea") return;
+
+    if (e.key === "ArrowRight") {
+        goTo("s9.html");
+    }
+
+    if (e.key === "ArrowLeft") {
+        goTo("s7.html");
+    }
+
+});
+
+</script>
+</body>
+</html>

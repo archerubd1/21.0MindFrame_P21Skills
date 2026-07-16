@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Ask for Help from Trusted Adults</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+    margin: 0;
+    padding: 0;
+
+    /* REMOVE fixed size */
+    /* width: 1280px; */
+    /* height: 720px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;   /* full screen height */
+    background-color: #0f172a;
+
+    font-family: 'Nunito', sans-serif;
+    color: #e2e8f0;
+}
+        .slide-container {
+    display: flex;
+    flex-direction: column;
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background-color: #0f172a;
+}
+        /* Background Elements */
+        .bg-circle {
+            position: absolute;
+            border-radius: 50%;
+            background-color: rgba(20, 184, 166, 0.05);
+            z-index: 0;
+        }
+
+        .c1 { width: 600px; height: 600px; top: -100px; left: -100px; }
+        .c2 { width: 500px; height: 500px; bottom: -100px; right: -100px; }
+
+        /* Header & Footer */
+        .header-bar {
+            height: 50px;
+            background-color: #1e293b;
+            border-bottom: 2px solid #14b8a6;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            color: #5eead4;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            z-index: 20;
+            flex-shrink: 0;
+        }
+
+        .footer-bar {
+            height: 30px;
+            background-color: #0f172a;
+            border-top: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 12px;
+            z-index: 20;
+            flex-shrink: 0;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Title */
+        .title-section {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            color: #5eead4;
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            text-shadow: 2px 2px 0 #134e4a;
+        }
+
+        h2 {
+            font-family: 'Fredoka', sans-serif;
+            color: #cbd5e1;
+            font-size: 22px;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        /* 3-Column Layout */
+        .columns-container {
+            display: flex;
+            flex: 1;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .col-side {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .col-center {
+            flex: 0 0 340px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        /* Cards */
+        .info-card {
+            background-color: #1e293b;
+            border-radius: 16px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            border-left: 5px solid;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.2s;
+        }
+
+        .info-card:hover {
+            transform: translateX(5px);
+            background-color: #334155;
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: #0f172a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .card-text h3 {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 18px;
+            color: #f1f5f9;
+            margin: 0 0 4px 0;
+        }
+
+        .card-text p {
+            font-size: 14px;
+            color: #94a3b8;
+            margin: 0;
+        }
+
+        /* Left Side Styles (Who) */
+        .col-left .info-card { border-left-color: #2dd4bf; }
+        .col-left .card-icon { color: #2dd4bf; border: 2px solid #2dd4bf; }
+        
+        .section-header {
+            font-family: 'Fredoka', sans-serif;
+            color: #fff;
+            font-size: 24px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Right Side Styles (When) */
+        .col-right .info-card { border-left-color: #f472b6; }
+        .col-right .card-icon { color: #f472b6; border: 2px solid #f472b6; }
+
+        /* Center Visual */
+        .trust-visual {
+            width: 320px;
+            height: 320px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .shield-bg {
+            font-size: 300px;
+            color: #1e293b;
+            position: absolute;
+            z-index: 1;
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
+        .shield-inner {
+            font-size: 260px;
+            color: #0f172a;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .heart-icon {
+            font-size: 100px;
+            color: #f43f5e;
+            position: absolute;
+            z-index: 3;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .hands-icon {
+            font-size: 60px;
+            color: #2dd4bf;
+            position: absolute;
+            bottom: 80px;
+            z-index: 4;
+            background-color: #0f172a;
+            padding: 10px;
+            border-radius: 50%;
+            border: 4px solid #1e293b;
+        }
+
+        /* Speech Bubbles */
+        .bubble {
+            position: absolute;
+            background-color: #fff;
+            color: #0f172a;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-family: 'Fredoka', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            z-index: 10;
+        }
+
+        .bubble-1 { top: 40px; right: 0; transform: rotate(10deg); }
+        .bubble-2 { bottom: 40px; left: 0; transform: rotate(-10deg); }
+
+        .bubble::after {
+            content: '';
+            position: absolute;
+            border-style: solid;
+            border-width: 10px 10px 0 0;
+            border-color: #fff transparent transparent transparent;
+        }
+        
+        .bubble-1::after { bottom: -5px; left: 20px; }
+        .bubble-2::after { top: -5px; right: 20px; transform: rotate(180deg); }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: rgba(245, 183, 161, 0.08);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+
+        .nav-link i {
+            font-size: 12px;
+        }
+
+        .nav-text {
+            font-family: 'Fredoka', sans-serif;
+        }
+
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Background -->
+<div class="bg-circle c1"></div>
+<div class="bg-circle c2"></div>
+<!-- Header -->
+<div class="header-bar">
+<i class="fas fa-hands-helping mr-2"></i>
+<p>EduuAspire 21.0 Skills | 21st Century Skills | Digital Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<!-- Title -->
+<div class="title-section">
+<h1>Ask for Help from Trusted Adults</h1>
+<h2>Being brave means knowing when to ask for support!</h2>
+</div>
+<div class="columns-container">
+<!-- Left Column: WHO to ask -->
+<div class="col-side col-left">
+<div class="section-header">
+<i class="fas fa-users text-teal-400"></i>
+<span>Your Safety Squad</span>
+</div>
+<!-- Card 1 -->
+<div class="info-card">
+<div class="card-icon">
+<i class="fas fa-user-shield"></i>
+</div>
+<div class="card-text">
+<h3>Parents &amp; Guardians</h3>
+<p>They want to keep you safe and can fix tech settings.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="info-card">
+<div class="card-icon">
+<i class="fas fa-chalkboard-teacher"></i>
+</div>
+<div class="card-text">
+<h3>Teachers</h3>
+<p>Great for help with school devices or cyberbullying.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="info-card">
+<div class="card-icon">
+<i class="fas fa-user-check"></i>
+</div>
+<div class="card-text">
+<h3>Counselors</h3>
+<p>Someone safe to talk to if you feel scared or upset.</p>
+</div>
+</div>
+</div>
+<!-- Center Column: Visual -->
+<div class="col-center">
+<div class="trust-visual">
+<i class="fas fa-shield-alt shield-bg"></i>
+<i class="fas fa-shield-alt shield-inner"></i>
+<i class="fas fa-heart heart-icon"></i>
+<i class="fas fa-hand-holding-heart hands-icon"></i>
+<div class="bubble bubble-1">
+<p>"We can help!"</p>
+</div>
+<div class="bubble bubble-2">
+<p>"I'm not alone!"</p>
+</div>
+</div>
+</div>
+<!-- Right Column: WHEN to ask -->
+<div class="col-side col-right">
+<div class="section-header">
+<i class="fas fa-bell text-pink-400"></i>
+<span>Tell Them When...</span>
+</div>
+<!-- Card 1 -->
+<div class="info-card">
+<div class="card-icon">
+<i class="fas fa-question-circle"></i>
+</div>
+<div class="card-text">
+<h3>You Feel Unsure</h3>
+<p>If something online makes you feel weird or confused.</p>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="info-card">
+<div class="card-icon">
+<i class="fas fa-user-secret"></i>
+</div>
+<div class="card-text">
+<h3>Info Requests</h3>
+<p>Someone asks for your name, address, or photos.</p>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="info-card">
+<div class="card-icon">
+<i class="fas fa-comments-dollar"></i>
+</div>
+<div class="card-text">
+<h3>Bullying or Scams</h3>
+<p>You see mean messages or "free prize" tricks.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<div class="nav-left">
+<a class="nav-link" href="f11.html">
+<i class="fas fa-arrow-left"></i>
+<span class="nav-text">← Spot Phishing</span>
+</a>
+</div>
+<div class="nav-right">
+<a class="nav-link" href="f13.html">
+<span class="nav-text">Handle Threats →</span>
+<i class="fas fa-arrow-right"></i>
+</a>
+</div>
+</div>
+</div>
+<script>
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
+            return;
+        }
+        
+        switch(e.key) {
+            case 'ArrowLeft':
+                window.location.href = 'f11.html';
+                break;
+            case 'ArrowRight':
+                window.location.href = 'f13.html';
+                break;
+        }
+    });
+</script>
+
+
+</body></html>

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Research Architect – Workshop (Slide 5)</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+    :root{
+      --lavender-1:#F4F0FF;
+      --lavender-2:#EDE7FF;
+      --lavender-3:#E3DCFF;
+
+      --beige:#E8DCC4;
+      --beige-2:#F3EADB;
+
+      --matcha:#E8F2E6;
+      --cherry:#C93A63;
+
+      --ink:#1F2430;
+      --muted:#556070;
+    }
+
+    html, body { height:100%; }
+    body{
+      margin:0;
+      background:#0b0b10;
+      font-family:"Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:24px;
+    }
+
+    .slide{
+      width:1280px;
+      height:720px;
+      position:relative;
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      background: var(--lavender-1);
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* Background layers (no gradients) */
+    .bg-layer{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+    }
+    .bg-matcha{
+      position:absolute;
+      left:-170px; top:-190px;
+      width:740px; height:740px;
+      background: var(--matcha);
+      border-radius:9999px;
+      opacity:.95;
+      filter: blur(2px);
+    }
+    .bg-lavender{
+      position:absolute;
+      right:-260px; top:10px;
+      width:900px; height:900px;
+      background: var(--lavender-2);
+      border-radius:9999px;
+      opacity:.92;
+    }
+    .bg-cherry{
+      position:absolute;
+      right:180px; bottom:-280px;
+      width:600px; height:600px;
+      background: rgba(201,58,99,.14);
+      border-radius:9999px;
+      opacity:.95;
+    }
+    .bg-grid{
+      position:absolute;
+      inset:0;
+      background-image: radial-gradient(rgba(31,36,48,0.05) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity:.65;
+    }
+
+    /* Fixed bars */
+    .header{
+      position:absolute;
+      top:0; left:0; right:0;
+      height:64px;
+      z-index:5;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      padding:0 28px;
+      box-shadow: 0 6px 18px rgba(31,36,48,.08);
+    }
+    .header p{
+      margin:0;
+      font-size:14px;
+      color: rgba(31,36,48,.78);
+      font-weight:700;
+      letter-spacing:.01em;
+    }
+
+    .footer{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:44px;
+      z-index:5;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 18px;
+    }
+    .footer p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.70);
+      font-weight:600;
+    }
+
+    .nav{
+      position:absolute;
+      left:0; right:0;
+      bottom:44px; /* above footer */
+      height:64px;
+      z-index:6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 26px;
+      gap:18px;
+      background: rgba(244,240,255,.72);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(31,36,48,.06);
+    }
+
+    .nav-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(31,36,48,.10);
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 10px 20px rgba(31,36,48,.10);
+      color: rgba(31,36,48,.88);
+      font-weight:700;
+      text-decoration:none;
+      transition: transform .22s ease, opacity .22s ease, box-shadow .22s ease;
+      min-width: 200px;
+      justify-content:center;
+    }
+    .nav-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(31,36,48,.14);
+      opacity: .98;
+    }
+    .nav-btn .label{
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:14px;
+      letter-spacing:.01em;
+    }
+    .nav-btn .ico{
+      color: var(--cherry);
+      font-size:14px;
+    }
+
+    .content{
+      position:relative;
+      z-index:2;
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 88px 84px 136px; /* header + nav+footer clearance */
+    }
+
+    /* Slide-specific */
+    .frame{
+      width:100%;
+      max-width: 1080px;
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:18px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:9999px;
+      border:1px solid rgba(31,36,48,.10);
+      background: rgba(232,220,196,.55);
+      color: var(--ink);
+      font-size:13px;
+      line-height:1;
+      font-weight:700;
+      width: fit-content;
+    }
+    .k-dot{
+      width:10px; height:10px;
+      border-radius:9999px;
+      background: var(--cherry);
+      box-shadow: 0 8px 18px rgba(201,58,99,.25);
+    }
+
+    .title{
+      margin:12px 0 0;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:700;
+      font-size:44px;
+      line-height:1.08;
+      letter-spacing:-0.02em;
+      color: var(--ink);
+    }
+    .subtitle{
+      margin:0;
+      color: var(--muted);
+      font-size:15px;
+      line-height:1.55;
+      max-width: 70ch;
+    }
+    .accent{
+      color: var(--cherry);
+      font-weight:700;
+    }
+
+    .chip-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:9999px;
+      border: 1px solid rgba(31,36,48,.10);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 10px 22px rgba(31,36,48,.08);
+    }
+    .chip i{ color: var(--cherry); }
+    .chip p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.78);
+      font-weight:700;
+      letter-spacing:.01em;
+      white-space:nowrap;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+
+    .panel{
+      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(31,36,48,.08);
+      border-radius: 22px;
+      padding: 22px 22px;
+      box-shadow: 0 18px 40px rgba(31,36,48,.10);
+      min-height: 420px;
+      display:flex;
+      flex-direction:column;
+    }
+
+    .panel-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding-bottom:14px;
+      border-bottom: 1px solid rgba(31,36,48,.08);
+    }
+    .panel-title{
+      margin:0;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:700;
+      font-size:16px;
+      letter-spacing:.02em;
+      color: rgba(31,36,48,.88);
+    }
+    .panel-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius: 9999px;
+      background: rgba(237,231,255,.78);
+      border: 1px solid rgba(31,36,48,.08);
+    }
+    .panel-badge i{ color: var(--cherry); font-size:12px; }
+    .panel-badge p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.75);
+      font-weight:700;
+    }
+
+    .rows{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      flex:1;
+    }
+
+    .row{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(31,36,48,.08);
+      background: rgba(237,231,255,.62);
+    }
+
+    .row-ico{
+      width:42px; height:42px;
+      border-radius: 16px;
+      background: rgba(232,220,196,.72);
+      border: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--cherry);
+      flex: 0 0 auto;
+      margin-top:2px;
+    }
+
+    .row-body{
+      flex:1;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      min-width:0;
+    }
+    .row-body p{
+      margin:0;
+      line-height:1.25;
+    }
+    .row-title{
+      font-size:16px;
+      font-weight:700;
+      color: rgba(31,36,48,.90);
+    }
+    .row-desc{
+      font-size:13px;
+      font-weight:600;
+      color: rgba(31,36,48,.74);
+    }
+
+    .code{
+      width: 230px;
+      flex: 0 0 230px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      align-items:flex-end;
+    }
+    .code-pill{
+      width:100%;
+      background: rgba(255,255,255,.85);
+      border: 1px solid rgba(31,36,48,.10);
+      border-radius: 14px;
+      padding: 10px 12px;
+      box-shadow: 0 10px 22px rgba(31,36,48,.08);
+    }
+    .code-pill p{
+      margin:0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:12.3px;
+      line-height:1.25;
+      color: rgba(31,36,48,.90);
+      font-weight:700;
+      word-break: break-word;
+    }
+
+    .hint{
+      margin-top:auto;
+      padding-top:14px;
+      border-top: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color: rgba(31,36,48,.74);
+    }
+    .hint i{
+      color: var(--cherry);
+      margin-top:3px;
+    }
+    .hint p{
+      margin:0;
+      font-size:12.5px;
+      line-height:1.45;
+      font-weight:600;
+    }
+
+    @media (max-width: 1360px){
+      body{ padding:16px; }
+      .slide{ transform: scale(.92); transform-origin: top center; }
+    }
+    @media (max-width: 1180px){
+      .slide{ transform: scale(.82); }
+    }
+    @media (max-width: 980px){
+      .slide{ transform: scale(.70); }
+    }
+  </style>
+</head>
+<body style="">
+<section aria-label="Slide 5: Two-Column – Compare (two_column_compare)" class="slide">
+<div aria-hidden="true" class="bg-layer">
+<div class="bg-matcha"></div>
+<div class="bg-lavender"></div>
+<div class="bg-cherry"></div>
+<div class="bg-grid"></div>
+</div>
+<header class="header" role="banner">
+<p>EduuAspire21.0 Skills | 21st Century Skills | Information Literacy </p>
+</header>
+<main class="content" role="main">
+<div class="frame">
+<div class="topbar">
+<div>
+<div class="kicker" style="position: relative; transform: translate(-35.7689px, -14.3075px);">
+<span aria-hidden="true" class="k-dot"></span>
+<p>Hands-on practice</p>
+</div>
+<h1 class="title" style="position: relative; transform: translate(-5.72302px, -11.446px);">Boolean <span class="accent">Practice</span> Examples</h1>
+
+</div>
+<div aria-label="Practice quick checks" class="chip-row" style="position: relative; transform: translate(-7.15377px, -44.3534px);">
+<div class="chip" style="position: relative; transform: translate(261.828px, -4.29226px);">
+<i aria-hidden="true" class="fa-solid fa-diagram-project"></i>
+<p>OR = synonyms</p>
+</div>
+<div class="chip" style="position: relative; transform: translate(-35.7689px, -1.43075px);">
+<i aria-hidden="true" class="fa-solid fa-link"></i>
+<p>AND = focus</p>
+</div>
+<div class="chip" style="position: relative; transform: translate(-160.245px, 45.7842px);">
+<i aria-hidden="true" class="fa-solid fa-quote-left"></i>
+<p>“ ” = exact</p>
+</div>
+<div class="chip" style="position: relative; transform: translate(1.43075px, -5.72302px);">
+<i aria-hidden="true" class="fa-solid fa-circle-minus"></i>
+<p>NOT = remove</p>
+</div>
+</div>
+</div>
+<div class="grid">
+<section aria-label="Queries" class="panel" style="position: relative; transform: translate(-5.72302px, -20.0306px);">
+<div class="panel-head">
+
+
+</div>
+<div class="rows">
+<div class="row" style="position: relative; transform: translate(-7.15377px, -32.9074px);">
+<div aria-hidden="true" class="row-ico"><i class="fa-solid fa-solar-panel"></i></div>
+<div class="row-body">
+<p class="row-title">Energy + policy</p>
+<p class="row-desc">Use <span class="accent">OR</span> for alternatives, then connect with <span class="accent">AND</span>.</p>
+</div>
+<div aria-label="Query 1" class="code">
+<div class="code-pill"><p>("renewable energy" OR solar) AND policy</p></div>
+</div>
+</div>
+<div class="row" style="position: relative; transform: translate(-4.29226px, -28.6151px);">
+<div aria-hidden="true" class="row-ico"><i class="fa-solid fa-bed"></i></div>
+<div class="row-body">
+<p class="row-title">Health topic (exact phrase)</p>
+<p class="row-desc">Combine multiple <span class="accent">AND</span> terms + one exact phrase.</p>
+</div>
+<div aria-label="Query 2" class="code">
+<div class="code-pill"><p>(adolescent OR teen) AND sleep AND "screen time"</p></div>
+</div>
+</div>
+<div class="row" style="position: relative; transform: translate(-2.86151px, -22.8921px);">
+<div aria-hidden="true" class="row-ico"><i class="fa-solid fa-leaf"></i></div>
+<div class="row-body">
+<p class="row-title">Exclude an off-topic meaning</p>
+<p class="row-desc">Use <span class="accent">NOT</span> to filter irrelevant results.</p>
+</div>
+<div aria-label="Query 3" class="code">
+<div class="code-pill"><p>biodiversity NOT "video game"</p></div>
+</div>
+</div>
+<div class="row">
+<div aria-hidden="true" class="row-ico"><i class="fa-solid fa-brain"></i></div>
+<div class="row-body">
+<p class="row-title">Technical + ethics angle</p>
+<p class="row-desc">Group options with parentheses to keep logic clear.</p>
+</div>
+<div aria-label="Query 4" class="code">
+<div class="code-pill"><p>"machine learning" AND (ethics OR bias)</p></div>
+</div>
+</div>
+</div>
+<div aria-label="Query tip" class="hint">
+<i aria-hidden="true" class="fa-solid fa-lightbulb"></i>
+<p><span class="accent">Tip:</span> If results are too broad, add one more <span class="accent">AND</span> term. If too narrow, add synonyms with <span class="accent">OR</span>.</p>
+</div>
+</section>
+<aside aria-label="Effects" class="panel" style="position: relative; transform: translate(-2.8615px, -55.7994px);">
+
+<div class="rows">
+<div class="row" style="background: rgba(232, 220, 196, 0.42); position: relative; transform: translate(-4.29226px, -27.1843px);">
+<div aria-hidden="true" class="row-ico"><i class="fa-solid fa-bullseye"></i></div>
+<div class="row-body">
+<p class="row-title">Combines synonyms + policy focus</p>
+<p class="row-desc">Finds results about <span class="accent">energy</span> (phrase OR solar) that also mention <span class="accent">policy</span>.</p>
+</div>
+<div aria-label="Effect tag 1" class="code">
+<div class="code-pill"><p>Broader → then focused</p></div>
+</div>
+</div>
+<div class="row" style="position: relative; transform: translate(-2.86151px, -25.7536px);">
+<div aria-hidden="true" class="row-ico"><i class="fa-solid fa-filter"></i></div>
+<div class="row-body">
+<p class="row-title">Narrows to one health relationship</p>
+<p class="row-desc">Limits to studies about <span class="accent">sleep</span> + <span class="accent">screen time</span> for teens.</p>
+</div>
+<div aria-label="Effect tag 2" class="code">
+<div class="code-pill"><p>Very specific</p></div>
+</div>
+</div>
+<div class="row" style="position: relative; transform: translate(-2.86151px, -24.3228px);">
+<div aria-hidden="true" class="row-ico"><i class="fa-solid fa-broom"></i></div>
+<div class="row-body">
+<p class="row-title">Excludes gaming-related noise</p>
+<p class="row-desc">Keeps <span class="accent">biodiversity</span> content while removing the “video game” topic.</p>
+</div>
+<div aria-label="Effect tag 3" class="code">
+<div class="code-pill"><p>Cleaner set</p></div>
+</div>
+</div>
+<div class="row">
+<div aria-hidden="true" class="row-ico"><i class="fa-solid fa-scale-balanced"></i></div>
+<div class="row-body">
+<p class="row-title">Targets ethics or bias discussions</p>
+<p class="row-desc">Returns machine learning papers that include <span class="accent">either</span> ethics <span class="accent">or</span> bias.</p>
+</div>
+<div aria-label="Effect tag 4" class="code">
+<div class="code-pill"><p>Ethics lens</p></div>
+</div>
+</div>
+</div>
+<div aria-label="Next step hint" class="hint">
+<i aria-hidden="true" class="fa-solid fa-arrow-right"></i>
+<p>Next: learn how to judge <span class="accent">authority</span> so you keep strong sources and remove weak ones.</p>
+</div>
+</aside>
+</div>
+</div>
+</main>
+<nav aria-label="Slide navigation" class="nav">
+<a class="nav-btn" href="f4.html" style="position: relative; transform: translate(-367.496px, 7.70201px);">
+<i aria-hidden="true" class="fa-solid fa-arrow-left ico"></i>
+<span class="label">Operators</span>
+</a>
+<a class="nav-btn" href="f6.html" style="position: relative; transform: translate(361.1px, -1.35244px);">
+<span class="label">Authority</span>
+<i aria-hidden="true" class="fa-solid fa-arrow-right ico"></i>
+</a>
+</nav>
+<footer class="footer" role="contentinfo">
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+<script>
+document.addEventListener("keydown", function (e) {
+  const activeElement = document.activeElement;
+
+  // 🚫 Disable when typing in input or textarea
+  if (
+    activeElement.tagName === "INPUT" ||
+    activeElement.tagName === "TEXTAREA"
+  ) {
+    return;
+  }
+
+  // 👉 Get navigation buttons
+  const prevBtn = document.querySelector(".nav a:first-child");
+  const nextBtn = document.querySelector(".nav a:last-child");
+
+  // ⬅️ Left Arrow → Previous slide
+  if (e.key === "ArrowLeft") {
+    if (prevBtn && !prevBtn.classList.contains("is-disabled")) {
+      window.location.href = prevBtn.getAttribute("href");
+    }
+  }
+
+  // ➡️ Right Arrow → Next slide
+  if (e.key === "ArrowRight") {
+    if (nextBtn && !nextBtn.classList.contains("is-disabled")) {
+      window.location.href = nextBtn.getAttribute("href");
+    }
+  }
+});
+</script>
+</section>
+
+</body></html>

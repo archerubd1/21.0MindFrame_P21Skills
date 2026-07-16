@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>The Research Architect – Workshop (Slide 10)</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&amp;family=Poppins:wght@600;700&amp;display=swap" rel="stylesheet">
+<style>
+    :root{
+      --lavender-1:#F4F0FF;
+      --lavender-2:#EDE7FF;
+      --lavender-3:#E3DCFF;
+
+      --beige:#E8DCC4;
+      --beige-2:#F3EADB;
+
+      --matcha:#E8F2E6;
+      --cherry:#C93A63;
+
+      --ink:#1F2430;
+      --muted:#556070;
+    }
+
+    html, body { height:100%; }
+    body{
+      margin:0;
+      background:#0b0b10;
+      font-family:"Open Sans", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:24px;
+    }
+
+    .slide{
+      width:1280px;
+      height:720px;
+      position:relative;
+      overflow:hidden;
+      border-radius:20px;
+      box-shadow: 0 18px 55px rgba(0,0,0,.35);
+      background: var(--lavender-1);
+      display:flex;
+      flex-direction:column;
+    }
+
+    /* Background layers (no gradients) */
+    .bg-layer{
+      position:absolute;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+    }
+    .bg-matcha{
+      position:absolute;
+      left:-210px; top:-210px;
+      width:820px; height:820px;
+      background: var(--matcha);
+      border-radius:9999px;
+      opacity:.95;
+      filter: blur(2px);
+    }
+    .bg-lavender{
+      position:absolute;
+      right:-300px; top:0px;
+      width:940px; height:940px;
+      background: var(--lavender-2);
+      border-radius:9999px;
+      opacity:.92;
+    }
+    .bg-cherry{
+      position:absolute;
+      left:240px; bottom:-340px;
+      width:660px; height:660px;
+      background: rgba(201,58,99,.14);
+      border-radius:9999px;
+      opacity:.95;
+    }
+    .bg-grid{
+      position:absolute;
+      inset:0;
+      background-image: radial-gradient(rgba(31,36,48,0.05) 1px, transparent 1px);
+      background-size: 22px 22px;
+      opacity:.65;
+    }
+
+    /* Fixed header/footer/nav */
+    .header{
+      position:absolute;
+      top:0; left:0; right:0;
+      height:64px;
+      z-index:5;
+      background: rgba(255,255,255,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      padding:0 28px;
+      box-shadow: 0 6px 18px rgba(31,36,48,.08);
+    }
+    .header p{
+      margin:0;
+      font-size:14px;
+      color: rgba(31,36,48,.78);
+      font-weight:700;
+      letter-spacing:.01em;
+    }
+
+    .footer{
+      position:absolute;
+      left:0; right:0; bottom:0;
+      height:44px;
+      z-index:5;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 18px;
+    }
+    .footer p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.70);
+      font-weight:600;
+    }
+
+    .nav{
+      position:absolute;
+      left:0; right:0;
+      bottom:44px;
+      height:64px;
+      z-index:6;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:0 26px;
+      gap:18px;
+      background: rgba(244,240,255,.72);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(31,36,48,.06);
+    }
+
+    .nav-btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 16px;
+      border-radius: 14px;
+      border: 1px solid rgba(31,36,48,.10);
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 10px 20px rgba(31,36,48,.10);
+      color: rgba(31,36,48,.88);
+      font-weight:700;
+      text-decoration:none;
+      transition: transform .22s ease, opacity .22s ease, box-shadow .22s ease;
+      min-width: 200px;
+      justify-content:center;
+    }
+    .nav-btn:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 14px 26px rgba(31,36,48,.14);
+      opacity: .98;
+    }
+    .nav-btn .label{
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:14px;
+      letter-spacing:.01em;
+    }
+    .nav-btn .ico{
+      color: var(--cherry);
+      font-size:14px;
+    }
+    .nav-btn.is-disabled{
+      opacity:.45;
+      pointer-events:none;
+      transform:none;
+      box-shadow:none;
+    }
+
+    .content{
+      position:relative;
+      z-index:2;
+      flex:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 88px 84px 136px;
+    }
+
+    /* Slide-specific */
+    .frame{
+      width:100%;
+      max-width: 1120px;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+    }
+
+    .topbar{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:16px;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:9999px;
+      border:1px solid rgba(31,36,48,.10);
+      background: rgba(232,220,196,.55);
+      color: var(--ink);
+      font-size:13px;
+      line-height:1;
+      font-weight:800;
+      width: fit-content;
+    }
+    .k-dot{
+      width:10px; height:10px;
+      border-radius:9999px;
+      background: var(--cherry);
+      box-shadow: 0 8px 18px rgba(201,58,99,.25);
+    }
+
+    .title{
+      margin:12px 0 0;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:700;
+      font-size:46px;
+      line-height:1.06;
+      letter-spacing:-0.02em;
+      color: var(--ink);
+    }
+    .subtitle{
+      margin:6px 0 0;
+      color: var(--muted);
+      font-size:15.5px;
+      line-height:1.55;
+      max-width: 78ch;
+      font-weight:600;
+    }
+    .accent{ color: var(--cherry); font-weight:800; }
+
+    .chip-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+      align-items:center;
+      margin-bottom:2px;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:9999px;
+      border: 1px solid rgba(31,36,48,.10);
+      background: rgba(255,255,255,.78);
+      box-shadow: 0 10px 22px rgba(31,36,48,.08);
+      white-space:nowrap;
+    }
+    .chip i{ color: var(--cherry); }
+    .chip p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.78);
+      font-weight:800;
+      letter-spacing:.01em;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:16px;
+      align-items:stretch;
+    }
+
+    .panel{
+      background: rgba(255,255,255,.74);
+      border: 1px solid rgba(31,36,48,.08);
+      border-radius: 22px;
+      padding: 18px 18px;
+      box-shadow: 0 18px 40px rgba(31,36,48,.10);
+      display:flex;
+      flex-direction:column;
+      min-height: 452px;
+    }
+
+    .panel-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding-bottom:12px;
+      border-bottom: 1px solid rgba(31,36,48,.08);
+    }
+    .panel-title{
+      margin:0;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-weight:900;
+      font-size:16px;
+      letter-spacing:.02em;
+      color: rgba(31,36,48,.88);
+    }
+    .panel-badge{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius: 9999px;
+      background: rgba(237,231,255,.78);
+      border: 1px solid rgba(31,36,48,.08);
+    }
+    .panel-badge i{ color: var(--cherry); font-size:12px; }
+    .panel-badge p{
+      margin:0;
+      font-size:12px;
+      color: rgba(31,36,48,.75);
+      font-weight:900;
+    }
+
+    /* Left: tool cards */
+    .tool-stack{
+      margin-top:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      flex:1;
+    }
+
+    .tool-card{
+      display:flex;
+      gap:12px;
+      align-items:flex-start;
+      padding: 14px 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(31,36,48,.08);
+      background: rgba(237,231,255,.62);
+    }
+    .tool-card.is-beige{ background: rgba(232,220,196,.46); }
+
+    .t-ico{
+      width:44px; height:44px;
+      border-radius: 16px;
+      background: rgba(232,220,196,.72);
+      border: 1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--cherry);
+      flex:0 0 auto;
+      margin-top:1px;
+    }
+
+    .t-body{
+      flex:1;
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+    }
+    .t-body p{ margin:0; }
+    .t-title{
+      font-size:16px;
+      line-height:1.2;
+      font-weight:900;
+      color: rgba(31,36,48,.92);
+    }
+    .t-desc{
+      font-size:13px;
+      line-height:1.35;
+      font-weight:700;
+      color: rgba(31,36,48,.74);
+    }
+
+    .mono{
+      margin-top:8px;
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+    }
+    .mono-pill{
+      padding:8px 10px;
+      border-radius: 14px;
+      border:1px solid rgba(31,36,48,.10);
+      background: rgba(255,255,255,.85);
+      box-shadow: 0 10px 18px rgba(31,36,48,.06);
+    }
+    .mono-pill p{
+      margin:0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:12.2px;
+      color: rgba(31,36,48,.88);
+      font-weight:900;
+    }
+
+    /* Right: outcomes grid */
+    .cards-grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:12px;
+      flex:1;
+    }
+
+    .mini-card{
+      border-radius: 18px;
+      border:1px solid rgba(31,36,48,.08);
+      background: rgba(237,231,255,.60);
+      padding: 14px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height: 132px;
+    }
+    .mini-card.is-white{ background: rgba(255,255,255,.78); }
+    .mini-card.is-beige{ background: rgba(232,220,196,.42); }
+
+    .mini-head{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+    }
+    .mini-left{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      min-width:0;
+    }
+    .mini-ico{
+      width:36px; height:36px;
+      border-radius: 14px;
+      background: rgba(232,220,196,.72);
+      border:1px solid rgba(31,36,48,.08);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color: var(--cherry);
+      flex:0 0 auto;
+    }
+    .mini-title{
+      margin:0;
+      font-family:"Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-size:14px;
+      font-weight:900;
+      letter-spacing:.01em;
+      color: rgba(31,36,48,.88);
+      line-height:1.1;
+    }
+    .mini-tag{
+      padding:6px 10px;
+      border-radius:9999px;
+      border:1px solid rgba(31,36,48,.10);
+      background: rgba(255,255,255,.82);
+      box-shadow: 0 10px 18px rgba(31,36,48,.06);
+      flex:0 0 auto;
+    }
+    .mini-tag p{
+      margin:0;
+      font-size:11.5px;
+      font-weight:900;
+      color: rgba(31,36,48,.72);
+    }
+
+    .mini-list{
+      list-style:none;
+      padding:0;
+      margin:0;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .mini-row{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+    }
+    .dot{
+      width:9px; height:9px;
+      border-radius:9999px;
+      background: rgba(201,58,99,.85);
+      margin-top:6px;
+      flex:0 0 auto;
+    }
+    .mini-row p{
+      margin:0;
+      font-size:12.8px;
+      line-height:1.35;
+      color: rgba(31,36,48,.78);
+      font-weight:700;
+    }
+
+    .final-thought{
+      margin-top:12px;
+      padding-top:12px;
+      border-top:1px solid rgba(31,36,48,.08);
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      color: rgba(31,36,48,.74);
+    }
+    .final-thought i{ color: var(--cherry); margin-top:3px; }
+    .final-thought p{
+      margin:0;
+      font-size:13px;
+      line-height:1.45;
+      font-weight:800;
+    }
+
+    @media (max-width: 1360px){
+      body{ padding:16px; }
+      .slide{ transform: scale(.92); transform-origin: top center; }
+    }
+    @media (max-width: 1180px){
+      .slide{ transform: scale(.82); }
+    }
+    @media (max-width: 980px){
+      .slide{ transform: scale(.70); }
+    }
+  </style>
+</head>
+<body style="">
+<section aria-label="Slide 10: Tools + Outcomes – Grid (tools_outcomes)" class="slide">
+<div aria-hidden="true" class="bg-layer">
+<div class="bg-matcha"></div>
+<div class="bg-lavender"></div>
+<div class="bg-cherry"></div>
+<div class="bg-grid"></div>
+</div>
+<header class="header" role="banner">
+<p>EduuAspire21.0 Skills | 21st Century Skills | Information Literacy </p>
+</header>
+<main class="content" role="main">
+<div class="frame">
+<div class="topbar">
+<div>
+<div class="kicker">
+<span aria-hidden="true" class="k-dot"></span>
+<p>Tools + wrap-up</p>
+</div>
+<h1 class="title">DOAJ Tool <span class="accent">+ Summary</span></h1>
+
+</div>
+<div aria-label="Wrap-up cues" class="chip-row" style="position: relative; transform: translate(-10.0153px, -51.5072px);">
+<div class="chip" style="position: relative; transform: translate(-5.72302px, 0px);"><i aria-hidden="true" class="fa-solid fa-book-open"></i><p>DOAJ</p></div>
+<div class="chip"><i aria-hidden="true" class="fa-solid fa-quote-right"></i><p>Bibliography</p></div>
+<div class="chip"><i aria-hidden="true" class="fa-solid fa-award"></i><p>Outcomes</p></div>
+<div class="chip"><i aria-hidden="true" class="fa-solid fa-compass"></i><p>NEP</p></div>
+</div>
+</div>
+<div class="grid">
+<!-- Left panel: DOAJ tool + usage -->
+<section aria-label="DOAJ tool and usage" class="panel">
+
+<div class="tool-stack">
+<div class="tool-card is-beige" style="position: relative; transform: translate(-2.86151px, -22.8921px);">
+<div aria-hidden="true" class="t-ico"><i class="fa-solid fa-circle-info"></i></div>
+<div class="t-body">
+<p class="t-title">What it is</p>
+<p class="t-desc">A curated directory to discover <span class="accent">open-access journals</span> and articles across subjects.</p>
+</div>
+</div>
+<div class="tool-card" style="position: relative; transform: translate(-2.86151px, -22.8921px);">
+<div aria-hidden="true" class="t-ico"><i class="fa-solid fa-magnifying-glass"></i></div>
+<div class="t-body">
+<p class="t-title">Usage (student workflow)</p>
+<p class="t-desc">Search by <span class="accent">subject</span> or keywords; then filter by <span class="accent">journal</span> or <span class="accent">article</span> view.</p>
+<div aria-label="DOAJ usage hints" class="mono">
+<div class="mono-pill"><p>Search: subject</p></div>
+<div class="mono-pill"><p>Filter: journal/article</p></div>
+<div class="mono-pill"><p>Refine: year/topic</p></div>
+</div>
+</div>
+</div>
+<div class="tool-card" style="position: relative; transform: translate(-1.43075px, -22.8921px);">
+<div aria-hidden="true" class="t-ico"><i class="fa-solid fa-quote-right"></i></div>
+<div class="t-body">
+<p class="t-title">Bibliography (capture essentials)</p>
+<p class="t-desc">Record <span class="accent">author(s)</span>, <span class="accent">title</span>, <span class="accent">journal</span>, year, and <span class="accent">DOI</span> (or stable URL).</p>
+<div aria-label="Bibliography fields" class="mono">
+<div class="mono-pill"><p>Author • Title</p></div>
+<div class="mono-pill"><p>Journal • Year</p></div>
+<div class="mono-pill"><p>DOI • URL</p></div>
+</div>
+</div>
+</div>
+<div aria-label="Final thought" class="final-thought">
+<i aria-hidden="true" class="fa-solid fa-lightbulb"></i>
+<p><span class="accent">Final thought:</span> plan, test, and refine. Strong research is a <span class="accent">process</span>, not a one-time search.</p>
+</div>
+</div>
+</section>
+<!-- Right panel: outcomes + skills + NEP -->
+<aside aria-label="Outcomes, skills, NEP" class="panel" style="position: relative; transform: translate(40.0611px, -52.9379px);">
+
+<div aria-label="Summary cards" class="cards-grid">
+<div class="mini-card is-white">
+<div class="mini-head">
+<div class="mini-left">
+<div aria-hidden="true" class="mini-ico"><i class="fa-solid fa-bullseye"></i></div>
+<p class="mini-title">Outcomes</p>
+</div>
+<div class="mini-tag"><p>Results</p></div>
+</div>
+<ul class="mini-list">
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p>More <span class="accent">relevant</span> results, less noise</p></li>
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p>Faster identification of <span class="accent">credible</span> sources</p></li>
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p>Citation-ready notes from the start</p></li>
+</ul>
+</div>
+<div class="mini-card is-beige">
+<div class="mini-head">
+<div class="mini-left">
+<div aria-hidden="true" class="mini-ico"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+<p class="mini-title">Skills</p>
+</div>
+<div class="mini-tag"><p>Practice</p></div>
+</div>
+<ul class="mini-list">
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p><span class="accent">Logic</span>: build structured queries</p></li>
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p><span class="accent">Evaluation</span>: CRAAP decisions</p></li>
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p><span class="accent">Navigation</span>: filters + exports</p></li>
+</ul>
+</div>
+<div class="mini-card">
+<div class="mini-head">
+<div class="mini-left">
+<div aria-hidden="true" class="mini-ico"><i class="fa-solid fa-list-check"></i></div>
+<p class="mini-title">Bibliography habit</p>
+</div>
+<div class="mini-tag"><p>Do it now</p></div>
+</div>
+<ul class="mini-list">
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p>Capture DOI/URL immediately</p></li>
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p>Note why it’s <span class="accent">relevant</span> (1 line)</p></li>
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p>Record CRAAP score (optional)</p></li>
+</ul>
+</div>
+<div class="mini-card is-white">
+<div class="mini-head">
+<div class="mini-left">
+<div aria-hidden="true" class="mini-ico"><i class="fa-solid fa-compass"></i></div>
+<p class="mini-title">NEP alignment</p>
+</div>
+<div class="mini-tag"><p>Digital literacy</p></div>
+</div>
+<ul class="mini-list">
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p>Improves <span class="accent">digital navigation</span> logic</p></li>
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p>Builds safe <span class="accent">information judgment</span></p></li>
+<li class="mini-row"><span aria-hidden="true" class="dot"></span><p>Supports ethical <span class="accent">citation</span> practice</p></li>
+</ul>
+</div>
+</div>
+<div aria-label="Closing note" class="final-thought">
+<i aria-hidden="true" class="fa-solid fa-circle-check"></i>
+
+</div>
+</aside>
+</div>
+</div>
+</main>
+<nav aria-label="Slide navigation" class="nav">
+<a class="nav-btn" href="f9.html" style="position: relative; transform: translate(-367.496px, 5.50143px);">
+<i aria-hidden="true" class="fa-solid fa-arrow-left ico"></i>
+<span class="label">Database</span>
+</a>
+<a aria-disabled="true" class="nav-btn is-disabled" href="f10.html">
+<span class="label"><br></span>
+</a>
+</nav>
+<footer class="footer" role="contentinfo">
+<p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+<script>
+document.addEventListener("keydown", function (e) {
+  const activeElement = document.activeElement;
+
+  // 🚫 Disable when typing in input or textarea
+  if (
+    activeElement.tagName === "INPUT" ||
+    activeElement.tagName === "TEXTAREA"
+  ) {
+    return;
+  }
+
+  // 👉 Get navigation buttons
+  const prevBtn = document.querySelector(".nav a:first-child");
+  const nextBtn = document.querySelector(".nav a:last-child");
+
+  // ⬅️ Left Arrow → Previous slide
+  if (e.key === "ArrowLeft") {
+    if (prevBtn && !prevBtn.classList.contains("is-disabled")) {
+      window.location.href = prevBtn.getAttribute("href");
+    }
+  }
+
+  // ➡️ Right Arrow → Next slide
+  if (e.key === "ArrowRight") {
+    if (nextBtn && !nextBtn.classList.contains("is-disabled")) {
+      window.location.href = nextBtn.getAttribute("href");
+    }
+  }
+});
+</script>
+</section>
+
+</body></html>

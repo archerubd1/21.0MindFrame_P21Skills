@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Safe Online Tapping (Digital Safety)</title>
+
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    overflow: hidden;
+}
+
+/* NAV BUTTON FIX */
+.nav-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255,255,255,0.3);
+    padding: 6px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #0f172a;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: rgba(255,255,255,0.5);
+    transform: translateY(-2px);
+}
+</style>
+</head>
+
+<body>
+<div class="slide-container">
+
+<!-- HEADER -->
+<div style="position:absolute;top:0;left:0;width:100%;height:50px;background:#0f172a;border-bottom:2px solid #2EC4B6;">
+    <div style="display:flex;align-items:center;padding:12px 40px;color:white;">
+        <i class="fas fa-graduation-cap" style="color:#2EC4B6;margin-right:10px;"></i>
+        EduuAspire21.0 Skills | 21st Century Skills | Financial Literacy
+    </div>
+</div>
+
+<!-- TITLE -->
+<div style="position:absolute;top:80px;left:190px;width:900px;height:70px;background:#2EC4B6;border-radius:8px;padding:10px 20px;">
+    <h1 style="margin:0;color:#0f172a;">Safe Online Tapping (Digital Safety)</h1>
+</div>
+
+<!-- CONTENT -->
+<div style="position:absolute;top:180px;left:190px;width:900px;height:420px;background:#1e293b;border-radius:12px;padding:20px;display:flex;gap:20px;">
+
+    <!-- LEFT -->
+    <div style="flex:1;background:#0f172a;border-radius:10px;padding:20px;">
+        <h3 style="color:#FF9F1C;">Never Do This</h3>
+        <p style="color:white;">❌ Never share OTP or PIN</p>
+        <p style="color:white;">❌ Never click fake prize links</p>
+        <p style="color:white;">❌ Never pay without permission</p>
+    </div>
+
+    <!-- RIGHT -->
+    <div style="flex:1;background:#FF9F1C20;border-radius:10px;padding:20px;text-align:center;">
+        <h2 style="color:#FF9F1C;">Golden Rule</h2>
+        <h1 style="color:white;">Think before you tap</h1>
+    </div>
+
+</div>
+
+<!-- NAVIGATION -->
+<div style="position:absolute;bottom:70px;left:190px;width:900px;display:flex;justify-content:space-between;">
+
+    <!-- PREVIOUS -->
+    <a class="nav-btn" href="f8.html">
+        <i class="fas fa-chevron-left"></i>
+        <div>
+            <div style="font-size:10px;">Previous</div>
+            <div style="font-weight:bold;">Pocket Money</div>
+        </div>
+    </a>
+
+    <!-- NEXT -->
+    <a class="nav-btn" href="f10.html">
+        <div style="text-align:right;">
+            <div style="font-size:10px;">Next</div>
+            <div style="font-weight:bold;">Receipts</div>
+        </div>
+        <i class="fas fa-chevron-right"></i>
+    </a>
+
+</div>
+
+<!-- FOOTER -->
+<div style="position:absolute;bottom:0;width:100%;height:40px;background:#0f172a;color:#94a3b8;text-align:center;line-height:40px;font-size:12px;">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+</div>
+
+<!-- KEYBOARD NAVIGATION -->
+<script>
+document.addEventListener("keydown", function(e) {
+    if (e.key === "ArrowRight") window.location.href = "f10.html";
+    if (e.key === "ArrowLeft") window.location.href = "f8.html";
+});
+</script>
+
+</body>
+</html>

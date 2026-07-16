@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Program Overview - The Integrity Protocol</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        /* Main container layout */
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FAFAFA;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Pseudo-gradient background */
+        .bg-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            background-color: #FDF4FF;
+        }
+        
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.4;
+        }
+        
+        .blob-1 {
+            top: -100px;
+            left: -100px;
+            width: 600px;
+            height: 600px;
+            background-color: #E9D5FF;
+        }
+        
+        .blob-2 {
+            bottom: -150px;
+            right: -100px;
+            width: 700px;
+            height: 700px;
+            background-color: #FBCFE8;
+        }
+
+        /* Content Layer */
+        .content-layer {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            width: 100%;
+        }
+
+        /* Glassmorphism Navigation */
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.8);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.05);
+        }
+
+        /* Bullet Point Customization */
+        .custom-bullet {
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .custom-bullet::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.6rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #A78BFA; /* Purple 400 */
+            box-shadow: 0 0 0 4px rgba(167, 139, 250, 0.2);
+        }
+
+        .section-icon {
+            background-color: rgba(236, 72, 153, 0.1);
+            color: #DB2777;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 64px;
+            height: 64px;
+            font-size: 28px;
+            margin-bottom: 1.5rem;
+        }
+.navbar {
+    position: absolute;
+    bottom: 70px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    padding: 10px 25px;
+    display: flex;
+    justify-content: space-between;
+    background-color: #FDF4FF;
+    border-radius: 10px;
+
+    z-index: 9999;          /* ✅ ADD THIS */
+    pointer-events: auto;   /* ✅ ADD THIS */
+}
+
+.nav-link {
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+    transform: translateY(-2px);
+}
+    </style>
+</head>
+<body>
+<div class="slide-container" id="slide-2">
+<!-- Background Elements -->
+<div class="bg-layer">
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+</div>
+<!-- Main Content Wrapper -->
+<div class="content-layer">
+<!-- Header -->
+<header class="px-12 py-6 w-full flex justify-between items-center opacity-80 border-b border-purple-100 border-opacity-30">
+<p class="text-[11px] font-bold tracking-widest text-gray-500 uppercase font-sans">
+                    EduuAspire21.0 Skills <span class="mx-2 text-purple-300">|</span> 21st Century Skills <span class="mx-2 text-purple-300">|</span> Information Literacy
+                </p>
+<div class="h-1 w-16 bg-purple-200 rounded-full"></div>
+</header>
+<!-- Main Content Area -->
+<main class="flex-1 flex px-16 py-8 gap-12 items-center">
+<!-- Left Column: Title & Intro -->
+<div class="w-5/12 flex flex-col justify-center">
+<div class="mb-6 inline-flex">
+<div class="section-icon">
+<i class="fas fa-info-circle"></i>
+</div>
+</div>
+<h1 class="text-5xl font-bold text-gray-800 mb-6 leading-tight">
+                        Program <br/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-600 to-pink-500">Overview</span>
+</h1>
+<p class="text-gray-600 text-lg leading-relaxed mb-8">
+                        The Integrity Protocol is designed to equip students with essential ethical competencies for academic and professional excellence in the digital age.
+                    </p>
+<div class="glass-card p-6 border-l-4 border-purple-400">
+<p class="text-sm font-medium text-purple-800 mb-2 uppercase tracking-wide">Core Focus</p>
+<p class="text-gray-700 italic">
+                            "Cultivating a mindset of honesty, responsibility, and respect for intellectual property."
+                        </p>
+</div>
+</div>
+<!-- Right Column: Key Points -->
+<div class="w-7/12">
+<div class="glass-card p-10 h-full">
+<h3 class="text-2xl font-semibold text-gray-800 mb-8 flex items-center">
+<i class="fas fa-layer-group text-pink-400 mr-3 text-xl"></i>
+                            Key Learning Areas
+                        </h3>
+<div class="space-y-8">
+<div class="custom-bullet">
+<h4 class="text-xl font-medium text-gray-800 mb-2">Academic Integrity Standards</h4>
+<p class="text-gray-600 leading-relaxed">
+                                    Understanding shared standards for honest learning, research, and collaborative work within academic institutions.
+                                </p>
+</div>
+<div class="custom-bullet">
+<h4 class="text-xl font-medium text-gray-800 mb-2">Ethical Practices &amp; Accountability</h4>
+<p class="text-gray-600 leading-relaxed">
+                                    Why ethical behavior matters for quality scholarship, building trust, and maintaining personal accountability.
+                                </p>
+</div>
+<div class="custom-bullet">
+<h4 class="text-xl font-medium text-gray-800 mb-2">Intellectual Property Awareness</h4>
+<p class="text-gray-600 leading-relaxed">
+                                    Comprehensive coverage of citation styles, fair use laws, and responsible digital behavior in the information era.
+                                </p>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="px-18 py-4 w-full text-center relative z-20 mb-16">
+<p class="text-[10px] text-gray-400 font-medium tracking-wide">
+                    Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033
+                </p>
+</footer>
+<!-- 🔥 NAVIGATION -->
+<div class="navbar">
+    <div class="nav-link" onclick="prev()">← Integrity Protocol</div>
+    <div class="nav-link" onclick="next()">Why Inegrity matters →</div>
+</div>
+
+
+</div>
+</div>
+</div>
+<script>
+function next() {
+    window.location.href = "a3.html";
+}
+
+function prev() {
+    window.location.href = "a1.html";
+}
+
+document.addEventListener('keydown', function(e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+
+});
+</script>
+</body>
+</html>

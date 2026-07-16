@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Case Study: Viral News</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Rajdhani:wght@400;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+        :root {
+            --neon-cyan: #00f3ff;
+            --electric-purple: #bc13fe;
+            --alert-red: #ff2a2a;
+            --warning-orange: #ffae00;
+            --dark-bg: #050a14;
+            --panel-bg: rgba(5, 10, 20, 0.85);
+            --grid-color: rgba(0, 243, 255, 0.05);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            overflow: hidden;
+            width: 1280px;
+            height: 720px;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #020408;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Grid */
+        .bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%2300f3ff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Header */
+        .header-bar {
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+            background-color: rgba(5, 10, 20, 0.9);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 16px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 20;
+        }
+
+        /* Footer */
+        .footer-bar {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid rgba(188, 19, 254, 0.3);
+            background-color: rgba(5, 10, 20, 0.9);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 1px;
+            z-index: 20;
+            margin-top: auto;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px 50px;
+            z-index: 10;
+        }
+
+        .title-block {
+            margin-bottom: 20px;
+            border-left: 4px solid var(--alert-red);
+            padding-left: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        h1 {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 36px;
+            color: white;
+            text-transform: uppercase;
+            margin: 0;
+            text-shadow: 0 0 10px rgba(255, 42, 42, 0.4);
+        }
+
+        .subtitle {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--alert-red);
+            font-size: 16px;
+            letter-spacing: 2px;
+            background: rgba(255, 42, 42, 0.1);
+            padding: 2px 8px;
+            border: 1px solid var(--alert-red);
+        }
+
+        /* Dashboard Layout */
+        .dashboard-grid {
+            display: flex;
+            gap: 20px;
+            height: 100%;
+        }
+
+        /* Evidence Panel (Left) */
+        .evidence-col {
+            flex: 0 0 350px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .evidence-card {
+            background-color: #1a1a1a;
+            border: 1px solid #333;
+            padding: 15px;
+            position: relative;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .evidence-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 10px;
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+        }
+
+        .user-info p {
+            margin: 0;
+            font-size: 14px;
+        }
+        
+        .username { font-weight: bold; color: white; }
+        .handle { color: #888; font-size: 12px; }
+
+        .post-content {
+            font-size: 16px;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+
+        .post-image {
+            background-color: #000;
+            height: 180px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid #333;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        .post-image i {
+            font-size: 48px;
+            color: #333;
+        }
+
+        .stamp-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-15deg);
+            border: 3px solid var(--alert-red);
+            color: var(--alert-red);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 900;
+            padding: 5px 15px;
+            text-transform: uppercase;
+            background: rgba(0,0,0,0.7);
+            z-index: 10;
+            box-shadow: 0 0 15px rgba(255, 42, 42, 0.4);
+        }
+
+        /* Analysis Panel (Right) */
+        .analysis-col {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .analysis-box {
+            background: var(--panel-bg);
+            border: 1px solid rgba(0, 243, 255, 0.2);
+            position: relative;
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box-title {
+            font-family: 'Share Tech Mono', monospace;
+            color: var(--neon-cyan);
+            font-size: 14px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px dashed rgba(0, 243, 255, 0.2);
+            padding-bottom: 5px;
+        }
+
+        .box-content {
+            flex: 1;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Image Forensics Styles */
+        .comparison-grid {
+            display: flex;
+            gap: 10px;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .comp-img {
+            flex: 1;
+            background: #000;
+            border: 1px solid #333;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .comp-label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0,0.8);
+            padding: 2px 5px;
+            font-size: 10px;
+            font-family: 'Share Tech Mono';
+            width: 100%;
+            text-align: center;
+        }
+
+        .match-line {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: var(--electric-purple);
+            color: white;
+            font-size: 10px;
+            padding: 2px 8px;
+            border-radius: 10px;
+            z-index: 5;
+            font-weight: bold;
+        }
+
+        /* Motive Box Styles */
+        .motive-text {
+            width: 100%;
+            font-size: 14px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+        
+        .motive-tag {
+            display: inline-block;
+            background: rgba(188, 19, 254, 0.2);
+            border: 1px solid var(--electric-purple);
+            color: var(--electric-purple);
+            padding: 2px 8px;
+            font-size: 12px;
+            margin-bottom: 8px;
+            font-family: 'Share Tech Mono';
+        }
+
+        /* Corner Decors */
+        .corner {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border: 2px solid var(--neon-cyan);
+            z-index: 5;
+        }
+        .top-left { top: -1px; left: -1px; border-right: none; border-bottom: none; }
+        .top-right { top: -1px; right: -1px; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: -1px; left: -1px; border-right: none; border-top: none; }
+        .bottom-right { bottom: -1px; right: -1px; border-left: none; border-top: none; }
+
+        .scan-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: var(--neon-cyan);
+            opacity: 0.5;
+            top: 0;
+            left: 0;
+            animation: scan 3s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { top: 0; opacity: 0; }
+            50% { opacity: 1; }
+            100% { top: 100%; opacity: 0; }
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<div class="bg-grid"></div>
+<!-- Header -->
+<div class="header-bar">
+<div>EduuAspire 21.0</div>
+<div>Skills 21st century skills digital literacy</div>
+</div>
+<!-- Main Content -->
+<div class="content-area">
+<!-- Title -->
+<div class="title-block">
+<h1>Case Study: Viral News</h1>
+<span class="subtitle">SCENARIO: "THE DEEPFAKE RIOT" // STATUS: DEBUNKED</span>
+</div>
+<!-- Dashboard -->
+<div class="dashboard-grid">
+<!-- Left: Evidence Item -->
+<div class="evidence-col">
+<div style="font-family: 'Share Tech Mono'; color: var(--alert-red); margin-bottom: 5px;">
+<i class="fas fa-exclamation-triangle"></i> FLAGGED CONTENT DETECTED
+                </div>
+<div class="evidence-card">
+<div class="corner top-left" style="border-color: var(--alert-red)"></div>
+<div class="corner top-right" style="border-color: var(--alert-red)"></div>
+<div class="corner bottom-left" style="border-color: var(--alert-red)"></div>
+<div class="corner bottom-right" style="border-color: var(--alert-red)"></div>
+<!-- Fake Social Post -->
+<div class="evidence-header">
+<div class="user-avatar"><i class="fas fa-user"></i></div>
+<div class="user-info">
+<p class="username">TruthSeeker_99</p>
+<p class="handle">@truth_unveiled • 2h ago</p>
+</div>
+<i class="fab fa-twitter" style="margin-left: auto; color: #1da1f2;"></i>
+</div>
+<div class="post-content">
+<p>🚨 BREAKING: Police deploy robotic dogs to suppress peaceful protests in downtown metro area. This is dystopia NOW! #TechTyranny #Freedom</p>
+</div>
+<div class="post-image">
+<div class="stamp-overlay">FAKE</div>
+<i class="fas fa-robot"></i>
+<div style="position: absolute; bottom: 10px; font-family: 'Share Tech Mono'; font-size: 10px; color: #555;">IMG_ID: 8842-X</div>
+</div>
+<div style="display: flex; justify-content: space-between; font-size: 12px; color: #888; margin-top: auto;">
+<span><i class="fas fa-retweet"></i> 45.2K</span>
+<span><i class="fas fa-heart"></i> 112K</span>
+<span><i class="fas fa-share"></i> 8.9K</span>
+</div>
+</div>
+</div>
+<!-- Right: Analysis Grid -->
+<div class="analysis-col">
+<!-- 1. Credibility Meter -->
+<div class="analysis-box">
+<div class="corner top-left"></div>
+<div class="box-title">
+<span><i class="fas fa-tachometer-alt"></i> SOURCE CREDIBILITY</span>
+<span style="color: var(--alert-red)">CRITICAL</span>
+</div>
+<div class="box-content" style="flex-direction: column;">
+<div style="height: 120px; width: 100%; display: flex; justify-content: center; align-items: flex-end; padding-bottom: 10px;">
+<canvas id="credibilityChart"></canvas>
+</div>
+<div style="text-align: center; font-family: 'Share Tech Mono';">
+<p style="font-size: 24px; color: var(--alert-red); margin: 0;">12%</p>
+<p style="font-size: 12px; color: #888; margin: 0;">TRUST SCORE</p>
+</div>
+</div>
+</div>
+<!-- 2. Image Forensics -->
+<div class="analysis-box">
+<div class="corner top-right"></div>
+<div class="box-title">
+<span><i class="fas fa-images"></i> REVERSE IMAGE SEARCH</span>
+<span style="color: var(--electric-purple)">MATCH FOUND</span>
+</div>
+<div class="box-content">
+<div class="scan-line"></div>
+<div class="match-line">98% MATCH</div>
+<div class="comparison-grid">
+<div class="comp-img">
+<div class="comp-label" style="color: var(--alert-red)">VIRAL POST</div>
+<i class="fas fa-robot" style="font-size: 32px; color: #555;"></i>
+</div>
+<div class="comp-img">
+<div class="comp-label" style="color: var(--neon-cyan)">ORIGINAL SOURCE</div>
+<i class="fas fa-film" style="font-size: 32px; color: #555;"></i>
+<div style="position: absolute; bottom: 5px; font-size: 10px; color: #888;">SCIFI_MOVIE_SET.JPG</div>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Timeline of Spread -->
+<div class="analysis-box">
+<div class="corner bottom-left"></div>
+<div class="box-title">
+<span><i class="fas fa-chart-line"></i> VIRAL VELOCITY</span>
+<span style="font-size: 10px;">T-MINUS 4 HOURS</span>
+</div>
+<div class="box-content">
+<canvas id="timelineChart"></canvas>
+</div>
+</div>
+<!-- 4. Motive Analysis -->
+<div class="analysis-box">
+<div class="corner bottom-right"></div>
+<div class="box-title">
+<span><i class="fas fa-brain"></i> MOTIVE ANALYSIS</span>
+<span style="color: var(--warning-orange)">POLITICAL</span>
+</div>
+<div class="box-content" style="align-items: flex-start; justify-content: flex-start;">
+<div class="motive-text">
+<div class="motive-tag">INTENT: DISCORD</div>
+<div class="motive-tag">TYPE: DISINFORMATION</div>
+<p style="margin-top: 5px;">
+<strong style="color: white;">Analysis:</strong> The image was repurposed from a 2024 sci-fi film set.
+                            </p>
+<p style="margin-top: 5px;">
+<strong style="color: white;">Objective:</strong> To erode trust in local law enforcement prior to upcoming municipal elections.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<p>Licensed and powered by Astrl mind Technologies copyright 2026-2033</p>
+</div>
+</div>
+<script>
+    // Credibility Meter (Gauge/Doughnut)
+    const ctxCred = document.getElementById('credibilityChart').getContext('2d');
+    new Chart(ctxCred, {
+        type: 'doughnut',
+        data: {
+            labels: ['Risk', 'Trust'],
+            datasets: [{
+                data: [88, 12],
+                backgroundColor: [
+                    'rgba(255, 42, 42, 0.6)', // Red for Risk
+                    'rgba(5, 10, 20, 0.8)'    // Dark for empty
+                ],
+                borderColor: [
+                    '#ff2a2a',
+                    '#333'
+                ],
+                borderWidth: 1,
+                circumference: 180,
+                rotation: 270,
+                cutout: '70%'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false },
+                tooltip: { enabled: false }
+            }
+        }
+    });
+
+    // Timeline Chart
+    const ctxTime = document.getElementById('timelineChart').getContext('2d');
+    new Chart(ctxTime, {
+        type: 'line',
+        data: {
+            labels: ['10:00', '10:30', '11:00', '11:30', '12:00'],
+            datasets: [{
+                label: 'Shares',
+                data: [120, 450, 2800, 15000, 45200],
+                borderColor: '#00f3ff',
+                backgroundColor: 'rgba(0, 243, 255, 0.1)',
+                borderWidth: 2,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: '#00f3ff',
+                pointRadius: 3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { display: false }
+            },
+            scales: {
+                x: {
+                    grid: { color: 'rgba(255,255,255,0.05)' },
+                    ticks: { color: '#888', font: { size: 10 } }
+                },
+                y: {
+                    display: false
+                }
+            }
+        }
+    });
+</script>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f13
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f13.html';
+    }
+
+    // LEFT → f11
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f11.html';
+    }
+
+});
+</script>
+<!-- PREVIOUS BUTTON -->
+<a href="f11.html"
+   class="absolute bottom-16 left-12 z-50 px-6 py-3
+          bg-gray-800 text-white text-sm font-semibold uppercase
+          hover:bg-gray-700 transition rounded-lg">
+← 
+</a>
+
+<!-- NEXT BUTTON -->
+<a href="f13.html"
+   class="absolute bottom-16 right-12 z-50 px-6 py-3
+          bg-gray-900 text-white text-sm font-semibold uppercase
+          hover:bg-gray-800 transition rounded-lg">
+Next →
+</a>
+
+</body>
+</html>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Strategic Evidence Lab - Outcomes</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        :root {
+            --bg-dark: #1E1E2F;
+            --bg-panel: #2A2A40;
+            --accent-cyan: #3A6B6B;
+            --accent-green: #4ADE80;
+            --accent-purple: #A78BFA;
+            --accent-gold: #FBBF24;
+            --text-heading: #FFFFFF;
+            --text-body: #D1D5DB;
+        }
+
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-body);
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+             width: 100%;  
+            height: 720px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+
+
+        /* Fixed Header */
+        header {
+            height: 60px;
+            background-color: var(--bg-panel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid #3A3A50;
+            z-index: 50;
+            flex-shrink: 0;
+        }
+
+        .header-text {
+            color: #9CA3AF;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            margin: 0;
+        }
+
+        /* Main Content Area */
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 40px 80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .slide-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .slide-title {
+            color: var(--text-heading);
+            font-size: 38px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            display: inline-block;
+            border-bottom: 4px solid var(--accent-green);
+            padding-bottom: 5px;
+        }
+        
+        .slide-subtitle {
+            color: var(--text-body);
+            font-size: 18px;
+            font-weight: 400;
+            margin: 0;
+            opacity: 0.8;
+        }
+
+        /* Content Grid */
+        .outcomes-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 400px;
+            gap: 40px;
+        }
+
+        /* Left Side: Competencies List */
+        .competencies-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .competency-card {
+            background-color: var(--bg-panel);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            border-left: 5px solid;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .competency-card:hover {
+            transform: translateX(10px);
+            background-color: rgba(58, 107, 107, 0.2);
+        }
+
+        .comp-icon-box {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 22px;
+        }
+
+        .c1 { border-color: var(--accent-cyan); }
+        .c1 .comp-icon-box { color: var(--accent-cyan); }
+        
+        .c2 { border-color: var(--accent-purple); }
+        .c2 .comp-icon-box { color: var(--accent-purple); }
+        
+        .c3 { border-color: var(--accent-gold); }
+        .c3 .comp-icon-box { color: var(--accent-gold); }
+
+        .comp-content h3 {
+            color: var(--text-heading);
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0 0 5px 0;
+        }
+
+        .comp-content p {
+            color: var(--text-body);
+            font-size: 14px;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        /* Right Side: Badge/Title Earned */
+        .badge-column {
+            flex: 0.8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(30, 30, 47, 0.5);
+            border-radius: 20px;
+            padding: 30px;
+            border: 1px solid #3A3A50;
+            position: relative;
+        }
+
+        .badge-circle {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 4px solid var(--accent-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            position: relative;
+            background-color: rgba(74, 222, 128, 0.1);
+            box-shadow: 0 0 30px rgba(74, 222, 128, 0.2);
+        }
+
+        .badge-icon {
+            font-size: 70px;
+            color: var(--accent-green);
+        }
+
+        .earned-text {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 14px;
+            color: #9CA3AF;
+            margin: 0 0 10px 0;
+        }
+
+        .role-title {
+            font-size: 32px;
+            font-weight: 800;
+            color: var(--text-heading);
+            margin: 0;
+            text-align: center;
+            line-height: 1.2;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        .role-title span {
+            color: var(--accent-green);
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            height: 60px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 40px;
+            position: absolute;
+            bottom: 50px; /* Above footer */
+            left: 0;
+            z-index: 40;
+            box-sizing: border-box;
+        }
+
+        .nav-link {
+            color: var(--text-body);
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px 20px;
+            background-color: rgba(42, 42, 64, 0.8);
+            border-radius: 30px;
+            border: 1px solid transparent;
+        }
+
+        .nav-link:hover {
+            color: var(--text-heading);
+            background-color: rgba(58, 107, 107, 0.6);
+            border-color: var(--accent-cyan);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            height: 50px;
+            background-color: var(--bg-panel);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-top: 1px solid #3A3A50;
+            z-index: 50;
+            flex-shrink: 0;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer-text {
+            color: #6B7280;
+            font-size: 12px;
+            margin: 0;
+        }
+        
+        /* Decoration */
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: var(--accent-green);
+            opacity: 0.2;
+        }
+        
+        .p1 { top: 20%; left: 80%; transform: rotate(15deg); }
+        .p2 { top: 30%; left: 90%; background-color: var(--accent-purple); transform: rotate(-10deg); }
+        .p3 { top: 60%; left: 85%; background-color: var(--accent-gold); transform: rotate(45deg); }
+
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}</style></head>
+<body style="">
+<!-- Header -->
+<header>
+<p class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Information Literacy </p>
+</header>
+<!-- Background Elements -->
+<div class="confetti-piece p1"></div>
+<div class="confetti-piece p2"></div>
+<div class="confetti-piece p3"></div>
+<!-- Main Content -->
+<main>
+<div class="slide-header">
+<p class="slide-title">Outcomes &amp; Achievements</p>
+<p class="slide-subtitle">Mastery of evidence-based decision making for the modern professional</p>
+</div>
+<div class="outcomes-container">
+<!-- Competencies Column -->
+<div class="competencies-column">
+<!-- Comp 1 -->
+<div class="competency-card c1">
+<div class="comp-icon-box">
+<i class="fa-solid fa-brain"></i>
+</div>
+<div class="comp-content">
+<h3>Evidence-Based Thinking</h3>
+<p>Moving beyond intuition to validate assumptions with concrete data points and verified sources.</p>
+</div>
+</div>
+<!-- Comp 2 -->
+<div class="competency-card c2">
+<div class="comp-icon-box">
+<i class="fa-solid fa-chess"></i>
+</div>
+<div class="comp-content">
+<h3>Strategic Evaluation</h3>
+<p>Ability to assess source credibility using frameworks like CRAAP to filter noise from signal.</p>
+</div>
+</div>
+<!-- Comp 3 -->
+<div class="competency-card c3">
+<div class="comp-icon-box">
+<i class="fa-solid fa-chart-line"></i>
+</div>
+<div class="comp-content">
+<h3>Data Literacy</h3>
+<p>Understanding how to read, interpret, and question statistical data and graphical representations.</p>
+</div>
+</div>
+</div>
+<!-- Badge Column -->
+<div class="badge-column">
+<div class="badge-circle">
+<i class="fa-solid fa-certificate badge-icon"></i>
+</div>
+<p class="earned-text">Certification Earned</p>
+<p class="role-title">Decision <span>Strategist</span></p>
+</div>
+</div>
+</main>
+<!-- Navigation -->
+<div class="nav-bar">
+<a class="nav-link" href="f10.html">
+<i class="fas fa-arrow-left"></i> <span>Case Study</span>
+</a>
+<!-- No next button on final slide -->
+</div>
+<!-- Footer -->
+<footer>
+<p class="footer-text">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+<script>
+        // Keyboard Navigation
+        document.addEventListener('keydown', function(event) {
+            // Disable if input is focused
+            if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') return;
+            
+            // Only back navigation for final slide
+            if (event.key === 'ArrowLeft') {
+                window.location.href = 'f10.html';
+            }
+        });
+    </script>
+
+</body></html>

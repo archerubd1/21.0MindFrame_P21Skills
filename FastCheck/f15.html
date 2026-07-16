@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Conclusion + Action</title>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&amp;family=Rajdhani:wght@400;600;700&amp;family=Share+Tech+Mono&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        :root {
+            --neon-cyan: #00f3ff;
+            --electric-purple: #bc13fe;
+            --success-green: #00ff41;
+            --dark-bg: #050a14;
+            --panel-bg: rgba(5, 10, 20, 0.9);
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--dark-bg);
+            color: white;
+            font-family: 'Rajdhani', sans-serif;
+            overflow: hidden;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #020408;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Background Grid */
+        .bg-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h40v40H0V0zm1 1h38v38H1V1z' fill='%2300f3ff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Header */
+        .header-bar {
+            height: 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 50px;
+            border-bottom: 1px solid rgba(0, 243, 255, 0.3);
+            background-color: rgba(5, 10, 20, 0.95);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 16px;
+            color: var(--neon-cyan);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            z-index: 20;
+        }
+
+        /* Footer */
+        .footer-bar {
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-top: 1px solid rgba(188, 19, 254, 0.3);
+            background-color: rgba(5, 10, 20, 0.95);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            letter-spacing: 1px;
+            z-index: 20;
+            margin-top: auto;
+        }
+
+        /* Content Area */
+        .content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 30px 50px;
+            z-index: 10;
+            position: relative;
+        }
+
+        /* Center Layout */
+        .center-stage {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        /* Quote Section */
+        .quote-box {
+            text-align: center;
+            position: relative;
+            max-width: 900px;
+        }
+
+        .quote-text {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 56px;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            line-height: 1.1;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.3);
+        }
+
+        .quote-accent {
+            color: var(--neon-cyan);
+        }
+
+        .quote-sub {
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 18px;
+            color: var(--electric-purple);
+            margin-top: 10px;
+            letter-spacing: 3px;
+        }
+
+        /* Checklist Section */
+        .checklist-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .check-item {
+            background: rgba(5, 10, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .check-item:hover {
+            border-color: var(--success-green);
+            transform: translateY(-5px);
+            background: rgba(0, 255, 65, 0.05);
+        }
+
+        .check-box {
+            width: 24px;
+            height: 24px;
+            border: 2px solid var(--success-green);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--success-green);
+            font-size: 14px;
+        }
+
+        .check-text {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+        }
+
+        /* CTA Button */
+        .cta-wrapper {
+            position: relative;
+            margin-top: 20px;
+        }
+
+        .cta-button {
+            background: transparent;
+            border: 2px solid var(--electric-purple);
+            color: white;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 24px;
+            font-weight: 700;
+            padding: 20px 60px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s;
+            box-shadow: 0 0 15px rgba(188, 19, 254, 0.2);
+        }
+
+        .cta-button:hover {
+            background: rgba(188, 19, 254, 0.1);
+            box-shadow: 0 0 30px rgba(188, 19, 254, 0.6);
+            border-color: #d966ff;
+        }
+
+        .cta-icon {
+            font-size: 28px;
+            color: var(--neon-cyan);
+        }
+
+        /* Decorative Elements */
+        .corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 3px solid var(--neon-cyan);
+            z-index: 10;
+        }
+        .top-left { top: 20px; left: 20px; border-right: none; border-bottom: none; }
+        .top-right { top: 20px; right: 20px; border-left: none; border-bottom: none; }
+        .bottom-left { bottom: 20px; left: 20px; border-right: none; border-top: none; }
+        .bottom-right { bottom: 20px; right: 20px; border-left: none; border-top: none; }
+
+        .scan-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+            opacity: 0.3;
+        }
+
+        .system-status {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            text-align: right;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 10px;
+            color: #666;
+        }
+
+        .bg-circle {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .bg-circle-2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            border: 1px dashed rgba(188, 19, 254, 0.1);
+            border-radius: 50%;
+            z-index: 0;
+            pointer-events: none;
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Elements -->
+<div class="bg-grid"></div>
+<div class="bg-circle"></div>
+<div class="bg-circle-2"></div>
+<div class="corner top-left"></div>
+<div class="corner top-right"></div>
+<div class="corner bottom-left"></div>
+<div class="corner bottom-right"></div>
+<!-- Header -->
+<div class="header-bar">
+<div>EduuAspire 21.0</div>
+<div>Skills 21st century skills digital literacy</div>
+</div>
+<!-- Main Content -->
+<div class="content-area">
+<div class="center-stage">
+<!-- Quote -->
+<div class="quote-box">
+<p class="quote-text">
+                    “Don’t just <span class="quote-accent">consume</span>—<br/>
+<span style="color: var(--electric-purple)">analyze</span>.”
+                </p>
+<p class="quote-sub">/// SYSTEM DIRECTIVE: CRITICAL THINKING PROTOCOL ENGAGED</p>
+</div>
+<!-- Checklist -->
+<div class="checklist-container">
+<div class="check-item">
+<div class="check-box"><i class="fas fa-check"></i></div>
+<p class="check-text">Source Verified?</p>
+</div>
+<div class="check-item">
+<div class="check-box"><i class="fas fa-check"></i></div>
+<p class="check-text">Image Authentic?</p>
+</div>
+<div class="check-item">
+<div class="check-box"><i class="fas fa-check"></i></div>
+<p class="check-text">Bias Present?</p>
+</div>
+<div class="check-item">
+<div class="check-box"><i class="fas fa-check"></i></div>
+<p class="check-text">Data Manipulated?</p>
+</div>
+</div>
+<!-- CTA -->
+<div class="cta-wrapper">
+<button class="cta-button">
+<i class="fas fa-user-shield cta-icon"></i>
+                    Become a Critical Analyst
+                </button>
+</div>
+</div>
+<div class="system-status">
+<p>SESSION_STATUS: COMPLETE</p>
+<p>NEXT_STEP: REAL_WORLD_APPLICATION</p>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<p>Licensed and powered by Astrl mind Technologies copyright 2026-2033</p>
+</div>
+</div>
+<script>
+document.addEventListener("keydown", function(event) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // LEFT → f14 (Previous)
+    if (event.key === "ArrowLeft") {
+        window.location.href = "f14.html";
+    }
+
+    // RIGHT → Disabled (last slide)
+    if (event.key === "ArrowRight") {
+        console.log("Last slide reached");
+    }
+
+});
+</script>
+
+<!-- PREVIOUS BUTTON -->
+<a href="f14.html"
+   class="absolute bottom-16 left-12 z-50 px-6 py-3
+          bg-gray-800 text-white text-sm font-semibold uppercase
+          hover:bg-gray-700 transition rounded-lg shadow-lg">
+← Previous
+</a>
+</body>
+</html>

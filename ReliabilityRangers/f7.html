@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1280, height=720, initial-scale=1.0"/>
+<title>Reliability Rangers - Date & Currency Check</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background: linear-gradient(135deg, #0B132B, #1C2541);
+}
+
+
+/* ===== TIMELINE ===== */
+.timeline {
+    position: absolute;
+    left: 180px;
+    top: 200px;
+    width: 920px;
+    height: 120px;
+}
+
+.line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #3A86FF;
+    opacity: 0.5;
+}
+
+.point {
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 3px solid #0B132B;
+}
+
+.step {
+    position: absolute;
+    width: 140px;
+    text-align: center;
+    transform: translateX(-50%);
+}
+
+/* ===== CARDS ===== */
+.cards {
+    position: absolute;
+    bottom: 140px;
+    left: 80px;
+    display: flex;
+    gap: 20px;
+}
+
+.card {
+    width: 260px;
+    height: 220px;
+    border-radius: 14px;
+    padding: 20px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+/* ===== NAV ===== */
+.nav-btn {
+    text-decoration: none;
+    color: #1C2541;
+    font-size: 18px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    transition: 0.2s;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.8;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide-container">
+
+<!-- HEADER -->
+<div style="position:absolute;top:0;width:100%;height:60px;background:rgba(28,37,65,0.95);display:flex;align-items:center;padding-left:40px;border-bottom:2px solid #3A86FF;">
+<p style="color:#F1F5F9;">EduuAspire21.0 Skills | Information Literacy</p>
+</div>
+
+<!-- TITLE -->
+<div style="position:absolute;top:90px;width:100%;text-align:center;">
+<h1 style="color:#F1F5F9;font-size:42px;margin:0;">Date & Currency Check</h1>
+</div>
+
+<!-- TIMELINE BOX -->
+<div class="glass timeline">
+
+<div class="line"></div>
+
+<!-- STEP 1 -->
+<div class="point" style="left:0%; background:#FFD166;"></div>
+<div class="step" style="left:0%; top:-35px;">
+<p style="color:#FFD166;font-weight:600;">Publish Date</p>
+</div>
+
+<!-- STEP 2 -->
+<div class="point" style="left:50%; background:#F1F5F9;"></div>
+<div class="step" style="left:50%; top:-35px;">
+<p style="color:#F1F5F9;font-weight:600;">Last Updated</p>
+<p style="color:#94A3B8;font-size:12px;">Is there a newer version?</p>
+</div>
+
+<!-- STEP 3 -->
+<div class="point" style="left:100%; background:#2DD4BF;"></div>
+<div class="step" style="left:100%; top:-35px;">
+<p style="color:#2DD4BF;font-weight:600;">Current Context</p>
+</div>
+
+</div>
+
+<!-- SECTION TITLE -->
+<div style="position:absolute;top:350px;width:100%;text-align:center;">
+<p style="color:#94A3B8;letter-spacing:2px;">WHERE TIMELINESS MATTERS MOST</p>
+</div>
+
+<!-- CARDS -->
+<div class="cards">
+
+<div class="card glass" style="border:1px solid rgba(239,68,68,0.3);">
+<i class="fas fa-heart-pulse" style="color:#EF4444;font-size:30px;"></i>
+<h3 style="color:#EF4444;">Health</h3>
+<p style="color:#CBD5E1;">Medical advice changes quickly</p>
+</div>
+
+<div class="card glass" style="border:1px solid rgba(58,134,255,0.3);">
+<i class="fas fa-microchip" style="color:#3A86FF;font-size:30px;"></i>
+<h3 style="color:#3A86FF;">Technology</h3>
+<p style="color:#CBD5E1;">Tech becomes outdated fast</p>
+</div>
+
+<div class="card glass" style="border:1px solid rgba(255,209,102,0.3);">
+<i class="fas fa-newspaper" style="color:#FFD166;font-size:30px;"></i>
+<h3 style="color:#FFD166;">News</h3>
+<p style="color:#CBD5E1;">Updates add missing context</p>
+</div>
+
+<div class="card glass" style="border:1px solid rgba(45,212,191,0.3);">
+<i class="fas fa-flask" style="color:#2DD4BF;font-size:30px;"></i>
+<h3 style="color:#2DD4BF;">Science</h3>
+<p style="color:#CBD5E1;">Knowledge evolves over time</p>
+</div>
+
+</div>
+
+<!-- NAV -->
+<div style="position:absolute;bottom:70px;left:140px;width:1000px;height:70px;
+background:rgba(255,204,170,0.5);border-radius:12px;display:flex;
+align-items:center;justify-content:space-between;padding:0 40px;">
+
+<a class="nav-btn" href="f6.html">
+<i class="fas fa-arrow-left"></i> Smart Qs
+</a>
+
+<div style="font-weight:700;">Time Check</div>
+
+<a class="nav-btn" href="f8.html">
+Why Currency <i class="fas fa-arrow-right"></i>
+</a>
+
+</div>
+
+<!-- FOOTER -->
+<div style="position:absolute;bottom:0;width:100%;height:40px;background:#0B132B;display:flex;align-items:center;justify-content:center;">
+<p style="font-size:12px;color:#666;">Powered by Astrl Mind Technologies</p>
+</div>
+
+</div>
+
+<script>
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') window.location.href = 'f8.html';
+    if (e.key === 'ArrowLeft') window.location.href = 'f6.html';
+});
+</script>
+
+</body>
+</html>

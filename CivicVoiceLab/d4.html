@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Program Objectives</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:#f3f4f6;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+}
+
+/* SLIDE */
+.slide{
+    width:1280px;
+    height:720px;
+    background:#ffffff;
+    position:relative;
+    overflow:hidden;
+}
+
+/* HEADER */
+.header{
+    position:absolute;
+    top:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:14px;
+    color:#6b7280;
+    border-bottom:1px solid #eee;
+}
+
+/* CONTENT */
+.content{
+    position:absolute;
+    top:80px;
+    bottom:120px;
+    width:100%;
+    padding:0 60px;
+}
+
+/* TITLE */
+.title{
+    font-size:34px;
+    font-weight:600;
+    margin-bottom:40px;
+}
+
+/* GRID */
+.grid{
+    display:grid;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:30px;
+}
+
+/* CARD */
+.card{
+    background:#f9fafb;
+    border-radius:16px;
+    padding:25px;
+    border:1px solid #e5e7eb;
+    height:100%;
+}
+
+/* LARGE CARD */
+.large{
+    height:100%;
+}
+
+/* CARD TITLE */
+.card h3{
+    font-size:16px;
+    font-weight:600;
+    margin-bottom:10px;
+}
+
+/* POINTS */
+.card ul{
+    font-size:13px;
+    color:#6b7280;
+    line-height:1.6;
+    padding-left:18px;
+}
+
+/* NAVBAR */
+.navbar{
+    position:absolute;
+    bottom:60px;
+    left:50%;
+    transform:translateX(-50%);
+    width:85%;
+    padding:10px 25px;
+    display:flex;
+    justify-content:space-between;
+    background:#f1f5f9;
+    backdrop-filter:blur(8px);
+    border-radius:10px;
+}
+
+.nav-link{
+    cursor:pointer;
+    font-size:14px;
+}
+
+.next{
+    color:#7c3aed;
+    font-weight:600;
+}
+
+/* FOOTER */
+.footer{
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:12px;
+    color:#6b7280;
+    border-top:1px solid #eee;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+    <!-- HEADER -->
+    <div class="header">
+        EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+        <div class="title">Program Objectives</div>
+
+        <div class="grid">
+
+            <!-- LEFT LARGE -->
+            <div class="card large">
+                <h3>* Specific Learning Outcomes</h3>
+                <ul>
+                    <li>Master digital activism techniques</li>
+                    <li>Develop platform literacy skills</li>
+                    <li>Create effective advocacy campaigns</li>
+                    <li>Promote awareness across multiple channels</li>
+                </ul>
+            </div>
+
+            <!-- CENTER -->
+            <div style="display:flex; flex-direction:column; gap:20px;">
+                <div class="card">
+                    <h3>* Measurable Competency</h3>
+                    <ul>
+                        <li>Verify information accuracy</li>
+                        <li>Track engagement metrics</li>
+                        <li>Monitor progress continuously</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>* Relevant Real-World Application</h3>
+                    <ul>
+                        <li>Apply civic participation skills</li>
+                        <li>Enhance communication & policy awareness</li>
+                        <li>Prepare for media-related careers</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- RIGHT -->
+            <div style="display:flex; flex-direction:column; gap:20px;">
+                <div class="card">
+                    <h3>* Achievable Framework</h3>
+                    <ul>
+                        <li>Hands-on modular learning</li>
+                        <li>Blend theory + practical work</li>
+                        <li>Encourage critical reflection</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>* Time-Bound Completion</h3>
+                    <ul>
+                        <li>8-week structured program</li>
+                        <li>Weekly milestones</li>
+                        <li>Capstone project delivery</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- NAVBAR (Slides 2–7 example) -->
+    <div class="navbar">
+        <div class="nav-link" onclick="prev()">← Why civic voice matters</div>
+        <div class="nav-link next" onclick="next()">Digital activism fundamentals →</div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+        Licenced & Powered By Astrl Mind Technologies © 2026–2033
+    </div>
+
+</div>
+
+<script>
+function next() {
+    window.location.href = "d5.html"; // change per slide
+}
+
+function prev() {
+    window.location.href = "d3.html"; // change per slide
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key === "ArrowRight") next();
+    if (e.key === "ArrowLeft") prev();
+});
+</script>
+
+</body>
+</html>

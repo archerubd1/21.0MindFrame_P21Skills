@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280, height=720">
+
+<title>Reliability Rangers - Slide 2</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    font-family: 'Poppins', sans-serif;
+}
+
+.slide {
+    width: 1280px;
+    height: 720px;
+    margin: auto;
+    position: relative;
+    background: linear-gradient(135deg, #0B132B, #071029);
+    overflow: hidden;
+}
+
+/* HEADER */
+.header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background: #1C2541;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    color: #E2E8F0;
+    font-size: 15px;
+    border-bottom: 2px solid #3A86FF;
+}
+
+/* TITLE */
+.title {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    text-align: center;
+    font-size: 48px;
+    font-weight: 700;
+    color: #F1F5F9;
+}
+
+/* SUBTITLE */
+.subtitle {
+    position: absolute;
+    top: 150px;
+    width: 100%;
+    text-align: center;
+    font-size: 24px;
+    color: #3A86FF;
+}
+
+/* CONTENT BOX */
+.content-box {
+    position: absolute;
+    top: 220px;
+    left: 240px;
+    width: 800px;
+    background: rgba(255,255,255,0.03);
+    padding: 25px 30px;
+    border-radius: 15px;
+    border-left: 4px solid #FFD166;
+}
+
+.content-box p {
+    font-size: 22px;
+    color: #F1F5F9;
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+/* INTERACTIVE SECTION */
+.interactive {
+    position: absolute;
+    top: 380px;
+    width: 100%;
+    text-align: center;
+}
+
+.prompt {
+    color: #94A3B8;
+    font-size: 18px;
+    margin-bottom: 15px;
+    font-style: italic;
+}
+
+/* CARDS */
+.cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.pitfall-card {
+    width: 250px;
+    height: 130px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 12px;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.pitfall-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255,255,255,0.1);
+}
+
+.pitfall-icon {
+    font-size: 32px;
+    color: #FFD166;
+}
+
+.pitfall-title {
+    color: #F1F5F9;
+    font-weight: 600;
+}
+
+.pitfall-content {
+    display: none;
+    font-size: 14px;
+    color: #E2E8F0;
+    padding: 10px;
+}
+
+.pitfall-card.revealed .pitfall-icon { display: none; }
+.pitfall-card.revealed .pitfall-content { display: block; }
+
+/* NAV BAR */
+.nav-bar {
+    position: absolute;
+    bottom: 90px;
+    left: 140px;
+    width: 1000px;
+    height: 70px;
+    background: rgba(255,204,170,0.5);
+    backdrop-filter: blur(12px);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
+/* BUTTON */
+.nav-btn {
+    border: none;
+    background: none;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #1C2541;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.nav-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* FOOTER */
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: #0B132B;
+    color: #666;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="slide">
+
+<div class="header">
+EduuAspire21.0 Skills | 21st Century Skills | Information Literacy
+</div>
+
+<div class="title">Why This Matters</div>
+
+<div class="subtitle">Can you trust everything you read?</div>
+
+<div class="content-box">
+<p><i class="fas fa-globe" style="color:#3A86FF;width:40px;"></i>Anyone can post information online instantly.</p>
+<p><i class="fas fa-exclamation-triangle" style="color:#FFD166;width:40px;"></i>Some information is false, biased, or outdated.</p>
+</div>
+
+<div class="interactive">
+<div class="prompt">👉 Click cards to reveal pitfalls</div>
+
+<div class="cards">
+<div class="pitfall-card" onclick="this.classList.toggle('revealed')">
+<i class="fas fa-quote-right pitfall-icon"></i>
+<div class="pitfall-title">Fake Quotes</div>
+<div class="pitfall-content">Famous people often get misquoted.</div>
+</div>
+
+<div class="pitfall-card" onclick="this.classList.toggle('revealed')">
+<i class="fas fa-history pitfall-icon"></i>
+<div class="pitfall-title">Old News</div>
+<div class="pitfall-content">Outdated news shared as current.</div>
+</div>
+
+<div class="pitfall-card" onclick="this.classList.toggle('revealed')">
+<i class="fas fa-camera-retro pitfall-icon"></i>
+<div class="pitfall-title">Edited Images</div>
+<div class="pitfall-content">Photos can be manipulated.</div>
+</div>
+</div>
+</div>
+
+<div class="nav-bar">
+<button class="nav-btn" onclick="goToSlide('f1.html')">
+<i class="fas fa-arrow-left"></i> Title
+</button>
+
+<div style="font-weight:700;">THE PROBLEM</div>
+
+<button class="nav-btn" onclick="goToSlide('f3.html')">
+Info Literacy <i class="fas fa-arrow-right"></i>
+</button>
+</div>
+
+<div class="footer">
+Licenced & Powered By Astrl Mind Technologies copyright 2026-2033
+</div>
+
+</div>
+
+<script>
+function goToSlide(page){
+    window.location.href = page;
+}
+
+document.addEventListener("keydown", function(e){
+    if(e.key === "ArrowRight") goToSlide("f3.html");
+    if(e.key === "ArrowLeft") goToSlide("f1.html");
+});
+</script>
+
+</body>
+</html>

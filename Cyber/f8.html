@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Weak vs Strong Passwords</title>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&amp;family=Nunito:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+body {
+    margin: 0;
+    padding: 0;
+
+    /* REMOVE fixed size */
+    /* width: 1280px; */
+    /* height: 720px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;   /* full screen height */
+    background-color: #0f172a;
+
+    font-family: 'Nunito', sans-serif;
+    color: #e2e8f0;
+}
+        .slide-container {
+    display: flex;
+    flex-direction: column;
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    background-color: #0f172a;
+}  
+       
+
+     /* Background Pattern (No Gradients) */
+        .bg-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #0f172a;
+            z-index: 0;
+        }
+        
+        .bg-dots {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(#334155 1px, transparent 1px);
+            background-size: 30px 30px;
+            opacity: 0.3;
+        }
+
+        /* Header & Footer */
+        .header-bar {
+            height: 50px;
+            background-color: #1e293b;
+            border-bottom: 2px solid #3b82f6;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            color: #93c5fd;
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            z-index: 20;
+            flex-shrink: 0;
+        }
+
+        .footer-bar {
+            height: 30px;
+            background-color: #0f172a;
+            border-top: 1px solid #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #64748b;
+            font-size: 12px;
+            z-index: 20;
+            flex-shrink: 0;
+        }
+
+        /* Main Content */
+        .content-wrapper {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 60px;
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Fredoka', sans-serif;
+            color: #f1f5f9;
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            text-shadow: 4px 4px 0px #1e293b;
+        }
+
+        /* Comparison Container */
+        .comparison-container {
+            display: flex;
+            width: 100%;
+            height: 520px;
+            gap: 40px;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Cards */
+        .card {
+            flex: 1;
+            height: 100%;
+            background-color: #1e293b;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+
+        /* Weak Card Styling */
+        .card-weak {
+            border: 4px solid #ef4444;
+        }
+        
+        .header-weak {
+            background-color: #ef4444;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Strong Card Styling */
+        .card-strong {
+            border: 4px solid #10b981;
+        }
+
+        .header-strong {
+            background-color: #10b981;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .card-title {
+            font-family: 'Fredoka', sans-serif;
+            font-size: 28px;
+            color: #fff;
+            margin: 0;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        /* Inner Content */
+        .card-body {
+            padding: 30px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .main-icon-circle {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            border: 4px solid;
+            background-color: #0f172a;
+        }
+
+        .icon-weak {
+            color: #ef4444;
+            border-color: #ef4444;
+        }
+
+        .icon-strong {
+            color: #10b981;
+            border-color: #10b981;
+        }
+
+        .main-icon {
+            font-size: 48px;
+        }
+
+        /* Lists */
+        .feature-list {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .list-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 12px;
+            font-size: 18px;
+            color: #cbd5e1;
+        }
+
+        .bullet-icon {
+            margin-right: 12px;
+            font-size: 20px;
+            width: 24px;
+            text-align: center;
+        }
+
+        /* Password Boxes */
+        .password-box {
+            background-color: #0f172a;
+            border-radius: 12px;
+            padding: 15px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        .box-label {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .password-example {
+            font-family: 'Courier New', monospace;
+            font-weight: 700;
+            padding: 8px 12px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .weak-ex {
+            background-color: rgba(239, 68, 68, 0.1);
+            color: #fca5a5;
+            border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+
+        .strong-ex {
+            background-color: rgba(16, 185, 129, 0.1);
+            color: #6ee7b7;
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+
+        /* VS Badge */
+        .vs-badge {
+            position: absolute;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background-color: #f59e0b;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 32px;
+            font-weight: 800;
+            color: #78350f;
+            border: 6px solid #0f172a;
+            z-index: 30;
+            box-shadow: 0 0 0 4px #f59e0b;
+        }
+
+        .status-text {
+            font-weight: 700;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        /* Bottom Navigation */
+        .bottom-nav {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background-color: rgba(245, 183, 161, 0.08);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            z-index: 100;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #93c5fd;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-left:hover {
+            opacity: 0.8;
+            transform: translateX(-5px);
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #93c5fd;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .nav-right:hover {
+            opacity: 0.8;
+            transform: translateX(5px);
+        }
+
+        .nav-arrow {
+            font-size: 16px;
+            color: #3b82f6;
+        }
+
+        .nav-text {
+            color: #e2e8f0;
+        }
+
+        .nav-label {
+            color: #64748b;
+            font-size: 12px;
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-left-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-right-section {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            color: #93c5fd;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 8px;
+            background-color: rgba(59, 130, 246, 0.1);
+        }
+
+        .nav-link:hover {
+            background-color: rgba(59, 130, 246, 0.2);
+            color: #e2e8f0;
+        }
+
+        .nav-link.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .nav-arrow {
+            font-size: 16px;
+            color: #3b82f6;
+        }
+
+        .nav-text {
+            color: #e2e8f0;
+        }
+
+        .nav-label {
+            color: #64748b;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body style="">
+<div class="slide-container">
+<!-- Background -->
+<div class="bg-pattern">
+<div class="bg-dots"></div>
+</div>
+<!-- Header -->
+<!-- Header -->
+<div class="header">
+<div class="header-text">EduuAspire 21.0 Skills | 21st Century Skills | Digital Literacy</div>
+</div>
+<!-- Main Content -->
+<div class="content-wrapper">
+<h1 style="font-size: 40px; position: relative; transform: translate(1.37536px, -8.25215px);">Weak vs Strong Passwords</h1>
+<div class="comparison-container">
+<!-- VS Badge in Center -->
+<div class="vs-badge">VS</div>
+<!-- Weak Card (Left) -->
+<div class="card card-weak" style="transform: translate(0px, -20.7163px);">
+<div class="header-weak">
+<p class="card-title">Weak Password</p>
+</div>
+<div class="card-body">
+<div class="main-icon-circle icon-weak">
+<i class="fas fa-lock-open main-icon"></i>
+</div>
+<p class="status-text text-red-400">Easy to Guess!</p>
+<div class="feature-list">
+<p class="list-item"><i class="fas fa-times-circle bullet-icon text-red-500"></i>Short (under 8 chars)</p>
+<p class="list-item"><i class="fas fa-times-circle bullet-icon text-red-500"></i>Uses names or birthdays</p>
+<p class="list-item"><i class="fas fa-times-circle bullet-icon text-red-500"></i>Simple patterns (12345)</p>
+</div>
+<div class="password-box">
+<span class="box-label text-red-400">Don't Use These:</span>
+<div class="password-example weak-ex">
+<span>123456</span>
+<i class="fas fa-times text-red-500"></i>
+</div>
+<div class="password-example weak-ex">
+<span>password</span>
+<i class="fas fa-times text-red-500"></i>
+</div>
+<div class="password-example weak-ex">
+<span>princess</span>
+<i class="fas fa-times text-red-500"></i>
+</div>
+</div>
+</div>
+</div>
+<!-- Strong Card (Right) -->
+<div class="card card-strong" style="transform: translate(-2.76218px, -17.9542px);">
+<div class="header-strong">
+<p class="card-title">Strong Password</p>
+</div>
+<div class="card-body">
+<div class="main-icon-circle icon-strong">
+<i class="fas fa-lock main-icon"></i>
+</div>
+<p class="status-text text-green-400">Hard to Crack!</p>
+<div class="feature-list">
+<p class="list-item"><i class="fas fa-check-circle bullet-icon text-green-500"></i>Long (12+ characters)</p>
+<p class="list-item"><i class="fas fa-check-circle bullet-icon text-green-500"></i>Mix of letters &amp; numbers</p>
+<p class="list-item"><i class="fas fa-check-circle bullet-icon text-green-500"></i>Includes symbols ($%#)</p>
+</div>
+<div class="password-box">
+<span class="box-label text-green-400">Try This Instead:</span>
+<div class="password-example strong-ex">
+<span>T!g3r-Jump-99</span>
+<i class="fas fa-check text-green-500"></i>
+</div>
+<div class="password-example strong-ex">
+<span>Blu3-Sky#2026</span>
+<i class="fas fa-check text-green-500"></i>
+</div>
+<div class="password-example strong-ex">
+<span>PizZa$Lover!</span>
+<i class="fas fa-check text-green-500"></i>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<div class="footer-bar">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+<!-- Bottom Navigation -->
+<div class="bottom-nav">
+<div class="nav-container">
+<div class="nav-left-section">
+<a class="nav-link" href="f7.html">
+<i class="fas fa-arrow-left nav-arrow"></i>
+<span class="nav-text">← Previous Topic</span>
+<span class="nav-label">Password Power</span>
+</a>
+</div>
+<div class="nav-right-section">
+<a class="nav-link" href="f9.html">
+<span class="nav-text">Next Topic →</span>
+<span class="nav-label">Create Passphrase</span>
+<i class="fas fa-arrow-right nav-arrow"></i>
+</a>
+</div>
+</div>
+</div>
+</div>
+<script>
+    // Keyboard navigation
+    document.addEventListener('keydown', function(e) {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA' || e.target.isContentEditable) {
+            return;
+        }
+        
+        switch(e.key) {
+            case 'ArrowLeft':
+                window.location.href = 'f7.html';
+                break;
+            case 'ArrowRight':
+                window.location.href = 'f9.html';
+                break;
+        }
+    });
+</script>
+
+</body></html>

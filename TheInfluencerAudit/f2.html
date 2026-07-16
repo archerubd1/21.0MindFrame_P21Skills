@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Influencer Audit - Objectives</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+     body {
+    margin: 0;
+    background: #0f172a; /* ✅ changed from black to your theme */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.slide-container {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+    background-color: #0f172a; /* ✅ updated */
+    font-family: 'Inter', sans-serif;
+
+    transform: scale(calc(100vw / 1280));
+    transform-origin: top left;
+}
+    
+    /* Header */
+    .header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: #0f172a;
+        border-bottom: 1px solid rgba(245,183,165,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        z-index: 100;
+    }
+    
+    .header-left {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    
+    .header-logo {
+        width: 32px;
+        height: 32px;
+        background: rgba(245,183,165,0.2);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .header-logo i {
+        color: #f5b7a5;
+        font-size: 16px;
+    }
+    
+    .header-text {
+        font-size: 14px;
+        font-weight: 600;
+        color: #ffffff;
+    }
+    
+    .header-right {
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        font-size: 13px;
+        color: #94a3b8;
+    }
+    
+    .header-divider {
+        color: #475569;
+    }
+    
+    /* Main Content */
+    .main-content {
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        bottom: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 40px;
+    }
+    
+    .slide-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        max-width: 900px;
+        z-index: 10;
+    }
+    
+    .title-section {
+        margin-bottom: 30px;
+    }
+    
+    .main-title {
+        font-size: 48px;
+        font-weight: 800;
+        color: #ffffff;
+        margin-bottom: 12px;
+        letter-spacing: -0.02em;
+    }
+    
+    .main-title .highlight {
+        color: #f5b7a5;
+    }
+    
+    .subtitle {
+        font-size: 18px;
+        color: #d1d5db;
+        margin-bottom: 8px;
+    }
+    
+    .bullet-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+        max-width: 800px;
+        margin-top: 20px;
+    }
+    
+    .bullet-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        background: rgba(30,41,59,0.8);
+        border: 1px solid rgba(245,183,165,0.2);
+        border-radius: 12px;
+        padding: 16px 24px;
+        text-align: left;
+        transition: all 0.2s ease;
+    }
+    
+    .bullet-icon {
+        width: 40px;
+        height: 40px;
+        background: rgba(245,183,165,0.1);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+    }
+    
+    .bullet-icon i {
+        color: #f5b7a5;
+        font-size: 18px;
+    }
+    
+    .bullet-text {
+        flex: 1;
+    }
+    
+    .bullet-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 4px;
+    }
+    
+    .bullet-desc {
+        font-size: 14px;
+        color: #94a3b8;
+        line-height: 1.5;
+    }
+    
+    /* Navigation */
+    .navigation {
+        position: fixed;
+        bottom: 60px;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: rgba(245,183,165,0.15);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(245,183,165,0.2);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 40px;
+        z-index: 100;
+    }
+    
+    .nav-left, .nav-right {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    
+    .nav-text {
+        font-size: 14px;
+        color: #94a3b8;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+        color: #f5b7a5;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s;
+    }
+    
+    .nav-link:hover {
+        opacity: 0.8;
+    }
+    
+    .nav-arrow {
+        color: #f5b7a5;
+        font-size: 16px;
+    }
+    
+    /* Footer */
+    .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: #0f172a;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 40px;
+        z-index: 100;
+    }
+    
+    .footer-text {
+        font-size: 12px;
+        color: #94a3b8;
+    }
+    
+    .decorative-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: rgba(245,183,165,0.1);
+        z-index: 1;
+    }
+    
+    .circle-1 {
+        width: 300px;
+        height: 300px;
+        top: -100px;
+        right: -100px;
+    }
+    
+    .circle-2 {
+        width: 200px;
+        height: 200px;
+        bottom: -50px;
+        left: -50px;
+    }
+</style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Header -->
+<div class="header">
+<div class="header-left">
+<div class="header-logo">
+<i class="fas fa-chart-line"></i>
+</div>
+<span class="header-text">EduuAspire21.0 Skills</span>
+</div>
+<div class="header-right">
+<span>21st Century Skills</span>
+<span class="header-divider">|</span>
+<span>Media Literacy</span>
+</div>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<div class="slide-content">
+<div class="title-section">
+<div class="main-title">
+<span class="highlight">Objectives</span>
+</div>
+<div class="subtitle">
+                    Key learning goals for understanding social media influence
+                </div>
+</div>
+<div class="bullet-container">
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-search"></i>
+</div>
+<div class="bullet-text">
+<div class="bullet-title">Analyze influencer content critically</div>
+<div class="bullet-desc">Develop systematic methods to evaluate and assess influencer messaging</div>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-shield-alt"></i>
+</div>
+<div class="bullet-text">
+<div class="bullet-title">Detect misinformation patterns</div>
+<div class="bullet-desc">Identify common tactics used to spread false information</div>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-cogs"></i>
+</div>
+<div class="bullet-text">
+<div class="bullet-title">Understand digital influence mechanisms</div>
+<div class="bullet-desc">Learn how social media algorithms and engagement work</div>
+</div>
+</div>
+<div class="bullet-item">
+<div class="bullet-icon">
+<i class="fas fa-balance-scale"></i>
+</div>
+<div class="bullet-text">
+<div class="bullet-title">Strengthen civic responsibility</div>
+<div class="bullet-desc">Promote responsible sharing and digital citizenship</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navigation">
+
+    <div class="nav-left">
+        <span class="nav-arrow"><i class="fas fa-arrow-left"></i></span>
+        <span class="nav-text">Previous Topic</span>
+        <a class="nav-link" href="f1.html">← Title</a>
+    </div>
+
+    <div class="nav-right">
+        <a class="nav-link" href="f3.html">Importance  →</a>
+        <span class="nav-text">Next Topic</span>
+        <span class="nav-arrow"><i class="fas fa-arrow-right"></i></span>
+    </div>
+
+</div>
+<!-- Footer -->
+<div class="footer">
+<div class="footer-text">
+            Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+        </div>
+</div>
+<!-- Decorative Elements -->
+<div class="decorative-circle circle-1"></div>
+<div class="decorative-circle circle-2"></div>
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f3.html';
+    }
+
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f1.html';
+    }
+
+});
+</script>
+</body>
+</html>

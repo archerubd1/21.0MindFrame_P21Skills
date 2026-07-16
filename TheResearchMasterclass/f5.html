@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Activity</title>
+<link href="https://fonts.googleapis.com" rel="preconnect">
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;family=Lora:wght@500;600&amp;family=IBM+Plex+Mono:wght@400;600&amp;display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+    :root{
+      --bg:#fffdf4;
+      --card:#ffffff;
+      --ink:#111827;
+      --muted:#4b5563;
+      --line:#e5e7eb;
+      --butter:#fde68a;
+      --butter2:#fff2b8;
+    }
+    html,body{height:100%;margin:0;background:#f3f4f6;}
+    .slide{
+      width:1280px;height:720px;
+      margin:0 auto;
+      background:var(--bg);
+      display:flex;flex-direction:column;
+      color:var(--ink);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      position:relative;
+      overflow:hidden;
+    }
+    .header{
+      height:64px;flex:0 0 64px;
+      display:flex;align-items:center;justify-content:center;
+      border-bottom:1px solid var(--line);
+      background:#ffffff;
+      z-index:3;
+    }
+    .footer{
+      height:46px;flex:0 0 46px;
+      display:flex;align-items:center;justify-content:center;
+      border-top:1px solid var(--line);
+      background:#ffffff;
+      z-index:3;
+    }
+    .nav{
+      height:56px;flex:0 0 56px;
+      display:flex;align-items:center;justify-content:space-between;
+      padding:0 72px;
+      background:rgba(255,255,255,0.92);
+      border-top:1px solid var(--line);
+      z-index:3;
+    }
+    .main{
+      flex:1;
+      padding:30px 72px 18px 72px;
+      position:relative;
+      z-index:2;
+      display:flex;
+      min-height:0;
+    }
+    .frame{
+      flex:1;
+      display:flex;
+      border:1px solid var(--line);
+      background:var(--card);
+      box-shadow:0 10px 24px rgba(17,24,39,0.08);
+      border-radius:22px;
+      overflow:hidden;
+      position:relative;
+      min-height:0;
+    }
+
+    .hdrText,.ftrText{margin:0;letter-spacing:0.01em;}
+    .hdrText{font-size:14px;color:#111827;}
+    .hdrText span{opacity:.7}
+    .ftrText{font-size:12.5px;color:#111827;opacity:.8}
+
+    .content{
+      flex:1;
+      padding:34px 44px;
+      display:flex;
+      gap:18px;
+      min-width:0;
+      min-height:0;
+    }
+    .left{
+      flex:1.15;
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      min-width:0;
+      min-height:0;
+    }
+    .right{
+      flex:0.85;
+      border-left:1px solid var(--line);
+      background:var(--butter2);
+      padding:26px 26px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-width:0;
+      min-height:0;
+    }
+
+    .kicker{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:10px 14px;
+      border:1px solid rgba(17,24,39,0.08);
+      background:#fff;
+      border-radius:999px;
+      width:max-content;
+      box-shadow:0 6px 14px rgba(17,24,39,0.06);
+    }
+    .kDot{
+      width:10px;height:10px;border-radius:999px;
+      background:var(--butter);
+      border:1px solid rgba(17,24,39,0.12);
+    }
+    .title{
+      margin:0;
+      font-weight:800;
+      letter-spacing:-0.02em;
+      line-height:1.08;
+      font-size:52px;
+    }
+    .sub{
+      margin:6px 0 0 0;
+      font-family:Lora,Georgia,serif;
+      font-weight:600;
+      color:#1f2937;
+      font-size:20px;
+      line-height:1.35;
+      max-width:72ch;
+    }
+
+    .taskCard{
+      border:1px solid rgba(17,24,39,0.10);
+      background:#ffffff;
+      border-radius:18px;
+      box-shadow:0 10px 22px rgba(17,24,39,0.07);
+      padding:14px 16px;
+      display:flex;
+      align-items:flex-start;
+      gap:12px;
+    }
+    .taskIcon{
+      width:42px;height:42px;border-radius:16px;
+      background:var(--butter);
+      border:1px solid rgba(17,24,39,0.12);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 42px;
+    }
+    .taskIcon i{font-size:18px;color:#111827;opacity:.9}
+    .taskText{
+      margin:0;
+      font-size:16px;
+      line-height:1.5;
+      color:#1f2937;
+      font-weight:700;
+    }
+    .taskText span{
+      font-weight:900;
+    }
+
+    .formWrap{
+      border:1px solid rgba(17,24,39,0.10);
+      background:#ffffff;
+      border-radius:18px;
+      box-shadow:0 10px 22px rgba(17,24,39,0.07);
+      padding:12px 12px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-height:0;
+    }
+    .tableHeader{
+      display:grid;
+      grid-template-columns: 44px 2.2fr 1.4fr 0.8fr 2.2fr;
+      gap:10px;
+      padding:10px 12px;
+      border:1px solid rgba(17,24,39,0.08);
+      border-radius:14px;
+      background:var(--butter2);
+      align-items:center;
+    }
+    .th{
+      margin:0;
+      font-size:13px;
+      color:#111827;
+      opacity:.9;
+      font-weight:900;
+      letter-spacing:0.01em;
+    }
+    .rows{
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      min-height:0;
+    }
+    .row{
+      display:grid;
+      grid-template-columns: 44px 2.2fr 1.4fr 0.8fr 2.2fr;
+      gap:10px;
+      padding:10px 12px;
+      border:1px solid rgba(17,24,39,0.08);
+      border-radius:14px;
+      background:#fff;
+      align-items:center;
+    }
+    .idx{
+      width:32px;height:32px;border-radius:12px;
+      background:#ffffff;
+      border:1px solid rgba(17,24,39,0.10);
+      display:flex;align-items:center;justify-content:center;
+      box-shadow:0 8px 16px rgba(17,24,39,0.06);
+      font-weight:900;
+      font-size:14px;
+      color:#111827;
+    }
+    input, textarea{
+      width:100%;
+      border:1px solid rgba(17,24,39,0.14);
+      border-radius:12px;
+      padding:10px 12px;
+      font-size:14px;
+      color:#111827;
+      background:#ffffff;
+      outline:none;
+    }
+    textarea{resize:none; height:44px; line-height:1.35;}
+    input::placeholder, textarea::placeholder{color:#6b7280;}
+    input:focus, textarea:focus{
+      border-color: rgba(17,24,39,0.35);
+      box-shadow: 0 0 0 3px rgba(253,230,138,0.55);
+    }
+
+    .formFooter{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      padding:10px 12px;
+      border:1px solid rgba(17,24,39,0.08);
+      border-radius:14px;
+      background:#ffffff;
+    }
+    .hint{
+      margin:0;
+      font-size:13px;
+      color:#374151;
+      line-height:1.4;
+      font-weight:700;
+    }
+    .hint code{
+      font-family:"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:12px;
+      background:var(--butter2);
+      padding:2px 6px;
+      border-radius:8px;
+      border:1px solid rgba(17,24,39,0.10);
+    }
+    .btnRow{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex:0 0 auto;
+    }
+    .miniBtn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(17,24,39,0.12);
+      background:#ffffff;
+      box-shadow:0 10px 18px rgba(17,24,39,0.08);
+      font-weight:900;
+      font-size:13px;
+      color:#111827;
+      cursor:pointer;
+      transition:transform .16s ease, box-shadow .16s ease, opacity .16s ease;
+      user-select:none;
+      white-space:nowrap;
+    }
+    .miniBtn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 26px rgba(17,24,39,0.10);
+    }
+
+    .rightCard{
+      border:1px solid rgba(17,24,39,0.12);
+      background:#ffffff;
+      border-radius:18px;
+      box-shadow:0 12px 26px rgba(17,24,39,0.10);
+      padding:14px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .rTitle{
+      margin:0;
+      font-weight:900;
+      letter-spacing:-0.01em;
+      font-size:16px;
+      line-height:1.2;
+    }
+    .rItem{
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      padding:10px 10px;
+      border:1px solid rgba(17,24,39,0.08);
+      border-radius:14px;
+      background:#fff;
+    }
+    .rIcon{
+      width:32px;height:32px;border-radius:12px;
+      background:var(--butter);
+      border:1px solid rgba(17,24,39,0.12);
+      display:flex;align-items:center;justify-content:center;
+      flex:0 0 32px;
+    }
+    .rIcon i{font-size:14px;color:#111827;opacity:.9}
+    .rText{
+      margin:0;
+      font-size:13.5px;
+      color:#1f2937;
+      line-height:1.45;
+      font-weight:700;
+    }
+    .rText span{font-weight:900;}
+
+    .progressPill{
+      position:absolute;
+      top:18px;right:18px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid rgba(17,24,39,0.10);
+      background:#fff;
+      font-size:12px;
+      color:#111827;
+      display:flex;align-items:center;gap:8px;
+      z-index:3;
+    }
+    .progressPill .miniDot{width:8px;height:8px;border-radius:999px;background:#111827;opacity:.75}
+
+    .bgShapes{
+      position:absolute;inset:0;pointer-events:none;z-index:1;
+    }
+    .shapeA{
+      position:absolute;
+      left:-120px;bottom:-140px;
+      width:380px;height:380px;
+      border-radius:70px;
+      background:var(--butter);
+      opacity:0.28;
+      border:1px solid rgba(17,24,39,0.06);
+      transform:rotate(10deg);
+    }
+    .shapeB{
+      position:absolute;
+      right:-160px;top:-160px;
+      width:440px;height:440px;
+      border-radius:90px;
+      background:#ffffff;
+      opacity:0.55;
+      border:1px solid rgba(17,24,39,0.08);
+      transform:rotate(-8deg);
+    }
+
+    .navBtn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding:12px 16px;
+      border-radius:14px;
+      border:1px solid rgba(17,24,39,0.12);
+      background:#ffffff;
+      box-shadow:0 10px 18px rgba(17,24,39,0.08);
+      color:#111827;
+      text-decoration:none;
+      font-weight:800;
+      letter-spacing:-0.01em;
+      transition:transform .16s ease, opacity .16s ease, box-shadow .16s ease;
+      max-width:260px;
+    }
+    .navBtn:hover{
+      transform:translateY(-2px);
+      box-shadow:0 14px 26px rgba(17,24,39,0.10);
+    }
+    .navBtn .label{
+      margin:0;
+      font-size:16px;
+      white-space:nowrap;
+    }
+    .navBtn .muted{
+      margin:0;
+      font-size:12px;
+      color:#374151;
+      opacity:.75;
+      font-weight:700;
+      letter-spacing:0.01em;
+      white-space:nowrap;
+    }
+    .navStack{display:flex;flex-direction:column;line-height:1.05}
+  </style>
+</head>
+<body style="">
+<div class="slide">
+<header class="header">
+<p class="hdrText"><strong>EduuAspire21.0 Skills</strong> <span>|</span> 21st Century Skills <span>|</span> Digital Literacy</p>
+</header>
+<main class="main">
+<section class="frame">
+<div aria-hidden="true" class="bgShapes">
+<div class="shapeA"></div>
+<div class="shapeB"></div>
+</div>
+
+<div class="content">
+<div class="left" style="position: relative; transform: translate(-4.12607px, 55.0143px);">
+
+<div>
+<p class="title" style="position: relative; transform: translate(-6.87679px, -78.3954px);">Activity</p>
+
+</div>
+<div class="taskCard" style="position: relative; transform: translate(-11.0029px, -79.7708px);">
+<div class="taskIcon"><i class="fa-solid fa-clipboard-check"></i></div>
+<div>
+<p class="taskText"><span>Task:</span> Note the <span>title</span>, <span>author</span>, <span>year</span>, and the <span>main idea</span> (1–2 sentences) for each paper.</p>
+<p class="taskText" style="margin-top:6px;color:#4b5563;font-weight:700;font-size:14px;">Use Google Scholar, JSTOR, or PubMed—then paste the details below.</p>
+</div>
+</div>
+<form autocomplete="off" class="formWrap" style="position: relative; transform: translate(-5.50143px, -60.5158px);">
+<div aria-hidden="true" class="tableHeader">
+<p class="th">#</p>
+<p class="th">Title</p>
+<p class="th">Author</p>
+<p class="th">Year</p>
+<p class="th">Main idea</p>
+</div>
+<div class="rows">
+<div class="row">
+<div class="idx"><p style="margin:0;">1</p></div>
+<div><input aria-label="Paper 1 title" placeholder="e.g., Effects of {topic} on {outcome}" type="text"></div>
+<div><input aria-label="Paper 1 author" placeholder="e.g., Smith" type="text"></div>
+<div><input aria-label="Paper 1 year" placeholder="e.g., 2023" type="text"></div>
+<div><textarea aria-label="Paper 1 main idea" placeholder="Summarize the central claim or finding…"></textarea></div>
+</div>
+<div class="row">
+<div class="idx"><p style="margin:0;">2</p></div>
+<div><input aria-label="Paper 2 title" placeholder="Title" type="text"></div>
+<div><input aria-label="Paper 2 author" placeholder="Author" type="text"></div>
+<div><input aria-label="Paper 2 year" placeholder="Year" type="text"></div>
+<div><textarea aria-label="Paper 2 main idea" placeholder="Main idea…"></textarea></div>
+</div>
+
+</div></form></div>
+</div>
+</section>
+</main>
+<nav aria-label="Topic navigation" class="nav" style="position: relative; transform: translate(5.50143px, -9.62749px);">
+<a class="navBtn" href="f4.html">
+<i class="fa-solid fa-arrow-left"></i>
+<div class="navStack">
+<p class="label">&nbsp;Searching</p>
+
+</div>
+</a>
+<a class="navBtn" href="f6.html">
+<div class="navStack" style="text-align:right;">
+<p class="label">Citations&nbsp;</p>
+
+</div>
+<i class="fa-solid fa-arrow-right"></i>
+</a>
+</nav>
+<footer class="footer">
+<p class="ftrText"><strong>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</strong></p>
+</footer>
+</div>
+<script>
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') {
+      // Goes to next slide
+      window.location.href = 'f6.html'; 
+    } else if (e.key === 'ArrowLeft') {
+      // Goes to previous slide
+      window.location.href = 'f4.html';
+    }
+  });
+</script>
+
+
+</body></html>

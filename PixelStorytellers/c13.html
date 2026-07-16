@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Pixel Storytellers - Slide 13</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Poppins:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f0f0;
+            overflow: hidden;
+display: flex;              /* IMPORTANT */
+    justify-content: center;    /* horizontal center */
+    align-items: center;        /* vertical center */
+    height: 100vh;
+        }
+
+        .slide-container {
+            width: 1280px;
+            height: 720px;
+            position: relative;
+            background-color: #FFF2E6; /* Light pastel orange base */
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Decorative Shapes */
+        .shape-blob-1 {
+            position: absolute;
+            top: -150px;
+            right: -150px;
+            width: 600px;
+            height: 600px;
+            background-color: #FFEDD5; /* Orange-100 */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.7;
+        }
+        
+        .shape-blob-2 {
+            position: absolute;
+            bottom: -100px;
+            left: -100px;
+            width: 500px;
+            height: 500px;
+            background-color: #FFE4E6; /* Rose-100 */
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.6;
+        }
+
+        /* Header Styles */
+        .header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 40px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 16px;
+            color: #7c2d12;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Footer Styles */
+        .footer {
+            position: absolute;
+            bottom: 5px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            font-size: 10px;
+            color: #9ca3af;
+            z-index: 10;
+            padding-bottom: 5px;
+        }
+
+        /* Navigation Styles */
+        .navbar {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            padding: 10px 25px;
+            display: flex;
+            justify-content: space-between;
+            background: #f1f5f9;
+            backdrop-filter: blur(8px);
+            border-top: 1px solid rgba(255,255,255,0.5);
+            border-radius: 10px;
+            z-index: 20;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .nav-link {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 700;
+            color: #ea580c;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.25s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link:hover {
+            opacity: 0.7;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            padding: 40px 0 80px 0; /* Space for nav */
+        }
+
+        h1 {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 48px;
+            color: #ea580c;
+            margin: 0 0 40px 0;
+            text-align: center;
+            text-shadow: 2px 2px 0px #fff;
+            position: relative;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 6px;
+            background-color: #FDA4AF;
+            border-radius: 3px;
+        }
+
+        /* Grid Layout */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            width: 900px;
+        }
+
+        .skill-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 25px 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            box-shadow: 0 10px 20px rgba(234, 88, 12, 0.08);
+            border: 2px solid #fff;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 30px rgba(234, 88, 12, 0.12);
+        }
+
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            border-radius: 18px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        /* Skill 1: Creative Expression */
+        .skill-1 .icon-container {
+            background-color: #FEF3C7; /* Amber-100 */
+            color: #D97706; /* Amber-600 */
+        }
+        .skill-1 { border-left: 6px solid #FCD34D; }
+
+        /* Skill 2: Empathy */
+        .skill-2 .icon-container {
+            background-color: #FCE7F3; /* Pink-100 */
+            color: #DB2777; /* Pink-600 */
+        }
+        .skill-2 { border-left: 6px solid #F9A8D4; }
+
+        /* Skill 3: Media Awareness */
+        .skill-3 .icon-container {
+            background-color: #E0F2FE; /* Sky-100 */
+            color: #0284C7; /* Sky-600 */
+        }
+        .skill-3 { border-left: 6px solid #7DD3FC; }
+
+        /* Skill 4: Critical Thinking */
+        .skill-4 .icon-container {
+            background-color: #DCFCE7; /* Green-100 */
+            color: #16A34A; /* Green-600 */
+        }
+        .skill-4 { border-left: 6px solid #86EFAC; }
+
+
+        .skill-content {
+            flex: 1;
+        }
+
+        .skill-title {
+            font-family: 'Nunito', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            color: #374151;
+            margin: 0 0 5px 0;
+        }
+
+        .skill-desc {
+            font-size: 16px;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .skill-card {
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .skill-1 { animation-delay: 0.1s; }
+        .skill-2 { animation-delay: 0.2s; }
+        .skill-3 { animation-delay: 0.3s; }
+        .skill-4 { animation-delay: 0.4s; }
+
+    </style>
+</head>
+<body>
+<div class="slide-container">
+<!-- Background Shapes -->
+<div class="shape-blob-1"></div>
+<div class="shape-blob-2"></div>
+<!-- Header -->
+<div class="header">
+<p>EduuAspire21.0 Skills | 21st Century Skills |  Media Literacy</p>
+</div>
+<!-- Main Content -->
+<div class="main-content">
+<h1>Key Skills You've Learned</h1>
+<div class="skills-grid">
+<!-- Skill 1 -->
+<div class="skill-card skill-1">
+<div class="icon-container">
+<i class="fa-solid fa-palette"></i>
+</div>
+<div class="skill-content">
+<h2 class="skill-title">Creative Expression</h2>
+<p class="skill-desc">Using colors, shapes, and words to tell your own unique stories.</p>
+</div>
+</div>
+<!-- Skill 2 -->
+<div class="skill-card skill-2">
+<div class="icon-container">
+<i class="fa-solid fa-hand-holding-heart"></i>
+</div>
+<div class="skill-content">
+<h2 class="skill-title">Empathy</h2>
+<p class="skill-desc">Understanding feelings and being kind to others online.</p>
+</div>
+</div>
+<!-- Skill 3 -->
+<div class="skill-card skill-3">
+<div class="icon-container">
+<i class="fa-solid fa-eye"></i>
+</div>
+<div class="skill-content">
+<h2 class="skill-title">Media Awareness</h2>
+<p class="skill-desc">Knowing that media messages are made for a purpose.</p>
+</div>
+</div>
+<!-- Skill 4 -->
+<div class="skill-card skill-4">
+<div class="icon-container">
+<i class="fa-solid fa-lightbulb"></i>
+</div>
+<div class="skill-content">
+<h2 class="skill-title">Critical Thinking</h2>
+<p class="skill-desc">Checking facts, spotting opinions, and asking questions.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Navigation -->
+<div class="navbar">
+<div class="nav-link" onclick="prev()"><i class="fa-solid fa-arrow-left"></i> Practice</div>
+<div class="nav-link" onclick="next()">Outcome & conclusion <i class="fa-solid fa-arrow-right"></i></div>
+</div>
+<!-- Footer -->
+<div class="footer">
+<p>Licenced &amp; Powered By Astrl Mind Technologies © 2026–2033</p>
+</div>
+</div>
+<script>
+    function next() {
+        window.location.href = "c14.html";
+    }
+
+    function prev() {
+        window.location.href = "c12.html";
+    }
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+    });
+</script>
+</body>
+</html>

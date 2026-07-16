@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Media Detective - Slide 6</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&amp;family=Poppins:wght@600;700&amp;family=Open+Sans:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet"/>
+<style>
+        body {
+            background-color: #FFF8DC;
+            font-family: 'Open Sans', sans-serif;
+            overflow: hidden;
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .glass-nav {
+            background: rgba(255, 204, 170, 0.5);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .nav-btn {
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+        /* Layout specific for this slide */
+        .content-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding-top: 60px; /* Space for header */
+            padding-bottom: 100px; /* Space for nav/footer */
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .card {
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+    </style>
+</head>
+<body class="relative text-gray-800">
+<!-- HEADER (MANDATORY) -->
+<header class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-sm shadow-sm z-50 py-3 px-8 flex items-center justify-between h-16">
+<div class="text-gray-800 font-bold font-[Poppins] text-lg tracking-wide">
+            EduuAspire21.0 Skills <span class="text-gray-400 mx-2">|</span> 21st Century Skills <span class="text-gray-400 mx-2">|</span> Media Literacy
+        </div>
+</header>
+<!-- MAIN CONTENT -->
+<main class="content-container">
+<div class="text-center mb-8">
+<div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-yellow-100 text-yellow-600 mb-4 shadow-sm">
+<i class="fa-solid fa-circle-question text-3xl"></i>
+</div>
+<h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-2">The "Who Said It?" Rule</h1>
+<p class="text-xl text-gray-600 font-semibold">Always check the source before you believe.</p>
+</div>
+<div class="grid grid-cols-2 gap-12 w-full max-w-4xl px-4">
+<!-- Trusted Column -->
+<div class="card border-t-4 border-green-500">
+<div class="text-green-600 mb-4">
+<i class="fa-solid fa-shield-check text-5xl"></i>
+</div>
+<h2 class="text-2xl font-bold mb-4 text-gray-800">Trusted Sources</h2>
+<ul class="text-left space-y-3 w-full">
+<li class="flex items-start">
+<i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+<span>Known experts or scientists</span>
+</li>
+<li class="flex items-start">
+<i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+<span>Official news organizations</span>
+</li>
+<li class="flex items-start">
+<i class="fa-solid fa-check text-green-500 mt-1 mr-3"></i>
+<span>Educational websites (.edu, .gov)</span>
+</li>
+</ul>
+</div>
+<!-- Untrusted Column -->
+<div class="card border-t-4 border-red-500">
+<div class="text-red-500 mb-4">
+<i class="fa-solid fa-triangle-exclamation text-5xl"></i>
+</div>
+<h2 class="text-2xl font-bold mb-4 text-gray-800">Untrusted Sources</h2>
+<ul class="text-left space-y-3 w-full">
+<li class="flex items-start">
+<i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
+<span>Random comments on social media</span>
+</li>
+<li class="flex items-start">
+<i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
+<span>Websites with lots of pop-up ads</span>
+</li>
+<li class="flex items-start">
+<i class="fa-solid fa-xmark text-red-500 mt-1 mr-3"></i>
+<span>Anonymous accounts with no history</span>
+</li>
+</ul>
+</div>
+</div>
+</main>
+<!-- NAVIGATION SYSTEM (STRICT) -->
+<nav class="fixed bottom-12 left-1/2 transform -translate-x-1/2 w-11/12 max-w-4xl glass-nav py-3 px-8 flex justify-between items-center z-40">
+<!-- Previous Topic -->
+<div class="w-1/3 text-left">
+<a class="nav-btn inline-flex items-center text-gray-700 hover:text-yellow-700 font-[Poppins] font-bold text-base group" href="f5.html">
+<i class="fa-solid fa-arrow-left mr-2 transition-transform group-hover:-translate-x-1"></i>
+            Hidden Ads
+        </a>
+</div>
+<!-- Current Indicator -->
+<div class="w-1/3 text-center">
+<span class="text-gray-500 font-bold text-xs uppercase tracking-widest">Rule #1</span>
+</div>
+<!-- Next Topic -->
+<div class="w-1/3 text-right">
+<a class="nav-btn inline-flex items-center text-gray-700 hover:text-yellow-700 font-[Poppins] font-bold text-base group" href="f7.html">
+            Source Activity
+            <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
+</a>
+</div>
+</nav>
+<!-- FOOTER (MANDATORY) -->
+<footer class="fixed bottom-0 left-0 w-full bg-gray-100/90 border-t border-gray-200 py-2 px-4 z-50 text-center">
+<p class="text-[10px] text-[#666] font-[Open Sans]">
+            Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033
+        </p>
+</footer>
+<!-- EXTERNAL SCRIPT -->
+<script src="script.js"></script>
+<script>
+    document.addEventListener('keydown', function(event) {
+        // Check if user is typing in an input or textarea
+        const activeElement = document.activeElement;
+        const isInputActive = activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA';
+        
+        if (isInputActive) return;
+
+        if (event.key === 'ArrowRight') {
+            window.location.href = 'f7.html';
+        } else if (event.key === 'ArrowLeft') {
+            window.location.href = 'f5.html';
+        }
+    });
+</script>
+</body>
+</html>

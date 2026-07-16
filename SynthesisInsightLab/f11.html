@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light" style=""><head>
+<meta charset="utf-8">
+<meta content="width=1280, height=720, initial-scale=1.0" name="viewport">
+<title>Applied Example - Synthesis &amp; Insight Lab</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&amp;family=Roboto:wght@300;400;500;700&amp;display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+        body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Roboto', sans-serif;
+    background-color: #F0F9FF;
+    display: flex;
+    justify-content: center;   /* CENTER horizontally */
+    align-items: center;       /* CENTER vertically */
+}
+ .slide-container {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+        /* Decorative background elements */
+        .bg-circle-1 {
+            position: absolute;
+            top: -100px;
+            left: -50px;
+            width: 400px;
+            height: 400px;
+            background-color: #E0F2FE;
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.7;
+        }
+        .bg-circle-2 {
+            position: absolute;
+            bottom: 80px;
+            right: -100px;
+            width: 500px;
+            height: 500px;
+            background-color: #E0F2FE;
+            border-radius: 50%;
+            z-index: 0;
+            opacity: 0.7;
+        }
+
+        /* Header */
+        .header {
+            height: 40px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            box-sizing: border-box;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            z-index: 20;
+            position: absolute;
+            top: 0;
+        }
+        .header-text {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+            color: #546E7A;
+            letter-spacing: 0.5px;
+            margin: 0;
+        }
+
+        /* Footer */
+        .footer {
+            height: 30px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffffff;
+            z-index: 20;
+            position: absolute;
+            bottom: 0;
+            border-top: 1px solid rgba(0,0,0,0.05);
+        }
+        .footer-text {
+            font-family: 'Roboto', sans-serif;
+            font-size: 11px;
+            color: #90A4AE;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        /* Navigation */
+        .nav-bar {
+            position: absolute;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            height: 70px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 60px;
+            box-sizing: border-box;
+            background-color: rgba(255, 218, 185, 0.5);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
+            z-index: 10;
+        }
+        
+        .nav-link {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #455A64;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.2s ease-in-out;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link:hover {
+            color: #0288D1;
+            transform: translateY(-2px);
+        }
+
+        /* Main Content */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding-top: 60px;
+            padding-bottom: 110px;
+            padding-left: 80px;
+            padding-right: 80px;
+            z-index: 5;
+            position: relative;
+        }
+
+        .title-block {
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #1E293B;
+            margin: 0 0 10px 0;
+        }
+
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #64748B;
+            margin: 0;
+        }
+
+        /* Two Column Comparison Layout */
+        .comparison-container {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            gap: 40px;
+            align-items: stretch;
+        }
+
+        .col-left, .col-right {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card-box {
+            background-color: white;
+            border-radius: 12px;
+            padding: 24px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-top: 4px solid;
+            transition: transform 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .card-box:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+        }
+
+        .card-question { border-color: #64748B; background-color: #F8FAFC; }
+        .card-source-a { border-color: #38BDF8; }
+        .card-source-b { border-color: #818CF8; }
+        .card-synthesis { border-color: #34D399; background-color: #ECFDF5; flex-grow: 1; }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .icon-box {
+            width: 36px;
+            height: 36px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 16px;
+        }
+
+        .icon-question { background-color: #64748B; }
+        .icon-source-a { background-color: #38BDF8; }
+        .icon-source-b { background-color: #818CF8; }
+        .icon-synthesis { background-color: #34D399; }
+
+        h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            color: #334155;
+            margin: 0;
+        }
+
+        p.card-content {
+            font-family: 'Roboto', sans-serif;
+            font-size: 15px;
+            color: #475569;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .arrow-connector {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #CBD5E1;
+            z-index: 10;
+        }
+        
+        .synthesis-label {
+            display: inline-block;
+            background-color: #059669;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+
+    </style>
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.mb-2{margin-bottom:0.5rem}</style></head>
+<body style="">
+<div class="slide-container">
+<!-- Background Decor -->
+<div class="bg-circle-1"></div>
+<div class="bg-circle-2"></div>
+<!-- Header -->
+<header class="header">
+<p class="header-text">EduuAspire21.0 Skills | 21st Century Skills | Information Literacy</p>
+</header>
+<!-- Main Content -->
+<main class="content">
+<div class="title-block">
+<h1><strong>Applied Example</strong></h1>
+<h2><strong>Demonstrating synthesis in action: Screen time vs. academic performance.</strong></h2>
+</div>
+<div class="comparison-container relative">
+<!-- Center connector visual -->
+<div class="arrow-connector">
+<i class="fa-solid fa-circle-arrow-right"></i>
+</div>
+<!-- Left Column -->
+<div class="col-left">
+<!-- Question Card -->
+<div class="card-box card-question">
+<div class="card-header">
+<div class="icon-box icon-question"><i class="fa-solid fa-question"></i></div>
+<h3>Research Question</h3>
+</div>
+<p class="card-content">
+                        Does screen time negatively impact undergraduate grades?
+                    </p>
+</div>
+<!-- Source A Card -->
+<div class="card-box card-source-a">
+<div class="card-header">
+<div class="icon-box icon-source-a"><i class="fa-solid fa-file-lines"></i></div>
+<h3>Source A (Correlational)</h3>
+</div>
+<p class="card-content">
+                        Survey of 500 students found a moderate negative association between total hours used and GPA.
+                    </p>
+</div>
+</div>
+<!-- Right Column -->
+<div class="col-right">
+<!-- Source B Card -->
+<div class="card-box card-source-b">
+<div class="card-header">
+<div class="icon-box icon-source-b"><i class="fa-solid fa-flask"></i></div>
+<h3>Source B (Experimental)</h3>
+</div>
+<p class="card-content">
+                        Restriction group showed improved sleep quality, which mediated subsequent performance gains.
+                    </p>
+</div>
+<!-- Synthesis Card -->
+<div class="card-box card-synthesis">
+<div class="card-header">
+<div class="icon-box icon-synthesis"><i class="fa-solid fa-lightbulb"></i></div>
+<h3>Synthesis &amp; Insight</h3>
+</div>
+<div class="mb-2">
+<span class="synthesis-label">Key Finding</span>
+</div>
+<p class="card-content">
+<strong>Causal Pathway:</strong> Screen time isn't directly toxic; it displaces sleep. Interventions should focus on sleep hygiene rather than just limiting hours.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Navigation -->
+<nav class="nav-bar">
+<a class="nav-link" href="f10.html">
+<i class="fa-solid fa-arrow-left"></i>
+            Argument Framework
+        </a>
+<a class="nav-link" href="f12.html">
+            Report Structure
+            <i class="fa-solid fa-arrow-right"></i>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="footer">
+<p class="footer-text">Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
+</footer>
+</div>
+<script>
+document.addEventListener('keydown', function (e) {
+
+    const activeTag = document.activeElement.tagName.toLowerCase();
+    if (activeTag === 'input' || activeTag === 'textarea') return;
+
+    // RIGHT → f3
+    if (e.key === 'ArrowRight') {
+        window.location.href = 'f12.html';
+    }
+
+    // LEFT → f1
+    if (e.key === 'ArrowLeft') {
+        window.location.href = 'f10.html';
+    }
+
+});
+</script>
+</body></html>
