@@ -15,6 +15,11 @@ body {
     overflow: hidden;
     background: #0f172a;
     font-family: 'Poppins', sans-serif;
+    background:#0f172a;
+    display: flex;
+    justify-content: center;   /* Horizontal center */
+    align-items: center;       /* Vertical center */
+    min-height: 100vh;
 }
 
 .slide-container {
@@ -244,30 +249,17 @@ td {
 
 <!-- Navigation -->
 <div class="nav">
-<a href="#" onclick="goToSlide(10)">
-<i class="fas fa-chevron-left"></i> Receipts
-</a>
-
-<a href="#" onclick="goToSlide(12)">
-Habits <i class="fas fa-chevron-right"></i>
-</a>
+<a href="f10.html" style="color:white; text-decoration:none;">←Previous</a>
+    <a href="f12.html" style="color:white; text-decoration:none;">→Next</a>
 </div>
-
 <!-- Footer -->
 <div class="footer">
 Licenced & Powered By Astrl Mind Technologies © 2026-2033
 </div>
-
-</div>
-
 <script>
-function goToSlide(n){
-    window.location.href = "f" + n + ".html";
-}
-
-document.addEventListener("keydown", e=>{
-    if(e.key==="ArrowRight") goToSlide(12);
-    if(e.key==="ArrowLeft") goToSlide(10);
+document.addEventListener("keydown", function(e) {
+    if(e.key==="ArrowRight") window.location.href = "f12.html";
+    if(e.key==="ArrowLeft") window.location.href = "f9.html";
 });
 </script>
 
