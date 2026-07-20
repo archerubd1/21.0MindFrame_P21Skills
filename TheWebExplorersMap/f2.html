@@ -2,7 +2,7 @@
 <html lang="en" data-theme="light" style=""><head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Slide 1 — The Web Explorer’s Map</title>
+<title>Slide 2 — Objective</title>
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet">
@@ -30,8 +30,7 @@
       background:#F6D3C0; /* fallback */
     }
 
-    /* IMPORTANT: No CSS gradients (export-safe).
-       Use layered soft color blocks to mimic peach + light blue blend. */
+    /* IMPORTANT: No CSS gradients (export-safe). Use layered soft blocks. */
     .bg{
       position:absolute;
       inset:0;
@@ -40,37 +39,37 @@
     }
     .bg .peach{
       position:absolute;
-      left:-120px;
-      top:-120px;
-      width:760px;
-      height:760px;
+      left:-140px;
+      top:-140px;
+      width:720px;
+      height:720px;
       background:#FFDAB9;
-      border-radius:60px;
+      border-radius:64px;
       opacity:.95;
       transform: rotate(10deg);
       box-shadow: 0 30px 80px rgba(31,41,55,.12);
     }
     .bg .blue{
       position:absolute;
-      right:-160px;
-      bottom:-160px;
-      width:900px;
-      height:900px;
+      right:-200px;
+      bottom:-220px;
+      width:980px;
+      height:980px;
       background:#ADD8E6;
-      border-radius:80px;
+      border-radius:86px;
       opacity:.85;
       transform: rotate(-8deg);
       box-shadow: 0 30px 80px rgba(31,41,55,.12);
     }
     .bg .mist{
       position:absolute;
-      left:260px;
-      top:120px;
-      width:760px;
-      height:520px;
+      left:300px;
+      top:110px;
+      width:720px;
+      height:500px;
       background:#FFFFFF;
       border-radius:48px;
-      opacity:.35;
+      opacity:.30;
       box-shadow: 0 22px 60px rgba(31,41,55,.10);
     }
 
@@ -136,12 +135,12 @@
       max-width: 1200px;
     }
 
-    /* Navigation bar must be above footer and never overlap */
+    /* Navigation bar above footer */
     .nav{
       position:absolute;
       left:0;
       right:0;
-      bottom:48px; /* exactly above footer */
+      bottom:48px;
       height:62px;
       z-index:3;
       display:flex;
@@ -152,7 +151,6 @@
       backdrop-filter: blur(6px);
       box-shadow: 0 -8px 18px rgba(31,41,55,.08);
     }
-
     .nav a{
       display:flex;
       align-items:center;
@@ -172,10 +170,6 @@
       transform: translateY(-2px);
       box-shadow: 0 14px 30px rgba(31,41,55,.14);
       opacity:.98;
-    }
-    .nav a[aria-disabled="true"]{
-      opacity:.55;
-      pointer-events:none;
     }
     .nav .hint{
       font-size:12px;
@@ -206,132 +200,196 @@
       display:flex;
       flex:1;
       flex-direction:column;
-      padding:84px 64px 130px; /* top for header, bottom for nav+footer */
+      padding:84px 64px 130px; /* header + nav/footer */
       gap:18px;
     }
 
-    .hero{
-      flex:1;
+    .title-row{
       display:flex;
-      align-items:center;
-      justify-content:center;
-    }
-
-    .hero-card{
-      width:min(980px, 100%);
-      border-radius:24px;
-      background: rgba(255,255,255,.78);
-      box-shadow: 0 26px 70px rgba(31,41,55,.14);
-      padding:56px 56px 46px;
-      display:flex;
-      gap:34px;
-      align-items:center;
-    }
-
-    .left-visual{
-      width:250px;
-      height:250px;
-      border-radius:24px;
-      background:#0ea5e9;
-      box-shadow: 0 22px 46px rgba(14,165,233,.22);
-      position:relative;
-      flex:0 0 auto;
-      overflow:hidden;
-    }
-    .left-visual .panel{
-      position:absolute;
-      inset:14px;
-      border-radius:20px;
-      background:#ffffff;
-      box-shadow: inset 0 0 0 2px rgba(15,23,42,.06);
-      display:flex;
-      flex-direction:column;
-      padding:14px;
-      gap:10px;
-    }
-    .chip-row{
-      display:flex;
-      gap:10px;
-    }
-    .chip{
-      height:14px;
-      border-radius:999px;
-      background:#e2e8f0;
-      flex:1;
-    }
-    .chip.blue{ background:#cfefff; }
-    .chip.peach{ background:#ffe6d6; }
-
-    .mini-card{
-      flex:1;
-      border-radius:16px;
-      background:#f8fafc;
-      box-shadow: 0 10px 20px rgba(31,41,55,.08);
-      padding:12px;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      gap:8px;
-    }
-    .mini-card .row{
-      display:flex;
-      align-items:center;
+      align-items:flex-end;
       justify-content:space-between;
-      gap:10px;
+      gap:18px;
     }
-    .dot{
-      width:10px;
-      height:10px;
-      border-radius:999px;
-      background:#22c55e;
-      box-shadow: 0 6px 16px rgba(34,197,94,.18);
-      flex:0 0 auto;
-    }
-    .line{
-      height:10px;
-      border-radius:999px;
-      background:#e2e8f0;
-      flex:1;
-    }
-
     h1{
       margin:0;
-      font-size:56px;
-      line-height:1.05;
+      font-size:44px;
+      line-height:1.1;
       color:#0f172a;
       font-weight:900;
-      letter-spacing:-.6px;
+      letter-spacing:-.4px;
     }
-    .subtitle{
-      margin:16px 0 0;
-      font-size:24px;
-      line-height:1.35;
-      color:#334155;
-      font-weight:600;
+    .subnote{
+      margin:0 0 6px 0;
+      font-size:16px;
+      font-weight:700;
+      color:#475569;
+      text-align:right;
+      white-space:nowrap;
     }
 
-    .tag-row{
-      margin-top:22px;
+    .content{
+      flex:1;
       display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+      gap:22px;
+      align-items:stretch;
     }
-    .tag{
-      display:inline-flex;
+
+    .left-rail{
+      width:320px;
+      flex:0 0 auto;
+      border-radius:24px;
+      background:rgba(255,255,255,.72);
+      box-shadow: 0 22px 60px rgba(31,41,55,.12);
+      padding:22px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      overflow:hidden;
+    }
+    .left-rail .rail-top{
+      display:flex;
       align-items:center;
-      gap:10px;
-      padding:10px 14px;
+      gap:12px;
+    }
+    .rail-icon{
+      width:52px;
+      height:52px;
+      border-radius:18px;
+      background:#0ea5e9;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow: 0 16px 34px rgba(14,165,233,.24);
+      flex:0 0 auto;
+    }
+    .rail-icon i{ color:#fff; font-size:20px; }
+    .rail-top .rail-text p{
+      margin:0;
+      color:#0f172a;
+      font-weight:900;
+      font-size:18px;
+      line-height:1.2;
+    }
+    .rail-top .rail-text .small{
+      margin-top:6px;
+      color:#475569;
+      font-weight:700;
+      font-size:14px;
+    }
+
+    .mini-map{
+      margin-top:16px;
+      border-radius:20px;
+      background:#f8fafc;
+      box-shadow: inset 0 0 0 2px rgba(15,23,42,.05);
+      padding:14px;
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .step{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      padding:10px 12px;
+      border-radius:16px;
+      background:#ffffff;
+      box-shadow: 0 10px 18px rgba(31,41,55,.08);
+    }
+    .step .num{
+      width:28px;
+      height:28px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#0f172a;
+      font-weight:900;
+      font-size:13px;
+      background:#e2e8f0;
+      flex:0 0 auto;
+    }
+    .step .label p{
+      margin:0;
+      color:#0f172a;
+      font-weight:900;
+      font-size:14px;
+      line-height:1.15;
+    }
+    .step .label .hint2{
+      margin-top:4px;
+      color:#64748b;
+      font-weight:700;
+      font-size:12px;
+    }
+    .step.active .num{
+      background:#cfefff;
+      box-shadow: 0 10px 18px rgba(14,165,233,.18);
+    }
+
+    .right{
+      flex:1;
+      min-width:0;
+      display:flex;
+      flex-direction:column;
+      gap:16px;
+    }
+
+    .objective-card{
+      flex:1;
+      border-radius:24px;
+      background:rgba(255,255,255,.78);
+      box-shadow: 0 26px 70px rgba(31,41,55,.14);
+      padding:22px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+    }
+    .obj-icon{
+      width:62px;
+      height:62px;
+      border-radius:20px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      flex:0 0 auto;
+      box-shadow: 0 16px 36px rgba(31,41,55,.12);
+    }
+    .obj-icon i{ font-size:22px; color:#0f172a; }
+    .obj-text{
+      flex:1;
+      min-width:0;
+    }
+    .obj-text p{
+      margin:0;
+      font-size:22px;
+      line-height:1.25;
+      color:#0f172a;
+      font-weight:900;
+      letter-spacing:-.2px;
+    }
+    .obj-text p .kw{
+      padding:2px 10px;
       border-radius:999px;
       background:#ffffff;
       box-shadow: 0 10px 22px rgba(31,41,55,.10);
-      color:#0f172a;
-      font-weight:800;
-      font-size:14px;
+      font-weight:900;
       white-space:nowrap;
     }
-    .tag i{ color:#0ea5e9; }
+    .obj-sub{
+      margin-top:8px;
+      font-size:15px;
+      line-height:1.35;
+      color:#475569;
+      font-weight:700;
+    }
 
-    /* Responsiveness: scale down to fit smaller screens while keeping 1280x720 internal layout */
+    /* Accent colors per objective */
+    .o1 .obj-icon{ background:#dcfce7; } /* green */
+    .o2 .obj-icon{ background:#cfefff; } /* blue */
+    .o3 .obj-icon{ background:#ffe7d6; } /* peach */
+
+    /* Responsiveness: scale down */
     .scale-wrap{
       width:1280px;
       height:720px;
@@ -347,8 +405,8 @@
 </head>
 <body style="">
 <div class="scale-wrap">
-<section aria-label="The Web Explorer’s Map — Slide 1" class="slide" role="application">
-<!-- Background layers (no gradients) -->
+<section aria-label="Objective — Slide 2" class="slide" role="application">
+<!-- Background layers -->
 <div aria-hidden="true" class="bg">
 <div class="peach"></div>
 <div class="blue"></div>
@@ -365,81 +423,124 @@
           </p>
 </div>
 </header>
-<!-- Main content -->
+<!-- Main -->
 <main>
-<div class="hero">
-<div class="hero-card">
-<div aria-hidden="true" class="left-visual">
-<div class="panel">
-<div class="chip-row">
-<div class="chip blue"></div>
-<div class="chip peach"></div>
-<div class="chip"></div>
+<div class="title-row">
+<div>
+<h1>Objective</h1>
 </div>
-<div class="mini-card">
-<div class="row">
-<div class="dot"></div>
-<div class="line"></div>
-</div>
-<div class="row">
-<div class="dot" style="background:#0ea5e9; box-shadow: 0 6px 16px rgba(14,165,233,.18);"></div>
-<div class="line" style="width:70%;"></div>
-</div>
-<div class="row">
-<div class="dot" style="background:#f97316; box-shadow: 0 6px 16px rgba(249,115,22,.18);"></div>
-<div class="line" style="width:55%;"></div>
+<div>
+<p class="subnote"><span style="font-weight:900; color:#0f172a;">Goal:</span> Learn smart + safe habits</p>
 </div>
 </div>
-<div class="chip-row">
-<div class="chip"></div>
-<div class="chip blue"></div>
+<div class="content">
+<!-- Left rail visual -->
+<aside aria-label="Workshop mini map" class="left-rail">
+<div>
+<div class="rail-top">
+<div aria-hidden="true" class="rail-icon">
+<i class="fa-solid fa-map"></i>
+</div>
+<div class="rail-text">
+<p>Your Web Map</p>
+<p class="small">3 skills for today</p>
+</div>
+</div>
+<div aria-hidden="true" class="mini-map" style="position: relative; transform: translate(-5.66189px, 21.2321px);">
+<div class="step active" style="position: relative; transform: translate(-5.66189px, 35.3869px);">
+<div class="num"><p style="margin:0;">1</p></div>
+<div class="label">
+<p>Be Safe</p>
+<p class="hint2">Protect your info</p>
+</div>
+</div>
+<div class="step" style="position: relative; transform: translate(-7.07737px, 70.7737px);">
+<div class="num"><p style="margin:0;">2</p></div>
+<div class="label">
+<p>Search Smart</p>
+<p class="hint2">Use good keywords</p>
+</div>
+</div>
+<div class="step" style="position: relative; transform: translate(-8.46227px, 95.8396px);">
+<div class="num"><p style="margin:0;">3</p></div>
+<div class="label">
+<p>Avoid Traps</p>
+<p class="hint2">Skip fake links</p>
 </div>
 </div>
 </div>
-<div style="flex:1; min-width: 0;">
-<h1>The Web Explorer’s Map</h1>
-<p class="subtitle">Learn Smart &amp; Safe Internet Navigation</p>
-<div class="tag-row">
-<span class="tag"><i aria-hidden="true" class="fa-solid fa-shield-halved"></i><span>Safe Browsing</span></span>
-<span class="tag"><i aria-hidden="true" class="fa-solid fa-magnifying-glass"></i><span>Smart Search</span></span>
-<span class="tag"><i aria-hidden="true" class="fa-solid fa-link"></i><span>Spot Fake Links</span></span>
+</div>
+<div style="margin-top:16px;">
+<div style="display:flex; gap:10px; flex-wrap:wrap;">
+
+
 </div>
 </div>
+</aside>
+<!-- Objectives -->
+<section aria-label="Objectives list" class="right">
+<div class="objective-card o1">
+<div aria-hidden="true" class="obj-icon">
+<i class="fa-solid fa-shield-halved"></i>
 </div>
+<div class="obj-text">
+<p><span class="kw">Stay safe</span> online</p>
+<p class="obj-sub">Look for safe signs and think before you click.</p>
+</div>
+</div>
+<div class="objective-card o2">
+<div aria-hidden="true" class="obj-icon">
+<i class="fa-solid fa-magnifying-glass"></i>
+</div>
+<div class="obj-text">
+<p>Search <span class="kw">fast</span> and <span class="kw">smart</span></p>
+<p class="obj-sub">Use specific words to find better results.</p>
+</div>
+</div>
+<div class="objective-card o3">
+<div aria-hidden="true" class="obj-icon">
+<i class="fa-solid fa-link-slash"></i>
+</div>
+<div class="obj-text">
+<p>Spot and avoid <span class="kw">fake links</span></p>
+<p class="obj-sub">Check the web address (URL) before opening.</p>
+</div>
+</div>
+</section>
 </div>
 </main>
-<!-- Navigation (topic-based; positioned above footer; no overlap) -->
+<!-- Navigation -->
 <nav aria-label="Slide navigation" class="nav">
-<a aria-disabled="true" href="f1.html" title="You are on the first slide">
+<a href="index.html" title="Go to Start">
 <i aria-hidden="true" class="fa-solid fa-arrow-left"></i>
 <div class="topic">
-<p><br></p>
+
 <strong>Start</strong>
 </div>
 </a>
 <div class="hint">
-
+<p style="margin:0;"><br></p>
 </div>
-<a href="f2.html" title="Go to Objective">
+<a href="f3.html" title="Go to Browser Basics">
 <div class="topic" style="text-align:right;">
 
-<strong>Objective</strong>
+<strong>Browser Basics</strong>
 </div>
 <i aria-hidden="true" class="fa-solid fa-arrow-right"></i>
 </a>
 </nav>
-<!-- Footer (mandatory) -->
-<footer>
+<!-- Footer -->
+<footer><strong>
 <p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
-</footer>
+</strong></footer>
 </section>
 </div>
 <script>
     // Keyboard navigation: ArrowLeft / ArrowRight
     // Disabled while typing in inputs/textareas/contenteditable
     (function () {
-      const prevLink = document.querySelector('nav.nav a[aria-disabled="true"]') || document.querySelector('nav.nav a[href]');
-      const nextLink = document.querySelector('nav.nav a[href="f2.html"]');
+      const prevLink = document.querySelector('nav.nav a[href="index.html"]');
+      const nextLink = document.querySelector('nav.nav a[href="f3.html"]');
 
       function isTypingTarget(el) {
         if (!el) return false;
@@ -454,9 +555,7 @@
           if (nextLink) window.location.href = nextLink.getAttribute('href');
         }
         if (e.key === 'ArrowLeft') {
-          // On slide 1, keep user here (no previous)
-          // If you later enable wrap-around, change this section.
-          e.preventDefault();
+          if (prevLink) window.location.href = prevLink.getAttribute('href');
         }
       });
     })();
