@@ -127,6 +127,57 @@
         ::-webkit-scrollbar {
             display: none;
         }
+        .nav-container{
+    position:absolute;
+    bottom:55px;
+    left:50%;
+    transform:translateX(-50%);
+    width:900px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    z-index:100;
+}
+
+.nav-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:10px 22px;
+
+    background:rgba(15,23,42,.9);
+    color:#fff;
+    text-decoration:none;
+
+    border:1px solid #3b82f6;
+    border-radius:30px;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    background:#3b82f6;
+    color:#fff;
+    box-shadow:0 0 18px rgba(59,130,246,.5);
+}
+
+.nav-btn i{
+    transition:.3s;
+}
+
+.nav-btn:hover .fa-arrow-right{
+    transform:translateX(4px);
+}
+
+.nav-btn:hover .fa-arrow-left{
+    transform:translateX(-4px);
+}
     </style>
 </head>
 <body>
@@ -256,15 +307,18 @@
 </main>
 <!-- Footer / Progress (Adjusted height to accommodate global footer) -->
 <footer class="h-10 border-t border-gray-800 bg-gray-900 flex items-center justify-between px-12 z-10 mb-6">
-<div class="flex items-center space-x-4">
-<span class="text-gray-500 text-xs font-['Roboto_Mono']">SECURE CONNECTION</span>
-<span class="text-red-500 text-xs"><i class="fas fa-shield-virus"></i> SCANNING</span>
-</div>
-<div class="flex items-center space-x-2">
-<span class="text-gray-500 text-xs font-['Roboto_Mono']">04 / 17</span>
-<div class="w-24 h-1 bg-gray-800 rounded-full overflow-hidden">
-<div class="h-full bg-blue-500 w-[23%]"></div>
-</div>
+<div class="nav-container">
+
+    <a href="f3.html" class="nav-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Truth Detectives?
+    </a>
+
+    <a href="f5.html" class="nav-btn">
+     Dangerous
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
 </div>
 </footer>
 <!-- Global Footer -->
