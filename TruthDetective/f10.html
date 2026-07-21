@@ -166,6 +166,57 @@
             font-family: 'Roboto Mono', monospace;
             text-shadow: 0 0 5px rgba(168, 85, 247, 0.6);
         }
+        .nav-container{
+    position:absolute;
+    bottom:55px;
+    left:50%;
+    transform:translateX(-50%);
+    width:900px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    z-index:100;
+}
+
+.nav-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    padding:10px 22px;
+
+    background:rgba(15,23,42,.9);
+    color:#fff;
+    text-decoration:none;
+
+    border:1px solid #3b82f6;
+    border-radius:30px;
+
+    font-size:14px;
+    font-weight:600;
+
+    transition:.3s;
+}
+
+.nav-btn:hover{
+    background:#3b82f6;
+    color:#fff;
+    box-shadow:0 0 18px rgba(59,130,246,.5);
+}
+
+.nav-btn i{
+    transition:.3s;
+}
+
+.nav-btn:hover .fa-arrow-right{
+    transform:translateX(4px);
+}
+
+.nav-btn:hover .fa-arrow-left{
+    transform:translateX(-4px);
+}
     </style>
 </head>
 <body>
@@ -349,6 +400,7 @@
 </div>
 </div>
 </main>
+<<<<<<< HEAD
 <footer>
 <div style="position:absolute; bottom:50px; right:40px; z-index:9999;">
     <button onclick="window.location.href='f11.html'" style="padding:15px 10px;color:#fff; border:none; border-radius:10px; cursor:pointer;">
@@ -356,6 +408,22 @@
     </button>
 </div>
 </footer>
+=======
+<!--Navigation-->
+<div class="nav-container">
+
+    <a href="f9.html" class="nav-btn">
+        <i class="fa-solid fa-arrow-left"></i>
+        Verification
+    </a>
+
+    <a href="f11.html" class="nav-btn">
+      Field operations
+        <i class="fa-solid fa-arrow-right"></i>
+    </a>
+
+</div>
+>>>>>>> 81865a2ecb9695ef1f53dac081f5648f2ea7c09f
 <!-- Original Footer (modified content as requested, structure kept similar) -->
 <footer class="h-10 border-t border-gray-800 bg-gray-900 flex items-center justify-between px-12 z-20">
 <div class="flex items-center space-x-4">
