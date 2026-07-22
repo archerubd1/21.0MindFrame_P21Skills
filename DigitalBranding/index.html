@@ -175,6 +175,36 @@
             z-index: 1;
 
         }
+        .page-navigation{
+    position: absolute;
+    bottom: 70px;      /* Above the copyright */
+    right: 35px;
+    left: auto;
+    z-index: 9999;
+}
+
+.next-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 28px;
+    background: #1A252F;       /* Dark navy box */
+    color: #FFE5D9;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 30px;
+    border: 2px solid #1A252F;
+    box-shadow: 0 8px 20px rgba(26,37,47,.25);
+    transition: all .3s ease;
+}
+
+.next-btn:hover{
+    background: #E07A5F;
+    border-color: #E07A5F;
+    color: #fff;
+    transform: translateY(-2px);
+}
     </style>
 </head>
 <body>
@@ -204,9 +234,14 @@
 <div class="footer">
 <p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
 </div>
-
-
+<!-- Navigation -->
+<div class="page-navigation">
+    <a href="f2.html" class="next-btn">
+        Program Overview <i class="fas fa-arrow-right"></i>
+    </a>
 </div>
+
+</div> <!-- slide-container -->
 <script>
 document.addEventListener('keydown', function (e) {
 

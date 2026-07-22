@@ -252,6 +252,53 @@
         .fp-4 { bottom: 440px; left: 52%; transform: rotate(40deg); }
         .fp-5 { bottom: 520px; left: 65%; transform: rotate(60deg); }
         .fp-6 { bottom: 550px; left: 80%; transform: rotate(80deg); }
+
+         .page-navigation{
+    position: absolute;
+    bottom: 40px;      /* Above the copyright */
+    right: 35px;
+    z-index: 9999;
+}
+
+.next-btn,
+.prev-btn{
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 28px;
+    background: #1A252F;          /* Dark navy background */
+    color: #FFE5D9;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 30px;
+    border: 2px solid #1A252F;
+    box-shadow: 0 8px 20px rgba(26,37,47,.25);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.next-btn:hover,
+.prev-btn:hover{
+    background: #E07A5F;
+    border-color: #E07A5F;
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(224,122,95,.35);
+}
+
+.next-btn i{
+    transition: transform .3s ease;
+}
+
+.next-btn:hover i{
+    transform: translateX(4px);
+}
+
+.prev-btn:hover i{
+    transform: translateX(-4px);
+}
+
     </style>
 </head>
 <body style="">
@@ -338,6 +385,17 @@
 </div>
 </div>
 </div>
+
+<div class="page-navigation">
+<a href="f4.html" class="prev-btn">
+        <i class="fas fa-arrow-left"></i> Previous
+    </a>
+    
+    <a href="f6.html" class="next-btn">
+    Next <i class="fas fa-arrow-right"></i>
+</a>
+</div>
+
 <!-- Footer -->
 <div class="footer">
 <p>Licenced &amp; Powered By Astrl Mind Technologies copyright 2026-2033</p>
